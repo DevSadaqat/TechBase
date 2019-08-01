@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapbaseAPI", "LapbaseAPI\LapbaseAPI.csproj", "{3E9AFD81-A19B-40E3-A389-2299DCAEFF76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "EntityFramework\EntityFramework.csproj", "{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E9AFD81-A19B-40E3-A389-2299DCAEFF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9AFD81-A19B-40E3-A389-2299DCAEFF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9AFD81-A19B-40E3-A389-2299DCAEFF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9AFD81-A19B-40E3-A389-2299DCAEFF76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69C4965C-1C6C-474A-AC2C-B51AB3D38585}
+	EndGlobalSection
+EndGlobal
