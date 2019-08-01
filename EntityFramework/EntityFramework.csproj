@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass.cs" />
     <Compile Include="Exercise.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Lapbase.cs" />

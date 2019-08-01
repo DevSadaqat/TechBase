@@ -169,6 +169,23 @@ namespace EntityFramework
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
         }
+        public override int SaveChanges()
+        {
+            var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseClass && (x.State == EntityState.Added || x.State == EntityState.Modified));
+            //get username from session or authentication
 
+            var currentUsername = "Techie";
+            foreach (var entity in entities)
+            {
+                if (entity.State == EntityState.Added)
+                {
+                    ((BaseClass)entity.Entity).CreatedAt = DateTime.Now;
+                    ((BaseClass)entity.Entity).CreatedBy = currentUsername;
+                }
+                ((BaseClass)entity.Entity).ModifiedAt = DateTime.Now;
+                ((BaseClass)entity.Entity).ModifiedBy = currentUsername;
+            }
+            return base.SaveChanges();
+        }
     }
 }

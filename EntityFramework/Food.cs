@@ -7,7 +7,7 @@ namespace EntityFramework
     using System.Data.Entity.Spatial;
 
     [Table("lbd.Food")]
-    public partial class Food
+    public partial class Food : BaseClass
     { 
         public long ID { get; set; }
 
@@ -23,9 +23,6 @@ namespace EntityFramework
         
         public virtual Patient Patient { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-        public String CreatedBy { get; set; }
-        public DateTime ModifiedAt { get; set; }
-        public String ModifiedBy { get; set; }
+       
     }
 }
