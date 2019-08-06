@@ -1,18 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
+//forms
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import {MatButtonModule} from '@angular/material/button';
+//material design
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+//components
 import { DemographicComponent } from './demographic/demographic.component';
 import { ExcerciseComponent } from './excercise/excercise.component';
 import { FoodComponent } from './food/food.component';
-
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+//services
+import {AuthService} from './services/auth.service';
+import {AlertService} from './services/alert.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +30,19 @@ import { FoodComponent } from './food/food.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+    
+    //material design
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+
+    ReactiveFormsModule, FormsModule 
   ],
-  providers: [],
+  providers: [AuthService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
