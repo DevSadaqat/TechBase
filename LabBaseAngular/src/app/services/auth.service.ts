@@ -8,12 +8,13 @@ import {Observable} from 'rxjs';
 })
 export class AuthService {
 
-  baseUrl: string = "http://localhost:54726/Api/Login/Login"
-  
-  constructor(private http: HttpClient) {
+  baseUrl: string = "http://localhost:54726/Api/Login/Login/"
+  m : IUsers;
 
+  constructor(private http: HttpClient) {
+      this.m = new IUsers( 'user', 'pass');
    }
-   getUser(): Observable<IUsers[]>{
-     return this.http.get<IUsers[]>(this.baseUrl);
+   loginUser(): Observable<any>{
+     return this.http.get<any>( this.baseUrl + this.m);
    }
 }

@@ -11,27 +11,31 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent  {
 
-  loginForm: FormGroup;
-  loginData = []
+    loginForm: FormGroup
+  
 
-  constructor(private _AuthS: AuthService, 
+    constructor(private _AuthS: AuthService, 
     private alertService: AlertService,
     private formBuilder: FormBuilder ) {}
- 
-    login(){
-    console.log(this.loginData);
-  }
+
+  
   ngOnInit() {
 
-    this.loginForm = this.formBuilder.group({
+      this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
   });
+}
 
-    this._AuthS.getUser()
+  
+public login(this.loginForm.valid){
+
+    this._AuthS.loginUser()
     .subscribe(data => this.loginData = data);
-    }
-
+ 
   }
+}
+
+  
 
 
