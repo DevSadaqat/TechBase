@@ -24,7 +24,7 @@ namespace LapbaseAPI.Controllers
         private Lapbase db;
         [HttpPost]
         public IHttpActionResult Login(LoginViewModel model)
-        //   public bool Login(LoginViewModel model)
+       
         {
             if(!ModelState.IsValid)
             {
@@ -47,36 +47,7 @@ namespace LapbaseAPI.Controllers
 
             }
         }
-     /* [HttpPost]
-        public IHttpActionResult AuthorizeUser()
-        {
-            if(authenticate)
-            {
-                db = new Lapbase();
-               // var obj = db.Users.Where(a => a.ID.Equals(username)).FirstOrDefault();
-               var obj = db.Users.Where(a => a.ID.Equals("TechInnovators")).FirstOrDefault();
-                if (obj != null)
-                    {
-                    UserPatientViewModel userPatientViewModel = new UserPatientViewModel();
-                    userPatientViewModel.UserId = obj.ID.ToString();
-                    userPatientViewModel.PatientID = obj.PatientID.ToString();
-                    userPatientViewModel.OrganizationCode = obj.OrganizationCode.ToString();
-                    userPatientViewModel.IsSuccess = true;
-                    return Ok(userPatientViewModel);
-                    //return base.Content(HttpStatusCode.OK, new { Value = obj.ID.ToString()}, new JsonMediaTypeFormatter(), "text/plain");
-                }
-                else {
-                    UserPatientViewModel userPatientViewModel = new UserPatientViewModel();
-                    userPatientViewModel.IsSuccess = false;
-                            //ModelState.AddModelError("", "Not a patient");
-                    return Ok(userPatientViewModel);    
-                }
-                  //  FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    // return RedirectToAction("Welcome", "Home");
-            }
-           return Ok();
-        }
-      */
+     
         #region public bool AuthenticateUser(string username, string password)
         private bool AuthenticateUser(string username, string password)
         {
