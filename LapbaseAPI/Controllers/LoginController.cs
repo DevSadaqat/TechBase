@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LapbaseAPI.ViewModel;
-using EntityFramework;
+using EF;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,76 +10,73 @@ using System.Web.Security;
 using System.Web.Http.Cors;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
+using System.ComponentModel.DataAnnotations;
+using System.Web;
+using System.Net.Http.Formatting;
 
 namespace LapbaseAPI.Controllers
 {
-   // [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins:"http://localhost:4200", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         private bool authenticate = false;
         private string username = "";
         private Lapbase db;
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Login(LoginViewModel model)
-                //public int Login(LoginViewModel model)
+        //   public bool Login(LoginViewModel model)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            //  var isValidUser = AuthenticateUser(model.UserName, model.Password);
-            var isValidUser = AuthenticateUser("TechInnovators","TechInnovator17");
+            var isValidUser = AuthenticateUser(model.UserName, model.Password);
+           // var isValidUser = AuthenticateUser("TechInnovators","TechInnovator17");
             if (!isValidUser)
             {
-                ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                return Ok(ModelState);
+               ModelState.AddModelError("", "The user name or password provided is incorrect.");
+               return Ok(ModelState);
             }
             else
             {
                 authenticate = true;
                 username = model.UserName;
-                return Ok();
-               /* using (LB db = new LB())
-                {
-                    var obj = db.Users.Where(a => a.ID.Equals(model.UserName)).FirstOrDefault();
-                    if (obj != null)
-                    {
-                        Session["UserID"] = obj.ID.ToString();
-                        Session["OrganizationCode"] = obj.OrganizationCode.ToString();
-                        Session["PatientID"] = obj.PatientID.ToString();
-                    }
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    // return RedirectToAction("Welcome", "Home");+
-                    return RedirectToAction("Index", "Home");
+                return Ok(model.UserName);
+               // return base.Content(HttpStatusCode.OK, new {Value = "ApiREturned" }, new JsonMediaTypeFormatter(), "text/plain");
+               // return base.Content(HttpStatusCode.OK, new { Value = obj.ID.ToString() }, new JsonMediaTypeFormatter(), "text/plain");
 
-                }
-                */
             }
         }
-
-        private IHttpActionResult AuthorizeUser()
+     /* [HttpPost]
+        public IHttpActionResult AuthorizeUser()
         {
             if(authenticate)
             {
                 db = new Lapbase();
-                
-                    var obj = db.Users.Where(a => a.ID.Equals(username)).FirstOrDefault();
-                    if (obj != null)
+               // var obj = db.Users.Where(a => a.ID.Equals(username)).FirstOrDefault();
+               var obj = db.Users.Where(a => a.ID.Equals("TechInnovators")).FirstOrDefault();
+                if (obj != null)
                     {
-                        Session["UserID"] = obj.ID.ToString();
-                        Session["OrganizationCode"] = obj.OrganizationCode.ToString();
-                        Session["PatientID"] = obj.PatientID.ToString();
-                    }
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    // return RedirectToAction("Welcome", "Home");+
-                   
-
-                
-
+                    UserPatientViewModel userPatientViewModel = new UserPatientViewModel();
+                    userPatientViewModel.UserId = obj.ID.ToString();
+                    userPatientViewModel.PatientID = obj.PatientID.ToString();
+                    userPatientViewModel.OrganizationCode = obj.OrganizationCode.ToString();
+                    userPatientViewModel.IsSuccess = true;
+                    return Ok(userPatientViewModel);
+                    //return base.Content(HttpStatusCode.OK, new { Value = obj.ID.ToString()}, new JsonMediaTypeFormatter(), "text/plain");
+                }
+                else {
+                    UserPatientViewModel userPatientViewModel = new UserPatientViewModel();
+                    userPatientViewModel.IsSuccess = false;
+                            //ModelState.AddModelError("", "Not a patient");
+                    return Ok(userPatientViewModel);    
+                }
+                  //  FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    // return RedirectToAction("Welcome", "Home");
             }
-            return Ok();
+           return Ok();
         }
-      
+      */
         #region public bool AuthenticateUser(string username, string password)
         private bool AuthenticateUser(string username, string password)
         {
