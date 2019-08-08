@@ -1,4 +1,4 @@
-namespace EntityFramework
+namespace EF
 {
     using System;
     using System.Data.Entity;
