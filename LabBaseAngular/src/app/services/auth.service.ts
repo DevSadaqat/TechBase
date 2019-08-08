@@ -9,14 +9,16 @@ import {Observable} from 'rxjs';
 export class AuthService {
 
   baseUrl: string = "http://localhost:54726/Api/Login/Login/"
-  m : Users;
+  model: Users = {
+    UserName: "",
+    Password: ""}
 
   constructor(private http: HttpClient) {
-      this.m = new Users( 'user', 'pass');
+      
    }
-   loginUserDetails(){
-     return this.http.post<any>(' this.baseUrl',  this.m).subscribe(data => {
+   loginUserDetails(model){
+     return this.http.post<any>(' this.baseUrl',  model).subscribe(data => {
        console.log(data, "is the response from server")
-     });
+     })
    }
 }

@@ -13,7 +13,7 @@ import {Users} from '../models/User';
 export class LoginComponent  {
 
     loginForm: FormGroup
-    user: Users = {
+    model: Users = {
       UserName: "",
       Password: ""
     };
@@ -38,20 +38,18 @@ export class LoginComponent  {
   loginUser(event){
     event.preventDefault()
     const target = event.target
-    this.user.UserName = target.querySelector('#username').value
-    this.user.Password = target.querySelector('#password').value
-    console.log(this.user.UserName, this.user.Password) 
-  }
-
-
+    this.model.UserName = target.querySelector('#username').value
+    this.model.Password = target.querySelector('#password').value
+    console.log(this.model.UserName, this.model.Password) 
+  
 
    //method to get user details
-    //this._AuthS.loginUser()
-    //.subscribe(data => this.loginData = data);
- 
+    this._AuthS.loginUserDetails(this.model)
+    console.log(this.model)
+    //.subscribe(data => this.loginData = data)
   
 }
 
-  
+}
 
 
