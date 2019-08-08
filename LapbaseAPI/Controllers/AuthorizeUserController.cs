@@ -7,18 +7,20 @@ using System.Net.Http;
 using System.Web.Http;
 using EF;
 
+
+
 namespace LapbaseAPI.Controllers
 {
     public class AuthorizeUserController : ApiController
     {
       //  private string username = "";
-        private Lapbase db;
+        private EF.Lapbase db;
         [Route("api/AuthorizeUser/AuthorizeUser")]
         [HttpGet]
         public IHttpActionResult AuthorizeUser(String username)
         {
 
-            db = new Lapbase();
+            db = new EF.Lapbase();
             var obj = db.Users.Where(a => a.ID.Equals(username)).FirstOrDefault();
             //  var obj = db.Users.Where(a => a.ID.Equals("TechInnovators")).FirstOrDefault();
             if (obj != null)
