@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IUsers } from '../models/User';
+import { Users } from '../models/User';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -8,12 +8,17 @@ import {Observable} from 'rxjs';
 })
 export class AuthService {
 
-  baseUrl: string = "http://localhost:54726/Api/Login/Login"
-  
-  constructor(private http: HttpClient) {
+  baseUrl: string = "http://localhost:54726/Api/Login/Login/"
+  model: Users = {
+    UserName: "",
+    Password: ""}
 
+  constructor(private http: HttpClient) {
+      
    }
-   getUser(): Observable<IUsers[]>{
-     return this.http.get<IUsers[]>(this.baseUrl);
+   loginUserDetails(model){
+     return this.http.post<any>(' this.baseUrl',  model).subscribe(data => {
+       console.log(data, "is the response from server")
+     })
    }
 }

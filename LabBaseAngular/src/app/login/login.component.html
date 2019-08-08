@@ -8,13 +8,13 @@
         </div>
 </div>
 <body>
-<div id="cotainer">
+<div id="cotainer" action="action_page.php">
     <div class="loginbox">
-        <form [formGroup] = "loginForm">
+        <form (submit) = "loginUser($event)" [formGroup] = "loginForm">
             <h1>LOGIN</h1>
-        <input type="text" name="Username" placeholder="Enter your username" [(ngModule)] = "loginData.userName"/>
-        <input type="password" name="Password" placeholder="Enter your password" [(ngModule)] = "loginData.Password"/>
-        <input type ="button" (click) = "login()" value = Login/>
+        <input type="text" name="Username" placeholder="Enter your username" id = "username" />
+        <input type="password" name="Password" placeholder="Enter your password" id = "password"/>
+        <input type ="submit"  value = "submit"/>
         </form>
     </div>
 </div>

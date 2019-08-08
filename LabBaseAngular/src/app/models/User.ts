@@ -1,4 +1,5 @@
-export interface IUsers {
-    UserName: String,
-    Password: String
+export class Users {
+    constructor(
+        public UserName: String,
+        public Password: String) {}
 }
