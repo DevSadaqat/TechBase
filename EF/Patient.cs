@@ -20,12 +20,12 @@ namespace EF
 
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+       
         public long ID { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+       
         public long OrganizationCode { get; set; }
 
         [StringLength(10)]

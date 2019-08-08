@@ -17,16 +17,18 @@ namespace LapbaseAPI.Controllers
         private Lapbase db = new Lapbase();
 
         // GET: api/Patient
-        public IQueryable<Patient> GetPatients()
+        public IHttpActionResult GetPatient()
         {
-            return db.Patients;
+            var patients = db.Patients.ToList();
+            return Ok(patients);
         }
+      
 
         // GET: api/Patient/5
         [ResponseType(typeof(Patient))]
-        public IHttpActionResult GetPatient(long id)
+        public IHttpActionResult GetPatient(long id, long organizationCode)
         {
-            Patient patient = db.Patients.Find(id);
+            Patient patient = db.Patients.Find(id, organizationCode);
             if (patient == null)
             {
                 return NotFound();
