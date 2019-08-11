@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class AuthService {
 
-  baseUrl: string = "http://localhost:54726/Api/Login/Login/"
+  baseUrl: string = "http://localhost:81/Api/Login/Login"
   model: Users = {
     UserName: "",
     Password: ""}
@@ -17,7 +17,7 @@ export class AuthService {
       
    }
    loginUserDetails(model){
-     return this.http.post<any>(' this.baseUrl',  model).subscribe(data => {
+     return this.http.post<any>(this.baseUrl,  model).subscribe(data => {
        console.log(data, "is the response from server")
      })
    }

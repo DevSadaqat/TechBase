@@ -50,16 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClass.cs" />
-    <Compile Include="Exercise.cs" />
-    <Compile Include="Food.cs" />
-    <Compile Include="Lapbase.cs" />
-    <Compile Include="Organization.cs" />
-    <Compile Include="Patient.cs" />
+    <Compile Include="LapbaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemDetail.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="Weight.cs" />
+    <Compile Include="Repositories\IPatientRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\PatientRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -69,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LapbaseBOL\LapbaseBOL.csproj">
+      <Project>{d247fe1b-8f57-4d7b-887f-c24b0bf3b223}</Project>
+      <Name>LapbaseBOL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

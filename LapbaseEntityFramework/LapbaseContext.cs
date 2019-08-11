@@ -1,13 +1,13 @@
-namespace EF
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-
-    public partial class Lapbase : DbContext
+using System;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using LapbaseBOL;
+namespace LapbaseEntityFramework
+{    
+    public partial class LapbaseContext : DbContext
     {
-        public Lapbase()
+        public LapbaseContext()
             : base("name=Lapbase")
         {
         }

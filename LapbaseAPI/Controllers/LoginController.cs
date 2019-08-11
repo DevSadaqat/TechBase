@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using LapbaseAPI.ViewModel;
-using EF;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,7 +20,7 @@ namespace LapbaseAPI.Controllers
     {
         private bool authenticate = false;
         private string username = "";
-        private Lapbase db;
+        
         [HttpPost]
         public IHttpActionResult Login(LoginViewModel model)
        
@@ -42,8 +41,6 @@ namespace LapbaseAPI.Controllers
                 authenticate = true;
                 username = model.UserName;
                 return Ok(model.UserName);
-               // return base.Content(HttpStatusCode.OK, new {Value = "ApiREturned" }, new JsonMediaTypeFormatter(), "text/plain");
-               // return base.Content(HttpStatusCode.OK, new { Value = obj.ID.ToString() }, new JsonMediaTypeFormatter(), "text/plain");
 
             }
         }

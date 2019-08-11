@@ -5,22 +5,20 @@ using System.Net;
 using LapbaseAPI.ViewModel;
 using System.Net.Http;
 using System.Web.Http;
-using EF;
-
-
+using LapbaseEntityFramework;
+using LapbaseBOL;
 
 namespace LapbaseAPI.Controllers
 {
     public class AuthorizeUserController : ApiController
     {
-      //  private string username = "";
-        private EF.Lapbase db;
+        //  private string username = "";
+        private LapbaseContext db;
         [Route("api/AuthorizeUser/AuthorizeUser")]
         [HttpGet]
         public IHttpActionResult AuthorizeUser(String username)
         {
-
-            db = new EF.Lapbase();
+            db = new LapbaseContext();
             var obj = db.Users.Where(a => a.ID.Equals(username)).FirstOrDefault();
             //  var obj = db.Users.Where(a => a.ID.Equals("TechInnovators")).FirstOrDefault();
             if (obj != null)

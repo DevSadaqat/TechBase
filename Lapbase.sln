@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapbaseAPI", "LapbaseAPI\LapbaseAPI.csproj", "{3E9AFD81-A19B-40E3-A389-2299DCAEFF76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF", "EF\EF.csproj", "{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapbaseEntityFramework", "LapbaseEntityFramework\LapbaseEntityFramework.csproj", "{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapbaseBOL", "LapbaseBOL\LapbaseBOL.csproj", "{D247FE1B-8F57-4D7B-887F-C24B0BF3B223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D247FE1B-8F57-4D7B-887F-C24B0BF3B223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D247FE1B-8F57-4D7B-887F-C24B0BF3B223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D247FE1B-8F57-4D7B-887F-C24B0BF3B223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D247FE1B-8F57-4D7B-887F-C24B0BF3B223}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

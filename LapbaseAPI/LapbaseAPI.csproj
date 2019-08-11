@@ -211,6 +211,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\Lapbase WebAPI Profile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -268,9 +269,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EF\EF.csproj">
+    <ProjectReference Include="..\LapbaseBOL\LapbaseBOL.csproj">
+      <Project>{d247fe1b-8f57-4d7b-887f-c24b0bf3b223}</Project>
+      <Name>LapbaseBOL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LapbaseEntityFramework\LapbaseEntityFramework.csproj">
       <Project>{0f2c69f5-fa24-4f50-a32c-64c1ecadf48d}</Project>
-      <Name>EF</Name>
+      <Name>LapbaseEntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,13 +1,13 @@
-namespace EF
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
+namespace LapbaseBOL
+{   
     [Table("lbd.User")]
-    public partial class User
+    public class User
     {
         [StringLength(30)]
         public string ID { get; set; }
