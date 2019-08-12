@@ -5,22 +5,22 @@ using System.Net;
 using LapbaseAPI.ViewModel;
 using System.Net.Http;
 using System.Web.Http;
-using LapbaseEntityFramework;
+using LapbaseEntityFramework.Repositories;
 using LapbaseBOL;
+
 
 namespace LapbaseAPI.Controllers
 {
     public class AuthorizeUserController : ApiController
     {
-        //  private string username = "";
-        private LapbaseContext db;
+        private readonly IUserRepository userRepository = new UserRepository();        
+        
         [Route("api/AuthorizeUser/AuthorizeUser")]
         [HttpGet]
         public IHttpActionResult AuthorizeUser(String username)
         {
-            db = new LapbaseContext();
-            var obj = db.Users.Where(a => a.ID.Equals(username)).FirstOrDefault();
-            //  var obj = db.Users.Where(a => a.ID.Equals("TechInnovators")).FirstOrDefault();
+            var obj = userRepository.GetUserByID(username);
+
             if (obj != null)
             {
                 UserPatientViewModel userPatientViewModel = new UserPatientViewModel();
@@ -28,20 +28,14 @@ namespace LapbaseAPI.Controllers
                 userPatientViewModel.PatientID = obj.PatientID.ToString();
                 userPatientViewModel.OrganizationCode = obj.OrganizationCode.ToString();
                 userPatientViewModel.IsSuccess = true;
-                return Ok(userPatientViewModel);
-                //return base.Content(HttpStatusCode.OK, new { Value = obj.ID.ToString()}, new JsonMediaTypeFormatter(), "text/plain");
+                return Ok(userPatientViewModel);                
             }
             else
             {
                 UserPatientViewModel userPatientViewModel = new UserPatientViewModel();
-                userPatientViewModel.IsSuccess = false;
-                //ModelState.AddModelError("", "Not a patient");
+                userPatientViewModel.IsSuccess = false;              
                 return Ok(userPatientViewModel);
-            }
-            //  FormsAuthentication.SetAuthCookie(model.UserName, false);
-            // return RedirectToAction("Welcome", "Home");
-
-
+            }        
         }
 
     }
