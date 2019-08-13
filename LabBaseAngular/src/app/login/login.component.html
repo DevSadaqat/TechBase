@@ -1,23 +1,19 @@
 <html>
-<header></header>
-<div class="sidenav">
-        <div class="logo_box">
-            <a href="#">
-                <img src="./assets/images/logo.PNG" alt="LAPBASE">
-            </a>
-        </div>
-</div>
-<body>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Login</title></head>
+    
 <div id="cotainer" action="action_page.php">
-    <div class="loginbox">
+    <div class ="main">
         <form (submit) = "loginUser($event)" [formGroup] = "loginForm">
-            <h1>LOGIN</h1>
-        <input type="text" name="Username" placeholder="Enter your username" id = "username" />
-        <input type="password" name="Password" placeholder="Enter your password" id = "password"/>
-        <input type ="submit"  value = "submit"/>
+            <p class="sign" align="center">Login</p>
+            <form class="form1">
+        <input class= "un" type="text" align="center" name="Username" placeholder="Enter your username" id = "username" />
+        <input class= "pass" type="password" align="center" name="Password" placeholder="Enter your password" id = "password"/>
+        <a class ="submit"  type ="submit" value= "submit" align="center">Login</a>
+        <p class="forgot" align="center"><a href="#">Forgot Password</a></p>
+        </form>
         </form>
     </div>
 </div>
-</body>
-<footer></footer>
 </html>
