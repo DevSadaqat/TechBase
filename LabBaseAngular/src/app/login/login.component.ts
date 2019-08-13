@@ -44,9 +44,14 @@ export class LoginComponent  {
   
 
    //method to get user details
-    this._AuthS.loginUserDetails(this.model)
-    console.log(this.model)
-    //.subscribe(data => this.loginData = data)
+   this._AuthS.loginUserDetails(this.model).subscribe(data => {
+    if(data.username == this.model.UserName){
+      //redirect to home
+    }
+    else{
+      window.alert("The username or Password does not exits");
+    }
+  })
   
 }
 
