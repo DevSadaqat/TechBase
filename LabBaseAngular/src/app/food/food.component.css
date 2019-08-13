@@ -1,0 +1,244 @@
+strong {
+    font-weight: 500;
+  }
+  
+  .page {
+    width: 100%;
+    height: 80vh;
+    background:white;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-weight: 600;
+    letter-spacing: .09em;
+    color: #212121;
+     
+  }
+  
+  
+  
+  header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background:black;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  
+  main {
+    padding: 70px 20px 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  main > div {
+    margin: auto;
+    max-width: 700px;
+  }
+  
+  main h2 span {
+    color: #BF7497;
+  }
+  
+  
+  #nav-container {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    pointer-events: none;
+  }
+  #nav-container .bg {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    background: #ffffff;
+  }
+  #nav-container:focus-within .bg {
+    visibility: visible;
+    opacity: .6;
+  }
+  #nav-container * {
+    visibility: visible;
+  }
+  
+  .button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+    height: 70px;
+    width: 30px;
+    cursor: pointer;
+    pointer-events: auto;
+    margin-left: 25px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  .icon-bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #FF0000;
+    transition: .3s;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 5px;
+  }
+  
+  #nav-container:focus-within .button {
+    pointer-events: none;
+  }
+  #nav-container:focus-within .icon-bar:nth-of-type(1) {
+    transform: translate3d(0,8px,0) rotate(45deg);
+  }
+  #nav-container:focus-within .icon-bar:nth-of-type(2) {
+    opacity: 0;
+  }
+  #nav-container:focus-within .icon-bar:nth-of-type(3) {
+    transform: translate3d(0,-8px,0) rotate(-45deg);
+  }
+  
+  #nav-content {
+    margin-top: 70px;
+    padding: 20px;
+    width: 90%;
+    max-width: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 70px);
+    background: #FF0000;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    transform: translateX(-100%);
+    transition: transform .3s;
+    will-change: transform;
+    contain: paint;
+  }
+  
+  #nav-content ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #nav-content li a {
+    padding: 10px 5px;
+    display: block;
+    text-transform: uppercase;
+    transition: color .1s;
+  }
+  
+  #nav-content li a:hover {
+    color: #ffffff;
+  }
+  
+  #nav-content li:not(.small) + .small {
+    margin-top: auto;
+  }
+  
+  
+  #nav-container:focus-within #nav-content {
+    transform: none;
+  }
+  
+  
+  
+  
+  
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  a,
+  a:visited,
+  a:focus,
+  a:active,
+  a:link {
+    text-decoration: none;
+    outline: 0;
+  }
+  
+  a {
+    color: currentColor;
+    transition: .2s ease-in-out;
+  }
+  /* Create columns that floats  */
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 250px;
+    height: 300px; 
+    background: White;
+  /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto   ;
+    background-color: white;
+    padding: 10px;
+    
+     margin: 10px 0px 0px 50px;
+   
+  }
+  
+  
+  .grid-item {
+    background-color: white;
+    border: 20px solid rgba(255,0,0,0.6) ;
+    padding: 5px;
+    font-size: 15px;
+    text-align:center;
+    height:auto;
+    }
+    h1{
+    text-align:center;
+    font-size:30px;
+    margin-top:0px;
+  }
+  .grido {
+    background-color: white;
+    
+    padding-TOP: 85px;
+    font-size: 25px;
+    text-align:center;
+    height:auto;
+    }
+    
+
+
+
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
