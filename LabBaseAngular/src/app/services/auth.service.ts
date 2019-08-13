@@ -17,8 +17,6 @@ export class AuthService {
       
    }
    loginUserDetails(model){
-     return this.http.post<any>(this.baseUrl,  model).subscribe(data => {
-       console.log(data, "is the response from server")
-     })
+     return this.http.post<any>(this.baseUrl,  model)
    }
 }
