@@ -7,8 +7,8 @@
     <ProjectGuid>{0F2C69F5-FA24-4F50-A32C-64C1ECADF48D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EF</RootNamespace>
-    <AssemblyName>EF</AssemblyName>
+    <RootNamespace>LapbaseEntityFramework</RootNamespace>
+    <AssemblyName>LapbaseEntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="LapbaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\FoodRepository.cs" />
+    <Compile Include="Repositories\IFoodRepository.cs" />
     <Compile Include="Repositories\IPatientRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />

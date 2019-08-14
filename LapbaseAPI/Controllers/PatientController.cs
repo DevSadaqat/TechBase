@@ -27,7 +27,7 @@ namespace LapbaseAPI.Controllers
 
         // GET: api/Patient/5
         // [ResponseType(typeof(Patient))]
-        [Route("GetPatient/{id, organizationCode}")]
+        //[Route("GetPatient/{id, organizationCode}")]
         public IHttpActionResult GetPatient(long id, long organizationCode)
         {
             var patient = patientRepository.GetPatient(id, organizationCode);
@@ -40,7 +40,7 @@ namespace LapbaseAPI.Controllers
         }
         // PUT: api/Patient/5
         [HttpPut]
-        [Route("UpdatePatient")]
+        //[Route("PutPatient")]
         public IHttpActionResult PutPatient(long id, long organizationCode, Patient patient)
         {
 
