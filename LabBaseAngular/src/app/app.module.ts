@@ -17,7 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 //import { ExcerciseComponent } from './excercise/excercise.component';
 //import { FoodComponent } from './food/food.component';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+//import { LoginComponent } from './login/login.component';
 //import { SidenavComponent } from './sidenav/sidenav.component';
 //services
 import {AuthService} from './services/auth.service';
@@ -32,7 +32,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    //LoginComponent,
     routingComponents,
     NotFoundComponent,
     //SidenavComponent,
