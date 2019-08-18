@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import {AuthService} from './services/auth.service';
 import {AlertService} from './services/alert.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AlertComponent } from './alert/alert.component';
 //import { SidenavComponent } from './sidenav/sidenav.component';
 //import { WeightComponent } from './weight/weight.component';
 //import { DashboardComponent } from './dashboard/dashboard.component';
@@ -32,10 +33,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
+    AlertComponent,
     //LoginComponent,
     routingComponents,
     NotFoundComponent,
     //SidenavComponent,
+    
   ],
   imports: [
     BrowserModule,

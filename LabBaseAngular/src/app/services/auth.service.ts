@@ -18,5 +18,6 @@ export class AuthService {
    }
    loginUserDetails(model){
      return this.http.post<any>(this.baseUrl,  model)
+    
    }
 }

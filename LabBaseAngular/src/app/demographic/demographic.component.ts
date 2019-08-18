@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PatientService} from '../services/patient.service';
+import {Patient} from '../models/Patient';
 
 @Component({
   selector: 'app-demographic',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemographicComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pat_Serv: PatientService ) { }
 
   ngOnInit() {
   }
 
+  
 }

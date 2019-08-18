@@ -20,6 +20,7 @@ namespace LapbaseAPI.Controllers
     {
         private bool authenticate = false;
         private string username = "";
+       
         
         [HttpPost]
         public IHttpActionResult Login(LoginViewModel model)
@@ -33,8 +34,9 @@ namespace LapbaseAPI.Controllers
            // var isValidUser = AuthenticateUser("TechInnovators","TechInnovator17");
             if (!isValidUser)
             {
-               ModelState.AddModelError("", "The user name or password provided is incorrect.");
-               return Ok(ModelState);
+
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                return Ok(ModelState);
             }
             else
             {

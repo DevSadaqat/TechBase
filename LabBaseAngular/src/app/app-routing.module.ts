@@ -7,16 +7,18 @@ import { FoodComponent } from './food/food.component';
 import { WeightComponent } from './weight/weight.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
+  { path: '', component: LoginComponent},
   { path: 'sidenav', component: SidenavComponent},
   { path: 'demographics', component: DemographicComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'exercise', component: ExcerciseComponent},
   { path: 'food', component: FoodComponent},
   { path: 'weight', component: WeightComponent},
-  { path: 'login', component: LoginComponent}
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

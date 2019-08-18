@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertService} from '../services/alert.service';
 import { AuthService } from '../services/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {Users} from '../models/User';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Users} from '../models/User';
 })
 export class LoginComponent  {
 
-    loginForm: FormGroup
+    loginForm: any
     model: Users = {
       UserName: "",
       Password: ""
@@ -22,7 +23,7 @@ export class LoginComponent  {
     constructor(private _AuthS: AuthService, 
     private alertService: AlertService,
     private formBuilder: FormBuilder,
-    //private user: Users = new Users("UserName",  "Password"),
+    private router: Router
      ) {}
 
   
@@ -40,18 +41,23 @@ export class LoginComponent  {
     const target = event.target
     this.model.UserName = target.querySelector('#username').value
     this.model.Password = target.querySelector('#password').value
-    console.log(this.model.UserName, this.model.Password) 
+    //console.log(this.model.UserName, this.model.Password) 
   
 
    //method to get user details
    this._AuthS.loginUserDetails(this.model).subscribe(data => {
-    if(data.username == this.model.UserName){
-      //redirect to home
+    window.alert(1)
+  
+    //console.log(data.authenticate = true, "is the response from server")
+      if(data === target.querySelector('#username').value){
+      window.alert(2)
+      this.router.navigate(['/sidenav'])
+      //redirect home  
     }
     else{
       window.alert("The username or Password does not exits");
     }
-  })
+   })
   
 }
 

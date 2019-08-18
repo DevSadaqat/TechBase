@@ -5,14 +5,12 @@
     
 <div id="cotainer" action="action_page.php">
     <div class ="main">
-        <form (submit) = "loginUser($event)" [formGroup] = "loginForm">
             <p class="sign" align="center">Login</p>
-            <form class="form1">
+            <form  class="form1" (submit) = "loginUser($event)">
         <input class= "un" type="text" align="center" name="Username" placeholder="Enter your username" id = "username" />
         <input class= "pass" type="password" align="center" name="Password" placeholder="Enter your password" id = "password"/>
-        <a class ="submit"  type ="submit" value= "submit" align="center">Login</a>
+        <input class ="submit"  type ="submit" value= "Submit" align="center">
         <p class="forgot" align="center"><a href="#">Forgot Password</a></p>
-        </form>
         </form>
     </div>
 </div>

@@ -1,17 +1,29 @@
 export class Patient {
+    ID: Number;
+    OrganizationCode: Number;
     Title: String;
+    SurName: String;
     FirstName: String;
-    LastName: String;
     DateOfBirth: String;
     Gender: String;
-    Street: String;
-    State: String;
-    City: String;
-    PostCode: number;
-    Email: String;
+    Height: String;
     PhnNum: Number;
-    Employer: String;
+    Mobile: Number;
+    Email: String;
+    Street: String;
+    Suburb: String;
+    City: String;
+    State: String;
+    PostCode: number;
+    Country: String;
     Insurance: String;
-    InsNum: Number;
-    MediNum: Number;
+    InsuranceEmployer: String;
+    InusuranceNumber: Number;
+    MedicareNumber: Number;
+    Excercises: Array<String>;
+    Foods: Array<String>;
+    Organizations: Array<String>;
+    Users: Array<String>;
+    Weights: Array<String>;
+    
 }
