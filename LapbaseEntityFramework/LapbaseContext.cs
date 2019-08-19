@@ -174,16 +174,40 @@ namespace LapbaseEntityFramework
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseClass && (x.State == EntityState.Added || x.State == EntityState.Modified));
             //get username from session or authentication
 
-            var currentUsername = "Techie";
+            var currentUsername = "";
             foreach (var entity in entities)
             {
+                if (entity.Entity is Food)
+                {
+                    long patientId = ((Food)entity.Entity).PatientID;
+                    var patient = Patients.Where(a => a.ID.Equals(patientId)).FirstOrDefault();
+                    currentUsername = patient.FirstName;
+                }
+
+                if (entity.Entity is Exercise)
+                {
+                    long patientId = ((Exercise)entity.Entity).PatientID;
+                    var patient = Patients.Where(a => a.ID.Equals(patientId)).FirstOrDefault();
+                    currentUsername = patient.FirstName;
+                }
+
+                if (entity.Entity is Weight)
+                {
+                    long patientId = ((Weight)entity.Entity).PatientID;
+                    var patient = Patients.Where(a => a.ID.Equals(patientId)).FirstOrDefault();
+                    currentUsername = patient.FirstName;
+                }
+
                 if (entity.State == EntityState.Added)
                 {
+                   
+
                     ((BaseClass)entity.Entity).CreatedAt = DateTime.Now;
                     ((BaseClass)entity.Entity).CreatedBy = currentUsername;
                 }
                 ((BaseClass)entity.Entity).ModifiedAt = DateTime.Now;
                 ((BaseClass)entity.Entity).ModifiedBy = currentUsername;
+                
             }
             return base.SaveChanges();
         }
