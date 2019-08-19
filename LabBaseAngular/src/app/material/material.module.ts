@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Material.MatInputModule,
     Material.MatCardModule,
     Material.MatBadgeModule,
+    Material.MatToolbarModule,
     BrowserAnimationsModule,
   ]
 })
