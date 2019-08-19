@@ -9,25 +9,26 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LapbaseBOL;
-using LapbaseEntityFramework;
+using LapbaseEntityFramework.Repositories;
 
 namespace LapbaseAPI.Controllers
 {
     public class WeightController : ApiController
     {
-        private LapbaseContext db = new LapbaseContext();
+        private readonly IWeightRepository weightRepository = new WeightRepository();
 
         // GET: api/Weight
-        public IQueryable<Weight> GetWeights()
+        public IHttpActionResult GetWeights(long PatientID, long OrganizationCode)
         {
-            return db.Weights;
+            var weights = weightRepository.GetWeights(PatientID, OrganizationCode);
+            return Ok(weights);
         }
 
         // GET: api/Weight/5
         [ResponseType(typeof(Weight))]
         public IHttpActionResult GetWeight(long id)
         {
-            Weight weight = db.Weights.Find(id);
+            Weight weight = weightRepository.GetWeightByID(id);
             if (weight == null)
             {
                 return NotFound();
@@ -40,35 +41,25 @@ namespace LapbaseAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutWeight(long id, Weight weight)
         {
-            if (!ModelState.IsValid)
+            if (weight.ID != id)
             {
-                return BadRequest(ModelState);
-            }
+                return NotFound();
 
-            if (id != weight.ID)
-            {
-                return BadRequest();
             }
-
-            db.Entry(weight).State = EntityState.Modified;
-
-            try
+            else
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!WeightExists(id))
+                if (!ModelState.IsValid)
                 {
-                    return NotFound();
+                    return BadRequest(ModelState);
                 }
                 else
                 {
-                    throw;
+                    weightRepository.UpdateWeight(weight);
+                    weightRepository.Save();
+                    return Ok(weight);
                 }
-            }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            }
         }
 
         // POST: api/Weight
@@ -80,40 +71,11 @@ namespace LapbaseAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Weights.Add(weight);
-            db.SaveChanges();
+            weightRepository.InsertWeight(weight);
 
-            return CreatedAtRoute("DefaultApi", new { id = weight.ID }, weight);
-        }
-
-        // DELETE: api/Weight/5
-        [ResponseType(typeof(Weight))]
-        public IHttpActionResult DeleteWeight(long id)
-        {
-            Weight weight = db.Weights.Find(id);
-            if (weight == null)
-            {
-                return NotFound();
-            }
-
-            db.Weights.Remove(weight);
-            db.SaveChanges();
 
             return Ok(weight);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool WeightExists(long id)
-        {
-            return db.Weights.Count(e => e.ID == id) > 0;
-        }
     }
 }
