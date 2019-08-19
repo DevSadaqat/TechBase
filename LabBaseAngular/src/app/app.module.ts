@@ -5,13 +5,11 @@ import {RouterModule} from '@angular/router';
 
 //forms
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { AppRoutingModule, routingComponents } from './app-routing.module';
-import {MatButtonModule} from '@angular/material/button';
+import { AppRoutingModule, routingComponents } from './app-routing.module'
+
 //material design
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
+import { MaterialModule } from "./material/material.module";
+
 //components
 //import { DemographicComponent } from './demographic/demographic.component';
 //import { ExcerciseComponent } from './excercise/excercise.component';
@@ -43,12 +41,8 @@ import { AlertComponent } from './alert/alert.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,                                                             
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    BrowserAnimationsModule,
-    MatInputModule,
+    AppRoutingModule, 
+    MaterialModule,                                                            
     ReactiveFormsModule, FormsModule,
     RouterModule
   ],
