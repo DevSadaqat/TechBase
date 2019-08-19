@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="LapbaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IWeightRepository.cs" />
+    <Compile Include="Repositories\WeightRepository.cs" />
     <Compile Include="Repositories\ExerciseRepository.cs" />
     <Compile Include="Repositories\FoodRepository.cs" />
     <Compile Include="Repositories\IExerciseRepository.cs" />
