@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {Users} from '../models/User';
 import {Router} from '@angular/router';
+import { Authorization } from '../models/Authorization';
 
 
 @Component({
@@ -18,9 +19,11 @@ export class LoginComponent  {
       UserName: "",
       Password: ""
     };
+    authori: Authorization[];
 
 
-    constructor(private _AuthS: AuthService, 
+
+    constructor(private _AuthS: AuthService,   
     private alertService: AlertService,
     private formBuilder: FormBuilder,
     private router: Router
@@ -29,6 +32,9 @@ export class LoginComponent  {
   
   ngOnInit() {
 
+      return this._AuthS.authorizedUser().subscribe(data => this.authori = data);
+      
+     
       this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -50,7 +56,10 @@ export class LoginComponent  {
   
     //console.log(data.authenticate = true, "is the response from server")
       if(data === target.querySelector('#username').value){
-      window.alert(2)
+        
+      // this._AuthS.authorizedUser(data).subscribe()
+      // window.alert(2)
+
       this.router.navigate(['/sidenav'])
       //redirect home  
     }
@@ -58,6 +67,7 @@ export class LoginComponent  {
       window.alert("The username or Password does not exits");
     }
    })
+
   
 }
 

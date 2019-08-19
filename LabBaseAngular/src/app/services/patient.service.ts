@@ -12,9 +12,9 @@ export class PatientService {
   constructor(private http: HttpClient) { }
 
   //method to get patient demographics
-  getPatientById(id: Number, organizationCode: Number): Observable<Patient> {
+  getPatientById(patId: Number, organizationCode: Number): Observable<Patient> {
   return this.http.get<Patient>
-  (this.baseUrl + '/GetPatient/' + id + organizationCode)
+  (this.baseUrl + '/GetPatient/' + patId + organizationCode)
   }
 
 //method to update patient demograhics
