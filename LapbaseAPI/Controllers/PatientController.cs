@@ -10,10 +10,12 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using LapbaseEntityFramework.Repositories;
 using LapbaseBOL;
+using System.Web.Http.Cors;
+
 namespace LapbaseAPI.Controllers
 {
- //   [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
-    [RoutePrefix("Api/Patient")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    //[RoutePrefix("Api/Patient")]
     public class PatientController : ApiController
     {
         private readonly IPatientRepository patientRepository = new PatientRepository();
@@ -29,7 +31,7 @@ namespace LapbaseAPI.Controllers
 
         // GET: api/Patient/5
         // [ResponseType(typeof(Patient))]
-        [Route("getPatient/{id, organizationCode}")]
+       // [Route("getPatient/{id, organizationCode}")]
         public IHttpActionResult GetPatient(long id, long organizationCode)
         {
             var patient = patientRepository.GetPatient(id, organizationCode);

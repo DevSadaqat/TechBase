@@ -7,10 +7,11 @@ using System.Net.Http;
 using System.Web.Http;
 using LapbaseEntityFramework.Repositories;
 using LapbaseBOL;
-
+using System.Web.Http.Cors;
 
 namespace LapbaseAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class AuthorizeUserController : ApiController
     {
         private readonly IUserRepository userRepository = new UserRepository();        

@@ -1,10 +1,10 @@
 export class Patient {
-    ID: Number;
-    OrganizationCode: Number;
+    ID: BigInteger;
+    OrganizationCode: BigInteger;
     Title: String;
     SurName: String;
     FirstName: String;
-    DateOfBirth: String;
+    DateOfBirth: Date;
     Gender: String;
     Height: String;
     PhnNum: Number;

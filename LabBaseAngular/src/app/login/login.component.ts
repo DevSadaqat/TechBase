@@ -19,7 +19,12 @@ export class LoginComponent  {
       UserName: "",
       Password: ""
     };
-    authori: Authorization[];
+    authori: Authorization[]/*={
+      UserId: "",
+      OrganizationCode: "",
+      PatientID: "",
+      IsSuccess: boolean;
+    };*/
 
 
 
@@ -31,8 +36,7 @@ export class LoginComponent  {
 
   
   ngOnInit() {
-
-      return this._AuthS.authorizedUser().subscribe(data => this.authori = data);
+ 
       
      
       this.loginForm = this.formBuilder.group({
@@ -56,6 +60,13 @@ export class LoginComponent  {
   
     //console.log(data.authenticate = true, "is the response from server")
       if(data === target.querySelector('#username').value){
+        this._AuthS.authorizedUser(target.querySelector('#username').value).subscribe(
+          data => {
+                   this.authori = data
+                   console.log(this.authori)
+                  }/*{ 
+            window.alert(1)
+            console.log(data)}*/);
         
       // this._AuthS.authorizedUser(data).subscribe()
       // window.alert(2)
