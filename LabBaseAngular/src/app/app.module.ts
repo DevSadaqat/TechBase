@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
 //forms
@@ -22,6 +22,7 @@ import {AuthService} from './services/auth.service';
 import {AlertService} from './services/alert.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AlertComponent } from './alert/alert.component';
+import { FoodService } from './services/food.service';
 //import { SidenavComponent } from './sidenav/sidenav.component';
 //import { WeightComponent } from './weight/weight.component';
 //import { DashboardComponent } from './dashboard/dashboard.component';
@@ -43,10 +44,11 @@ import { AlertComponent } from './alert/alert.component';
     HttpClientModule,
     AppRoutingModule, 
     MaterialModule,                                                            
-    ReactiveFormsModule, FormsModule,
-    RouterModule
+    ReactiveFormsModule, 
+    FormsModule,
+    RouterModule,
   ],
-  providers: [AuthService, AlertService],
+  providers: [AuthService, AlertService, FoodService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

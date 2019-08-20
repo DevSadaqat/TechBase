@@ -13,6 +13,7 @@ using LapbaseEntityFramework.Repositories;
 
 namespace LapbaseAPI.Controllers
 {
+    [EnableCors("http://localhost:4200", "*", "*")]
     public class FoodController : ApiController
     {
         private readonly IFoodRepository foodRepository = new FoodRepository();

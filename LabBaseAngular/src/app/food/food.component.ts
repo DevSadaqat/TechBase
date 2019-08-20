@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodService } from '../services/food.service';
+
 
 @Component({
   selector: 'app-food',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: FoodService) { }
 
   ngOnInit() {
+    this.service.getAll().subscribe((data) => {
+      console.log('Result -', data);
+    })
+    
   }
+
+
+
 
 }

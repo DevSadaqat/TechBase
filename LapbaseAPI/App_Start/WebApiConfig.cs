@@ -11,7 +11,7 @@ namespace LapbaseAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.EnableCors();
+            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", "*", "*"));
             // Web API routes
             config.MapHttpAttributeRoutes();
 
