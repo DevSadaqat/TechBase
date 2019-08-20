@@ -1,68 +1,160 @@
-/* 
+/* *
 
-/*
-	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
-	*/
-	@media
-	  only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
 
-		/* Force table to not be like tables anymore */
-		table, thead, tbody, th, td, tr {
-			display: block;
-		}
-
-		/* Hide table headers (but not display: none;, for accessibility) */
-		thead tr {
-			position: absolute;
-			top: -9999px;
-			left: -9999px;
-		}
-
-    tr {
-      margin: 0 0 1rem 0;
-    }
-      
-    tr:nth-child(odd) {
-      background: #ccc;
-    }
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+body, html {
+    color: #373C40;
+    font-family: Verdana,Arial, Helvetica, sans-serif;
+    height: 100%;
+    background-color:red;
+    margin:10px;
+}
+body {
+    font-size: 80%;
+}
+p {
+    padding: 7px 0 7px 0;
+    font-weight: 500;
+    font-size: 10pt;
+}
+a {
+    color: #656565;
+    text-decoration:none;
+}
+a:hover{
+    color: #black;
+    text-decoration: none;
+}
+h1 {
+    font-weight:200;
+    color: black;
+    font-size:16pt;
+   
+    padding-left:33px;
+    margin:7px 5px 8px 8px;
+}
+h4 {
+    padding:1px;
+    color: #ACACAC;
+    font-size:9pt;
+    font-weight:100;
+    text-transform:uppercase;
+}
+form.register{
+    width:850px;
+    margin: 20px auto 0px auto;
+    height:550px;
+    background-color:#fff;
+    padding:105px;
     
-		td {
-			/* Behave  like a "row" */
-			border: none;
-			border-bottom: 1px solid #eee;
-			position: relative;
-			padding-left: 50%;
-		}
+}
+form p{
+    font-size: 8pt;
+    clear:both;
+    margin: 0;
+    color:gray;
+    padding:4px;
+}
+form.register fieldset.row1
+{
+    width:770px;
+    padding:5px;
+    float:left;
+    border-top:1px  black;
+    margin-bottom:15px;
+}
+form.register fieldset.row1 label{
+    width:140px;
+    float: left;
+    text-align: right;
+    margin-right: 6px;
+    margin-top:2px;
+}
+form.register fieldset.row2
+{
+    border-top: black;
+    border-right:1px black;
+    height:220px;
+    padding:5px;
+    float:left;
+}
+form.register fieldset.row3
+{
+    border-top:1px black;
+    padding:5px;
+    float:left;
+    margin-bottom:15px;
+    width:400px;
+}
+form.register fieldset.row4
+{
+    border-top:1px black;
+    border-right:1px black;
+    padding:5px;
+    float:left;
+    clear:both;
+    width:500px;
+	
+}
 
-		td:before {
-			/* Now like a table header */
-			position: absolute;
-			/* Top/left values mimic padding */
-			top: 0;
-			left: 6px;
-			width: 45%;
-			padding-right: 10px;
-			white-space: nowrap;
-		}
-      
-		/*
-		Label the data
-    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
-		*/
-    
-            /*
-            Label the data
-        You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
-            */
-            td:nth-of-type(1):before { content: "First Name"; }
-            td:nth-of-type(2):before { content: "Last Name"; }
-            td:nth-of-type(3):before { content: "Gender"; }
-            td:nth-of-type(4):before { content: "Email"; }
-            td:nth-of-type(5):before { content: "Street"; }
-            td:nth-of-type(6):before { content: "Suburb"; }
-		td:nth-of-type(8):before { content: "Insurance Number"; }
-		td:nth-of-type(9):before { content: "Medicare Number"; }
-		td:nth-of-type(10):before { content: "Insurance"; }
-	}
+form.register legend
+{
+    color: black;
+    padding:2px;
+    margin-left: 14px;
+    font-weight:bold;
+    font-size: 14px;
+    font-weight:100;
+}
+form.register label{
+    color:#444;
+    width:98px;
+    float: left;
+    text-align: right;
+    margin-right: 6px;
+    margin-top:2px;
+}
+
+
+form.register input{
+    width: 140px;
+    color: #505050;
+    float: left;
+    margin-right: 5px;
+}
+form.register input.long{
+    width: 247px;
+    color: #505050;
+}
+form.register input.short{
+    width: 40px;
+    color: #505050;
+}
+
+form.register input[type=text]
+{
+    border: 1px solid #E1E1E1;
+    height: 18px;
+}
+form.register select
+{
+    border: 1px solid #E1E1E1;
+    width: 130px;
+    float:left;
+    margin-bottom:3px;
+    color: #505050;
+    margin-right:5px;
+}
+
+form.register select.date
+{
+    width: 40px;
+}
+
+
+
+ */
