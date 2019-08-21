@@ -1,9 +1,9 @@
- <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title>Demographics </title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" type="text/css" href="css/demographics of patient.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="css/demographics of patient.css"/> -->
     </head>
     <body>  
 	
@@ -13,127 +13,28 @@
             <fieldset class="row1">
                 <legend>Personal Details 
                 </legend>
-                <p>
-				
-                    
+                <p>                 
                     <label>First Name  
                     </label>
-                    <input type="text"/>
+                    {{patient.FirstName}}
+                    <!-- <input type="text"/> -->
                 </p>
                 <p>
                     <label>Last Name 
                     </label>
-                    <input type="text"/>
-                    
+                    {{patient.Surname}}  
 					</p>
 					<p>
                     
                 <p>
                     <label>Date Of Birth 
                     </label>
-                    <select class="date">
-                        <option value="1">01
-                        </option>
-                        <option value="2">02
-                        </option>
-                        <option value="3">03
-                        </option>
-                        <option value="4">04
-                        </option>
-                        <option value="5">05
-                        </option>
-                        <option value="6">06
-                        </option>
-                        <option value="7">07
-                        </option>
-                        <option value="8">08
-                        </option>
-                        <option value="9">09
-                        </option>
-                        <option value="10">10
-                        </option>
-                        <option value="11">11
-                        </option>
-                        <option value="12">12
-                        </option>
-                        <option value="13">13
-                        </option>
-                        <option value="14">14
-                        </option>
-                        <option value="15">15
-                        </option>
-                        <option value="16">16
-                        </option>
-                        <option value="17">17
-                        </option>
-                        <option value="18">18
-                        </option>
-                        <option value="19">19
-                        </option>
-                        <option value="20">20
-                        </option>
-                        <option value="21">21
-                        </option>
-                        <option value="22">22
-                        </option>
-                        <option value="23">23
-                        </option>
-                        <option value="24">24
-                        </option>
-                        <option value="25">25
-                        </option>
-                        <option value="26">26
-                        </option>
-                        <option value="27">27
-                        </option>
-                        <option value="28">28
-                        </option>
-                        <option value="29">29
-                        </option>
-                        <option value="30">30
-                        </option>
-                        <option value="31">31
-                        </option>
-                    </select>
-                    <select>
-                        <option value="1">January
-                        </option>
-                        <option value="2">February
-                        </option>
-                        <option value="3">March
-                        </option>
-                        <option value="4">April
-                        </option>
-                        <option value="5">May
-                        </option>
-                        <option value="6">June
-                        </option>
-                        <option value="7">July
-                        </option>
-                        <option value="8">August
-                        </option>
-                        <option value="9">September
-                        </option>
-                        <option value="10">October
-                        </option>
-                        <option value="11">November
-                        </option>
-                        <option value="12">December
-                        </option>
-                    </select>
-                    <input class="year" type="text" size="4" maxlength="4"/>
+                    {{patient.BirthDate}}
                 </p>
-			<p>
+			        <p>
                     <label>Gender 
-                    </label>
-                    <select>
-                        <option>
-                        </option>
-                        <option value="1">Male 
-                        </option>
-						<option value="2">Female 
-                        </option>
-                    </select>
+                      </label>
+                      {{patient.Gender}}
                 </p>	
 				
 				
@@ -145,27 +46,27 @@
                 <p>
                     <label> Street 
                     </label>
-                    <input type="text" class="long"/>
+                    <td>{{patient.Street}}</td>
                 </p>
                 <p>
                     <label>City
                     </label>
-                    <input type="text" maxlength="10"/>
+                    {{patient.City}}
                 </p>
-               <p>
+               <!-- <p>
                     <label>State  
                     </label>
-                    <input type="text" class="lon"/>
-                </p>
+                    {{patient.State}}
+                </p> -->
                 <p>
                     <label>Zip/PostCode 
                     </label>
-                    <input type="text" class="long"/>
+                    {{patient.PinCode}}
                 </p>
 				 <p>
                     <label> Country 
                     </label>
-                    <input type="text" class="long"/>
+                    {{patient.Country}}
                 </p>
                 
                 
@@ -173,24 +74,21 @@
             <fieldset class="row3">
                 <legend>Contact Details 
                 </legend>
-<p>
+                <p>
                     <label> E-mail 
                     </label>
-                    <input type="text" class="Emails"/>
+                   {{patient.ContactEmail}}
                 </p>
-  <p>
+                    <p>
                     <label> Phone
                     </label>
-                    <input type="text" class="Phones"/>
+                    {{patient.Phone}}
                 </p>  
 			<p>
                     <label> Mobile
                     </label>
-                    <input type="text" class="Mobile"/>
+                    {{patient.Mobile}}
                 </p>	
-               
-                
-                
             </fieldset>
 			<fieldset class="row4">
              <legend>Insurance Details 
@@ -198,22 +96,22 @@
 <p>
                     <label> Employer 
                     </label>
-                    <input type="text" class="Employer"/>
+                    {{patient.InsuranceEmployer}}
                 </p>
-  <p>
+                <p>
                     <label> Insurance
                     </label>
-                    <input type="text" class="Insurance"/>
+                    {{patient.Insurance}}
                 </p>  
-			<p>
+			  <p>
                     <label> Insurance Number 
                     </label>
-                    <input type="text" class="insuranceNo "/>
+                    {{patient.InsuranceNumber}}
                 </p>
 			<p>
                     <label> Medicare Number 
                     </label>
-                    <input type="text" class="Medicare "/>
+                    {{patient.MedicareNumber}}
                 </p>		
                 
                 
@@ -222,63 +120,7 @@
     </body>
 </html>
 
-  -->
-
-  <html>
-    <head>
-    <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    th, td {
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even){background-color: #f2f2f2}
-    
-    th {
-      background-color: rgb(76, 144, 175);
-      color: white;
-    }
-    </style>
-    </head>
-    <body>
-    
-    <h2>Patient Demoghrahics Details</h2>
-    
-    <table>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Mobile</th>
-        <th>Gender</th>
-        <th>Email</th>
-        <th>Street</th>
-        <th>Suburb</th>
-        <th>Insurance Number</th>
-        <th>Medicare Number</th>
-        <th>Insurance</th>
-      </tr>
-      <tr>
-        <td>{{patient.FirstName}}</td>
-        <td>{{patient.SurName}}</td>
-        <td>{{patient.Mobile}}</td>
-        <td>{{patient.Gender}}</td>
-        <td>{{patient.Email}}</td>
-        <td>{{patient.Street}}</td>
-        <td>{{patient.Suburb}}</td>
-        <td>{{patient.InsuranceNumber}}</td>
-        <td>{{patient.MedicareNumber}}</td>
-        <td>{{patient.Insurance}}</td>
-      </tr>
-    </table>
-    
-    </body>
-    </html>
-    
+ 
 
 
 
@@ -301,34 +143,3 @@
 
 
 
-    <table role="table">
-        <thead role="rowgroup">
-          <tr role="row">
-            <th role="columnheader">First Name</th>
-            <th role="columnheader">Last Name</th>
-            <th role="columnheader">Mobile</th>
-            <th role="columnheader">Gender</th>
-            <th role="columnheader">Email</th>
-            <th role="columnheader">Street</th>
-            <th role="columnheader">Suburb</th>
-            <th role="columnheader">Insurance Number</th>
-            <th role="columnheader">Medicare Number</th>
-            <th role="columnheader">Insurance</th>
-          </tr>
-        </thead>
-        <tbody role="rowgroup">
-          <tr role="row">
-            <td role="cell">{{patient.FirstName}}</td>
-            <td role="cell">{{patient.SurName}}</td>
-            <td role="cell">{{patient.Mobile}}</td>
-            <td role="cell">{{patient.Gender}}</td>
-            <td role="cell">{{patient.Email}}</td>
-            <td role="cell">{{patient.Street}}</td>
-            <td role="cell">{{patient.Suburb}}</td>
-            <td role="cell">{{patient.InsuranceNumber}}</td>
-            <td role="cell">{{patient.MedicareNumber}}</td>
-            <td role="cell">{{patient.Insurance}}</td>
-          </tr>
-        </tbody>
-      </table> 
-    

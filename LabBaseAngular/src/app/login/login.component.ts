@@ -19,12 +19,12 @@ export class LoginComponent  {
       UserName: "",
       Password: ""
     };
-    authori: Authorization[]/*={
+    authori: Authorization ={
       UserId: "",
       OrganizationCode: "",
       PatientID: "",
-      IsSuccess: boolean;
-    };*/
+      IsSuccess: false
+    };
 
 
 
@@ -36,9 +36,7 @@ export class LoginComponent  {
 
   
   ngOnInit() {
- 
-      
-     
+       
       this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -58,19 +56,19 @@ export class LoginComponent  {
    this._AuthS.loginUserDetails(this.model).subscribe(data => {
     window.alert(1)
   
-    //console.log(data.authenticate = true, "is the response from server")
       if(data === target.querySelector('#username').value){
         this._AuthS.authorizedUser(target.querySelector('#username').value).subscribe(
           data => {
                    this.authori = data
-                   console.log(this.authori)
-                  }/*{ 
-            window.alert(1)
-            console.log(data)}*/);
+                  //  console.log(this.authori.UserId)
+                  //  console.log(this.authori.OrganizationCode)
+                  //  console.log(this.authori.PatientID)
+                  //  console.log(this.authori.IsSuccess)
+                   localStorage.setItem('authori', JSON.stringify(this.authori));
+                  });
         
-      // this._AuthS.authorizedUser(data).subscribe()
-      // window.alert(2)
-
+     
+      //redirect home  
       this.router.navigate(['/sidenav'])
       //redirect home  
     }
