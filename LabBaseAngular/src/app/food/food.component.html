@@ -1,140 +1,81 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-
-
-
-
-<div class="page">
-  <header tabindex="0">LapBase</header>
-  <div id="nav-container">
-    <div class="bg">
-</div>
-    <div class="button" tabindex="0">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-
-</div>
-    <div id="nav-content" tabindex="0">
-      <ul>
-	  <li><a href ="#0">Dashboard</a></li>
-      
-        <li><a href="">My Demographics</a></li>
-        <li><a href="#0">food Log</a></li>
-        <li><a href="#0">Exercise Log</a></li>
-        <li><a href="#0">Weight Log</a></li>
-        <li><a href="#0">Logout</a></li>
-		
-		
-      
-      </ul>
-    </div>
-  </div>
-
-
-<div>
-
-
-
-    <div class="grido"><u>ADD FOOD</u>
-    <h3>TODAY</h3>
-    <button  type="button" onclick="SUBMIT">Add</button>
+<div class="main">
     
-    </div>
-
+  <h1><u>FOOD</u></h1>
+  <ul class="cards">
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="./assets/images/fresh.jpg " ></div>
+        <div class="card_content">
+          <h2 class="card_title">FRESH FOOD</h2>
+          <p>
+                  <label>SELECT
+                  </label>
+                  <select>
+                      <option>
+                      </option>
+                      <option value="1">HIGH 
+                      </option>
+                      <option value="2">MEDIUM 
+                      </option>
+                      <option value="2">LOW 
+                          </option>
+                  </select>
+              </p>
+          </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="./assets/images/drink.jpg"></div>
+        <div class="card_content">
+          <h2 class="card_title">DRINKS</h2>
+          
+          <p>
+                  <label>SELECT
+                  </label>
+                  <select>
+                      <option>
+                      </option>
+                      <option value="1">HIGH 
+                      </option>
+                      <option value="2">MEDIUM 
+                      </option>
+                      <option value="2">LOW 
+                          </option>
+                  </select>
+              </p>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="./assets/images/ja.jpg"></div>
+        <div class="card_content">
+          <h2 class="card_title">JUNK</h2>
+          <p>
+                  <label>SELECT
+                  </label>
+                  <select>
+                      <option>
+                      </option>
+                      <option value="1">HIGH 
+                      </option>
+                      <option value="2">MEDIUM 
+                      </option>
+                      <option value="2">LOW 
+                          </option>
+                  </select>
+              </p>
+             
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div >
     
-    
-    
-
-<div class="grid-container">
-  <div class="grid-item"><b>FRESH FOOD</b>
-  
-
-
-<div>
-  <input type="radio" id="HIGH" name="AVERAGE" value="HIGH"
-         checked>
-  <label for="HIGH">HIGH</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">MEDIUM</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">LOW</label>
-</div>
-<img src="./assets/images/fresh.jpg" alt="Fresh" width="200" height="100">
-</div>
-  <div class="grid-item">DRINKS
-  
-<div>
-  <input type="radio" id="HIGH" name="AVERAGE" value="HIGH"
-         checked>
-  <label for="HIGH">HIGH</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">MEDIUM</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">LOW</label>
-</div>
-<img src="./assets/images/drink.jpg" alt="Drink" width="200" height="100">
-
-  </div>
-  <div class="grid-item">JUNK FOOD
-  
-<div>
-  <input type="radio" id="HIGH" name="AVERAGE" value="HIGH"
-         checked>
-  <label for="HIGH">HIGH</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">MEDIUM</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">LOW</label>
-</div>
-<img src="./assets/images/junk.jpg" alt="junk" width="200" height="100">
-   </div>  
-  <div class="grid-item">STAPLE FOOD 
-  
-<div>
-  <input type="radio" id="HIGH" name="AVERAGE" value="HIGH"
-         checked>
-  <label for="HIGH">HIGH</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">MEDIUM</label>
-</div>
-
-<div>
-  <input type="radio" id="LOW" name="AVERAGE" value="LOW">
-  <label for="LOW">LOW</label>
-</div>
-  <img src="./assets/images/staple.jpg" alt="staple" width="200" height="100">
- </div>
-
-   </div>
    
+      <input type="submit" class ="submit" value="ADD" align="center">   
+        
+       
+  </div>
 </div>
-</div>
-</body>
-</html>
