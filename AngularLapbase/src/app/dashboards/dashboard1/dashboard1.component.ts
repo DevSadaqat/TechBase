@@ -18,6 +18,7 @@ export interface Chart {
     options?: any;
     responsiveOptions?: any;
     events?: ChartEvent;
+ 
 }
 
 @Component({
@@ -61,7 +62,7 @@ export class Dashboard1Component implements AfterViewInit {
         domain: ['#4fc3f7', '#fb8c00', '#7460ee', '#fa5838', '#5ac146', '#137eff']
     };
     schemeType = 'ordinal';
-
+    firstName: String;
     constructor() {
         Object.assign(this, {
             single
@@ -207,5 +208,9 @@ export class Dashboard1Component implements AfterViewInit {
             }
 
         });
+        //local vaiable intialization
+        this.firstName  = localStorage.getItem("FirstName");
+        console.log(this.firstName);
+
     }
 }

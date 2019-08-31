@@ -8,22 +8,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-            <td>Type of Exercise</td>
-            <td >Duration(Mintues) </td>
-            <td >Date</td>
-        
-      </tr>
-      <tr>
-            <td>Type of Exercise</td>
-            <td>Duration(Mintues) </td>
-            <td>Date</td>  
-        
-      </tr>
-      <tr>
-            <td>Type of Exercise</td>
-            <td >Duration(Mintues) </td>
-            <td >Date</td>
+      <tr *ngFor="let exercise of allExercises | async">
+            <td>{{exercise.ExerciseType}}</td>
+            <td >{{exercise.Duration}} </td>
+            <td >{{exercise.CreatedAt}}</td>
         
       </tr>
     </tbody>

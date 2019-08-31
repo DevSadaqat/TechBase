@@ -4,53 +4,63 @@
     
     <div class="row">
       <div class="col">
+       <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm"> 
             <div class="card" style="width: 18rem;">
                      <img class="card-img-top" src="./assets/images/yoga.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h3 for ="inputfood">Light Exercise</h3>
+                        <h3 for ="inputexercise">Light Exercise</h3>
+                        <input type="hidden" id="excType" class="form-control" name="Type" placeholder="" value="Light">
                         <div class="form-group col-md-6">
                                 <label for="lastname">Duration(Mintues)</label>
-                                <input type="number" class="form-control" id="inputPassword4" placeholder="Mintues">
-                              </div>
-                          
-                        
+                                <input type="number" class="form-control" id="Duration" placeholder="Mintues">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">ADD</button>
                     </div>
                   </div> 
                   
+      
+      </form>
       </div>
       <div class="col">
+          <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm"> 
             <div class="card" style="width: 18rem;"  >
                     <img class="card-img-top" src="./assets/images/r1.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h3 for ="inputfood">Moderate Exercise</h3>
-                        
+                        <input type="hidden" id="excType" class="form-control" name="Type" placeholder="" value="Moderate">
                         <div class="form-group col-md-6">
                                 <label for="lastname">Duration(Mintues)</label>
-                                <input type="number" class="form-control" id="inputPassword4" placeholder="Mintues">
-                              </div>
+                                <input type="number" class="form-control" id="Duration" placeholder="Mintues">
+                        </div>
                      
-                      
+                        <button type="submit" class="btn btn-secondary">ADD</button>
                     </div>
-                  </div> 
+              </div> 
+          </form>        
       </div>
 
       <div class="col">
+          <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm"> 
             <div class="card" style="width: 18rem;" >
                     <img class="card-img-top" src="./assets/images/i1.jpg" alt="Card image cap">
                     <p class="card-text"></p>
                     <div class="card-body">
                         <h3 for ="inputfood">Intense Exercise</h3>
+                        <input type="hidden" id="excType" class="form-control" name="Type" placeholder="" value="Intense">
                         <div class="form-group col-md-6">
                                 <label for="lastname">Duration(Mintues)</label>
-                                <input type="number" class="form-control" id="inputPassword4" placeholder="Mintues">
-                              </div>
-                    
+                                <input type="number" class="form-control" id="Duration" placeholder="Mintues">
+                        </div>
+
+                    <button type="submit" class="btn btn-secondary">ADD</button>
                     </div>
                   </div> 
+          </form>        
       </div>
       
-      
-    </div><div class="w-100"></div>
+<!--     
+    </div><div class="w-100"></div> -->
 
     <button type="button" class="btn btn-outline-secondary">Add</button>
-  </div>
+  </div> 
+</div>

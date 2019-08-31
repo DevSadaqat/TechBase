@@ -2,29 +2,17 @@
     <thead>
       <tr>
         <th scope="col">Type of Food</th>
-        <th scope="col">Consumption </th>
+        <th scope="col">Quantity </th>
         <th scope="col">Date</th>
-        
       </tr>
     </thead>
     <tbody>
-      <tr>
-            <td>Type of Food</td>
-            <td >Consumption </td>
-            <td >Date</td>
+      <tr *ngFor="let food of allFoods | async">
+            <td>{{food.FoodType}}</td>
+            <td >{{food.Quantity}}</td>
+            <td >{{food.CreatedAt}}</td>
         
       </tr>
-      <tr>
-            <td>Type of Food</td>
-            <td>Consumption </td>
-            <td>Date</td>  
-        
-      </tr>
-      <tr>
-            <td>Type of Food</td>
-            <td >Consumption </td>
-            <td >Date</td>
-        
-      </tr>
+     
     </tbody>
   </table>

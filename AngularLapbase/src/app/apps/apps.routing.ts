@@ -5,6 +5,8 @@ import { FoodlogComponent } from './foodlog/foodlog.component';
 import { AddfoodComponent } from './addfood/addfood.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { AddexerciseComponent } from './addexercise/addexercise.component';
+import { DemographicdetailsComponent} from './demographicdetails/demographicdetails.component';
+
 
 export const AppsRoutes: Routes = [
   {
@@ -21,7 +23,10 @@ export const AppsRoutes: Routes = [
       { path: 'addfood', component: AddfoodComponent,
         data: { title: 'Add Food', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'Add Food' } ] } },
       
-      { path: 'demographic', component: DemographicComponent, 
+     /* { path: 'demographic', component: DemographicComponent, 
+      data: { title: 'My Demographics', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'My Demographics' } ] } },*/
+
+      { path: 'demographicdetails', component: DemographicdetailsComponent, 
       data: { title: 'My Demographics', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'My Demographics' } ] } },
       
       { path: 'addexercise', component: AddexerciseComponent,

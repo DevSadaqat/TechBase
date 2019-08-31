@@ -1,2 +1,0 @@
-# AngularProjectForUni
-For Uni Project

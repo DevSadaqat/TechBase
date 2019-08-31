@@ -16,6 +16,8 @@ import { FoodlogComponent } from './foodlog/foodlog.component';
 import { AddfoodComponent } from './addfood/addfood.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { AddexerciseComponent } from './addexercise/addexercise.component';
+import { DemographicdetailsComponent } from './demographicdetails/demographicdetails.component';
+
 
 @NgModule({
   imports: [
@@ -38,6 +40,8 @@ import { AddexerciseComponent } from './addexercise/addexercise.component';
     AddfoodComponent,
     DemographicComponent,
     AddexerciseComponent,
+    DemographicdetailsComponent,
+
   ]
 })
 export class AppsModule { }
