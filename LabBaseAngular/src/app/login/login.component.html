@@ -13,11 +13,10 @@
     <form class="form-signin">
         <img class="mb-4" src="./assets/images/logo.PNG" alt="Logo" width="150" height="150">
         <h1 class="heading">Login</h1>
-        <form (submit)="loginUser($event)" [formGroup]="loginForm">
+        <form  (submit)="loginUser($event)"  [formGroup]="loginForm">
             <label for="inputEmail" class="sr-only">Username</label>
-            <span>
-                <input type="email" id="username" class="form-control" placeholder="Email address" required autofocus>
-            </span>
+             <input type="email" id="username"  class="form-control" placeholder="UserName"  required autofocus>
+            
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="password" class="form-control" placeholder="Password" required>
             <div class="checkbox mb-3">

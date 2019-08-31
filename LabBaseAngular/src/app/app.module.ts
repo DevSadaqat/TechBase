@@ -23,6 +23,7 @@ import {AlertService} from './services/alert.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AlertComponent } from './alert/alert.component';
 import { FoodService } from './services/food.service';
+import { DataService } from './services/data.service';
 //import { SidenavComponent } from './sidenav/sidenav.component';
 //import { WeightComponent } from './weight/weight.component';
 //import { DashboardComponent } from './dashboard/dashboard.component';
@@ -33,7 +34,6 @@ import { FoodService } from './services/food.service';
   declarations: [
     AppComponent,
     AlertComponent,
-    //LoginComponent,
     routingComponents,
     NotFoundComponent,
     //SidenavComponent,
@@ -48,7 +48,8 @@ import { FoodService } from './services/food.service';
     FormsModule,
     RouterModule,
   ],
-  providers: [AuthService, AlertService, FoodService],
+  providers: [AuthService, AlertService, FoodService, DataService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

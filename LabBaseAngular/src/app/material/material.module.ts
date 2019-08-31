@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import * as Material from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {  
+  MatButtonModule, MatMenuModule, MatDatepickerModule,MatNativeDateModule , MatIconModule, MatCardModule, MatSidenavModule,MatFormFieldModule,  
+  MatInputModule, MatTooltipModule, MatToolbarModule  
+} from '@angular/material';  
+import { MatRadioModule } from '@angular/material/radio';  
 
 
 @NgModule({
@@ -17,7 +22,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Material.MatCardModule,
     Material.MatBadgeModule,
     Material.MatToolbarModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,  
+    MatButtonModule,  
+    MatMenuModule,  
+    MatDatepickerModule,  
+    MatNativeDateModule,  
+    MatIconModule,  
+    MatRadioModule,  
+    MatCardModule,  
+    MatSidenavModule,  
+    MatFormFieldModule,  
+    MatInputModule,  
+    MatTooltipModule,  
+    MatToolbarModule,  
+   
   ]
 })
 export class MaterialModule { }

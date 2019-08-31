@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import {Users} from '../models/User';
 import {Router} from '@angular/router';
 import { Authorization } from '../models/Authorization';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -25,11 +26,10 @@ export class LoginComponent  {
       PatientID: "",
       IsSuccess: false
     };
-
-
-
+   
     constructor(private _AuthS: AuthService,   
     private alertService: AlertService,
+    public dataService: DataService, 
     private formBuilder: FormBuilder,
     private router: Router
      ) {}
@@ -41,6 +41,7 @@ export class LoginComponent  {
       username: ['', Validators.required],
       password: ['', Validators.required]
   });
+  
 }
 
   //method to get details of user from login form 
@@ -54,20 +55,23 @@ export class LoginComponent  {
 
    //method to get user details
    this._AuthS.loginUserDetails(this.model).subscribe(data => {
-    window.alert(1)
-  
+    
       if(data === target.querySelector('#username').value){
         this._AuthS.authorizedUser(target.querySelector('#username').value).subscribe(
           data => {
-                   this.authori = data
+            
+              this.dataService.setPatientID(data.PatientID);
+              this.dataService.setOrganizationCode(data.OrganizationCode);
+              //console.log(this.dataService.getOrganizationCode());
+              //console.log(this.dataService.getPatientID());
+                  //  this.authori = data
                   //  console.log(this.authori.UserId)
                   //  console.log(this.authori.OrganizationCode)
                   //  console.log(this.authori.PatientID)
                   //  console.log(this.authori.IsSuccess)
-                   localStorage.setItem('authori', JSON.stringify(this.authori));
+                
                   });
         
-     
       //redirect home  
       this.router.navigate(['/sidenav'])
       //redirect home  

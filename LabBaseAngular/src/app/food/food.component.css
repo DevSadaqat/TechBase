@@ -1,7 +1,9 @@
-/* Font */
+
+
+/* 
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
-/* Design */
+ Design 
 *,
 *::before,
 *::after {
@@ -99,7 +101,7 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
 }
 
 .card_title {
@@ -117,11 +119,12 @@ img {
   line-height: 1.5;
   margin-bottom: 6.25rem; 
   font-weight: 400;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
+  
 }
 input[type="submit"]
 {
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
 	-moz-border-radius:42px;
 	
 	border-radius:42px;
@@ -139,6 +142,8 @@ input[type="submit"]
 input[type="submit"]:hover
 {
     cursor: pointer;
-    background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
     color: white;
-}
+} */
+
+

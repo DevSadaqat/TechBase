@@ -1,4 +1,199 @@
-<div class="main">
+<form [formGroup]="FoodForm"(submit)="foodUser($event)" class="form-horizontal">
+  <!--<form [formGroup]="FoodForm"(submit)="foodUser($event)" (ngSubmit)="onFormSubmit(FoodForm.value)" class="form-horizontal">-->
+  <fieldset>
+    <label class="control-label" for="FoodType">FoodType</label>  
+    <div class="col-md-4">
+    <input type="hidden" id="FoodType"  class="form-control" name="FoodType" placeholder="" value="Fresh Food">Fresh Food
+    
+    </div>
+  
+      <label class="control-label" for="Quantity">Quantity</label>
+      <div class="radio">
+          <input type="radio" id = "Quantity" name="Quantity" value="Light" required="true">Light
+        </div>
+        <div class="radio">
+          <input type="radio" id = "Quantity" name="Quantity" value="Medium" required="true">Medium
+        </div> 
+        <div class="radio">
+         <input type="radio" id = "Quantity" name="Quantity" value="Heavy" required="true">Heavy
+         
+        </div> 
+  
+      <button type="submit" class ="submit" value="Create" align="center">Create </button>
+  </fieldset>
+  </form>
+  <form [formGroup]="FoodForm"(submit)="foodUser($event)" class="form-horizontal">
+    <!--<form [formGroup]="FoodForm"(submit)="foodUser($event)" (ngSubmit)="onFormSubmit(FoodForm.value)" class="form-horizontal">-->
+    <fieldset>
+      <label class="control-label" for="FoodType">FoodType</label>  
+      <div class="col-md-4">
+      <input type="hidden" id="FoodType"  class="form-control" name="FoodType" placeholder="" value="Junk Food">Junk Food
+      
+      </div>
+    
+        <label class="control-label" for="Quantity">Quantity</label>
+        <div class="radio">
+            <input type="radio" id = "Quantity" name="Quantity" value="Light" required="true">Light
+          </div>
+          <div class="radio">
+            <input type="radio" id = "Quantity" name="Quantity" value="Medium" required="true">Medium
+          </div> 
+          <div class="radio">
+           <input type="radio" id = "Quantity" name="Quantity" value="Heavy" required="true">Heavy
+           
+          </div> 
+    
+        <button type="submit" class ="submit" value="Create" align="center">Create </button>
+    </fieldset>
+    </form>
+    <form [formGroup]="FoodForm"(submit)="foodUser($event)" class="form-horizontal">
+      <!--<form [formGroup]="FoodForm"(submit)="foodUser($event)" (ngSubmit)="onFormSubmit(FoodForm.value)" class="form-horizontal">-->
+      <fieldset>
+        <label class="control-label" for="FoodType">FoodType</label>  
+        <div class="col-md-4">
+        <input type="hidden" id="FoodType"  class="form-control" name="FoodType" placeholder="" value="Drinks">Drinks
+        
+        </div>
+      
+          <label class="control-label" for="Quantity">Quantity</label>
+          <div class="radio">
+              <input type="radio" id = "Quantity" name="Quantity" value="Light" required="true">Light
+            </div>
+            <div class="radio">
+              <input type="radio" id = "Quantity" name="Quantity" value="Medium" required="true">Medium
+            </div> 
+            <div class="radio">
+             <input type="radio" id = "Quantity" name="Quantity" value="Heavy" required="true">Heavy
+             
+            </div> 
+      
+          <button type="submit" class ="submit" value="Create" align="center">Create </button>
+      </fieldset>
+      </form>
+      <form [formGroup]="FoodForm"(submit)="foodUser($event)" class="form-horizontal">
+        <!--<form [formGroup]="FoodForm"(submit)="foodUser($event)" (ngSubmit)="onFormSubmit(FoodForm.value)" class="form-horizontal">-->
+        <fieldset>
+          <label class="control-label" for="FoodType">FoodType</label>  
+          <div class="col-md-4">
+          <input type="hidden" id="FoodType"  class="form-control" name="FoodType" placeholder="" value="Staple Food">Staple Food
+          
+          </div>
+        
+            <label class="control-label" for="Quantity">Quantity</label>
+            <div class="radio">
+                <input type="radio" id = "Quantity" name="Quantity" value="Light" required="true">Light
+              </div>
+              <div class="radio">
+                <input type="radio" id = "Quantity" name="Quantity" value="Medium" required="true">Medium
+              </div> 
+              <div class="radio">
+               <input type="radio" id = "Quantity" name="Quantity" value="Heavy" required="true">Heavy
+               
+              </div> 
+        
+            <button type="submit" class ="submit" value="Create" align="center">Create </button>
+        </fieldset>
+        </form>
+  <table class="table" >  
+    <tr ngclass="btn-primary">  
+      <th class="tbl2">Food Type</th>  
+      <th class="tbl2">PatientID</th>  
+      <th class="tbl2">Quantity</th>           
+      <th class="tbl2">Date&Time</th>  
+    </tr>  
+   <tr *ngFor="let food of allFoods | async"> 
+      <td class="tbl2">{{food.FoodType}}</td>  
+      <td class="tbl2">{{food.PatientID}}</td>  
+      <td class="tbl2">{{food.Quantity}}</td> 
+      <td class="tbl2">{{food.CreatedAt}}</td> 
+      <td class="tbl2">  
+        <button type="button" (click)="updateFood(Food.ID)">Edit</button>  
+      </td>  
+    </tr>  
+  </table>  
+  
+<!--<div class="container">  
+  
+  <mat-card>  
+    <mat-toolbar color="accent">  
+      <div align="center" style="color:white;text-align: right;">  
+        CRUD operation in Angular 7 using Web api and Sql Database  
+      </div>    
+    </mat-toolbar>  
+  <br><br>  
+    <mat-card-content>  
+      <form [formGroup]="FoodForm"(ngSubmit)="onFormSubmit(FoodForm.value)">  
+              <table>  
+                <tr>  
+                  <td class="tbl1">  
+                    <mat-form-field class="demo-full-width">  
+                      <input formControlName="FoodType" matTooltip="Enter Food Type" matInput placeholder="Food Type">  
+                    </mat-form-field>  
+                    <mat-error>  
+                      <span *ngIf="!FoodForm.get('FoodName').value && FoodForm.get('FoodName').touched"></span>  
+                    </mat-error>  
+                  </td>      
+                  <td class="tbl1">  
+                    <mat-form-field class="demo-full-width">  
+                      <input formControlName="Quantity" matTooltip="Enter Food Quantity" matInput placeholder="Quantity">  
+                    </mat-form-field>  
+                      
+                  </td>         
+                </tr>  
+                <tr>  
+                  <td class="tbl1">  
+                    <span>Quantity</span>  
+                    <br><br>  
+                    <mat-radio-group matTooltip="Enter Quantity"formControlName="Quantity">  
+                        <mat-radio-button value="Low">Low</mat-radio-button>    
+                        <mat-radio-button value="Medium">Medium</mat-radio-button>  
+                        <mat-radio-button value="High">High</mat-radio-button>  
+                      </mat-radio-group>  
+                    
+                  </td>  
+                   
+                 
+                </tr>  
+                <tr>  
+                  <td></td>  
+                  <td  class="content-center">  
+                    <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!FoodForm.valid">Submit</button>      
+                    <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                  </td>  
+                  <td>  
+                    <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                      {{massage}}  
+                    </p>  
+                  </td>  
+                </tr>  
+              </table>  
+  <br><br>  
+        <table class="table" >  
+            <tr ngclass="btn-primary">  
+              <th class="tbl2">Food Type</th>  
+              <th class="tbl2">PatientID</th>  
+              <th class="tbl2">Quantity</th>           
+              <th class="tbl2">Edit</th>  
+               
+            </tr>  
+            <tr *ngFor="let employee of allEmployees | async">  
+              <td class="tbl2">{{Food.FoodType}}</td>  
+
+              <td class="tbl2">{{Food.PatientID}}</td>  
+              <td class="tbl2">{{Food.Quantity}}</td>  
+             
+              <td class="tbl2">  
+                <button type="button" class="btn btn-info"matTooltip="Click Edit Button"(click)="updateFood(Food.ID)">Edit</button>  
+              </td>  
+              
+            </tr>  
+    
+          </table>  
+      </form>  
+    </mat-card-content>  
+  </mat-card>  
+  </div> -->
+<!-- <div class="main">
     
   <h1><u>FOOD</u></h1>
   <ul class="cards">
@@ -78,4 +273,41 @@
         
        
   </div>
-</div>
+</div> -->
+
+
+<!-- <form #form="ngForm" autocomplete="off" *ngIf="foodService.formData" >
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>PatientID</label>
+       <input name="PatientID" #PatientID="ngModel" [(ngModel)]="foodService.formData.PatientID" class="form-control" readonly>
+       {{Food.PatientID}} 
+      </div>  
+        <div class="form-group">
+          <label>FirstName</label>
+         <input name="Name" #FirstName="ngModel" [(ngModel)]="foodService.formData.FirstName" class="form-control" readonly>
+        </div> 
+        </div>
+      </div>
+    </form>
+    <p>hello</p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

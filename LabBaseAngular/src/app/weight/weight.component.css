@@ -77,7 +77,7 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
 }
 
 .card_title {
@@ -100,7 +100,7 @@ img {
 
 input[type="submit"]
 {
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
 	
 	
 	border-radius:42px;
@@ -118,6 +118,6 @@ input[type="submit"]
 input[type="submit"]
 {
     cursor: pointer;
-    background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(28,110,164,1) 52%, rgba(255,255,255,1) 100%);
     color: white;
 }

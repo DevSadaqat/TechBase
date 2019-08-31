@@ -5,4 +5,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Lobster|Pacificio');
 @import url('https://fonts.googleapis.com/css?family=Lobster|Mako');
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 /*@import "node_modules/bootstrap/scss/bootstrap";*/

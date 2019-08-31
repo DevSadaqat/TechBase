@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Type of Exercise</th>
+        <th scope="col">Duration(Mintues) </th>
+        <th scope="col">Date</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exercise of allExercises | async">
+            <td>{{exercise.ExerciseType}}</td>
+            <td >{{exercise.Duration}} </td>
+            <td >{{exercise.CreatedAt}}</td>
+        
+      </tr>
+    </tbody>
+  </table>

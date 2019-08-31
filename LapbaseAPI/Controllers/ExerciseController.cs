@@ -7,12 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using LapbaseBOL;
 using LapbaseEntityFramework.Repositories;
 
 namespace LapbaseAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ExerciseController : ApiController
     {
         private readonly IExerciseRepository exerciseRepository = new ExerciseRepository();

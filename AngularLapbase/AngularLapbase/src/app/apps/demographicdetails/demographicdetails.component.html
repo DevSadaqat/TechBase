@@ -1,0 +1,100 @@
+<div>
+    <h3 for="inputAddress">Personal Details</h3>
+    <div>
+
+        <div>
+            <label for="title">Title</label>
+           <p> {{patient.Title}}</p>
+
+        </div>
+        <div>
+            <label for="firstname">First Name</label>
+           <p> {{patient.FirstName}}</p>
+        </div>
+        <div>
+            <label for="lastname">Last Name</label>
+           <p> {{patient.Surname}}</p>
+        </div>
+    </div>
+
+    <div>
+
+        <div>
+            <label for="DateOfBirth">Date of Birth</label>
+            {{patient.BirthDate}}
+        </div>
+        <div>
+            <label for="inputState">Gender</label>
+            {{patient.Gender}}
+        </div>
+    </div>
+
+    <h3 for="inputAddress">Address Details</h3>
+    <div>
+
+
+        <div>
+            <label for="inputAddress">Street</label>
+            {{patient.Street}}
+        </div>
+
+
+        <div>
+            <div>
+                <label for="inputCity">City</label>
+                {{patient.City}}
+            </div>
+
+            <div>
+                <label for="inputState">State</label>
+                {{patient.PatientState}}
+            </div>
+            <div>
+                <label for="inputZip">Zip</label>
+                {{patient.PinCode}}
+            </div>
+        </div>
+    </div>
+
+    <h3 for="inputAddress">Contact Details</h3>
+    <div>
+
+        <div>
+            <label for="inputCity">Email</label>
+            {{patient.ContactEmail}}
+        </div>
+
+        <div>
+            <label for="inputState">Phone</label>
+            {{patient.PhoneNumber}}
+        </div>
+        <div>
+            <label for="inputZip">Mobile</label>
+            {{patient.Mobile}}
+        </div>
+    </div>
+
+    <h3 for="inputAddress">Insurance Details</h3>
+    <div>
+
+        <div>
+            <label for="inputCity">Employer</label>
+            {{patient.InsuranceEmployer}}
+        </div>
+
+        <div>
+            <label for="inputState">Insurance</label>
+            {{patient.Insurance}}
+        </div>
+        <div>
+            <label for="inputZip">Insurance Number</label>
+            {{patient.InusuranceNumber}}
+        </div>
+        <div>
+            <label for="inputZip">Medicare Number</label>
+            {{patient.MedicareNumber}}
+
+        </div>
+    </div>
+
+</div>

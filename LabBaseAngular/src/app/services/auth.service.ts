@@ -13,8 +13,7 @@ export class AuthService {
   AuthorizationUrl = "http://localhost:81/Api/AuthorizeUser/AuthorizeUser?username=";
   model: Users = {
     UserName: "",
-    Password: ""}
-  
+    Password: ""}  
 
   constructor(private http: HttpClient) {
       
@@ -23,7 +22,7 @@ export class AuthService {
      return this.http.post<any>(this.baseUrl,  model);
     
    }
-   authorizedUser(username:string){
+   authorizedUser(username: string){
     return this.http.get<any>(this.AuthorizationUrl+username);
    }
   
