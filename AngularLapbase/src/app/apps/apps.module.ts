@@ -17,6 +17,8 @@ import { AddfoodComponent } from './addfood/addfood.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { AddexerciseComponent } from './addexercise/addexercise.component';
 import { DemographicdetailsComponent } from './demographicdetails/demographicdetails.component';
+import { WeightComponent } from './weight/weight.component';
+import { BmiComponent } from './bmi/bmi.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { DemographicdetailsComponent } from './demographicdetails/demographicdet
     DemographicComponent,
     AddexerciseComponent,
     DemographicdetailsComponent,
+    WeightComponent,
+    BmiComponent,
 
   ]
 })

@@ -1,5 +1,5 @@
 <!-- ============================================================== -->
-<!-- Sales chart -->
+<!-- Profile Cards -->
 <!-- ============================================================== -->
 <div class="card-group">
     <div class="card">
@@ -101,62 +101,175 @@
         </div>
     </div>
 </div>
+
+
 <!-- ============================================================== -->
-<!-- Sales chart -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Email campaign chart -->
+<!-- Graphs & BMI -->
 <!-- ============================================================== -->
 <div class="row">
-    <div class="col-lg-4 col-md-6">
+    <!-- column -->
+   <div class="col-lg-6 col-md-12">
+    <div class="card">
+        <div class="card-header bg-info">
+            <h4 class="m-b-0 text-white">BMI Calculator</h4>
+        </div>
+        <div class="card-body">
+                    <span>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <div class="b-label">
+                                    <label for="inputEmail3" class="control-label col-form-label">Weight</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="number" class="form-control" id="inputEmail3" placeholder="Enter your Weight here in Kgs">
+                            </div>
+                        </div>
+                    </span>
+                    <span>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <div class="b-label">
+                                    <label for="inputEmail3" class="control-label col-form-label">Height</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="number" class="form-control" id="inputEmail3"
+                                    placeholder="Enter your Height here in centimeter">
+                            </div>
+                        </div>
+                    </span>
+                    
+                    <div class="text-center">
+                        <button class="btn btn-rounded btn-danger col-lg-6">Calculate</button>
+                    </div>
+                    <hr>
+                    <h4>Calculated BMI</h4>
+                    <div>
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white">2,064</h1>
+                                <h6 class="text-white">Your Message </h6>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    
+ 
+
+
+
+
+
+<!-- ============================================================== -->
+<!-- Last Updates Card -->
+<!-- ============================================================== -->
+<div class="row">
+    <!-- column -->
+    <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="card-body">
-                    <i class="mdi mdi-chart-arc font-20"></i>
-                <h4 class="card-title">BMI</h4>
-                <div id="campaign" style="height: 168px; width: 100%;" class="m-t-10"></div>
-              
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title">Food Log</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="p-l-25 p-r-25 p-t-10 p-b-5 bg-light">
+                <div class="row align-items-center">
+                    <div class="col-xs-12 col-md-6">
+                        <h3 class="m-b-0 font-light">Date</h3>
+                        <span class="font-14 text-muted">Food</span>
+                    </div>
+                    <div class="col-xs-12 col-md-6 align-self-center display-6 text-info text-right"></div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Type of Food</th>
+                            <th class="border-top-0">Quantity</th>
+                            <th class="border-top-0">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let food of allFoods | async">
+                            <td>{{food.FoodType}}</td>
+                            <td>{{food.Quantity}}</td>
+                            <td>{{food.CreatedAt}}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
-        
     </div>
-          
-    <div class="col-lg-6 col-md-8 order-lg-6 order-md-8">
-            
-                <div class="card">
-                    <div class="card-body">
-                            <i class="mdi  mdi-weight font-20"></i>
-                        <h4 class="card-title"> Weight Record</h4>
-                        <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Weight</th>
-                                    
-                                    <th scope="col">Date</th>
-                                    
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                        <td>Weight</td>
-                                        
-                                        <td >Date</td>
-                                    
-                                  </tr>
-                                  <tr>
-                                        <td>Weight</td>
-                                        
-                                        <td>Date</td>  
-                                    
-                                  </tr>
-                                  
-                                </tbody>
-                              </table>
-                      
+
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title">Exercise Log</h4>
+                    </div>
                 </div>
-                
             </div>
-           
-    
-    
-    
+            <div class="p-l-25 p-r-25 p-t-10 p-b-5 bg-light">
+                <div class="row align-items-center">
+                    <div class="col-xs-12 col-md-6">
+                        <h3 class="m-b-0 font-light">Date</h3>
+                        <span class="font-14 text-muted">Exercise</span>
+                    </div>
+                    <div class="col-xs-12 col-md-6 align-self-center display-6 text-info text-right"></div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Type of Exercise</th>
+                            <th class="border-top-0">Duration(minutes)</th>
+                            <th class="border-top-0">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let exercise of allExercises | async">
+                            <td>{{exercise.ExerciseType}}</td>
+                            <td>{{exercise.Duration}} </td>
+                            <td>{{exercise.CreatedAt}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--Tabs-->
+
+
+
+
+
+
+
+
+
 

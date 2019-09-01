@@ -12,7 +12,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 export class FullComponent implements OnInit {
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   tabStatus = 'justified';
 
@@ -25,16 +25,16 @@ export class FullComponent implements OnInit {
   public expandLogo = false;
 
   options = {
-    theme: 'light', // two possible values: light, dark
-    dir: 'ltr', // two possible values: ltr, rtl
-    layout: 'vertical', // fixed value. shouldn't be changed.
-    sidebartype: 'full', // four possible values: full, iconbar, overlay, mini-sidebar 
-    sidebarpos: 'fixed', // two possible values: fixed, absolute
-    headerpos: 'fixed', // two possible values: fixed, absolute
-    boxed: 'full', // two possible values: full, boxed
-    navbarbg: 'skin6', // six possible values: skin(1/2/3/4/5/6)
-    sidebarbg: 'skin5', // six possible values: skin(1/2/3/4/5/6)
-    logobg: 'skin5' // six possible values: skin(1/2/3/4/5/6)
+    theme: 'light',
+    dir: 'ltr',
+    layout: 'vertical',
+    sidebartype: 'full',
+    sidebarpos: 'fixed',
+    headerpos: 'fixed',
+    boxed: 'full',
+    navbarbg: 'skin6',
+    sidebarbg: 'skin5',
+    logobg: 'skin5'
   };
 
   Logo() {
@@ -66,13 +66,7 @@ export class FullComponent implements OnInit {
         }
         break;
 
-      case 'overlay':
-        if (this.innerWidth < 767) {
-          this.options.sidebartype = 'mini-sidebar';
-        } else {
-          this.options.sidebartype = this.defaultSidebar;
-        }
-        break;
+
 
       default:
     }
@@ -85,9 +79,7 @@ export class FullComponent implements OnInit {
         this.options.sidebartype = 'mini-sidebar';
         break;
 
-      case 'overlay':
-        this.showMobileMenu = !this.showMobileMenu;
-        break;
+
 
       case 'mini-sidebar':
         if (this.defaultSidebar === 'mini-sidebar') {
