@@ -29,13 +29,17 @@ export class DemographicdetailsComponent implements OnInit {
    window.alert(10); 
    console.log(this.patient)
     */
-   this.patID = this.dataService.getPatientID();
-   this.orgCode = this.dataService.getOrganizationCode();
+   //this.patID = this.dataService.getPatientID();
+   //this.orgCode = this.dataService.getOrganizationCode();
+   this.patID  = localStorage.getItem("patientID");
+   this.orgCode = localStorage.getItem("organizationCode");
 
    return this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
     {        
+      
       window.alert(1)
       this.patient = data
+      
      console.log(this.patient)
     }); 
    /*return this.pat_Serv.getPatientById("10706","1").subscribe(data =>
@@ -45,6 +49,7 @@ export class DemographicdetailsComponent implements OnInit {
        console.log(this.patient)
       });*/
      }
+   
   
   }
 

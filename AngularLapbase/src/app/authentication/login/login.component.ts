@@ -46,10 +46,8 @@ loginUser(event){
           console.log(data);
           localStorage.setItem("patientID", data.PatientID);
           localStorage.setItem("organizationCode", data.OrganizationCode);
-          localStorage.setItem("FirstName", data.FirstName);
-            this.dataService.setPatientID(data.PatientID);
-            this.dataService.setOrganizationCode(data.OrganizationCode);
-            this.dataService.setFirstName(data.FirstName);
+          
+            
                 });
       
    
