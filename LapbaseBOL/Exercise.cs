@@ -8,13 +8,17 @@ namespace LapbaseBOL
 {    
     [Table("lbd.Exercise")]
     public class Exercise : BaseClass
-    { 
+    {
         public long ID { get; set; }
 
-        [StringLength(30)]
-        public string ExerciseType { get; set; }
+        public long ItemID { get; set; }
 
         public decimal? Duration { get; set; }
+
+        [Column(TypeName = "timestamp")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [MaxLength(8)]
+        public byte[] StartTime { get; set; }
 
         public long PatientID { get; set; }
 
@@ -22,6 +26,6 @@ namespace LapbaseBOL
 
         public virtual Patient Patient { get; set; }
 
-    
+        public virtual ExerciseItem ExerciseItem { get; set; }
     }
 }

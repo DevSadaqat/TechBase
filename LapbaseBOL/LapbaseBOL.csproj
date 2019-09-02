@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="BaseClass.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="ExerciseItem.cs" />
     <Compile Include="Food.cs" />
+    <Compile Include="FoodItem.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

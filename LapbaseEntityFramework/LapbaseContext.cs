@@ -11,9 +11,10 @@ namespace LapbaseEntityFramework
             : base("name=Lapbase")
         {
         }
-
         public virtual DbSet<Exercise> Exercises { get; set; }
+        public virtual DbSet<ExerciseItem> ExerciseItems { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
+        public virtual DbSet<FoodItem> FoodItems { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<SystemDetail> SystemDetails { get; set; }
@@ -23,12 +24,12 @@ namespace LapbaseEntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Exercise>()
-                .Property(e => e.ExerciseType)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Exercise>()
                 .Property(e => e.Duration)
                 .HasPrecision(6, 2);
+
+            modelBuilder.Entity<Exercise>()
+                .Property(e => e.StartTime)
+                .IsFixedLength();
 
             modelBuilder.Entity<Exercise>()
                 .Property(e => e.CreatedBy)
@@ -37,14 +38,32 @@ namespace LapbaseEntityFramework
             modelBuilder.Entity<Exercise>()
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<ExerciseItem>()
+                .Property(e => e.ExerciseName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ExerciseItem>()
+                .Property(e => e.ExerciseType)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ExerciseItem>()
+                .Property(e => e.Calories)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ExerciseItem>()
+                .HasMany(e => e.Exercises)
+                .WithRequired(e => e.ExerciseItem)
+                .HasForeignKey(e => e.ItemID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .Property(e => e.Quantity)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Food>()
-                .Property(e => e.FoodType)
-                .IsUnicode(false);
+                .Property(e => e.IntakeDate)
+                .IsFixedLength();
 
             modelBuilder.Entity<Food>()
                 .Property(e => e.CreatedBy)
@@ -53,6 +72,24 @@ namespace LapbaseEntityFramework
             modelBuilder.Entity<Food>()
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<FoodItem>()
+                .Property(e => e.FoodName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<FoodItem>()
+                .Property(e => e.MealType)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<FoodItem>()
+                .Property(e => e.Calories)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<FoodItem>()
+                .HasMany(e => e.Foods)
+                .WithRequired(e => e.FoodItem)
+                .HasForeignKey(e => e.ItemID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Organization>()
                 .Property(e => e.OrgDomainName)
