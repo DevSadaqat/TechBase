@@ -19,6 +19,9 @@ import { AddexerciseComponent } from './addexercise/addexercise.component';
 import { DemographicdetailsComponent } from './demographicdetails/demographicdetails.component';
 import { WeightComponent } from './weight/weight.component';
 import { BmiComponent } from './bmi/bmi.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+import { FoodComponent } from './food/food.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { BmiComponent } from './bmi/bmi.component';
     DemographicdetailsComponent,
     WeightComponent,
     BmiComponent,
-
+    DashboardComponent,
+    ExerciseComponent,
+    FoodComponent,
   ]
 })
 export class AppsModule { }

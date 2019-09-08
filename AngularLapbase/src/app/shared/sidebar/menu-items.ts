@@ -10,8 +10,8 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/dashboard/classic',
-    title: 'Dashboards',
+    path: '/apps/dashboard',
+    title: 'Dashboard',
     icon: 'mdi mdi-view-dashboard',
     class: '',
     extralink: false,
@@ -26,54 +26,20 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '',
+    path: '/apps/food',
     title: 'Food',
     icon: 'mdi mdi-food',
-    class: 'has-arrow',
+    class: '',
     extralink: false,
-    submenu: [
-      {
-        path: '/apps/addfood',
-        title: 'Add Food',
-        icon: 'mdi mdi-gamepad',
-        class: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/apps/foodlog',
-        title: 'Food Log',
-        icon: 'mdi mdi-view-list',
-        class: '',
-        extralink: false,
-        submenu: []
-      }
-    ]
+    submenu: []
   },
   {
-    path: '',
+    path: '/apps/exercise',
     title: 'Exercise',
     icon: 'mdi mdi-run',
-    class: 'has-arrow',
+    class: '',
     extralink: false,
-    submenu: [
-      {
-        path: '/apps/addexercise',
-        title: 'Add duration',
-        icon: 'mdi mdi-gamepad',
-        class: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/apps/exerciselog',
-        title: 'Exercise Log',
-        icon: 'mdi mdi-view-list',
-        class: '',
-        extralink: false,
-        submenu: []
-      }
-    ]
+    submenu: []
   },
   {
     path: '',
