@@ -25,8 +25,6 @@ namespace LapbaseBOL
 
         public long OrganizationCode { get; set; }
 
-       
-
         public virtual Patient Patient { get; set; }
 
         public virtual FoodItem FoodItem { get; set; }

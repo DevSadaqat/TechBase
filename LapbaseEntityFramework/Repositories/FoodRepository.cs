@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
 using System.Data.Entity;
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseEntityFramework.Repositories
 {
@@ -16,9 +17,10 @@ namespace LapbaseEntityFramework.Repositories
             Lb = new LapbaseContext();
         }
 
-        public IEnumerable<Food> GetFoods(long PatientID, long OrganizationCode)
+         //public IEnumerable<Food> GetFoods(long PatientID, long OrganizationCode)
+        public IEnumerable<FoodViewModel> GetFoods(long PatientID, long OrganizationCode)
         {
-            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode));
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(x=> new FoodViewModel { FoodName=x.FoodItem.FoodName, MealType= x.FoodItem.MealType, Quantity = x.Quantity, Calories = x.FoodItem.Calories }).ToList();
             return foods;
         }
 

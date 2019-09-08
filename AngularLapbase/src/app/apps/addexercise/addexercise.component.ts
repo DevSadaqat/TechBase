@@ -28,14 +28,14 @@ export class AddexerciseComponent implements AfterViewInit {
     this.orgCode = localStorage.getItem("organizationCode");
   }
   ExerciseUser(event){
-     window.alert(97);
+     
      event.preventDefault()
      const target = event.target
     
      this.exercise.ExerciseType =target.querySelector('#excType').value
      this.exercise.Duration = target.querySelector('#Duration').value
      console.log(this.exercise);
-     window.alert(97);
+  
      this.CreateExercise(this.exercise);
    }
 
@@ -48,7 +48,7 @@ export class AddexerciseComponent implements AfterViewInit {
 
      this.exerciseService.createExercise(exercise).subscribe(
     () => {
-          window.alert(10);
+       
      }
      );
    }

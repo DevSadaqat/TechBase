@@ -2,7 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { FoodService } from '../../services/food.service';
 import {Food} from '../../models/Food';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
-import { DataService } from '../../services/data.service';
+
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,8 +21,7 @@ export class AddfoodComponent implements AfterViewInit {
     OrganizationCode: ""
     }
   constructor(private formbuilder: FormBuilder, 
-    private foodService: FoodService,
-    public dataService: DataService) { }
+    private foodService: FoodService) { }
 
   
     ngAfterViewInit(){
@@ -33,12 +32,10 @@ export class AddfoodComponent implements AfterViewInit {
       this.patID  = localStorage.getItem("patientID");
       
       this.orgCode = localStorage.getItem("organizationCode");
-      //this.patID = this.dataService.getPatientID();
-      //this.orgCode =this.dataService.getOrganizationCode();
+      
      }
      foodUser(event){
-     // window.alert(97);
-     // this.FoodForm=FoodForm;
+
       event.preventDefault()
       const target = event.target
      
@@ -50,19 +47,14 @@ export class AddfoodComponent implements AfterViewInit {
       this.CreateFood(this.food);
     }
     CreateFood(food: Food) {  
-      //if (this.foodIdUpdate == null) {  
+     
         food.PatientID = this.patID;
         food.OrganizationCode = this.orgCode;
         console.log(food);
        // window.alert(86);
         this.foodService.createFood(food).subscribe(  
           () => {  
-           // window.alert(87);
-           // this.dataSaved = true;
-           // this.massage = 'Record saved Successfully';  
-          //  this.getAllFoods();  
-          //  this.foodIdUpdate = null;  
-          //  this.FoodForm.reset();  
+         
           }  
         );  
     }

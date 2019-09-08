@@ -16,25 +16,25 @@ export const AppsRoutes: Routes = [
       
       {path: 'exerciselog', 
       component: ExerciselogComponent, 
-      data: { title: 'Exercise Log', urls: [ { title: 'Dashboard', url: '/dashboard/classic' }, { title: 'Exercise Log' } ] } },
+      data: { title: 'Exercise Log', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'Exercise Log' } ] } },
       
       { path: 'foodlog', component: FoodlogComponent,
-        data: { title: 'Food Log', urls: [ { title: 'Dashboard', url: '/dashboard/classic' }, { title: 'Food Log' } ] } },
+        data: { title: 'Food Log', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'Food Log' } ] } },
       
       { path: 'addfood', component: AddfoodComponent,
-        data: { title: 'Add Food', urls: [ { title: 'Dashboard', url: '/dashboard/classic' }, { title: 'Add Food' } ] } },
+        data: { title: 'Add Food', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'Add Food' } ] } },
       
-      { path: 'weight', component: WeightComponent, 
-      data: { title: 'Weight', urls: [ { title: 'Dashboard', url: '/dashboard/classic' }, { title: 'Weight' } ] } },
-
-      { path: 'bmi', component: BmiComponent,
-        data: { title: 'BMI', urls: [{ title: 'Dashboard', url: '/dashboard/classic' }, { title: 'BMI' }] } },
+     /* { path: 'demographic', component: DemographicComponent, 
+      data: { title: 'My Demographics', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'My Demographics' } ] } },*/
 
       { path: 'demographicdetails', component: DemographicdetailsComponent, 
-      data: { title: 'My Demographics', urls: [ { title: 'Dashboard', url: '/dashboard/classic' }, { title: 'My Demographics' } ] } },
-      
+      data: { title: 'My Demographics', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'My Demographics' } ] } },
+ 
+      { path: 'weight', component: WeightComponent,
+        data: { title: 'Add Weight', urls: [ { title: 'Weight', url: '/weight' }, { title: 'Add Weight' } ] } },
+
       { path: 'addexercise', component: AddexerciseComponent,
-        data: { title: 'Add Exercise Duration', urls: [ { title: 'Dashboard', url: '/dashboard/classic' }, { title: 'Add Exercise Duration' } ] } }
+        data: { title: 'Add Exercise Duration', urls: [ { title: 'Dashboard', url: '/dashboard' }, { title: 'Add Exercise Duration' } ] } }
     ]
   }
 ];
