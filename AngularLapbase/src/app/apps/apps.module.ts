@@ -17,7 +17,6 @@ import { AddfoodComponent } from './addfood/addfood.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { AddexerciseComponent } from './addexercise/addexercise.component';
 import { DemographicdetailsComponent } from './demographicdetails/demographicdetails.component';
-import { WeightComponent } from './weight/weight.component';
 import { BmiComponent } from './bmi/bmi.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExerciseComponent } from './exercise/exercise.component';
@@ -46,7 +45,6 @@ import { FoodComponent } from './food/food.component';
     DemographicComponent,
     AddexerciseComponent,
     DemographicdetailsComponent,
-    WeightComponent,
     BmiComponent,
     DashboardComponent,
     ExerciseComponent,

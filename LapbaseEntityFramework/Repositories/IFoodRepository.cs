@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseEntityFramework.Repositories
 {
     public interface IFoodRepository : IDisposable
     {
-        IEnumerable<Food> GetFoods(long PatientID, long OrganizationCode);
+        // IEnumerable<Food> GetFoods(long PatientID, long OrganizationCode);
+        IEnumerable<FoodViewModel> GetFoods(long PatientID, long OrganizationCode);
         Food GetFoodByID(long id);
         void InsertFood(Food food);
         void DeleteFood(long id);     

@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 import { ExerciselogComponent } from './exerciselog/exerciselog.component';
 import { FoodlogComponent } from './foodlog/foodlog.component';
 import { AddfoodComponent } from './addfood/addfood.component';
-import { WeightComponent } from './weight/weight.component';
 import { AddexerciseComponent } from './addexercise/addexercise.component';
 import { DemographicdetailsComponent} from './demographicdetails/demographicdetails.component';
 import { BmiComponent } from './bmi/bmi.component';
@@ -43,8 +42,6 @@ export const AppsRoutes: Routes = [
       { path: 'addfood', component: AddfoodComponent,
         data: { title: 'Add Food', urls: [ { title: 'Dashboard', url: '/apps/dashboard' }, { title: 'Add Food' } ] } },
       
-      { path: 'weight', component: WeightComponent, 
-      data: { title: 'Weight', urls: [ { title: 'Dashboard', url: '/apps/dashboard' }, { title: 'Weight' } ] } },
 
       { path: 'bmi', component: BmiComponent,
         data: { title: 'BMI', urls: [{ title: 'Dashboard', url: '/apps/dashboard' }, { title: 'BMI' }] } },

@@ -30,7 +30,7 @@ export interface Chart {
 
 export class Dashboard1Component implements AfterViewInit {
 
-    
+
     lineChart2: Chart = {
         type: 'Line',
         data: data['Line'],
@@ -41,12 +41,23 @@ export class Dashboard1Component implements AfterViewInit {
             fullWidth: true
         }
     };
-    
+
     constructor() {
-        
+
     }
 
     ngAfterViewInit() {
-        
+
+      // this.patID  = localStorage.getItem("patientID");
+      // this.orgCode = localStorage.getItem("organizationCode");
+      //
+      //  return this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
+      //   {
+      //     window.alert(1)
+      //    // localStorage.setItem("FirstName", data.FirstName);
+      //     this.patient = data
+      //    console.log(this.patient)
+      //   });
+
     }
 }
