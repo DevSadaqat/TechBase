@@ -51,7 +51,7 @@ loginUser(event){
                 });
       
    
-    this.router.navigate(['../apps/dashboard'])
+    this.router.navigate(['../../apps/dashboard'])
     
   }
   else{
