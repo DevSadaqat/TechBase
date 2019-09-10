@@ -9,18 +9,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragulaModule } from 'ng2-dragula';
 import { QuillModule } from 'ngx-quill';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { ChartsModule } from 'ng2-charts';
+import { ChartistModule } from 'ng-chartist';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppsRoutes } from './apps.routing';
-import { ExerciselogComponent } from './exerciselog/exerciselog.component';
-import { FoodlogComponent } from './foodlog/foodlog.component';
-import { AddfoodComponent } from './addfood/addfood.component';
-import { DemographicComponent } from './demographic/demographic.component';
-import { AddexerciseComponent } from './addexercise/addexercise.component';
-import { DemographicdetailsComponent } from './demographicdetails/demographicdetails.component';
-import { BmiComponent } from './bmi/bmi.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ExerciseComponent } from './exercise/exercise.component';
+import { DemographicComponent } from './demographic/demographic.component';
 import { FoodComponent } from './food/food.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+
 
 
 @NgModule({
@@ -29,6 +28,9 @@ import { FoodComponent } from './food/food.component';
     FormsModule,
     NgbModule,
     NgbModalModule,
+    ChartsModule,
+    ChartistModule,
+    NgxChartsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -39,16 +41,10 @@ import { FoodComponent } from './food/food.component';
     PerfectScrollbarModule
   ],
   declarations: [
-    ExerciselogComponent,
-    FoodlogComponent,
-    AddfoodComponent,
-    DemographicComponent,
-    AddexerciseComponent,
-    DemographicdetailsComponent,
-    BmiComponent,
     DashboardComponent,
-    ExerciseComponent,
+    DemographicComponent,
     FoodComponent,
+    ExerciseComponent
   ]
 })
 export class AppsModule { }

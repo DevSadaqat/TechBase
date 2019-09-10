@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/apps/demographicdetails',
+    path: '/apps/demographic',
     title: 'My Demographics',
     icon: 'mdi mdi-account-circle',
     class: '',
@@ -34,7 +34,6 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  
   {
     path: '/apps/exercise',
     title: 'Exercise',

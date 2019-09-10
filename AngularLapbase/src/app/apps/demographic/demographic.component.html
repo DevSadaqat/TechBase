@@ -1,106 +1,327 @@
-<form>
-    <h3 for ="inputAddress">Personal Details</h3>
-<div class="form-row">
-    
-  <div class="form-group col-md-1">
-    <label for="inputEmail4">Title</label>
-    <input type="text" class="form-control" id="inputEmail4" placeholder="Title">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="firstname">First Name</label>
-    <input type="text" class="form-control" id="inputPassword4" placeholder="First Name">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="lastname">Last Name</label>
-    <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
-  </div>
-  </div>
-
-  <div class="form-row">
-   
-    <div class="form-group col-md-3">
-      <label for="inputPassword4">Date of Brith</label>
-      <input type="date" class="form-control" id="inputPassword4" placeholder="mm/dd/yyyy">
-    </div>
-    <div class="form-group col-md-2">
-        <label for="inputState">Gender</label>
-        <select id="inputState" class="form-control">
-                <option selected>Select</option>
-         <option>Male</option>
-          <option>Female</option>
-         
-        </select>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header bg-info">
+        <h4 class="m-b-0 text-white">View only</h4>
       </div>
-    </div>
-
-    <h3 for ="inputAddress">Address Details</h3>
-<div class="form-row">
-
-
-<div class="form-group col-md-5">
-  <label for="inputAddress">Street</label>
-  <input type="text" class="form-control" id="inputAddress" placeholder="Street">
-</div>
-
-
-<div class="form-row">
-  <div class="form-group col-md-4">
-    <label for="inputCity">City</label>
-    <input type="text" class="form-control" id="inputCity">
-  </div>
-
-  <div class="form-group col-md-3">
-    <label for="inputState">State</label>
-    <input type="text" class="form-control" id="inputCity">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-</div>
-</div>
-
-<h3 for ="inputAddress">Contact Details</h3>
-<div class="form-row">
-
-      <div class="form-group col-md-4">
-        <label for="inputCity">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-    
-      <div class="form-group col-md-3">
-        <label for="inputState">Phone</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputZip">Mobile</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-      </div>
-         
-<h3 for ="inputAddress">Insurance Details</h3>
-<div class="form-row">
-
-          <div class="form-row col-md-3">
-            <label for="inputCity">Employer</label>
-            <input type="text" class="form-control" id="inputCity">
-           
+      <form class="form-horizontal">
+        <div class="form-body">
+          <div class="card-body">
+            <h4 class="card-title">Personal Details</h4>
+            <hr>
           </div>
-        
-          <div class="form-row col-md-3">
-            <label for="inputState">Insurance</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-row col-md-3">
-            <label for="inputZip">Insurance Number</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
-          <div class="form-row col-md-3">
-                <label for="inputZip">Medicare Number</label>
-                <input type="text" class="form-control" id="inputZip">
-              
-              
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Title:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Mr </p>
+                  </div>
+                </div>
               </div>
-    </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Date Of Birth:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> DOB </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">First Name:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> John </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Gender:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Male/Female </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Last Name:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Kit </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <h4 class="card-title">Address Details</h4>
+            <hr>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Address:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> E104, Dharti-2, Near silverstar mall </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">City:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Bhavnagar </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">State:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> VIC </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Post Code:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> 457890 </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Country:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Australia </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <h4 class="card-title">Contact Details</h4>
+            </div>
+            <hr class="m-t-0 m-b-40">
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Email:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Email here </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Phone:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> 035687456 </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Mobile:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> 0489576285 </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <h4 class="card-title">Insurance Details</h4>
+            <hr>
+          </div>
 
-</form>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Employer:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Mr </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Insurance:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> DOB </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Insurance Number:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> John </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="control-label text-right col-md-3">Medicare Number:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> Male/Female </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+          </div>
+          <hr>
+          <div class="form-actions">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                      <!--<button type="submit" class="btn btn-danger">
+                        <i class="fa fa-pencil"></i> Edit</button>-->
+                    <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                      Edit
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Edit Demographics</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                                      <form>
+                                        
+                                        <h3 for="inputAddress">Address Details</h3>
+                                        <div class="form-row">
+                                      
+                                      
+                                          <div class="form-group col-md-5">
+                                            <label for="inputAddress">Street</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="Street">
+                                          </div>
+                                      
+                                      
+                                          <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                              <label for="inputCity">City</label>
+                                              <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                      
+                                            <div class="form-group col-md-3">
+                                              <label for="inputState">State</label>
+                                              <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                              <label for="inputZip">Zip</label>
+                                              <input type="text" class="form-control" id="inputZip">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      
+                                        <h3 for="inputAddress">Contact Details</h3>
+                                        <div class="form-row">
+                                      
+                                          <div class="form-group col-md-4">
+                                            <label for="inputCity">Email</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                          </div>
+                                      
+                                          <div class="form-group col-md-3">
+                                            <label for="inputState">Phone</label>
+                                            <input type="text" class="form-control" id="inputCity">
+                                          </div>
+                                          <div class="form-group col-md-3">
+                                            <label for="inputZip">Mobile</label>
+                                            <input type="text" class="form-control" id="inputZip">
+                                          </div>
+                                        </div>
+                                      
+                                        <h3 for="inputAddress">Insurance Details</h3>
+                                        <div class="form-row">
+                                      
+                                          <div class="form-row col-md-3">
+                                            <label for="inputCity">Employer</label>
+                                            <input type="text" class="form-control" id="inputCity">
+                                      
+                                          </div>
+                                      
+                                          <div class="form-row col-md-3">
+                                            <label for="inputState">Insurance</label>
+                                            <input type="text" class="form-control" id="inputCity">
+                                          </div>
+                                          <div class="form-row col-md-3">
+                                            <label for="inputZip">Insurance Number</label>
+                                            <input type="text" class="form-control" id="inputZip">
+                                          </div>
+                                          <div class="form-row col-md-3">
+                                            <label for="inputZip">Medicare Number</label>
+                                            <input type="text" class="form-control" id="inputZip">
+                                      
+                                      
+                                          </div>
+                                        </div>
+                                      
+                                      </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary bg-danger text-white">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                        
+                       
+                      <a href="/apps/dashboard" class="btn btn-primary bg-danger text-white " role="button" aria-pressed="true">Cancel</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6"> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
