@@ -1,0 +1,30 @@
+<div class="card">
+    
+    <div class="card-body">
+   <form (submit)="weightUser($event)" class="form-horizontal m-t-20" id="Weightform">
+            <label for="weight">Enter Current Weight</label>
+            <input type="text" class="form-control" id="WeightValue" placeholder="(kilograms)">
+            <button type="submit" class="btn btn-outline-secondary">Add</button>
+    </form>
+    </div>
+    <div class="card-body">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Weight</th>
+           
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let weight of allWeights | async">
+                <td>{{weight.WeightValue}}</td>
+                <td>{{weight.CreatedAt}}</td>
+            
+          </tr>
+         
+        </tbody>
+      </table>
+   </div>
+</div>
+
