@@ -17,20 +17,17 @@ namespace LapbaseEntityFramework.Repositories
         {
             Lb = new LapbaseContext();
         }
+        
+        public FoodItem GetFoodItem(String name)
+        {
+            FoodItem foodItem = Lb.FoodItems.Find(name);
+            return foodItem;
+        }
 
-        public IEnumerable<FoodItem> GetBreakfast()
+       
+        public IEnumerable<FoodItem> GetFoodItems()
         {
-            var foods = Lb.FoodItems.Where(a => a.MealType.Equals("Breakfast") );
-            return foods;
-        }
-        public IEnumerable<FoodItem> GetLunch()
-        {
-            var foods = Lb.FoodItems.Where(a => a.MealType.Equals("Lunch"));
-            return foods;
-        }
-        public IEnumerable<FoodItem> GetDinner()
-        {
-            var foods = Lb.FoodItems.Where(a => a.MealType.Equals("Dinner"));
+            var foods = Lb.FoodItems;
             return foods;
         }
         public void Save()

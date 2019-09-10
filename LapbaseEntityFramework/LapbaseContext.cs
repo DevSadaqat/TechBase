@@ -24,6 +24,10 @@ namespace LapbaseEntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Exercise>()
+                   .Property(e => e.ExerciseName)
+                   .IsUnicode(false);
+
+            modelBuilder.Entity<Exercise>()
                 .Property(e => e.Duration)
                 .HasPrecision(6, 2);
 
@@ -54,8 +58,15 @@ namespace LapbaseEntityFramework
             modelBuilder.Entity<ExerciseItem>()
                 .HasMany(e => e.Exercises)
                 .WithRequired(e => e.ExerciseItem)
-                .HasForeignKey(e => e.ItemID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Food>()
+                .Property(e => e.FoodName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Food>()
+                .Property(e => e.MealType)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Food>()
                 .Property(e => e.Quantity)
@@ -78,17 +89,12 @@ namespace LapbaseEntityFramework
                 .IsUnicode(false);
 
             modelBuilder.Entity<FoodItem>()
-                .Property(e => e.MealType)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<FoodItem>()
                 .Property(e => e.Calories)
                 .IsUnicode(false);
 
             modelBuilder.Entity<FoodItem>()
                 .HasMany(e => e.Foods)
                 .WithRequired(e => e.FoodItem)
-                .HasForeignKey(e => e.ItemID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Organization>()

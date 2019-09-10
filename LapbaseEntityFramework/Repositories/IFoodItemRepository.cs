@@ -9,9 +9,8 @@ namespace LapbaseEntityFramework.Repositories
 {
     public interface IFoodItemRepository : IDisposable
     {
-        IEnumerable<FoodItem> GetBreakfast();
-        IEnumerable<FoodItem> GetDinner();
-        IEnumerable<FoodItem> GetLunch();
+        FoodItem GetFoodItem(String name);
+        IEnumerable<FoodItem> GetFoodItems();
         void Save();
     }
 }

@@ -11,7 +11,9 @@ namespace LapbaseBOL
     {
         public long ID { get; set; }
 
-        public long ItemID { get; set; }
+      
+        [StringLength(30)]
+        public string ExerciseName { get; set; }
 
         public decimal? Duration { get; set; }
 

@@ -16,13 +16,9 @@ namespace LapbaseBOL
             Foods = new HashSet<Food>();
         }
 
-        public long ID { get; set; }
-
+       [Key]
         [StringLength(30)]
         public string FoodName { get; set; }
-
-        [StringLength(30)]
-        public string MealType { get; set; }
 
         [StringLength(20)]
         public string Calories { get; set; }

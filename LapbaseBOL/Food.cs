@@ -11,7 +11,11 @@ namespace LapbaseBOL
     {
         public long ID { get; set; }
 
-        public long ItemID { get; set; }
+        [StringLength(30)]
+        public string FoodName { get; set; }
+
+        [StringLength(30)]
+        public string MealType { get; set; }
 
         [StringLength(30)]
         public string Quantity { get; set; }

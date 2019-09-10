@@ -17,19 +17,25 @@ namespace LapbaseEntityFramework.Repositories
             Lb = new LapbaseContext();
         }
 
-        public IEnumerable<ExerciseItem> GetIntenseExercise()
+        public ExerciseItem GetExerciseItem(String name)
+        {
+            ExerciseItem exerciseItem = Lb.ExerciseItems.Find(name);
+            return exerciseItem;
+        }
+
+        public IEnumerable<ExerciseItem> GetIntenseExercises()
         {
             var exercises = Lb.ExerciseItems.Where(a => a.ExerciseType.Equals("Intense"));
             return exercises;
         }
 
-        public IEnumerable<ExerciseItem> GetLightExercise()
+        public IEnumerable<ExerciseItem> GetLightExercises()
         {
             var exercises = Lb.ExerciseItems.Where(a => a.ExerciseType.Equals("Light"));
             return exercises;
         }
 
-        public IEnumerable<ExerciseItem> GetModerateExercise()
+        public IEnumerable<ExerciseItem> GetModerateExercises()
         {
             var exercises = Lb.ExerciseItems.Where(a => a.ExerciseType.Equals("Moderate"));
             return exercises;

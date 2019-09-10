@@ -16,8 +16,7 @@ namespace LapbaseBOL
             Exercises = new HashSet<Exercise>();
         }
 
-        public long ID { get; set; }
-
+        [Key]
         [StringLength(30)]
         public string ExerciseName { get; set; }
 
