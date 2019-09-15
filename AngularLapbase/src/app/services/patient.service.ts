@@ -13,8 +13,8 @@ export class PatientService {
   constructor(private http: HttpClient) { }
 
   //method to get patient demographics
-  getPatientById(patId: string, organizationCode: string): Observable<Patient[]> {
- return this.http.get<Patient[]>(this.baseUrl + '/GetPatient?id=' + patId +'&organizationCode=' + organizationCode);
+  getPatientById(patId: string, organizationCode: string): Observable<Patient> {
+ return this.http.get<Patient>(this.baseUrl + '/GetPatient?id=' + patId +'&organizationCode=' + organizationCode);
 //  return this.patient;
   }
 

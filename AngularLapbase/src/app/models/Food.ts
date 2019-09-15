@@ -1,6 +1,7 @@
 export class Food {
     Quantity: string;
-    FoodType: string; 
+    FoodName: string; 
+    MealType: string;
     PatientID: string;
     OrganizationCode: string;
     }

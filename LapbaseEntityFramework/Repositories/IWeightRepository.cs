@@ -10,6 +10,7 @@ namespace LapbaseEntityFramework.Repositories
     public interface IWeightRepository : IDisposable
     {
         IEnumerable<Weight> GetWeights(long PatientID, long OrganizationCode);
+        Weight GetLatestWeight(long PatientID, long OrganizationCode);
         Weight GetWeightByID(long id);
         void InsertWeight(Weight weight);
         void DeleteWeight(long id);

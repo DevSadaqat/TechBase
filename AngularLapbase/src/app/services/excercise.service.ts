@@ -12,11 +12,13 @@ import { Excercise } from '../models/excercise';
 export class ExcerciseService {
 
   baseUrl: string = "http://localhost:81/Api/Exercise"
+  excerciseTypeUrl: string = "http://localhost:81/Api/ExerciseItem"
 
   exercise: Excercise = { 
-    //ID: "",
-    ExerciseType: "",
-    Duration: "" ,
+    
+    ExerciseName: "",
+    Duration: "", 
+    StartTime: "",
     PatientID: "", 
     OrganizationCode: ""
     }
@@ -27,14 +29,36 @@ export class ExcerciseService {
     return this.http.get<Excercise[]>
     (this.baseUrl + '/GetExercises?PatientId=' + patId +'&OrganizationCode=' + organizationCode)
     }
-    
-    getExcersieById(exerciseId: string): Observable<Excercise> {  
-      return this.http.get<Excercise>(this.baseUrl + 
-        '/GetExercises?ID=' + exerciseId);  
-    } 
+
     createExercise(exercise): Observable<Excercise> {  
       return this.http.post<any>(this.baseUrl + '/PostExercise',  exercise);  
     } 
+    
+    getIntenseExercises() {  
+      return this.http.get<any> (this.excerciseTypeUrl +
+        '/GetExerciseIntense');  
+    }
+    
+    getModerateExercises() {  
+      return this.http.get<any> (this.excerciseTypeUrl +
+        '/GetExerciseModerate');  
+    }
+
+    getLightExercises(){  
+      return this.http.get<any> (this.excerciseTypeUrl +
+        '/GetExerciseLight');  
+    }
+    /*
+    getModerateExercises(exerciseId: string): Observable<Excercise> {  
+      return this.http.get<Excercise>(this.baseUrl + 
+        '/GetExercises?ID=' + exerciseId);  
+    } 
+    
+    getLightExercises(exerciseId: string): Observable<Excercise> {  
+      return this.http.get<Excercise>(this.baseUrl + 
+        '/GetExercises?ID=' + exerciseId);  
+    } 
+
    
    /* updateFood(id:string,food: Food): Observable<Food>  {  
       

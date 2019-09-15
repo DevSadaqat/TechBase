@@ -39,6 +39,7 @@ loginUser(event){
 
  //method to get user details
  this._AuthS.loginUserDetails(this.model).subscribe(data => {
+   console.log(data)
   
     if(data === target.querySelector('#Username').value){
       this._AuthS.authorizedUser(target.querySelector('#Username').value).subscribe(
@@ -46,10 +47,10 @@ loginUser(event){
           console.log(data);
           localStorage.setItem("patientID", data.PatientID);
           localStorage.setItem("organizationCode", data.OrganizationCode);
-          
+        //  window.alert(1);
             
                 });
-      
+      //window.alert(2);
    
     this.router.navigate(['../../apps/dashboard'])
     

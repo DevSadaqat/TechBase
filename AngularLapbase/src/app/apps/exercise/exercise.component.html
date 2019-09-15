@@ -184,11 +184,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let exercise of allExercises | async">
-                                    <td>{{exercise.ExerciseType}}</td>
-                                    <td>{{exercise.Duration}} </td>
-                                    <td>{{exercise.CreatedAt}}</td>
-                        
+                                <tr *ngFor="let exe of allExercises | async">
+                                    <td>{{exe.ExerciseName}}</td>
+                                    <td>{{exe.Duration}} </td>
+                                    <td>{{exe.StartTime}}</td>
+                                    
                                 </tr>
                             </tbody>
                         </table>

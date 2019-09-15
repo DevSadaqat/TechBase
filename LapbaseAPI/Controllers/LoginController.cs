@@ -12,6 +12,7 @@ using System.DirectoryServices.AccountManagement;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Net.Http.Formatting;
+using System.Configuration;
 
 namespace LapbaseAPI.Controllers
 {
@@ -43,6 +44,7 @@ namespace LapbaseAPI.Controllers
                 authenticate = true;
                 username = model.UserName;
                 return Ok(model.UserName);
+               
 
             }
         }
@@ -50,6 +52,7 @@ namespace LapbaseAPI.Controllers
         #region public bool AuthenticateUser(string username, string password)
         private bool AuthenticateUser(string username, string password)
         {
+           
             string domainName = System.Configuration.ConfigurationManager.AppSettings["Domain Name"];
 
             string domainAndUsername = string.Format(@"{0}\{1}", domainName, username);

@@ -1,4 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
+import {PatientService} from '../../services/patient.service';
+import {Patient} from '../../models/Patient';
+import { getNumberOfCurrencyDigits } from '@angular/common';
+import { WeightService } from '../../services/weight.service';
+import {Weight} from '../../models/Weight';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +12,44 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements AfterViewInit {
-  constructor() { }
+  height: number;
+  weightBMI: number;
+  bmi: number;
+  message: string;
+  patID: string;
+  orgCode: string;
+  latestWeight: Observable<Weight>;
+  weightStr:string;
+  patient: Patient = {
+    ID: "",
+    OrganizationCode: "",
+    Title: "",
+    Surname:"",
+    FirstName: "",
+    BirthDate: "",
+    Gender:  "",
+    Height:  "",
+    PhoneNumber:  "",
+    Mobile:  "",
+    ContactEmail:  "",
+    Street:  "",
+    Suburb:  "",
+    City:  "",
+    State:  "",
+    PinCode:  "",
+    Country:  "",
+    Insurance: "",
+    InsuranceEmployer:  "",
+    InusuranceNumber:  "",
+    MedicareNumber:  ""
+  };
+  weight: Weight = {
+
+    WeightValue: "",
+    PatientID: "",
+    OrganizationCode: "",
+  }
+  constructor(private pat_Serv: PatientService,private weightService: WeightService) { }
 
 
 //Calorie Chart  
@@ -62,7 +105,7 @@ export class DashboardComponent implements AfterViewInit {
   
     // Weight Chart
     public WeightChart: Array<any> = [
-    { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Weight' },
+    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' },
     ];
     
     public WeightChartLabels: Array < any > =[
@@ -109,5 +152,79 @@ export class DashboardComponent implements AfterViewInit {
     }
 
   
-  ngAfterViewInit() { }
+  ngAfterViewInit() { 
+    this.patID  = localStorage.getItem("patientID");
+    this.orgCode = localStorage.getItem("organizationCode");
+  
+    this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
+    {        
+    
+      this.patient = data
+      localStorage.setItem("Height", data.Height);
+   
+    });
+    var intHeight = localStorage.getItem("Height");
+    console.log(intHeight);
+    this.height = +intHeight;
+    this.height = this.height/100;
+    console.log(this.height);
+    
+  }
+  calcBMI(event){
+    // window.alert(97);
+     event.preventDefault()
+     const target = event.target
+     this.weightBMI = target.querySelector('#Weight').value;
+     console.log(this.weight);
+    this.bmi = this.weightBMI/(this.height*this.height);
+    this.bmi = +this.bmi.toFixed(2);
+    console.log(this.bmi);
+    if(this.bmi<18.5)
+    {
+      this.message = "Underweight"
+    }
+    else if(this.bmi>=18.5 && this.bmi <25)
+    {
+      this.message = "Healthy"
+    }
+    else if(this.bmi>=25 && this.bmi <30)
+    {
+      this.message = "Overweight"
+    }
+    else
+    {
+      this.message = "Obese"
+    }
+   }
+   weightUser(event){
+    // window.alert(97);
+    
+     event.preventDefault()
+     const target = event.target
+    
+     this.weight.WeightValue =target.querySelector('#WeightValue').value
+     
+   
+   
+    // window.alert(97);
+     this.CreateWeight(this.weight);
+   }
+   getLatestWeight()
+  {
+    this.latestWeight = this.weightService.getLatestWeight(this.patID,this.orgCode);
+   
+  }
+   CreateWeight(weight: Weight) {  
+     //if (this.foodIdUpdate == null) {  
+       weight.PatientID = this.patID;
+       weight.OrganizationCode = this.orgCode;
+       console.log(weight);
+      // window.alert(86);
+       this.weightService.createWeight(weight).subscribe(  
+         () => {  
+           
+         }  
+       );  
+   }
+  
   }

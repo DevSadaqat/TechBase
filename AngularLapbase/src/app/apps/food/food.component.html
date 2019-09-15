@@ -17,24 +17,45 @@
                                             <img class="card-img-top" src="./assets/images/staple1.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Breakfast</u></h3>
-                                                <input type="hidden" id="FoodType" class="form-control" name="FoodType" placeholder=""
-                                                    value="Staple Food">
+                                                <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Breakfast">
                                                 <p class="card-text"> </p>
+                                               
                                                 
+                                                <select [(ngModel)]="selectedValue">
+                                                <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+                                                </select>
+
                                                 <div class="dl m-b-10">
-                                                    <select class="custom-select border-10 text-active">
-                                                        <option value="0" selected="">Select</option>
-                                                        <option value="1">Eggs</option>
-                                                        <option value="2">Yougurt</option>
-                                                        <option value="3">Cofee</option>
-                                                        <option value="4">Milk</option>
-                                                        <option value="5">Fruits</option>
-                                                        <option value="6">Bread</option>
-                                                    </select>
+                                                        <div class="dl m-b-10">
+                                                                <select id = "FoodName" class="custom-select border-10 text-active">
+                                                                    <option value="0">-Select Food-</option>
+                                                                  <option  *ngFor = "let fName of foodItem ">
+                                                                     {{fName.FoodName}}
+                                                                    </option>
+                                                                    <!-- <option value="0">-Select Calories-</option>
+                                                                  <option id = "Calories" *ngFor = "let fNam of foodItem ">
+                                                                     {{fNam.Calories}}
+                                                                    </option>
+                                                                     -->
+<!-- 
+                                                                     <option id = "FoodName" value="Milk">Milk</option>
+                                                                    <option id = "FoodName" value="Bread">Bread</option>
+                                                                    <option id = "FoodName" value="Rice">Rice</option>
+                                                                    <option id = "FoodName" value="Pasta">Pasta</option>
+                                                                    <option id = "FoodName" value="Sandwich">Sandwich</option>
+                                                                    <option id = "FoodName" value="Fish">Fish</option>
+                                                                    <option id = "FoodName" value="Chicken">Chicken</option>
+                                                                    <option id = "FoodName" value="Noodles">Noodles</option> -->
+                                                                </select>
+                                                            </div>
                                                 </div>
-                                                <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                                                <div class="dl m-b-10">
+                                                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
+                                                    </div>
+                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
+                                               <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
                                                     Add
-                                                </button>
+                                                </button> -->
                                                 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -69,25 +90,32 @@
                                             <img class="card-img-top" src="./assets/images/food1.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Lunch</u></h3>
-                                                <input type="hidden" id="FoodType" class="form-control" name="FoodType" placeholder=""
-                                                    value="Junk Food">
+                                                <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Lunch">
                                                 <p class="card-text"> </p>
-
+                                               
                                                 <div class="dl m-b-10">
-                                                    <select class="custom-select border-10 text-active">
-                                                        <option value="0" selected="">Select</option>
-                                                        <option value="1">Pasta</option>
-                                                        <option value="2">Sandwich</option>
-                                                        <option value="3">Noodles</option>
-                                                        <option value="4">Paratha</option>
-                                                        <option value="5">Paneer</option>
-                                                        <option value="6">Potato & Peas</option>
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Select Food</option>
+                                                        <option   value="Milk">Milk</option>
+                                                         <option  value="Bread">Bread</option>
+                                                         <option id = "FoodName" value="Rice">Rice</option>
+                                                         <option id = "FoodName" value="Pasta">Pasta</option>
+                                                         <option id = "FoodName" value="Sandwich">Sandwich</option>
+                                                         <option id = "FoodName" value="Fish">Fish</option>
+                                                         <option id = "FoodName" value="Chicken">Chicken</option>
+                                                         <option id = "FoodName" value="Noodles">Noodles</option>
                                                     </select>
                                                 </div>
-                                           
-                                                        <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                            Add
-                                                        </button>
+                                                <div class="dl m-b-10">
+                        
+                                                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
+                                                    </div>
+    
+                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
+                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                                                     Add
+                                                 </button> -->
+                                                 
                                                         
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -119,24 +147,32 @@
                                             <img class="card-img-top" src="./assets/images/drink3.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Dinner</u></h3>
-                                                <input type="hidden" id="FoodType" class="form-control" name="FoodType" placeholder=""
-                                                    value="Drinks">
+                                                <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Dinner">
                                                 <p class="card-text"></p>
+                                                
                                                 <div class="dl m-b-10">
                                                     <select class="custom-select border-10 text-active">
-                                                        <option value="0" selected="">Select</option>
-                                                        <option value="1">Pizza</option>
-                                                        <option value="2">Steak</option>
-                                                        <option value="3">Teriyaki</option>
-                                                        <option value="4">Fish</option>
-                                                        <option value="5">Brown Rice</option>
-                                                        <option value="6">Chicken</option>
+                                                        <option value="0" selected="">Select Food</option>
+                                                        <option id = "FoodName" value="Milk">Milk</option>
+                                                        <option id = "FoodName" value="Bread">Bread</option>
+                                                        <option id = "FoodName" value="Rice">Rice</option>
+                                                        <option id = "FoodName" value="Pasta">Pasta</option>
+                                                        <option id = "FoodName" value="Sandwich">Sandwich</option>
+                                                        <option id = "FoodName" value="Fish">Fish</option>
+                                                        <option id = "FoodName" value="Chicken">Chicken</option>
+                                                        <option id = "FoodName" value="Noodles">Noodles</option>
                                                     </select>
                                                 </div>
+                                                <div class="dl m-b-10">
+                        
+                                                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
+                                                    </div>
                                                 
-                                                        <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                            Add
-                                                        </button>
+                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
+                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                                                     Add
+                                                 </button> -->
+                                                 
                                                         
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -173,15 +209,17 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Type of Food</th>
-                                    <th scope="col">Name of Food </th>
+                                    <th scope="col">Food Name</th>
+                                    <th scope="col">Meal Type</th>
+                                    <th scope="col">Quantity</th>
                                     <th scope="col">Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let food of allFoods | async">
-                                    <td>{{food.FoodType}}</td>
-                                    <td>{{food.NameOfFood}}</td>
+                                    <td>{{food.FoodName}}</td>
+                                    <td>{{food.MealType}}</td>
+                                    <td>{{food.Quantity}}</td>
                                     <td>{{food.CreatedAt}}</td>
                         
                                 </tr>

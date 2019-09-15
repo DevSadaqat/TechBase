@@ -24,6 +24,19 @@ namespace LapbaseAPI.Controllers
             return Ok(weights);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(Weight))]
+        public IHttpActionResult GetLatestWeight(long PatientID, long OrganizationCode)
+        {
+            Weight weight = weightRepository.GetLatestWeight(PatientID,OrganizationCode);
+            if (weight == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(weight);
+        }
+
         // GET: api/Weight/5
         [ResponseType(typeof(Weight))]
         public IHttpActionResult GetWeight(long id)

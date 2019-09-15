@@ -21,6 +21,12 @@ namespace LapbaseEntityFramework.Repositories
             var weight = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode));
             return weight;
         }
+        public Weight GetLatestWeight(long PatientID, long OrganizationCode)
+        {
+            var latestId = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Max(p => p.ID);
+            var weight = Lb.Weights.Find(latestId);
+            return weight;
+        }
 
         public Weight GetWeightByID(long Id)
         {

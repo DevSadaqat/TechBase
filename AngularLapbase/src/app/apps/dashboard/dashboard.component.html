@@ -4,7 +4,7 @@
         <div class="card-body">
             <div class="m-t-30 text-center">
                 <img src="assets/images/users/1.jpg" class="rounded-circle" width="150" />
-                <h4 class="card-title m-t-10">Name</h4>
+                <h4 class="card-title m-t-10">Name: {{patient.FirstName}} {{patient.Surname}}</h4>
                 <h6 class="card-subtitle">Date of Birth</h6>
                 <div class="row text-center justify-content-md-center">
                     <div class="col-4">
@@ -29,11 +29,11 @@
         </div>
         <div class="card-body">
             <small class="text-muted">Email address </small>
-            <h6>hangover@gmail.com</h6>
+            <h6>{{patient.ContactEmail}}</h6>
             <small class="text-muted p-t-30 db">Phone</small>
-            <h6>+61465478454</h6>
+            <h6>{{patient.Mobile}}</h6>
             <small class="text-muted p-t-30 db">Address</small>
-            <h6>Thomas Cherry Building, MD 20815</h6>
+            <h6>{{patient.Street}} {{patient.Suburb}} {{patient.City}} {{patient.State}} {{patient.City}} {{patient.PinCode}}</h6>
         </div>
     </div>
 </div>
@@ -71,6 +71,7 @@
                         <ng-template ngbTabTitle><b>Add</b> Weight</ng-template>
                         <ng-template ngbTabContent>
                             <br />
+                            <form (submit)="weightUser($event)" class="form-horizontal m-t-20" id="Weightform">
                             <span>
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -84,7 +85,7 @@
                                 </div>
                             </span>
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal"
+                                <button type="submit" class="btn btn-primary bg-danger text-white" data-toggle="modal"
                                     data-target="#exampleModalCenter">
                                     Add
                                 </button>
@@ -111,17 +112,21 @@
                             <div>
                                 <div class="card card-hover">
                                     <div class="box bg-dark text-center">
-                                        <h1 class="font-light text-white">26</h1>
+                                        <h1 class="font-light text-white"> kgs</h1>
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </ng-template>
                     </ngb-tab>
+                   
             <ngb-tab>
                 <ng-template ngbTabTitle><b>BMI Calculator</b></ng-template>
                 <ng-template ngbTabContent>
                     <br />
-            <span>
+                    <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
+                    <span>
+               
                 <div class="form-group row">
                     <div class="col-sm-4">
                         <div class="b-label">
@@ -129,25 +134,27 @@
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <input type="number" class="form-control" id="inputEmail3" placeholder="Weight">
+                        <input type="number" class="form-control" id="Weight" placeholder="Weight">
                     </div>
                 </div>
             </span>
             <div class="text-center">
-                <button type="button" class="btn btn-rounded btn-dark bg-dark text-white col-lg-5">Calculate</button>
+                <button type="submit" class="btn btn-rounded btn-dark bg-dark text-white col-lg-5">Calculate</button>
             </div>
             <hr>
             <h4>Calculated BMI</h4>
             <div>
                 <div class="card card-hover">
                     <div class="box bg-dark text-center">
-                        <h1 class="font-light text-white">26</h1>
-                        <h6 class="text-white"> ... </h6>
+                        <h1 class="font-light text-white">{{bmi}}</h1>
+                        <h6 class="text-white"> {{message}}</h6>
                     </div>
                 </div>
             </div>
+        </form>
             </ng-template>
             </ngb-tab>
+           
             </ngb-tabset>
         </div>
     </div>      
