@@ -15,16 +15,20 @@
                                         <img class="card-img-top" src="./assets/images/yoga.jpg" alt="Card image cap">
                                         <div class="card-body">
                                             <h3 for="inputexercise">Light Exercise</h3>
-                                            <input type="hidden" id="excType" class="form-control" name="Type" placeholder="" value="Light">
+                                            <input type="hidden" id="excName" class="form-control" name="Type" placeholder="" value="Light">
                                         <div class="dl m-b-10">
-                                            <select class="custom-select border-10 text-active">
+                                            <select id = "exctype" class="custom-select border-10 text-active">
                                                 <option value="0" selected="">Select</option>
-                                                <option value="1">Yoga</option>
+                                                <option  *ngFor = "let ftype of exerciseLight">
+                                                    {{ftype.ExerciseName}}
+                                                   </option>
+
+                                                <!-- <option value="1">Yoga</option>
                                                 <option value="2">Stair Stepping</option>
                                                 <option value="3">Plank</option>
                                                 <option value="4">dancing</option>
                                                 <option value="5">Cleaning</option>
-                                                <option value="6">Water Bottle Weights</option>
+                                                <option value="6">Water Bottle Weights</option> -->
                                             </select>
                                         </div>
                                         <div class="dl m-b-10">
@@ -32,7 +36,7 @@
                                             <input type="number" class="form-control" id="Duration" placeholder="Duration in Mintues">
                                         </div>
                                         
-                                        <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button type="submit" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
                                             Add
                                         </button>
                                         
@@ -66,17 +70,21 @@
                                         <img class="card-img-top" src="./assets/images/r1.jpg" alt="Card image cap">
                                         <div class="card-body">
                                             <h3 for="inputfood">Moderate Exercise</h3>
-                                            <input type="hidden" id="excType" class="form-control" name="Type" placeholder=""
+                                            <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
                                                 value="Moderate">
                                             <div class="dl m-b-10">
-                                                <select class="custom-select border-10 text-active">
-                                                    <option value="0" selected="">Select</option>
-                                                    <option value="1">Running</option>
-                                                    <option value="2">Jogging</option>
+                                                <select id = "exctype" class="custom-select border-10 text-active">
+                                                    <option id = "exctype" value="0" selected="">Select</option>
+                                                    <option  *ngFor = "let ftype of exerciseModerate">
+                                                        {{ftype.ExerciseName}}
+                                                    </option>
+                                                   
+                                                   
+                                                    <!-- <option value="2">Jogging</option>
                                                     <option value="3">Walking</option>
                                                     <option value="4">Cycling</option>
                                                     <option value="5">Jumping</option>
-                                                    <option value="6">Talking</option>
+                                                    <option value="6">Talking</option> -->
                                                 </select>
                                             </div>
                                             <div class="dl m-b-10">
@@ -84,7 +92,7 @@
                                                 <input type="number" class="form-control" id="Duration" placeholder="Duration in Mintues">
                                             </div>
                                             
-                                            <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <button type="submit" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
                                                 Add
                                             </button>
                                             
@@ -112,26 +120,23 @@
                             </div>
                     
                             <div class="col">
-                                <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
+                                <form (button)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
                                     <div class="card" style="width: 18rem;">
                                         <img class="card-img-top" src="./assets/images/i1.jpg" alt="Card image cap">
                                         <p class="card-text"></p>
                                         <div class="card-body">
                                             <h3 for="inputfood">Intense Exercise</h3>
-                                            <input type="hidden" id="excType" class="form-control" name="Type" placeholder=""
+                                            <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
                                                 value="Intense">
                                             
-                    <div class="dl m-b-10">
-                        <select class="custom-select border-10 text-active">
-                            <option value="0" selected="">Select</option>
-                            <option value="1">Squat</option>
-                            <option value="2">Leg Press</option>
-                            <option value="3">Leg Curl</option>
-                            <option value="4">Leg Extension</option>
-                            <option value="5">Chest Fly</option>
-                            <option value="6">Shoulder Press</option>
-                        </select>
-                    </div>
+                                            <div class="dl m-b-10">
+                                                <select id = "exctype" class="custom-select border-10 text-active">
+                                                    <option id = "exctype" value="0" selected="">Select</option>
+                                                    <option  *ngFor = "let ftype of exerciseIntense">
+                                                        {{ftype.ExerciseName}}
+                                                    </option>
+                                                    </select>
+                                            </div>        
                     <div class="dl m-b-10">
                         
                         <input type="number" class="form-control" id="Duration" placeholder="Duration in Mintues">

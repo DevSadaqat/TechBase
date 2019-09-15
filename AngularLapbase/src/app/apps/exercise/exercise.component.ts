@@ -16,17 +16,27 @@ export class ExerciseComponent implements AfterViewInit {
   allExercises: Observable<Excercise[]>;
   exercise: Excercise = {
     ExerciseName: "",
+    ExerciseType: "",
     Duration: "", 
     StartTime: "",
     PatientID: "", 
     OrganizationCode: ""
   }
-  exerciseItem: ExerciseItem = {
+  exerciseIntense: ExerciseItem = {
     ExerciseName: "",
     ExerciseType: "", 
     Calories: "" 
   }
-
+  exerciseLight: ExerciseItem = {
+    ExerciseName: "",
+    ExerciseType: "", 
+    Calories: "" 
+  }
+  exerciseModerate: ExerciseItem = {
+    ExerciseName: "",
+    ExerciseType: "", 
+    Calories: "" 
+  }
   constructor(private exerciseService: ExcerciseService) { }
 
   ngAfterViewInit() {
@@ -35,19 +45,19 @@ export class ExerciseComponent implements AfterViewInit {
     this.getAllExercises;
     
     //method to display list of exercises 
-    this.exerciseService. getIntenseExercises().subscribe(data => {
-      this.exerciseItem = data;
-      console.log(this.exerciseItem);
+    this.exerciseService.getIntenseExercises().subscribe(data => {
+      this.exerciseIntense = data;
+      console.log(this.exerciseIntense);
     })
 
     this.exerciseService.getModerateExercises().subscribe(data => {
-      this.exerciseItem = data;
-      console.log(this.exerciseItem);
+      this.exerciseModerate = data;
+      console.log(this.exerciseModerate);
     })
 
     this.exerciseService.getLightExercises().subscribe(data => {
-      this.exerciseItem = data;
-      console.log(this.exerciseItem);
+      this.exerciseLight = data;
+      console.log(this.exerciseLight);
     })
 
 
@@ -65,7 +75,8 @@ export class ExerciseComponent implements AfterViewInit {
     event.preventDefault()
     const target = event.target
    
-    this.exercise.ExerciseName =target.querySelector('#excType').value
+    this.exercise.ExerciseName =target.querySelector('#excName').value
+    this.exercise.ExerciseType =target.querySelector('#exctype').value
     this.exercise.Duration = target.querySelector('#Duration').value
     console.log(this.exercise); 
     window.alert(97); 
