@@ -3,14 +3,25 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using LapbaseBOL;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Reflection;
+using System.Text.RegularExpressions;
+
 namespace LapbaseEntityFramework
 {    
     public partial class LapbaseContext : DbContext
     {
+        private static EnvironmentConfigBuilder enf = new EnvironmentConfigBuilder();
+        static string connectionString = enf.getCS();
+
+
         public LapbaseContext()
-            : base("name=Lapbase")
+            : base(connectionString)
         {
         }
+
         public virtual DbSet<Exercise> Exercises { get; set; }
         public virtual DbSet<ExerciseItem> ExerciseItems { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
@@ -254,5 +265,6 @@ namespace LapbaseEntityFramework
             }
             return base.SaveChanges();
         }
-    }
+        
+}
 }

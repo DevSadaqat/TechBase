@@ -55,5 +55,6 @@
     <Compile Include="User.cs" />
     <Compile Include="Weight.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
