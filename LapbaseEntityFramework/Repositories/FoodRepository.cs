@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
 using System.Data.Entity;
-using LapbaseEntityFramework.ViewModel;
+
 
 namespace LapbaseEntityFramework.Repositories
 {

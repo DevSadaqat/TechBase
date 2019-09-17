@@ -21,7 +21,7 @@ namespace LapbaseEntityFramework
 
         }
        
-        public string getCS()
+        public string getLBCS()
         {
        
         ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["Lapbase"];
@@ -30,9 +30,21 @@ namespace LapbaseEntityFramework
        string cs = Regex.Replace(connectString, @"user id=[^;]*", "user id=" + username);
        string cs1 = Regex.Replace(cs, "password=[^;]*", "password=" + password);
         return cs1;
-    }
-       
-           
+        }
+
+        public string getDemoCS()
+        {
+
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["LbDemo"];
+            string connectString = settings.ConnectionString.ToString();
+
+            string cs = Regex.Replace(connectString, @"user id=[^;]*", "user id=" + username);
+            string cs1 = Regex.Replace(cs, "password=[^;]*", "password=" + password);
+            return cs1;
+        }
+
+
+
     }
 
 

@@ -51,8 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemoRepositories\IPatientDemographicRepository.cs" />
+    <Compile Include="DemoRepositories\PatientDemographicRepository.cs" />
     <Compile Include="EnvironmentConfigBuilder.cs" />
     <Compile Include="LapbaseContext.cs" />
+    <Compile Include="LbDemoContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ExerciseItemRepository.cs" />
     <Compile Include="Repositories\FoodItemRepository.cs" />
@@ -68,7 +71,6 @@
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="ViewModel\FoodViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

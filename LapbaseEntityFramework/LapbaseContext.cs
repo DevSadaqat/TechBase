@@ -14,7 +14,7 @@ namespace LapbaseEntityFramework
     public partial class LapbaseContext : DbContext
     {
         private static EnvironmentConfigBuilder enf = new EnvironmentConfigBuilder();
-        static string connectionString = enf.getCS();
+        static string connectionString = enf.getLBCS();
 
 
         public LapbaseContext()
