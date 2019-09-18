@@ -67,9 +67,7 @@
     <Compile Include="Repositories\FoodRepository.cs" />
     <Compile Include="Repositories\IExerciseRepository.cs" />
     <Compile Include="Repositories\IFoodRepository.cs" />
-    <Compile Include="Repositories\IPatientRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
-    <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ namespace LapbaseEntityFramework.DemoRepositories
         public interface IPatientDemographicRepository : IDisposable
         {
         // IEnumerable<PatientDemographic> GetPatients();
-            IEnumerable<PatientDemographic> GetPatient(long id, long organizationCode);
+            IEnumerable<PatientDemographic> GetPatient(long id, long organizationCode, long userCode);
           
         }
     

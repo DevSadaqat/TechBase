@@ -11,7 +11,7 @@ namespace LapbaseBOL
     {
         public long ID { get; set; }
 
-      
+        [Required]
         [StringLength(30)]
         public string ExerciseName { get; set; }
 
@@ -25,8 +25,6 @@ namespace LapbaseBOL
         public long PatientID { get; set; }
 
         public long OrganizationCode { get; set; }
-
-        public virtual Patient Patient { get; set; }
 
         public virtual ExerciseItem ExerciseItem { get; set; }
     }
