@@ -11,6 +11,7 @@ namespace LapbaseBOL
     {
         public long ID { get; set; }
 
+        [Required]
         [StringLength(30)]
         public string FoodName { get; set; }
 
@@ -29,7 +30,6 @@ namespace LapbaseBOL
 
         public long OrganizationCode { get; set; }
 
-        public virtual Patient Patient { get; set; }
 
         public virtual FoodItem FoodItem { get; set; }
 

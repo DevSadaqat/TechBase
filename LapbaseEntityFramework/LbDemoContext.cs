@@ -3,7 +3,8 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using LapbaseBOL.LbDemo;
-
+using LapbaseBOL.LbDemo.SPClasses;
+    
 namespace LapbaseEntityFramework.LbDemo
 {
    
@@ -114,6 +115,7 @@ namespace LapbaseEntityFramework.LbDemo
         public virtual DbSet<tblSystemNormals_Staging> tblSystemNormals_Staging { get; set; }
         public virtual DbSet<tblTemplate> tblTemplates { get; set; }
         public virtual DbSet<tblImportDataException> tblImportDataExceptions { get; set; }
+        public virtual DbSet<PatientDemographic> PatientDemographics { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

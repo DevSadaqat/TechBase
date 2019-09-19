@@ -22,7 +22,7 @@ export class FoodService {
     FoodName: "", 
     Calories: ""
   }
-  foodItemUrl: string = "http://localhost:81/Api/FoodItem/GetFoodItems"
+  foodItemUrl: string = "http://localhost:54726/Api/FoodItem/GetFoodItems"
   constructor(private http: HttpClient){}
 
   

@@ -24,6 +24,6 @@ namespace LapbaseBOL
 
         public int? IsDeleted { get; set; }
 
-        public virtual Patient Patient { get; set; }
+        public long UserPracticeCode { get; set; }
     }
 }

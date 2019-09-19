@@ -18,13 +18,14 @@ namespace LapbaseEntityFramework.DemoRepositories
             Lb = new LbDemoContext();
         }
 
-        public IEnumerable<PatientDemographic> GetPatient(long id, long organizationCode)
+        public IEnumerable<PatientDemographic> GetPatient(long id, long organizationCode, long userCode)
         {
-            var patientId = new SqlParameter("@PatientId", id);
+            var patientId = new SqlParameter("@PatientID", id);
 
             var orgCode = new SqlParameter("@OrganizationCode", organizationCode);
+            var uCode = new SqlParameter("@UserPracticeCode", userCode);
 
-            var collection = Lb.Database.SqlQuery<PatientDemographic>("sp_LoadPatientDataDemographic @OrganizationCode, @PatientId", orgCode, patientId).ToList();
+            var collection = Lb.Database.SqlQuery<PatientDemographic>("Ver1_0_sp_PatientData_LoadData @OrganizationCode, @UserPracticeCode, @PatientID", orgCode, uCode, patientId).ToList();
 
             return collection;
         }

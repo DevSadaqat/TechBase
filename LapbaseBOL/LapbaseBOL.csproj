@@ -146,7 +146,6 @@
     <Compile Include="LbDemo\tblUsysUserObjectLog.cs" />
     <Compile Include="LbDemo\tblVersionLog.cs" />
     <Compile Include="Organization.cs" />
-    <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemDetail.cs" />
     <Compile Include="User.cs" />

@@ -48,6 +48,49 @@ namespace LapbaseEntityFramework.Repositories
             Lb.Configuration.ValidateOnSaveEnabled = true;
         }
 
+        public IEnumerable<Food> FilterBreakfast(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.MealType.Equals("Breakfast"));
+            return foods;
+        }
+
+
+        public IEnumerable<Food> FilterLunch(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.MealType.Equals("Lunch"));
+            return foods;
+        }
+
+        public IEnumerable<Food> FilterDinner(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.MealType.Equals("Dinner"));
+            return foods;
+        }
+
+        public IEnumerable<Food> FilterSmall(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.Quantity.Equals("Small"));
+            return foods;
+        }
+
+        public IEnumerable<Food> FilterMedium(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.Quantity.Equals("Medium"));
+            return foods;
+        }
+
+        public IEnumerable<Food> FilterLarge(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.Quantity.Equals("Large"));
+            return foods;
+        }
+
+        public IEnumerable<Food> FilterFoodName(long PatientID, long OrganizationCode, string foodName)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.FoodName.Equals(foodName));
+            return foods;
+        }
+
         public void Save()
         {
             Lb.SaveChanges();
