@@ -17,7 +17,6 @@ namespace LapbaseBOL
 
         public long OrganizationCode { get; set; }
 
-        public virtual Patient Patient { get; set; }
-
+        public decimal? BMI { get; set; }
     }
 }

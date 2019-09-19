@@ -3,18 +3,20 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using LapbaseBOL;
+using LapbaseBOL.LbDemo.SPClasses;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using LapbaseEntityFramework.LbDemo;
 
 namespace LapbaseEntityFramework
 {    
     public partial class LapbaseContext : DbContext
     {
         private static EnvironmentConfigBuilder enf = new EnvironmentConfigBuilder();
-        static string connectionString = enf.getCS();
+        static string connectionString = enf.getLBCS();
 
 
         public LapbaseContext()
@@ -27,7 +29,6 @@ namespace LapbaseEntityFramework
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<FoodItem> FoodItems { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
-        public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<SystemDetail> SystemDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Weight> Weights { get; set; }
@@ -35,8 +36,8 @@ namespace LapbaseEntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Exercise>()
-                   .Property(e => e.ExerciseName)
-                   .IsUnicode(false);
+                .Property(e => e.ExerciseName)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Exercise>()
                 .Property(e => e.Duration)
@@ -121,90 +122,8 @@ namespace LapbaseEntityFramework
                 .IsUnicode(false);
 
             modelBuilder.Entity<Organization>()
-                .HasMany(e => e.Patients)
-                .WithRequired(e => e.Organization)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Organization>()
                 .HasMany(e => e.SystemDetails)
                 .WithRequired(e => e.Organization)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Title)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Surname)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.FirstName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Gender)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.ContactEmail)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Street)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Suburb)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.City)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.PatientState)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.PinCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Country)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.Insurance)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .Property(e => e.InsuranceEmployer)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Patient>()
-                .HasMany(e => e.Exercises)
-                .WithRequired(e => e.Patient)
-                .HasForeignKey(e => new { e.PatientID, e.OrganizationCode })
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Patient>()
-                .HasMany(e => e.Foods)
-                .WithRequired(e => e.Patient)
-                .HasForeignKey(e => new { e.PatientID, e.OrganizationCode })
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Patient>()
-                .HasMany(e => e.Users)
-                .WithRequired(e => e.Patient)
-                .HasForeignKey(e => new { e.PatientID, e.OrganizationCode })
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Patient>()
-                .HasMany(e => e.Weights)
-                .WithRequired(e => e.Patient)
-                .HasForeignKey(e => new { e.PatientID, e.OrganizationCode })
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
@@ -222,35 +141,40 @@ namespace LapbaseEntityFramework
             modelBuilder.Entity<Weight>()
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Weight>()
+                .Property(e => e.BMI)
+                .HasPrecision(5, 2);
         }
         public override int SaveChanges()
         {
+            LbDemoContext lb = new LbDemoContext();
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseClass && (x.State == EntityState.Added || x.State == EntityState.Modified));
             //get username from session or authentication
 
             var currentUsername = "";
             foreach (var entity in entities)
             {
-                if (entity.Entity is Food)
-                {
-                    long patientId = ((Food)entity.Entity).PatientID;
-                    var patient = Patients.Where(a => a.ID.Equals(patientId)).FirstOrDefault();
-                    currentUsername = patient.FirstName;
-                }
+                 if (entity.Entity is Food)
+                 {
+                     long patientId = ((Food)entity.Entity).PatientID;
+                     var patient = lb.tblPatients.Where(a => a.Patient_Id==patientId).FirstOrDefault();
+                     currentUsername = patient.Firstname;
+                 }
 
-                if (entity.Entity is Exercise)
-                {
-                    long patientId = ((Exercise)entity.Entity).PatientID;
-                    var patient = Patients.Where(a => a.ID.Equals(patientId)).FirstOrDefault();
-                    currentUsername = patient.FirstName;
-                }
+                 if (entity.Entity is Exercise)
+                 {
+                     long patientId = ((Exercise)entity.Entity).PatientID;
+                     var patient = lb.tblPatients.Where(a => a.Patient_Id==patientId).FirstOrDefault();
+                     currentUsername = patient.Firstname;
+                 }
 
-                if (entity.Entity is Weight)
-                {
-                    long patientId = ((Weight)entity.Entity).PatientID;
-                    var patient = Patients.Where(a => a.ID.Equals(patientId)).FirstOrDefault();
-                    currentUsername = patient.FirstName;
-                }
+                 if (entity.Entity is Weight)
+                 {
+                     long patientId = ((Weight)entity.Entity).PatientID;
+                     var patient = lb.tblPatients.Where(a => a.Patient_Id==patientId).FirstOrDefault();
+                     currentUsername = patient.Firstname;
+                 }
 
                 if (entity.State == EntityState.Added)
                 {

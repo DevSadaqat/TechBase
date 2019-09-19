@@ -20,6 +20,7 @@ namespace LapbaseAPI.Controllers
         private readonly IFoodRepository foodRepository = new FoodRepository();
 
         // GET: api/Food
+        [HttpGet]
         public IHttpActionResult GetFoods(long PatientID, long OrganizationCode)
         {
             var foods = foodRepository.GetFoods(PatientID, OrganizationCode);
@@ -27,6 +28,7 @@ namespace LapbaseAPI.Controllers
         }
 
         // GET: api/Food/5
+        [HttpGet]
         [ResponseType(typeof(Food))]
         public IHttpActionResult GetFood(long id)
         {
@@ -79,6 +81,56 @@ namespace LapbaseAPI.Controllers
 
             return Ok(food);
         }
+
+        [HttpGet]
+        public IHttpActionResult FilterBreakfast(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterBreakfast(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
+        public IHttpActionResult FilterLunch(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterLunch(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
+        public IHttpActionResult FilterDinner(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterDinner(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
+        public IHttpActionResult FilterSmall(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterSmall(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
+        public IHttpActionResult FilterMedium(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterMedium(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
+        public IHttpActionResult FilterLarge(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterLarge(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
+        public IHttpActionResult FilterFoodName(long PatientID, long OrganizationCode, string foodName)
+        {
+            var foods = foodRepository.FilterFoodName(PatientID, OrganizationCode,foodName);
+            return Ok(foods);
+        }
+
     }
       
 }

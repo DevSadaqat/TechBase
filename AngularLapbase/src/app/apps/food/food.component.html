@@ -13,7 +13,7 @@
                         
                                 <div class="col">
                                     <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
-                                        <div class="card" style="width: 18rem;">
+                                        <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/staple1.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Breakfast</u></h3>
@@ -46,8 +46,23 @@
                                                             </div>
                                                 </div>
                                                 <div class="dl m-b-10">
-                                                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
-                                                    </div>
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                         
+                                                    </select>
+                                                </div>
+                                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                        <label class="btn btn-secondary active">
+                                                          <input type="radio" name="options" id="option1" autocomplete="off" checked>High
+                                                        </label>
+                                                        <label class="btn btn-secondary">
+                                                          <input type="radio" name="options" id="option2" autocomplete="off">Medium
+                                                        </label>
+                                                        <label class="btn btn-secondary">
+                                                          <input type="radio" name="options" id="option3" autocomplete="off">Low
+                                                        </label>
+                                                      </div>
                                                 <button type="submit" class="btn btn-outline-secondary">Add</button>
                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
                                                     Add
@@ -82,7 +97,7 @@
                         
                                 <div class="col">
                                     <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
-                                        <div class="card" style="width: 18rem;">
+                                        <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/food1.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Lunch</u></h3>
@@ -103,10 +118,23 @@
                                                     </select>
                                                 </div>
                                                 <div class="dl m-b-10">
-                        
-                                                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
-                                                    </div>
-    
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                         
+                                                    </select>
+                                                </div>
+                                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                        <label class="btn btn-secondary active">
+                                                          <input type="radio" name="options" id="option1" autocomplete="off" checked>HIGH
+                                                        </label>
+                                                        <label class="btn btn-secondary">
+                                                          <input type="radio" name="options" id="option2" autocomplete="off"> MEDIUM
+                                                        </label>
+                                                        <label class="btn btn-secondary">
+                                                          <input type="radio" name="options" id="option3" autocomplete="off">LOW
+                                                        </label>
+                                                      </div>
                                                 <button type="submit" class="btn btn-outline-secondary">Add</button>
                                                 <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
                                                      Add
@@ -139,7 +167,7 @@
                                 
                                 <div class="col">
                                     <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
-                                        <div class="card" style="width: 18rem;">
+                                        <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/drink3.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Dinner</u></h3>
@@ -159,11 +187,28 @@
                                                         <option id = "FoodName" value="Noodles">Noodles</option>
                                                     </select>
                                                 </div>
+                                               
                                                 <div class="dl m-b-10">
-                        
-                                                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
-                                                    </div>
-                                                
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                        
+                                                         
+                                                    </select>
+                                                </div>
+                                                    
+                                                      
+                                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                            <label class="btn btn-secondary active">
+                                                              <input type="radio" name="options" id="option1" autocomplete="off" checked>HIGH
+                                                            </label>
+                                                            <label class="btn btn-secondary">
+                                                              <input type="radio" name="options" id="option2" autocomplete="off">MEDIUM
+                                                            </label>
+                                                            <label class="btn btn-secondary">
+                                                              <input type="radio" name="options" id="option3" autocomplete="off">LOW
+                                                            </label>
+                                                          </div>      
                                                 <button type="submit" class="btn btn-outline-secondary">Add</button>
                                                 <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
                                                      Add
@@ -192,6 +237,76 @@
                                         </div>
                                     </form>
                                 </div>
+                                <div class="col">
+                                    <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
+                                        <div class="card" style="width: 13.5rem;">
+                                            <img class="card-img-top" src="./assets/images/dd.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h3 for="inputfood"><u>Drinks</u></h3>
+                                                <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Lunch">
+                                                <p class="card-text"> </p>
+                                               
+                                                <div class="dl m-b-10">
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Select Drinks</option>
+                                                        
+                                                         <option id = "FoodName" value="Rice">Fizzy Drinks</option>
+                                                         <option id = "FoodName" value="Pasta">Hot Drink</option>
+                                                         <option id = "FoodName" value="Sandwich">Juice</option>
+                                                         <option id = "FoodName" value="Fish">Water</option>
+                                                         
+                                                    </select>
+                                                </div>
+                                                <div class="dl m-b-10">
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                        
+                                                         
+                                                    </select>
+                                                </div>
+                                                 
+                                           
+                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                    <label class="btn btn-secondary active">
+                                                      <input type="radio" name="options" id="option1" autocomplete="off" checked>HIGH
+                                                    </label>
+                                                    <label class="btn btn-secondary">
+                                                      <input type="radio" name="options" id="option2" autocomplete="off">MEDIUM
+                                                    </label>
+                                                    <label class="btn btn-secondary">
+                                                      <input type="radio" name="options" id="option3" autocomplete="off">LOW
+                                                    </label>
+                                                  </div>   
+                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
+                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
+                                                     Add
+                                                 </button> -->
+                                                 
+                                                        
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Your drink is succesfully added.
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                        
                         
                                 <div class="w-100"></div>
                             </div>

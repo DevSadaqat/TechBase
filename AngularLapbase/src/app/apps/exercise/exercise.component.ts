@@ -13,11 +13,12 @@ import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./exercise.component.css']
 })
 export class ExerciseComponent implements AfterViewInit {
- 
-  patID: string;
-  orgCode: string;
-  allExercises: Observable<Excercise[]>;
-  exercise: Excercise = {
+
+    patID: string;
+    orgCode: string;
+    allExercises: Observable<Excercise[]>;
+    exercise1: Excercise[];
+    exercise: Excercise = {
     ExerciseName: "",
     ExerciseType: "",
     Duration: "", 
@@ -69,7 +70,7 @@ export class ExerciseComponent implements AfterViewInit {
     this.orgCode = localStorage.getItem("organizationCode");
     this.getAllExercises;
     
-    //method to display list of exercises 
+    //methods to display list of exercises 
     this.exerciseService.getIntenseExercises().subscribe(data => {
       this.exerciseIntense = data;
       console.log(this.exerciseIntense);
@@ -87,9 +88,12 @@ export class ExerciseComponent implements AfterViewInit {
 
 
 
-    // this.exerciseService.getExercise(this.patID, this.orgCode).subscribe(data =>
-    //   this.exercise = data)
-    //   console.log(this.exercise)
+     this.exerciseService.getExercise(this.patID, this.orgCode).subscribe(data => {
+          
+      this.exercise1 = data;
+      
+     console.log(data)
+     })
   }
   getAllExercises(){
     this.allExercises = this.exerciseService.getExercise(this.patID,this.orgCode);
@@ -103,6 +107,7 @@ export class ExerciseComponent implements AfterViewInit {
     this.exercise.ExerciseName =target.querySelector('#excName').value
     this.exercise.ExerciseType =target.querySelector('#exctype').value
     this.exercise.Duration = target.querySelector('#Duration').value
+    window.alert(95); 
     console.log(this.exercise); 
     //window.alert(97); 
     this.CreateExercise(this.exercise);
