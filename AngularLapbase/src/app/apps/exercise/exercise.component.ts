@@ -3,6 +3,9 @@ import { ExcerciseService } from '../../services/excercise.service';
 import {Excercise} from '../../models/excercise';
 import {ExerciseItem} from '../../models/ExerciseItem';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-exercise',
@@ -10,7 +13,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./exercise.component.css']
 })
 export class ExerciseComponent implements AfterViewInit {
-
+ 
   patID: string;
   orgCode: string;
   allExercises: Observable<Excercise[]>;
@@ -37,7 +40,29 @@ export class ExerciseComponent implements AfterViewInit {
     ExerciseType: "", 
     Calories: "" 
   }
-  constructor(private exerciseService: ExcerciseService) { }
+
+ 
+  constructor(private exerciseService: ExcerciseService, private toastr: ToastrService) { }
+
+  lightExercise() {
+    this.toastr.success('Your Light Exercise is Added!', 'Success!');
+  }
+
+  moderateExercise() {
+    this.toastr.success('Your Moderate Exercise is Added!', 'Success!');
+  }
+
+  intenseExercise() {
+    this.toastr.success('Your Intense Exercise is Added!', 'Success!');
+  }
+
+  meridian = true;
+  seconds = true;
+  toggleSeconds() {
+    this.seconds = !this.seconds;
+  }
+
+  
 
   ngAfterViewInit() {
     this.patID  = localStorage.getItem("patientID");
@@ -71,7 +96,7 @@ export class ExerciseComponent implements AfterViewInit {
     console.log(this.allExercises);
   }
   ExerciseUser(event){
-    window.alert(97);
+    //window.alert(97);
     event.preventDefault()
     const target = event.target
    
@@ -79,7 +104,7 @@ export class ExerciseComponent implements AfterViewInit {
     this.exercise.ExerciseType =target.querySelector('#exctype').value
     this.exercise.Duration = target.querySelector('#Duration').value
     console.log(this.exercise); 
-    window.alert(97); 
+    //window.alert(97); 
     this.CreateExercise(this.exercise);
   }
 

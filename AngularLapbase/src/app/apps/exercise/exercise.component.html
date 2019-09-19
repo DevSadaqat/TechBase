@@ -4,13 +4,13 @@
             <ngb-tabset [justify]="currentJustify">
 
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>Add Exercise</b></ng-template>
+                    <ng-template ngbTabTitle><b>Exercise</b></ng-template>
                     <ng-template ngbTabContent>
                     <div class="container">
                     
                         <div class="row">
                             <div class="col">
-                                <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
+                                <!--<form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
                                     <div class="card" style="width: 18rem;">
                                         <img class="card-img-top" src="./assets/images/yoga.jpg" alt="Card image cap">
                                         <div class="card-body">
@@ -18,168 +18,177 @@
                                             <input type="hidden" id="excName" class="form-control" name="Type" placeholder="" value="Light">
                                         <div class="dl m-b-10">
                                             <select id = "exctype" class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Select</option>
-                                                <option  *ngFor = "let ftype of exerciseLight">
-                                                    {{ftype.ExerciseName}}
-                                                   </option>
-
-                                                <!-- <option value="1">Yoga</option>
-                                                <option value="2">Stair Stepping</option>
-                                                <option value="3">Plank</option>
-                                                <option value="4">dancing</option>
-                                                <option value="5">Cleaning</option>
-                                                <option value="6">Water Bottle Weights</option> -->
+                                                <option value="0" selected="">Type</option>  
                                             </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Duration(minutes)</option>
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Start Time</option>
+                                               
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Calories Used</option>
+                                            </select>
+                                            <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
                                         </div>
-                                        <div class="dl m-b-10">
+                                      
                                         
-                                            <input type="number" class="form-control" id="Duration" placeholder="Duration in Mintues">
-                                        </div>
+        
+                                        <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lightExercise()">Add</button>
                                         
-                                        <button type="submit" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                            Add
-                                        </button>
-                                        
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Your exercise is succesfully added.
-                                                    </div>
-                                        
-                                                </div>
-                                            </div>
-                                        </div>
                                         </div>
                                     </div>
                     
                     
-                                </form>
+                                <!--</form>-->
                             </div>
                             <div class="col">
-                                <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
+                                <!--<form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
                                     <div class="card" style="width: 18rem;">
                                         <img class="card-img-top" src="./assets/images/r1.jpg" alt="Card image cap">
                                         <div class="card-body">
                                             <h3 for="inputfood">Moderate Exercise</h3>
                                             <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
                                                 value="Moderate">
-                                            <div class="dl m-b-10">
-                                                <select id = "exctype" class="custom-select border-10 text-active">
-                                                    <option id = "exctype" value="0" selected="">Select</option>
-                                                    <option  *ngFor = "let ftype of exerciseModerate">
-                                                        {{ftype.ExerciseName}}
-                                                    </option>
-                                                   
-                                                   
-                                                    <!-- <option value="2">Jogging</option>
-                                                    <option value="3">Walking</option>
-                                                    <option value="4">Cycling</option>
-                                                    <option value="5">Jumping</option>
-                                                    <option value="6">Talking</option> -->
-                                                </select>
-                                            </div>
-                                            <div class="dl m-b-10">
+                                        <div class="dl m-b-10">
+                                            <select id="exctype" class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Type</option>
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Duration(minutes)</option>
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Start Time</option>
+                                        
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Calories Used</option>
+                                            </select>
+                                            <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
+                                        </div>
                                             
-                                                <input type="number" class="form-control" id="Duration" placeholder="Duration in Mintues">
-                                            </div>
                                             
-                                            <button type="submit" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                Add
-                                            </button>
-                                            
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Your exercise is succesfully added.
-                                                        </div>
-                                            
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <button type="submit" class="btn btn-primary bg-danger text-white" (click)="moderateExercise()">Add</button>
                                         </div>
                                     </div>
-                                </form>
+                                <!--</form>-->
                             </div>
                     
                             <div class="col">
-                                <form (button)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
+                                <!--<form (button)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
                                     <div class="card" style="width: 18rem;">
                                         <img class="card-img-top" src="./assets/images/i1.jpg" alt="Card image cap">
-                                        <p class="card-text"></p>
+                                      
                                         <div class="card-body">
                                             <h3 for="inputfood">Intense Exercise</h3>
                                             <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
                                                 value="Intense">
                                             
-                                            <div class="dl m-b-10">
-                                                <select id = "exctype" class="custom-select border-10 text-active">
-                                                    <option id = "exctype" value="0" selected="">Select</option>
-                                                    <option  *ngFor = "let ftype of exerciseIntense">
-                                                        {{ftype.ExerciseName}}
-                                                    </option>
-                                                    </select>
-                                            </div>        
-                    <div class="dl m-b-10">
-                        
-                        <input type="number" class="form-control" id="Duration" placeholder="Duration in Mintues">
-                    </div>
+                                        <div class="dl m-b-10">
+                                            <select id="exctype" class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Type</option>
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Duration(minutes)</option>
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Start Time</option>
+                                        
+                                            </select>
+                                            <select class="custom-select border-10 text-active">
+                                                <option value="0" selected="">Calories Used</option>
+                                            </select>
+                                            <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
+                                        </div>
+                                          
                     
-                    <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                        Add
-                    </button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Your exercise is succesfully added.
-                                </div>
-                    
-                            </div>
-                        </div>
-                    </div>
+                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="intenseExercise()">Add</button>
                                         </div>
                                     </div>
-                                </form>
+                                <!--</form>-->
                             </div>
                     
                           
                         </div>
                     </div>
 
+<!--Today's Table-->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Recently Added</h4>
+                                <h6 class="card-subtitle">This Table only depicts Today's History</h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="bg-danger text-white">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Exercise Name</th>
+                                                <th>Exercise Type</th>
+                                                <th>Duration</th>
+                                                <th>Start Time</th>
+                                                <th>Calories Consumed</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Cleaning</td>
+                                                <td>Moderate</td>
+                                                <td>20</td>
+                                                <td>20:20 AM</td>
+                                                <td>2589</td>
+                                                <td>25/009/2019</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     </ng-template>
                 </ngb-tab>
-
+<!--New Tab-->
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>Exercise Log</b></ng-template>
+                    <ng-template ngbTabTitle><b>History</b></ng-template>
                     <ng-template ngbTabContent>
-                        <table class="table">
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="bg-warning text-white">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Exercise Name</th>
+                                                    <th>Exercise Type</th>
+                                                    <th>Duration</th>
+                                                    <th>Start Time</th>
+                                                    <th>Calories Consumed</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cleaning</td>
+                                                    <td>Moderate</td>
+                                                    <td>20</td>
+                                                    <td>20:20 AM</td>
+                                                    <td>2589</td>
+                                                    <td>25/009/2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       <!-- <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">Type of Exercise</th>
@@ -196,7 +205,7 @@
                                     
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                     </ng-template>
                 </ngb-tab>
 

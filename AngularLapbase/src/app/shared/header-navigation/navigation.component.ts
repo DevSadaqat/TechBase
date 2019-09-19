@@ -20,6 +20,24 @@ export class NavigationComponent implements AfterViewInit {
 
   constructor(private modalService: NgbModal) { }
 
+  // This is for Notifications
+  notifications: Object[] = [
+    {
+      btn: 'btn-success',
+      icon: 'ti-calendar',
+      title: 'Event today',
+      subject: 'Just a reminder that you have event',
+      time: '9:10 AM'
+    },
+    {
+      btn: 'btn-primary',
+      icon: 'ti-user',
+      title: 'Robert',
+      subject: 'Just see the Doctor!',
+      time: '9:00 AM'
+    }
+  ];
+
 
 
   ngAfterViewInit() { }

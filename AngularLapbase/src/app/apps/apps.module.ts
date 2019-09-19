@@ -12,6 +12,9 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { ChartsModule } from 'ng2-charts';
 import { ChartistModule } from 'ng-chartist';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NotifierModule } from 'angular-notifier';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 import { AppsRoutes } from './apps.routing';
 
@@ -31,6 +34,8 @@ import { ExerciseComponent } from './exercise/exercise.component';
     ChartsModule,
     ChartistModule,
     NgxChartsModule,
+    NotifierModule,
+    MatSnackBarModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

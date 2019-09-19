@@ -209,107 +209,159 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-offset-3 col-md-9">
-                      <!--<button type="submit" class="btn btn-danger">
-                        <i class="fa fa-pencil"></i> Edit</button>-->
-                    <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                      Edit
-                    </button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                      aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Edit Demographics</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                                      <form>
-                                        
-                                        <h3 for="inputAddress">Address Details</h3>
-                                        <div class="form-row">
-                                      
-                                      
-                                          <div class="form-group col-md-5">
-                                            <label for="inputAddress">Street</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="Street">
-                                          </div>
-                                      
-                                      
-                                          <div class="form-row">
-                                            <div class="form-group col-md-4">
-                                              <label for="inputCity">City</label>
-                                              <input type="text" class="form-control" id="inputCity">
-                                            </div>
-                                      
-                                            <div class="form-group col-md-3">
-                                              <label for="inputState">State</label>
-                                              <input type="text" class="form-control" id="inputCity">
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                              <label for="inputZip">Zip</label>
-                                              <input type="text" class="form-control" id="inputZip">
-                                            </div>
-                                          </div>
-                                        </div>
-                                      
-                                        <h3 for="inputAddress">Contact Details</h3>
-                                        <div class="form-row">
-                                      
-                                          <div class="form-group col-md-4">
-                                            <label for="inputCity">Email</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                                          </div>
-                                      
-                                          <div class="form-group col-md-3">
-                                            <label for="inputState">Phone</label>
-                                            <input type="text" class="form-control" id="inputCity">
-                                          </div>
-                                          <div class="form-group col-md-3">
-                                            <label for="inputZip">Mobile</label>
-                                            <input type="text" class="form-control" id="inputZip">
-                                          </div>
-                                        </div>
-                                      
-                                        <h3 for="inputAddress">Insurance Details</h3>
-                                        <div class="form-row">
-                                      
-                                          <div class="form-row col-md-3">
-                                            <label for="inputCity">Employer</label>
-                                            <input type="text" class="form-control" id="inputCity">
-                                      
-                                          </div>
-                                      
-                                          <div class="form-row col-md-3">
-                                            <label for="inputState">Insurance</label>
-                                            <input type="text" class="form-control" id="inputCity">
-                                          </div>
-                                          <div class="form-row col-md-3">
-                                            <label for="inputZip">Insurance Number</label>
-                                            <input type="text" class="form-control" id="inputZip">
-                                          </div>
-                                          <div class="form-row col-md-3">
-                                            <label for="inputZip">Medicare Number</label>
-                                            <input type="text" class="form-control" id="inputZip">
-                                      
-                                      
-                                          </div>
-                                        </div>
-                                      
-                                      </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary bg-danger text-white">Save changes</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
-                        
-                       
+
+                                  <!--Edit Demographics Modal -->
+                                  <ng-template #content let-c="close" let-d="dismiss">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Edit Demographics</h4>
+                                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      
+                                            <hr class="m-t-0">
+                                            <form class="form-horizontal striped-rows b-form">
+
+
+                                              <div class="card-body">
+                                                <h4 class="card-title">Address</h4>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Address</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Apt/House Number & Street/Road Name">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">City</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="City Name Here">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">State</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="State Name Here">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Postcode</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Postcode No Here">
+                                                  </div>
+                                                </div>
+                                                      <div class="form-group row">
+                                                        <div class="col-sm-3">
+                                                          <div class="b-label">
+                                                            <label for="inputEmail3" class="control-label col-md-11">Country</label>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                          <input type="email" class="form-control" id="inputEmail3" placeholder="Country Name Here">
+                                                        </div>
+                                                      </div>
+                                              </div>
+
+
+                                              <hr>
+
+
+                                              <div class="card-body">
+                                                <h4 class="card-title">Contact</h4>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Email</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Email Address Here">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Phone</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Phone Number Here">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Mobile</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Mobile Number Here">
+                                                  </div>
+                                                </div>
+                                              </div>
+
+
+                                              <hr>
+
+                                              <div class="card-body">
+                                                <h4 class="card-title">Insurance</h4>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Employer</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Employer Number Here">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Insurance</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Insurance Name Here">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-sm-3">
+                                                    <div class="b-label">
+                                                      <label for="inputEmail3" class="control-label col-md-11">Insurance Number</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Insurance Number Here">
+                                                  </div>
+                                                </div>
+                                              </div>
+                                                  </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary bg-danger text-white" (click)="c('Close click')">Save</button>
+                                    </div>
+                                  </ng-template>
+
+                      <button type="button" class="btn btn-primary bg-danger text-white" (click)="openLg(content)" >Edit</button>
                       <a href="/apps/dashboard" class="btn btn-primary bg-danger text-white " role="button" aria-pressed="true">Cancel</a>
                     </div>
                   </div>

@@ -1,162 +1,257 @@
 <div class="row">
-<div class="col-lg-4 col-md-12">
-    <div class="card">
-        <div class="card-body">
-            <div class="m-t-30 text-center">
-                <img src="assets/images/users/1.jpg" class="rounded-circle" width="150" />
-                <h4 class="card-title m-t-10">Name: {{patient.FirstName}} {{patient.Surname}}</h4>
-                <h6 class="card-subtitle">Date of Birth</h6>
-                <div class="row text-center justify-content-md-center">
-                    <div class="col-4">
-                        <a href="javascript:void(0)" class="link">
-                            <i class="fas fa-weight"></i>
-                            <br />
-                            Weight(KGS)
-                        </a>
-                    </div>
-                    <div class="col-4">
-                        <a href="javascript:void(0)" class="link">
-                            <i class="fas fa-child"></i>
-                            <br />
-                            BMI
-                        </a>
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+                <div class="card-header bg-dark">
+                    <h4 class="m-b-0 text-white text-bold">Profile</h4>
+                </div>
+            <div class="card-body">
+                
+                <div class="ml-auto">
+                    <span class="text-dark display-4">
+                        <i class="ti-user"></i>
+                    </span>
+                </div>
+                <h3 class="m-b-0 text-info text-bold">Mr. Robert Hook</h3>
+                <br />
+
+                <h6 class="m-b-0 text-info text-left">65 Years</h6>
+
+                <h4 class="m-b-0 text-info text-right"><i class="ti-calendar text-dark"></i>  05/09/1989</h4>
+                <hr>
+                
+                <h5 class="m-b-0 text-info "><i class="ti-home text-dark display-7"></i> 258 Burke Road, Cranbourne, VIC - 2015, AUSTRALIA.</h5>
+                <br />
+                <h5 class="m-b-0 text-info text-left"><i class="ti-id-badge text-dark"></i> Home: 0385752368</h5>
+                <h5 class="m-b-0 text-info text-left"><i class="ti-mobile text-dark"></i> Mobile: +61489675682</h5>
+                
+
+            
+                
+            
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h4 class="m-b-0 text-white">Baseline Report</h4>
+            </div>
+            <div class="card-body">
+
+            <div class="card border-bottom border-info">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center">
+                        <div>
+                            <h2>120</h2>
+                            <h6 class="text-info">Weight</h6>
+                        </div>
+                        <div class="ml-auto">
+                            <span class="text-info display-4">
+                                <i class="ti-dashboard"></i>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <hr>
-        </div>
-        <div class="card-body">
-            <small class="text-muted">Email address </small>
-            <h6>{{patient.ContactEmail}}</h6>
-            <small class="text-muted p-t-30 db">Phone</small>
-            <h6>{{patient.Mobile}}</h6>
-            <small class="text-muted p-t-30 db">Address</small>
-            <h6>{{patient.Street}} {{patient.Suburb}} {{patient.City}} {{patient.State}} {{patient.City}} {{patient.PinCode}}</h6>
+            <br />
+            <div class="card border-bottom border-info">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center">
+                        <div>
+                            <h2>120</h2>
+                            <h6 class="text-info">BMI</h6>
+                        </div>
+                        <div class="ml-auto">
+                            <span class="text-info display-4">
+                                <i class="ti-bar-chart"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
         </div>
     </div>
+    <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <ngb-tabset [justify]="currentJustify">
+                        <ngb-tab>
+                            <ng-template ngbTabTitle><b>Weight</b></ng-template>
+                            <ng-template ngbTabContent>
+                                <br />
+                                <form (submit)="weightUser($event)" class="form-horizontal m-t-20" id="Weightform">
+                                    <span>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <div class="b-label">
+                                                    <label for="inputEmail3"
+                                                        class="control-label col-form-label">Weight(KGs)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input type="number" class="form-control" id="inputEmail3" placeholder="Weight">
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary bg-danger text-white">Add</button>
+                                    </div>
+            
+                                </form>
+                            </ng-template>
+                        </ngb-tab>
+            
+                        <ngb-tab>
+                            <ng-template ngbTabTitle><b>BMI Calculator</b></ng-template>
+                            <ng-template ngbTabContent>
+                                <br />
+                                <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
+                                    <span>
+            
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <div class="b-label">
+                                                    <label for="inputEmail3"
+                                                        class="control-label col-form-label">Weight(KGs)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input type="number" class="form-control" id="Weight" placeholder="Weight">
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <div class="text-center">
+                                        <button type="submit"
+                                            class="btn btn-rounded btn-dark bg-dark text-white col-lg-5">Calculate</button>
+                                    </div>
+                                    <hr>
+                                    <!--<h4>Calculated BMI</h4>-->
+                                    <div>
+                                        <div class="card card-hover">
+                                            <div class="box bg-dark text-center">
+                                                <h1 class="font-light text-white">{{bmi}}</h1>
+                                                <h6 class="text-white"> {{message}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </ng-template>
+                        </ngb-tab>
+            
+                    </ngb-tabset>
+                </div>
+            </div>
+    
+    
+        
+    </div>
 </div>
-<div class="col-lg-4 col-md-12">
+                
+                
+    <!--<div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <ngb-tabset [justify]="currentJustify">
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><b>Weight</b></ng-template>
+                        <ng-template ngbTabContent>
+                            <br />
+                            <form (submit)="weightUser($event)" class="form-horizontal m-t-20" id="Weightform">
+                                <span>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <div class="b-label">
+                                                <label for="inputEmail3"
+                                                    class="control-label col-form-label">Weight(KGs)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="number" class="form-control" id="inputEmail3"
+                                                placeholder="Weight">
+                                        </div>
+                                    </div>
+                                </span>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary bg-danger text-white">Add</button>
+                                </div>
+                               
+                            </form>
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><b>BMI Calculator</b></ng-template>
+                        <ng-template ngbTabContent>
+                            <br />
+                            <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
+                                <span>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <div class="b-label">
+                                                <label for="inputEmail3"
+                                                    class="control-label col-form-label">Weight(KGs)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="number" class="form-control" id="Weight" placeholder="Weight">
+                                        </div>
+                                    </div>
+                                </span>
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="btn btn-rounded btn-dark bg-dark text-white col-lg-5">Calculate</button>
+                                </div>
+                                <hr>
+                                <h4>Calculated BMI</h4>
+                                <div>
+                                    <div class="card card-hover">
+                                        <div class="box bg-dark text-center">
+                                            <h1 class="font-light text-white">{{bmi}}</h1>
+                                            <h6 class="text-white"> {{message}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </ngb-tab>
+
+                </ngb-tabset>
+            </div>
+        </div>
+    </div>-->
+       
+
+
+
+
+<!---------->
+<!--Graphs-->
+<!---------->
+<div class="row">
+<div class="col-lg-12 col-md-12">
     <div class="card">
         <div class="card-header bg-dark">
-            <h4 class="m-b-0 text-white">Calories Chart</h4>
+            <h4 class="m-b-0 text-white">My Chart</h4>
         </div>
         <div class="card-body">
-            <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
+            <canvas baseChart height="65" [datasets]="lineChartData" [labels]="lineChartLabels"
                 [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
                 [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
             </canvas>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header bg-dark">
-            <h4 class="m-b-0 text-white">Weight Chart</h4>
-        </div>
-        <div class="card-body">
-            <canvas baseChart height="130" [datasets]="WeightChart" [labels]="WeightChartLabels"
-                [options]="WeightChartOptions" [colors]="WeightChartColors" [legend]="WeightChartLegend"
-                [chartType]="WeightChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-            </canvas>
-        </div>
-    </div>
 </div>
+</div>
+<!-------------->
+<!--End Graphs-->
+<!-------------->
 
-<div class="col-lg-4 col-md-12">
 
-    <div class="card">
-        <div class="card-body">
-            <ngb-tabset [justify]="currentJustify">
-                    <ngb-tab>
-                        <ng-template ngbTabTitle><b>Add</b> Weight</ng-template>
-                        <ng-template ngbTabContent>
-                            <br />
-                            <form (submit)="weightUser($event)" class="form-horizontal m-t-20" id="Weightform">
-                            <span>
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <div class="b-label">
-                                            <label for="inputEmail3" class="control-label col-form-label">Weight(KGs)</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <input type="number" class="form-control" id="inputEmail3" placeholder="Weight">
-                                    </div>
-                                </div>
-                            </span>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary bg-danger text-white" data-toggle="modal"
-                                    data-target="#exampleModalCenter">
-                                    Add
-                                </button>
-                            </div>
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Your Weight is succesfully added.
-                                        </div>
-                            
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <h4>Current Weight</h4>
-                            <div>
-                                <div class="card card-hover">
-                                    <div class="box bg-dark text-center">
-                                        <h1 class="font-light text-white"> kgs</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            </form>
-                        </ng-template>
-                    </ngb-tab>
-                   
-            <ngb-tab>
-                <ng-template ngbTabTitle><b>BMI Calculator</b></ng-template>
-                <ng-template ngbTabContent>
-                    <br />
-                    <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
-                    <span>
-               
-                <div class="form-group row">
-                    <div class="col-sm-4">
-                        <div class="b-label">
-                            <label for="inputEmail3" class="control-label col-form-label">Weight(KGs)</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <input type="number" class="form-control" id="Weight" placeholder="Weight">
-                    </div>
-                </div>
-            </span>
-            <div class="text-center">
-                <button type="submit" class="btn btn-rounded btn-dark bg-dark text-white col-lg-5">Calculate</button>
-            </div>
-            <hr>
-            <h4>Calculated BMI</h4>
-            <div>
-                <div class="card card-hover">
-                    <div class="box bg-dark text-center">
-                        <h1 class="font-light text-white">{{bmi}}</h1>
-                        <h6 class="text-white"> {{message}}</h6>
-                    </div>
-                </div>
-            </div>
-        </form>
-            </ng-template>
-            </ngb-tab>
-           
-            </ngb-tabset>
-        </div>
-    </div>      
-</div>
-</div>
+

@@ -55,7 +55,8 @@ export class DashboardComponent implements AfterViewInit {
 //Calorie Chart  
   public lineChartData: Array<any> = [
     { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Calories Consumed' },
-    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' }
+    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' },
+    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' }
     
   ];
 
@@ -103,53 +104,7 @@ export class DashboardComponent implements AfterViewInit {
   public lineChartType = 'line';
 
   
-    // Weight Chart
-    public WeightChart: Array<any> = [
-    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' },
-    ];
-    
-    public WeightChartLabels: Array < any > =[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-
-    public WeightChartOptions: any = {
-      responsive: true
-    };
-
-    public WeightChartColors: Array < any > =[
-      {
-
-        backgroundColor: 'rgb(41,98,255,.1)',
-        borderColor: '#2962FF',
-        pointBackgroundColor: '#2962FF',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: '#2962FF'
-      }
-    ];
-
-    public WeightChartLegend = true;
-    public WeightChartType = 'line';
-
-    // events
-    public chartClicked(e: any): void {
-      // console.log(e);
-    }
-
-  public chartHovered(e: any): void {
-      // console.log(e);
-    }
+  
 
   
   ngAfterViewInit() { 

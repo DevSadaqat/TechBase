@@ -1,4 +1,53 @@
-<ul class="navbar-nav float-right">
+
+<ul class="navbar-nav float-right navbarbg = 'skin6' mr-auto">
+
+<!-- ============================================================== -->
+<!-- Notification -->
+<!-- ============================================================== -->
+        <li class="nav-item dropdown border-right" ngbDropdown placement="bottom-right">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle waves-effect waves-dark" href="javascript:void(0)"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="mdi mdi-bell-outline font-22"></i>
+                <span class="badge badge-pill badge-info noti">2</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right mailbox" ngbDropdownMenu>
+                <span class="with-arrow">
+                    <span class="bg-primary"></span>
+                </span>
+                <ul class="list-style-none">
+                    <li>
+                        <div class="drop-title bg-primary text-white">
+                            <h4 class="m-b-0 m-t-5">2 New</h4>
+                            <span class="font-light">Notifications</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="message-center notifications" [perfectScrollbar]="config">
+                            <!-- Message -->
+                            <a href="javascript:void(0)" class="message-item" *ngFor="let notification of notifications">
+                                <span class="btn btn-circle {{notification.btn}}">
+                                    <i class="{{notification.icon}}"></i>
+                                </span>
+                                <span class="mail-contnet">
+                                    <h5 class="message-title">{{notification.title}}</h5>
+                                    <span class="mail-desc">{{notification.subject}}</span>
+                                    <span class="time">{{notification.time}}</span>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link text-center m-b-5" href="javascript:void(0);">
+                            <strong>Check all notifications</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+<!-- ============================================================== -->
+<!-- End Notification -->
+<!-- ============================================================== -->
 
     <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
         <a ngbDropdownToggle class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
