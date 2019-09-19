@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using LapbaseBOL;
 using LapbaseEntityFramework.Repositories;
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseAPI.Controllers
 {
@@ -46,6 +47,16 @@ namespace LapbaseAPI.Controllers
             {
                 return NotFound();
             }
+
+            return Ok(weight);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(WeightViewModel))]
+        public IHttpActionResult GetWeightM(long PatientID, long OrganizationCode)
+        {
+            var weight = weightRepository.GetWeightM(PatientID, OrganizationCode);
+           
 
             return Ok(weight);
         }

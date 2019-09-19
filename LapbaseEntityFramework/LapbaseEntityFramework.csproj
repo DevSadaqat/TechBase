@@ -69,6 +69,7 @@
     <Compile Include="Repositories\IFoodRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="ViewModel\WeightViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

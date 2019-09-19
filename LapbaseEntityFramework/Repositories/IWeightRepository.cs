@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseEntityFramework.Repositories
 {
@@ -12,6 +13,7 @@ namespace LapbaseEntityFramework.Repositories
         IEnumerable<Weight> GetWeights(long PatientID, long OrganizationCode);
         Weight GetLatestWeight(long PatientID, long OrganizationCode);
         Weight GetWeightByID(long id);
+        IEnumerable<WeightViewModel> GetWeightM(long PatientID, long OrganizationCode);
         void InsertWeight(Weight weight);
         void DeleteWeight(long id);
         void UpdateWeight(Weight weight);
