@@ -155,26 +155,26 @@ namespace LapbaseEntityFramework
             var currentUsername = "";
             foreach (var entity in entities)
             {
-                if (entity.Entity is Food)
-                {
-                    long patientId = ((Food)entity.Entity).PatientID;
-                    var patient = lb.PatientDemographics.Where(a => a.PatientID.Equals(patientId)).FirstOrDefault();
-                    currentUsername = patient.Firstname;
-                }
+                 if (entity.Entity is Food)
+                 {
+                     long patientId = ((Food)entity.Entity).PatientID;
+                     var patient = lb.tblPatients.Where(a => a.Patient_Id==patientId).FirstOrDefault();
+                     currentUsername = patient.Firstname;
+                 }
 
-                if (entity.Entity is Exercise)
-                {
-                    long patientId = ((Exercise)entity.Entity).PatientID;
-                    var patient = lb.PatientDemographics.Where(a => a.PatientID.Equals(patientId)).FirstOrDefault();
-                    currentUsername = patient.Firstname;
-                }
+                 if (entity.Entity is Exercise)
+                 {
+                     long patientId = ((Exercise)entity.Entity).PatientID;
+                     var patient = lb.tblPatients.Where(a => a.Patient_Id==patientId).FirstOrDefault();
+                     currentUsername = patient.Firstname;
+                 }
 
-                if (entity.Entity is Weight)
-                {
-                    long patientId = ((Weight)entity.Entity).PatientID;
-                    var patient = lb.PatientDemographics.Where(a => a.PatientID.Equals(patientId)).FirstOrDefault();
-                    currentUsername = patient.Firstname;
-                }
+                 if (entity.Entity is Weight)
+                 {
+                     long patientId = ((Weight)entity.Entity).PatientID;
+                     var patient = lb.tblPatients.Where(a => a.Patient_Id==patientId).FirstOrDefault();
+                     currentUsername = patient.Firstname;
+                 }
 
                 if (entity.State == EntityState.Added)
                 {
