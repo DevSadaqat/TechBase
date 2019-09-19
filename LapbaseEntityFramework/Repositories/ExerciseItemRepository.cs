@@ -17,6 +17,12 @@ namespace LapbaseEntityFramework.Repositories
             Lb = new LapbaseContext();
         }
 
+        public IEnumerable<ExerciseItem> GetExercises()
+        {
+            var exercises = Lb.ExerciseItems;
+            return exercises;
+        }
+
         public ExerciseItem GetExerciseItem(String name)
         {
             ExerciseItem exerciseItem = Lb.ExerciseItems.Find(name);

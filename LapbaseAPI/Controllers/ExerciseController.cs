@@ -20,6 +20,7 @@ namespace LapbaseAPI.Controllers
         private readonly IExerciseRepository exerciseRepository = new ExerciseRepository();
 
         // GET: api/Exercise
+        [HttpGet]
         public IHttpActionResult GetExercises(long PatientID, long OrganizationCode)
         {
             var exercises = exerciseRepository.GetExercises(PatientID, OrganizationCode);
@@ -27,10 +28,64 @@ namespace LapbaseAPI.Controllers
         }
 
         // GET: api/Exercise/5
+        [HttpGet]
         [ResponseType(typeof(Exercise))]
         public IHttpActionResult GetExercise(long id)
         {
             var exercise = exerciseRepository.GetExerciseByID(id);
+            if (exercise == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exercise);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(Exercise))]
+        public IHttpActionResult FilterLight(long id, long OrganizationCode)
+        {
+            var exercise = exerciseRepository.FilterLight(id, OrganizationCode);
+            if (exercise == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exercise);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(Exercise))]
+        public IHttpActionResult FilterModerate(long id, long OrganizationCode)
+        {
+            var exercise = exerciseRepository.FilterModerate(id, OrganizationCode);
+            if (exercise == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exercise);
+        }
+
+      
+        [HttpGet]
+        [ResponseType(typeof(Exercise))]
+        public IHttpActionResult FilterIntense(long id, long OrganizationCode)
+        {
+            var exercise = exerciseRepository.FilterIntense(id, OrganizationCode);
+            if (exercise == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exercise);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(Exercise))]
+        public IHttpActionResult FilterExerciseName(long id, long OrganizationCode, string exerciseName)
+        {
+            var exercise = exerciseRepository.FilterExerciseName(id, OrganizationCode, exerciseName);
             if (exercise == null)
             {
                 return NotFound();
