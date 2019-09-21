@@ -22,7 +22,7 @@ export class FoodComponent implements AfterViewInit {
     Quantity: "",
     FoodName:"", 
     MealType: "",
-    Time: "",
+    IntakeTime:"",
     PatientID: "",
     OrganizationCode: ""
     }
@@ -43,6 +43,7 @@ export class FoodComponent implements AfterViewInit {
     this.foodService.getFood(this.patID,this.orgCode);
     
     //mehod to get list of food item
+
     this.foodService.getFoodItems().subscribe(data => {
       this.foodItem = data;
       console.log(this.foodItem);
@@ -70,6 +71,7 @@ export class FoodComponent implements AfterViewInit {
      this.food.FoodName =target.querySelector('#FoodName').value
      this.food.MealType =target.querySelector('#MealType').value
      this.food.Quantity = target.querySelector('#Quantity').value
+     this.food.IntakeTime = Date.parse(target.querySelector('#IntakeTime').value).toString()
    // this.food = this.FoodForm.value;
    console.log(this.food);
     // window.alert(97);

@@ -44,7 +44,7 @@
                                 <!--</form>-->
                             </div>
                             <div class="col">
-                                <!--<form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
+                                <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
                                     <div class="card" style="width: 15rem;">
                                         <img class="card-img-top" src="./assets/images/r1.jpg" alt="Card image cap" style="height: 10rem">
                                         <div class="card-body">
@@ -72,7 +72,7 @@
                                         <button type="submit" class="btn btn-primary bg-danger text-white" (click)="moderateExercise()">Add</button>
                                         </div>
                                     </div>
-                                <!--</form>-->
+                                </form>
                             </div>
                     
                             <div class="col">
@@ -177,48 +177,15 @@
                                                             <td>{{exe.CreatedAt}}</td>
                                                             
                                                             
-                                                        </tr>
-                                               
-<!--                                                
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Cleaning</td>
-                                                    <td>Moderate</td>
-                                                    <td>20</td>
-                                                    <td>20:20 AM</td>
-                                                    <td>2589</td>
-                                                    <td>25/009/2019</td>
-                                                </tr> -->
-
+                                                     </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                       <!-- <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Type of Exercise</th>
-                                    <th scope="col">Duration(Mintues) </th>
-                                    <th scope="col">Date</th>
-                        
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let exe of allExercises | async">
-                                    <td>{{exe.ExerciseName}}</td>
-                                    <td>{{exe.Duration}} </td>
-                                    <td>{{exe.StartTime}}</td>
-                                    <td>{{exe.CreatedAt}}</td>
-                                    
-                                    
-                                </tr>
-                            </tbody>
-                        </table>-->
                     </ng-template>
                 </ngb-tab>
-
             </ngb-tabset>
         </div>
     </div>

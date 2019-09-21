@@ -12,6 +12,7 @@ namespace LapbaseEntityFramework.Repositories
 {
     public class WeightRepository : IWeightRepository, IDisposable
     {
+        private readonly IBMICalculatorRepository bmirepository = new BMICalculatorRepository();
         private LbDemoContext Lbd;
         private LapbaseContext Lb;
         public WeightRepository()
@@ -49,6 +50,9 @@ namespace LapbaseEntityFramework.Repositories
 
         public void InsertWeight(Weight weight)
         {
+            BMICalculatorViewModel bmVM = new BMICalculatorViewModel();
+            bmVM = bmirepository.calculateBMI(weight.PatientID, weight.OrganizationCode, (decimal)weight.WeightValue);
+            weight.BMI = (decimal?)bmVM.BMI;
             Lb.Weights.Add(weight);
             Save();
         }

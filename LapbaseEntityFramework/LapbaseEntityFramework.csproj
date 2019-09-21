@@ -57,8 +57,10 @@
     <Compile Include="LapbaseContext.cs" />
     <Compile Include="LbDemoContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BMICalculatorRepository.cs" />
     <Compile Include="Repositories\ExerciseItemRepository.cs" />
     <Compile Include="Repositories\FoodItemRepository.cs" />
+    <Compile Include="Repositories\IBMICalculatorRepository.cs" />
     <Compile Include="Repositories\IExerciseItemRepository.cs" />
     <Compile Include="Repositories\IFoodItemRepository.cs" />
     <Compile Include="Repositories\IWeightRepository.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Repositories\IFoodRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="ViewModel\BMICalculatorViewModel.cs" />
     <Compile Include="ViewModel\WeightViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
