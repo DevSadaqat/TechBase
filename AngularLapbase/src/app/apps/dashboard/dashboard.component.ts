@@ -59,8 +59,7 @@ export class DashboardComponent implements AfterViewInit {
 //Calorie Chart  
   public lineChartData: Array<any> = [
     { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Calories Consumed' },
-    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' },
-    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' }
+    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' }
     
   ];
 
@@ -106,6 +105,39 @@ export class DashboardComponent implements AfterViewInit {
   
   public lineChartLegend = true;
   public lineChartType = 'line';
+
+
+  //Weight Chart  
+  public WeightChartData: Array<any> = [
+    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' }
+
+  ];
+
+  public WeightChartLabels: Array<any> = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+  public WeightChartOptions: any = {
+    responsive: true
+  };
+
+  public WeightChartColors: Array<any> = [
+   
+  ];
+
+  public WeightChartLegend = true;
+  public WeightChartType = 'line';
 
   
   
