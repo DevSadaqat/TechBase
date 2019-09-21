@@ -173,6 +173,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                    <tr *ngFor="let exe of allExercises | async">
+                                                            <td>{{exe.ExerciseName}}</td>
+                                                            <td>{{exe.Duration}} </td>
+                                                            <td>{{exe.StartTime}}</td>
+                                                            <td>{{exe.CreatedAt}}</td>
+                                                            
+                                                            
+                                                        </tr>
+                                               
+<!--                                                
                                                 <tr>
                                                     <td>1</td>
                                                     <td>Cleaning</td>
@@ -181,7 +191,8 @@
                                                     <td>20:20 AM</td>
                                                     <td>2589</td>
                                                     <td>25/009/2019</td>
-                                                </tr>
+                                                </tr> -->
+
                                             </tbody>
                                         </table>
                                     </div>

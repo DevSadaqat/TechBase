@@ -5,23 +5,23 @@
                     <h4 class="m-b-0 text-white text-bold">Profile</h4>
                 </div>
             <div class="card-body">
-                
+                <li ></li>
                 <div class="ml-auto">
                     <span class="text-dark display-4">
                         <i class="ti-user"></i>
                     </span>
                 </div>
-                <h3 class="m-b-0 text-info text-bold">Mr. Robert Hook</h3>
-                <br />
+                <h1 class="m-b-0 text-info text-bold">Mr. {{patient.Firstname}} {{patient.Surname}} </h1>
+                <br/>
 
-                <h6 class="m-b-0 text-info text-left">65 Years</h6>
+                <h3 class="m-b-0 text-info text-left">Age {{patient.Age}} yrs</h3>
 
-                <h4 class="m-b-0 text-info text-right"><i class="ti-calendar text-dark"></i>  05/09/1989</h4>
-                <hr>
+                <h4 class="m-b-0 text-info text-right"><i class="ti-calendar text-dark"></i>{{patient.Birthdate}}</h4>
                 
-                <h5 class="m-b-0 text-info "><i class="ti-home text-dark display-7"></i> 258 Burke Road, Cranbourne, VIC - 2015, AUSTRALIA.</h5>
+                
+                <h5 class="m-b-0 text-info "><i class="ti-home text-dark display-7"></i>{{patient.Street}} {{patient.Suburb}}  {{patient.State}}, AUSTRALIA.</h5>
                 <br />
-                <h5 class="m-b-0 text-info text-left"><i class="ti-id-badge text-dark"></i> Home: 0385752368</h5>
+                <h5 class="m-b-0 text-info text-left"><i class="ti-id-badge text-dark"></i> Home:{{patient.HomePhone}}</h5>
                 <h5 class="m-b-0 text-info text-left"><i class="ti-mobile text-dark"></i> Mobile: +61489675682</h5>
                 
 
@@ -44,8 +44,12 @@
                 <div class="card-body">
                     <div class="d-flex no-block align-items-center">
                         <div>
-                            <h2>120</h2>
+                             <h6 class="text-info">Ref Doctor </h6>
+                             <h3>{{patient.RefDrName1}}  </h3> 
                             <h6 class="text-info">Weight</h6>
+                            <h2>{{patient.StartWeight}}</h2>   
+                            <h6 class="text-info">TargetWeight</h6>
+                            <h2>{{patient.TargetWeight}}</h2>   
                         </div>
                         <div class="ml-auto">
                             <span class="text-info display-4">
@@ -60,8 +64,8 @@
                 <div class="card-body">
                     <div class="d-flex no-block align-items-center">
                         <div>
-                            <h2>120</h2>
-                            <h6 class="text-info">BMI</h6>
+                                <h6 class="text-info">BMI </h6>
+                                <h2>{{patient.BMI}}  </h2>  
                         </div>
                         <div class="ml-auto">
                             <span class="text-info display-4">

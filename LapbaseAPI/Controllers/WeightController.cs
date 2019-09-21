@@ -53,9 +53,9 @@ namespace LapbaseAPI.Controllers
 
         [HttpGet]
         [ResponseType(typeof(WeightViewModel))]
-        public IHttpActionResult GetWeightM(long PatientID, long OrganizationCode)
+        public IHttpActionResult GetAllWeights(long PatientID, long OrganizationCode)
         {
-            var weight = weightRepository.GetWeightM(PatientID, OrganizationCode);
+            var weight = weightRepository.GetAllWeights(PatientID, OrganizationCode);
            
 
             return Ok(weight);

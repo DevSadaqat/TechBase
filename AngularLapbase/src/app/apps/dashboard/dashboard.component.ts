@@ -21,28 +21,32 @@ export class DashboardComponent implements AfterViewInit {
   latestWeight: Observable<Weight>;
   weightStr:string;
   patient: Patient = {
-    ID: "",
-    OrganizationCode: "",
-    Title: "",
-    Surname:"",
-    FirstName: "",
-    BirthDate: "",
-    Gender:  "",
-    Height:  "",
-    PhoneNumber:  "",
-    Mobile:  "",
-    ContactEmail:  "",
-    Street:  "",
-    Suburb:  "",
-    City:  "",
-    State:  "",
-    PinCode:  "",
-    Country:  "",
-    Insurance: "",
-    InsuranceEmployer:  "",
-    InusuranceNumber:  "",
-    MedicareNumber:  ""
-  };
+  PatientID: "",
+  Title: "",
+  Surname: "",
+  Firstname: "",
+  Birthdate: "",
+  Age: "",
+  Gender: "",
+  Height: "",
+  PhoneNumber: "",
+  HomePhone: "",
+  ContactEmail: "",
+  RefDrName1: "",
+  BMI: "",
+  Street: "",
+  Suburb: "",
+  City: "",
+  State: "",
+  PinCode: "",
+  Country: "",
+  TargetWeight: "",
+  CurrentWeight: "",
+  Insurance: "",
+  InsuranceEmployer: "",
+  InusuranceNumber: "",
+  MedicareNumber: "",
+  }
   weight: Weight = {
 
     WeightValue: "",
@@ -105,8 +109,6 @@ export class DashboardComponent implements AfterViewInit {
 
   
   
-
-  
   ngAfterViewInit() { 
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
@@ -114,15 +116,17 @@ export class DashboardComponent implements AfterViewInit {
     this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
     {        
     
-      this.patient = data
+      this.patient = data[0];
+      console.log(this.patient);
+    
       localStorage.setItem("Height", data.Height);
    
     });
     var intHeight = localStorage.getItem("Height");
-    console.log(intHeight);
+    //console.log(intHeight);
     this.height = +intHeight;
     this.height = this.height/100;
-    console.log(this.height);
+    //console.log(this.height);
     
   }
   calcBMI(event){
@@ -130,10 +134,10 @@ export class DashboardComponent implements AfterViewInit {
      event.preventDefault()
      const target = event.target
      this.weightBMI = target.querySelector('#Weight').value;
-     console.log(this.weight);
+     //console.log(this.weight);
     this.bmi = this.weightBMI/(this.height*this.height);
     this.bmi = +this.bmi.toFixed(2);
-    console.log(this.bmi);
+    //console.log(this.bmi);
     if(this.bmi<18.5)
     {
       this.message = "Underweight"

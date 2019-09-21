@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class FoodComponent implements AfterViewInit {
 
+// Time Picker Initialization
+//$('#input_starttime').pickatime({});  
   patID: string;
   orgCode: string;
   allFoods: Observable<Food[]>;
@@ -20,6 +22,7 @@ export class FoodComponent implements AfterViewInit {
     Quantity: "",
     FoodName:"", 
     MealType: "",
+    Time: "",
     PatientID: "",
     OrganizationCode: ""
     }

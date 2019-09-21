@@ -105,16 +105,11 @@
                                                 <p class="card-text"> </p>
                                                
                                                 <div class="dl m-b-10">
-                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
-                                                        <option   value="0" selected="">Select Food</option>
-                                                        <option   value="Milk">Milk</option>
-                                                         <option  value="Bread">Bread</option>
-                                                         <option id = "FoodName" value="Rice">Rice</option>
-                                                         <option id = "FoodName" value="Pasta">Pasta</option>
-                                                         <option id = "FoodName" value="Sandwich">Sandwich</option>
-                                                         <option id = "FoodName" value="Fish">Fish</option>
-                                                         <option id = "FoodName" value="Chicken">Chicken</option>
-                                                         <option id = "FoodName" value="Noodles">Noodles</option>
+                                                        <select id = "FoodName" class="custom-select border-10 text-active">
+                                                                <option value="0">-Select Food-</option>
+                                                              <option  *ngFor = "let fName of foodItem ">
+                                                                 {{fName.FoodName}}
+                                                                </option>
                                                     </select>
                                                 </div>
                                                 <div class="dl m-b-10">
@@ -257,14 +252,15 @@
                                                          
                                                     </select>
                                                 </div>
-                                                <div class="dl m-b-10">
+                                               
+                                                <!-- <input [ngxTimepicker]="picker">
+                                                <ngx-material-timepicker #picker></ngx-material-timepicker> -->
+
+                                                <!-- <div class="dl m-b-10">
                                                     <select id = "FoodName"  class="custom-select border-10 text-active">
-                                                        <option   value="0" selected="">Time</option>
-                                                       
-                                                        
-                                                         
+                                                        <option   value="0" selected="">Time</option>   
                                                     </select>
-                                                </div>
+                                                </div> -->
                                                  
                                            
                                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -323,6 +319,7 @@
                                     <th scope="col">Food Name</th>
                                     <th scope="col">Meal Type</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Time</th>
                                     <th scope="col">Date</th>
                                 </tr>
                             </thead>

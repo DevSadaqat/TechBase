@@ -32,7 +32,7 @@ namespace LapbaseEntityFramework.Repositories
             return weight;
         }
 
-        public IEnumerable<WeightViewModel> GetWeightM(long PatientID, long OrganizationCode)
+        public IEnumerable<WeightViewModel> GetAllWeights(long PatientID, long OrganizationCode)
         {
             IEnumerable<WeightViewModel> weight1 = Lbd.tblPatientConsults.Where(a => a.Patient_Id==PatientID && a.OrganizationCode==OrganizationCode).Select(a => new WeightViewModel { weight = a.Weight, dateAdded = a.DateSeen }).ToList();
 

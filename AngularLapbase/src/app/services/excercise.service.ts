@@ -11,7 +11,7 @@ import { Excercise } from '../models/excercise';
 
 export class ExcerciseService {
 
-  baseUrl: string = "http://localhost:54726/Api/Exercise"
+  baseUrl: string = "http://localhost:81/Api/Exercise"
   excerciseTypeUrl: string = "http://localhost:81/Api/ExerciseItem"
 
   exercise: Excercise = { 
