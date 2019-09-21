@@ -20,6 +20,14 @@ namespace LapbaseAPI.Controllers
         private readonly IExerciseItemRepository exerciseItemRepository = new ExerciseItemRepository();
 
         [HttpGet]
+        // GET: api/GetExercises
+        public IHttpActionResult GetExercises()
+        {
+            var exercises = exerciseItemRepository.GetExercises();
+            return Ok(exercises);
+        }
+
+        [HttpGet]
         // GET: api/GetIntenseExercises
         public IHttpActionResult GetExerciseIntense()
         {

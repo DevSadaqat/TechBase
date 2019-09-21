@@ -14,6 +14,10 @@ namespace LapbaseEntityFramework.Repositories
         void InsertExercise(Exercise exercise);
         void DeleteExercise(long id);
         void UpdateExercise(Exercise exercise);
+        IEnumerable<Exercise> FilterLight(long PatientID, long OrganizationCode);
+        IEnumerable<Exercise> FilterModerate(long PatientID, long OrganizationCode);
+        IEnumerable<Exercise> FilterIntense(long PatientID, long OrganizationCode);
+        IEnumerable<Exercise> FilterExerciseName(long PatientID, long OrganizationCode, string exerciseName);
         void Save();
     }
 }

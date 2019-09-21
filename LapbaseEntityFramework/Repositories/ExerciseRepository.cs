@@ -22,6 +22,30 @@ namespace LapbaseEntityFramework.Repositories
             return exercises;
         }
 
+        public IEnumerable<Exercise> FilterLight(long PatientID, long OrganizationCode)
+        {
+            var exercises = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.ExerciseItem.ExerciseType.Equals("Light"));
+            return exercises;
+        }
+
+        public IEnumerable<Exercise> FilterModerate(long PatientID, long OrganizationCode)
+        {
+            var exercises = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.ExerciseItem.ExerciseType.Equals("Moderate"));
+            return exercises;
+        }
+
+        public IEnumerable<Exercise> FilterIntense(long PatientID, long OrganizationCode)
+        {
+            var exercises = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.ExerciseItem.ExerciseType.Equals("Intense"));
+            return exercises;
+        }
+
+        public IEnumerable<Exercise> FilterExerciseName(long PatientID, long OrganizationCode, string exerciseName)
+        {
+            var exercises = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.ExerciseName.Equals(exerciseName));
+            return exercises;
+        }
+
         public Exercise GetExerciseByID(long Id)
         {
             return Lb.Exercises.Find(Id);

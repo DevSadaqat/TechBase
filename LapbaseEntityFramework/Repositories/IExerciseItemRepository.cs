@@ -10,6 +10,7 @@ namespace LapbaseEntityFramework.Repositories
     public interface IExerciseItemRepository : IDisposable
     {
         ExerciseItem GetExerciseItem(String name);
+        IEnumerable<ExerciseItem> GetExercises();
         IEnumerable<ExerciseItem> GetIntenseExercises();
         IEnumerable<ExerciseItem> GetLightExercises();
         IEnumerable<ExerciseItem> GetModerateExercises();

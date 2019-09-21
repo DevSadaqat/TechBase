@@ -15,9 +15,9 @@ namespace LapbaseAPI.Controllers.DemoControllers
        
         private readonly IPatientDemographicRepository patientDemographicRepository = new PatientDemographicRepository();
         [HttpGet]
-        public IHttpActionResult GetPatient(long id, long organizationCode, long userPracticeCode)
+        public IHttpActionResult GetPatient(long id, long organizationCode)
         {
-            var patient = patientDemographicRepository.GetPatient(id, organizationCode, userPracticeCode);
+            var patient = patientDemographicRepository.GetPatient(id, organizationCode);
 
             return Ok(patient);
         }
