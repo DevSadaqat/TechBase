@@ -1,161 +1,121 @@
 <div class="col-md-12">
-    <div class="card">
-        <div class="card-body">
-            <ngb-tabset [justify]="currentJustify">
-
-                <ngb-tab>
-                    <ng-template ngbTabTitle><b>Exercise</b></ng-template>
-                    <ng-template ngbTabContent>
-                    <div class="container">
-                    
-                        <div class="row">
-                            <div class="col">
-                                <!--<form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
-                                    <div class="card" style="width: 15rem;">
-                                        <img class="card-img-top" src="./assets/images/yoga.jpg" alt="Card image cap" style="height: 10rem">
-                                        <div class="card-body">
-                                            <h4 for="inputexercise">Light Exercise</h4>
-                                            <input type="hidden" id="excName" class="form-control" name="Type" placeholder="" value="Light">
-                                        <div class="dl m-b-10">
-                                            <select id = "exctype" class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Type</option>  
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Duration(minutes)</option>
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Start Time</option>
-                                               
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Calories Used</option>
-                                            </select>
-                                            <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
-                                        </div>
-                                      
-                                        
-        
-                                        <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lightExercise()">Add</button>
-                                        
-                                        </div>
-                                    </div>
-                    
-                    
-                                <!--</form>-->
-                            </div>
-                            <div class="col">
-                                <form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">
-                                    <div class="card" style="width: 15rem;">
-                                        <img class="card-img-top" src="./assets/images/r1.jpg" alt="Card image cap" style="height: 10rem">
-                                        <div class="card-body">
-                                            <h4 for="inputfood">Moderate Exercise</h4>
-                                            <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
-                                                value="Moderate">
-                                        <div class="dl m-b-10">
-                                            <select id="exctype" class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Type</option>
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Duration(minutes)</option>
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Start Time</option>
-                                        
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Calories Used</option>
-                                            </select>
-                                            <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
-                                        </div>
-                                            
-                                            
-                                        <button type="submit" class="btn btn-primary bg-danger text-white" (click)="moderateExercise()">Add</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                    
-                            <div class="col">
-                                <!--<form (button)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
-                                    <div class="card" style="width: 15rem;">
-                                        <img class="card-img-top" src="./assets/images/i1.jpg" alt="Card image cap" style="height:10rem">
-                                      
-                                        <div class="card-body">
-                                            <h4 for="inputfood">Intense Exercise</h4>
-                                            <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
-                                                value="Intense">
-                                            
-                                        <div class="dl m-b-10">
-                                            <select id="exctype" class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Type</option>
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Duration(minutes)</option>
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Start Time</option>
-                                        
-                                            </select>
-                                            <select class="custom-select border-10 text-active">
-                                                <option value="0" selected="">Calories Used</option>
-                                            </select>
-                                            <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
-                                        </div>
+        <div class="card">
+            <div class="card-body">
+                <ngb-tabset [justify]="currentJustify">
+    
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><b>Exercise</b></ng-template>
+                        <ng-template ngbTabContent>
+                        <div class="container">
+                        
+                            <div class="row">
+                                <div class="col">
+                                    <!--<form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
+                                        <div class="card" style="width: 15rem;">
+                                            <img class="card-img-top" src="./assets/images/yoga.jpg" alt="Card image cap" style="height: 10rem">
+                                            <div class="card-body">
+                                                <h4 for="inputexercise">Light Exercise</h4>
+                                                <input type="hidden" id="excName" class="form-control" name="Type" placeholder="" value="Light">
+                                            <div class="dl m-b-10">
+                                                <select id = "exctype" class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Type</option>  
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Duration(minutes)</option>
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Start Time</option>
+                                                   
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Calories Used</option>
+                                                </select>
+                                                <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
+                                            </div>
                                           
-                    
-                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="intenseExercise()">Add</button>
+                                            
+            
+                                            <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lightExercise()">Add</button>
+                                            
+                                            </div>
                                         </div>
+                        
+                        
+                                    <!--</form>-->
+                                </div>
+                                <div class="col">
+                                    <!--<form (submit)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
+                                        <div class="card" style="width: 15rem;">
+                                            <img class="card-img-top" src="./assets/images/r1.jpg" alt="Card image cap" style="height: 10rem">
+                                            <div class="card-body">
+                                                <h4 for="inputfood">Moderate Exercise</h4>
+                                                <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
+                                                    value="Moderate">
+                                            <div class="dl m-b-10">
+                                                <select id="exctype" class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Type</option>
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Duration(minutes)</option>
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Start Time</option>
+                                            
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Calories Used</option>
+                                                </select>
+                                                <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
+                                            </div>
+                                                
+                                                
+                                            <button type="submit" class="btn btn-primary bg-danger text-white" (click)="moderateExercise()">Add</button>
+                                            </div>
+                                        </div>
+                                    <!--</form>-->
+                                </div>
+                        
+                                <div class="col">
+                                    <!--<form (button)="ExerciseUser($event)" class="form-horizontal m-t-20" id="ExerciseForm">-->
+                                        <div class="card" style="width: 15rem;">
+                                            <img class="card-img-top" src="./assets/images/i1.jpg" alt="Card image cap" style="height:10rem">
+                                          
+                                            <div class="card-body">
+                                                <h4 for="inputfood">Intense Exercise</h4>
+                                                <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
+                                                    value="Intense">
+                                                
+                                            <div class="dl m-b-10">
+                                                <select id="exctype" class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Type</option>
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Duration(minutes)</option>
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Start Time</option>
+                                            
+                                                </select>
+                                                <select class="custom-select border-10 text-active">
+                                                    <option value="0" selected="">Calories Used</option>
+                                                </select>
+                                                <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
+                                            </div>
+                                              
+                        
+                                                    <button type="submit" class="btn btn-primary bg-danger text-white" (click)="intenseExercise()">Add</button>
+                                            </div>
+                                        </div>
+                                    <!--</form>-->
                                     </div>
-                                <!--</form>-->
-                                </div>
-                        </div>
-                    </div>
-
-<!--Today's Table-->
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Recently Added</h4>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-danger text-white">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Exercise Name</th>
-                                                <th>Exercise Type</th>
-                                                <th>Duration</th>
-                                                <th>Start Time</th>
-                                                <th>Calories Consumed</th>
-                                                <th>Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Cleaning</td>
-                                                <td>Moderate</td>
-                                                <td>20</td>
-                                                <td>20:20 AM</td>
-                                                <td>2589</td>
-                                                <td>25/009/2019</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    </ng-template>
-                </ngb-tab>
-<!--New Tab-->
-                <ngb-tab>
-                    <ng-template ngbTabTitle><b>History</b></ng-template>
-                    <ng-template ngbTabContent>
-
+    
+    <!--Today's Table-->
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <h4 class="card-title">Recently Added</h4>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead class="bg-danger text-white">
@@ -170,23 +130,85 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    <tr *ngFor="let exe of allExercises | async">
-                                                            <td>{{exe.ExerciseName}}</td>
-                                                            <td>{{exe.Duration}} </td>
-                                                            <td>{{exe.StartTime}}</td>
-                                                            <td>{{exe.CreatedAt}}</td>
-                                                            
-                                                            
-                                                     </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cleaning</td>
+                                                    <td>Moderate</td>
+                                                    <td>20</td>
+                                                    <td>20:20 AM</td>
+                                                    <td>2589</td>
+                                                    <td>25/009/2019</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </ng-template>
-                </ngb-tab>
-            </ngb-tabset>
+    
+                        </ng-template>
+                    </ngb-tab>
+    <!--New Tab-->
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><b>History</b></ng-template>
+                        <ng-template ngbTabContent>
+    
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-danger text-white">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Exercise Name</th>
+                                                        <th>Exercise Type</th>
+                                                        <th>Duration</th>
+                                                        <th>Start Time</th>
+                                                        <th>Calories Consumed</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Cleaning</td>
+                                                        <td>Moderate</td>
+                                                        <td>20</td>
+                                                        <td>20:20 AM</td>
+                                                        <td>2589</td>
+                                                        <td>25/009/2019</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           <!-- <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Type of Exercise</th>
+                                        <th scope="col">Duration(Mintues) </th>
+                                        <th scope="col">Date</th>
+                            
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let exe of allExercises | async">
+                                        <td>{{exe.ExerciseName}}</td>
+                                        <td>{{exe.Duration}} </td>
+                                        <td>{{exe.StartTime}}</td>
+                                        <td>{{exe.CreatedAt}}</td>
+                                        
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>-->
+                        </ng-template>
+                    </ngb-tab>
+    
+                </ngb-tabset>
+            </div>
         </div>
     </div>
-</div>
