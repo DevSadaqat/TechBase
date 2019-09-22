@@ -12,7 +12,7 @@
                         
                         
                                 <div class="col">
-                                    <form (button)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
+                                    <form (submit)="foodUser($event)" >
                                         <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/staple1.PNG" alt="Card image cap">
                                             <div class="card-body">
@@ -51,40 +51,14 @@
                                                         </label>
                                           
                                                       </div>
-                                                <button type="submit" class="btn btn-outline-secondary">Add</button> 
-                                              <!--  <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                    Add
-                                                </button> -->
-                                                
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Your food is succesfully added.
-                                                            </div>
-                                                          
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                              
-                        
-                                                
+                                                 <button type="submit" class="btn btn-primary bg-danger text-white" (click)="breakfast()">Add</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                         
                                 <div class="col">
-                                    <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
+                                    <form (submit)="foodUser($event)">
                                         <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/food1.PNG" alt="Card image cap">
                                             <div class="card-body">
@@ -108,43 +82,17 @@
                                                     </select>
                                                 </div>
                                                                                          
-                                                <div id="Quantity" class="btn-group" data-toggle="buttons">
+                                                <div  class="btn-group" data-toggle="buttons">
                                                         <label class="btn btn-sm btn-secondary ">
-                                                          <input type="radio" name="mergeType"  value="Small">Small                                                        </label>
+                                                          <input type="radio" name="mergeType" id="Quantity"  value="Small">Small                                                        </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType"  value="Medium">Medium
+                                                          <input type="radio" name="mergeType" id="Quantity"   value="Medium">Medium
                                                         </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType"  value="Large">Large
+                                                          <input type="radio" name="mergeType" id="Quantity"  value="Large">Large
                                                         </label>
-                                          
                                                       </div>
-
-
-                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
-                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                     Add
-                                                 </button> 
-                                                  -->
-                                                        
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Your food is succesfully added.
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                              <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lunch()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -152,7 +100,7 @@
                         
                                 
                                 <div class="col">
-                                    <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
+                                  <form (submit)="foodUser($event)">
                                         <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/drink3.PNG" alt="Card image cap">
                                             <div class="card-body">
@@ -187,30 +135,7 @@
                                                         </label>
                                           
                                                       </div>
-                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
-                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                     Add
-                                                 </button> -->
-                                                 
-                                                        
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Your food is succesfully added.
-                                                                    </div>
-                                                             
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                 <button type="submit" class="btn btn-primary bg-danger text-white" (click)="dinner()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -303,7 +228,7 @@
                                     <th scope="col">Meal Type</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Time</th>
-                                    <th scope="col">Date</th>
+                                    <!-- <th scope="col">Date</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -311,7 +236,7 @@
                                     <td>{{food.FoodName}}</td>
                                     <td>{{food.MealType}}</td>
                                     <td>{{food.Quantity}}</td>
-                                    <td>{{food.IntakeTime}}</td>
+                                    <!-- <td>{{food.IntakeTime}}</td> -->
                                     <td>{{food.CreatedAt | date:'hh:mm:ss'}}</td>
                         
                                 </tr>

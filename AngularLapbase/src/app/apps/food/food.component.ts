@@ -3,6 +3,7 @@ import { FoodService } from '../../services/food.service';
 import {Food} from '../../models/Food';
 import { FoodItem } from '../../models/FoodItem';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -31,16 +32,32 @@ export class FoodComponent implements AfterViewInit {
       Calories:""
     }
 
-  constructor(private foodService: FoodService,
+  constructor(private foodService: FoodService, private toastr: ToastrService) {} 
 
-  ) {}
+  breakfast() {
+    this.toastr.success('Your breakfast  is Added!', 'Success!');
+  }
+
+  lunch() {
+    this.toastr.success('Your lunch  is Added!', 'Success!');
+  }
+
+  dinner() {
+    this.toastr.success('Your dinner is Added!', 'Success!');
+  }
+
+  meridian = true;
+  seconds = true;
+  toggleSeconds() {
+    this.seconds = !this.seconds;
+  }
 
   ngAfterViewInit() {
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
     console.log(this.patID);
 
-    this.foodService.getFood(this.patID,this.orgCode);
+   // this.foodService.getFood(this.patID,this.orgCode);
     
     //mehod to get list of food item
 
@@ -52,15 +69,7 @@ export class FoodComponent implements AfterViewInit {
    // this.getAllFoodItems();
     
   }
-  
-  // getAllFoodItems(){
- 
-  //   this.allFoodItems = this.foodService.getFoodItems();
-  //   console.log(this.allFoodItems);
-  // }
-
   getAllFoods(){
-   
     this.allFoods = this.foodService.getFood(this.patID,this.orgCode);
   }
   foodUser(event){

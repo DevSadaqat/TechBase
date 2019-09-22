@@ -17,7 +17,7 @@ export class ExerciseComponent implements AfterViewInit {
     patID: string;
     orgCode: string;
     allExercises: Observable<Excercise[]>;
-    exercise1: Excercise[];
+    // exercise1: Excercise[];
     exercise: Excercise = {
     ExerciseName: "",
     ExerciseType: "",
@@ -68,36 +68,36 @@ export class ExerciseComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
-    this.getAllExercises;
+    this.getAllExercises();
+    
     
     //methods to display list of exercises 
     this.exerciseService.getIntenseExercises().subscribe(data => {
       this.exerciseIntense = data;
-      console.log(this.exerciseIntense);
+      //console.log(this.exerciseIntense);
     })
 
     this.exerciseService.getModerateExercises().subscribe(data => {
       this.exerciseModerate = data;
-      console.log(this.exerciseModerate);
+      //console.log(this.exerciseModerate);
     })
 
     this.exerciseService.getLightExercises().subscribe(data => {
       this.exerciseLight = data;
-      console.log(this.exerciseLight);
+      //console.log(this.exerciseLight);
     })
 
-
-
-     this.exerciseService.getExercise(this.patID, this.orgCode).subscribe(data => {
+    //method to get all exercises list
+    //  this.exerciseService.getExercise(this.patID, this.orgCode).subscribe(data => {
           
-      this.exercise1 = data;
-      
-     console.log(data)
-     })
+    //   this.exercise1 = data;
+    //  console.log(this.exercise1);
+    //  })
   }
   getAllExercises(){
+    window.alert(1);
     this.allExercises = this.exerciseService.getExercise(this.patID,this.orgCode);
-    console.log(this.allExercises);
+    window.alert(2);
   }
   ExerciseUser(event){
     //window.alert(97);
@@ -118,7 +118,7 @@ export class ExerciseComponent implements AfterViewInit {
     exercise.PatientID = this.patID;
     exercise.OrganizationCode = this.orgCode;
 
-    this.CreateExercise(exercise);
+    //this.CreateExercise(exercise);
     //calling of api method to add exercise
 
     this.exerciseService.createExercise(exercise).subscribe(
