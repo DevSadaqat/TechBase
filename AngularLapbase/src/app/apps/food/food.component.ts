@@ -13,8 +13,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FoodComponent implements AfterViewInit {
 
-// Time Picker Initialization
-//$('#input_starttime').pickatime({});  
   patID: string;
   orgCode: string;
   allFoods: Observable<Food[]>;
@@ -23,7 +21,6 @@ export class FoodComponent implements AfterViewInit {
     Quantity: "",
     FoodName:"", 
     MealType: "",
-    IntakeTime:"",
     PatientID: "",
     OrganizationCode: ""
     }
@@ -32,35 +29,33 @@ export class FoodComponent implements AfterViewInit {
       Calories:""
     }
 
-  constructor(private foodService: FoodService, private toastr: ToastrService) {} 
+  constructor(private foodService: FoodService, private toastr: ToastrService) {}
 
   breakfast() {
-    this.toastr.success('Your breakfast  is Added!', 'Success!');
+    this.toastr.success('Your Breakfast is Added!', 'Success!');
   }
 
   lunch() {
-    this.toastr.success('Your lunch  is Added!', 'Success!');
+    this.toastr.success('Your Lunch is Added!', 'Success!');
   }
 
   dinner() {
-    this.toastr.success('Your dinner is Added!', 'Success!');
+    this.toastr.success('Your Dinner is Added!', 'Success!');
   }
 
-  meridian = true;
-  seconds = true;
-  toggleSeconds() {
-    this.seconds = !this.seconds;
+  drinks() {
+    this.toastr.success('Your Drink is Added!', 'Success!');
   }
+
 
   ngAfterViewInit() {
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
     console.log(this.patID);
 
-   // this.foodService.getFood(this.patID,this.orgCode);
+    this.foodService.getFood(this.patID,this.orgCode);
     
     //mehod to get list of food item
-
     this.foodService.getFoodItems().subscribe(data => {
       this.foodItem = data;
       console.log(this.foodItem);
@@ -69,7 +64,15 @@ export class FoodComponent implements AfterViewInit {
    // this.getAllFoodItems();
     
   }
+  
+  // getAllFoodItems(){
+ 
+  //   this.allFoodItems = this.foodService.getFoodItems();
+  //   console.log(this.allFoodItems);
+  // }
+
   getAllFoods(){
+   
     this.allFoods = this.foodService.getFood(this.patID,this.orgCode);
   }
   foodUser(event){
@@ -80,7 +83,6 @@ export class FoodComponent implements AfterViewInit {
      this.food.FoodName =target.querySelector('#FoodName').value
      this.food.MealType =target.querySelector('#MealType').value
      this.food.Quantity = target.querySelector('#Quantity').value
-     this.food.IntakeTime = Date.parse(target.querySelector('#IntakeTime').value).toString()
    // this.food = this.FoodForm.value;
    console.log(this.food);
     // window.alert(97);

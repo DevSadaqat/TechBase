@@ -14,7 +14,6 @@ export class FoodService {
    
     Quantity: "",
     FoodName: "",
-    IntakeTime: "",
     MealType: "",
     PatientID: "",
     OrganizationCode: ""

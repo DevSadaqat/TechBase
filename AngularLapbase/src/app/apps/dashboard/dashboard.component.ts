@@ -4,8 +4,8 @@ import {Patient} from '../../models/Patient';
 import { getNumberOfCurrencyDigits } from '@angular/common';
 import { WeightService } from '../../services/weight.service';
 import {Weight} from '../../models/Weight';
-import {WeightList} from '../../models/weightList';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,44 +22,39 @@ export class DashboardComponent implements AfterViewInit {
   latestWeight: Observable<Weight>;
   weightStr:string;
   patient: Patient = {
-  PatientID: "",
-  Title: "",
-  Surname: "",
-  Firstname: "",
-  Birthdate: "",
-  Age: "",
-  Gender: "",
-  Height: "",
-  PhoneNumber: "",
-  HomePhone: "",
-  ContactEmail: "",
-  RefDrName1: "",
-  BMI: "",
-  Street: "",
-  Suburb: "",
-  City: "",
-  State: "",
-  PinCode: "",
-  Country: "",
-  TargetWeight: "",
-  CurrentWeight: "",
-  Insurance: "",
-  InsuranceEmployer: "",
-  InusuranceNumber: "",
-  MedicareNumber: "",
-  }
+    ID: "",
+    OrganizationCode: "",
+    Title: "",
+    Surname:"",
+    FirstName: "",
+    BirthDate: "",
+    Gender:  "",
+    Height:  "",
+    PhoneNumber:  "",
+    Mobile:  "",
+    ContactEmail:  "",
+    Street:  "",
+    Suburb:  "",
+    City:  "",
+    State:  "",
+    PinCode:  "",
+    Country:  "",
+    Insurance: "",
+    InsuranceEmployer:  "",
+    InusuranceNumber:  "",
+    MedicareNumber:  ""
+  };
   weight: Weight = {
 
     WeightValue: "",
     PatientID: "",
     OrganizationCode: "",
   }
-  weightListAll: WeightList = {
-    weight: "",
-    dateAdded: "",
+  constructor(private pat_Serv: PatientService, private weightService: WeightService, private toastr: ToastrService) { }
+
+  addweight() {
+    this.toastr.success('Your Weight is Added!', 'Success!');
   }
-  
-  constructor(private pat_Serv: PatientService,private weightService: WeightService) { }
 
 
 //Calorie Chart  
@@ -115,21 +110,23 @@ export class DashboardComponent implements AfterViewInit {
 
   //Weight Chart  
   public WeightChartData: Array<any> = [
-    { data: [55, 56, 77 , 88, 95, 100], label: 'Weight' }
+    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' }
 
   ];
 
   public WeightChartLabels: Array<any> = [
-    '1/1/1995',
-    '1/1/1998',
-    '1/1/2001',
-    '1/1/2004',
-    '1/1/2007',
-    '1/1/2010',
-    '1/1/2013',
-    '1/1/2016',
-    '1/1/2019',
-    '1/1/2022',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
   ];
 
   public WeightChartOptions: any = {
@@ -145,6 +142,8 @@ export class DashboardComponent implements AfterViewInit {
 
   
   
+
+  
   ngAfterViewInit() { 
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
@@ -152,27 +151,15 @@ export class DashboardComponent implements AfterViewInit {
     this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
     {        
     
-      this.patient = data[0];
-      console.log(this.patient);
-    
+      this.patient = data
       localStorage.setItem("Height", data.Height);
    
     });
     var intHeight = localStorage.getItem("Height");
-    //console.log(intHeight);
+    console.log(intHeight);
     this.height = +intHeight;
     this.height = this.height/100;
-    //console.log(this.height);
-
-    //method to call list of all weights
-    this.weightService.getAllWeights(this.patID,this.orgCode).subscribe(data =>
-      {
-          this.weightListAll = data;
-          localStorage.setItem("weight", data.weight);
-          console.log(this.weightListAll);
-      });
- // array of weight numbers
-     var weights  = localStorage.getItem("weight");
+    console.log(this.height);
     
   }
   calcBMI(event){
@@ -180,10 +167,10 @@ export class DashboardComponent implements AfterViewInit {
      event.preventDefault()
      const target = event.target
      this.weightBMI = target.querySelector('#Weight').value;
-     //console.log(this.weight);
+     console.log(this.weight);
     this.bmi = this.weightBMI/(this.height*this.height);
     this.bmi = +this.bmi.toFixed(2);
-    //console.log(this.bmi);
+    console.log(this.bmi);
     if(this.bmi<18.5)
     {
       this.message = "Underweight"

@@ -2,22 +2,19 @@
     <div class="card">
         <div class="card-body">
             <ngb-tabset [justify]="currentJustify">
-
                 <ngb-tab>
                     <ng-template ngbTabTitle><b>Add Food</b></ng-template>
                     <ng-template ngbTabContent>
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <form (submit)="foodUser($event)" >
+                                    <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
                                         <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/staple1.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Breakfast</u></h3>
                                                 <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Breakfast">
                                                 <p class="card-text"> </p>
-                                               
-
                                                 <div class="dl m-b-10">
                                                         <div class="dl m-b-10">
                                                                 <select id = "FoodName" class="custom-select border-10 text-active">
@@ -25,37 +22,49 @@
                                                                   <option  *ngFor = "let fName of foodItem ">
                                                                      {{fName.FoodName}}
                                                                     </option>
+                                                                    <!-- <option value="0">-Select Calories-</option>
+                                                                  <option id = "Calories" *ngFor = "let fNam of foodItem ">
+                                                                     {{fNam.Calories}}
+                                                                    </option>
+                                                                     -->
+<!-- 
+                                                                     <option id = "FoodName" value="Milk">Milk</option>
+                                                                    <option id = "FoodName" value="Bread">Bread</option>
+                                                                    <option id = "FoodName" value="Rice">Rice</option>
+                                                                    <option id = "FoodName" value="Pasta">Pasta</option>
+                                                                    <option id = "FoodName" value="Sandwich">Sandwich</option>
+                                                                    <option id = "FoodName" value="Fish">Fish</option>
+                                                                    <option id = "FoodName" value="Chicken">Chicken</option>
+                                                                    <option id = "FoodName" value="Noodles">Noodles</option> -->
                                                                 </select>
                                                             </div>
                                                 </div>
-                                                 <div class="dl m-b-10">
-                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
-                                                            <option  value="0" selected="">Time</option>
-                                                            <option  value="06:00 AM">06:00 AM</option>
-                                                            <option  value="09:00 to 12:00 AM">09:00 to 12:00 AM</option>
-                                                        </select>
-                                                </div> 
-                                               
-                                                
-                                                <div id="Quantity" class="btn-group" data-toggle="buttons">
+                                                <div class="dl m-b-10">
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                         
+                                                    </select>
+                                                </div>
+                                                    <div id="Quantity" class="btn-group" data-toggle="buttons">
                                                         <label class="btn btn-sm btn-secondary ">
-                                                          <input type="radio" name="mergeType"  value="Small">Small                                                        </label>
+                                                            <input type="radio" name="mergeType" value="Small">Small </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType"  value="Medium">Medium
+                                                            <input type="radio" name="mergeType" value="Medium">Medium
                                                         </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType"  value="Large">Large
+                                                            <input type="radio" name="mergeType" value="Large">Large
                                                         </label>
-                                          
-                                                      </div>
-                                                 <button type="submit" class="btn btn-primary bg-danger text-white" (click)="breakfast()">Add</button>
+                                                    
+                                                    </div>
+                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="breakfast()">Add</button> 
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                         
                                 <div class="col">
-                                    <form (submit)="foodUser($event)">
+                                    <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
                                         <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/food1.PNG" alt="Card image cap">
                                             <div class="card-body">
@@ -64,32 +73,35 @@
                                                 <p class="card-text"> </p>
                                                
                                                 <div class="dl m-b-10">
-                                                        <select id = "FoodName" class="custom-select border-10 text-active">
-                                                                <option value="0">-Select Food-</option>
-                                                              <option  *ngFor = "let fName of foodItem ">
-                                                                 {{fName.FoodName}}
-                                                                </option>
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Select Food</option>
+                                                        <option   value="Milk">Milk</option>
+                                                         <option  value="Bread">Bread</option>
+                                                         <option id = "FoodName" value="Rice">Rice</option>
+                                                         <option id = "FoodName" value="Pasta">Pasta</option>
+                                                         <option id = "FoodName" value="Sandwich">Sandwich</option>
+                                                         <option id = "FoodName" value="Fish">Fish</option>
+                                                         <option id = "FoodName" value="Chicken">Chicken</option>
+                                                         <option id = "FoodName" value="Noodles">Noodles</option>
                                                     </select>
                                                 </div>
                                                 <div class="dl m-b-10">
-                                                    <select id = "IntakeTime"  class="custom-select border-10 text-active">
-                                                        <option  value="0" selected="">Time</option>
-                                                        <option  value="12:00 PM">12:00 PM</option>
-                                                        <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option> 
                                                     </select>
                                                 </div>
-                                                                                         
-                                                <div  class="btn-group" data-toggle="buttons">
+                                                    <div id="Quantity" class="btn-group" data-toggle="buttons">
                                                         <label class="btn btn-sm btn-secondary ">
-                                                          <input type="radio" name="mergeType" id="Quantity"  value="Small">Small                                                        </label>
+                                                            <input type="radio" name="mergeType" value="Small">Small </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType" id="Quantity"   value="Medium">Medium
+                                                            <input type="radio" name="mergeType" value="Medium">Medium
                                                         </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType" id="Quantity"  value="Large">Large
+                                                            <input type="radio" name="mergeType" value="Large">Large
                                                         </label>
-                                                      </div>
-                                              <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lunch()">Add</button>
+                                                    
+                                                    </div>
+                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lunch()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -97,42 +109,50 @@
                         
                                 
                                 <div class="col">
-                                  <form (submit)="foodUser($event)">
+                                    <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
                                         <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/drink3.PNG" alt="Card image cap">
                                             <div class="card-body">
                                                 <h3 for="inputfood"><u>Dinner</u></h3>
                                                 <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Dinner">
                                                 <p class="card-text"></p>
-
-                                                        <div class="dl m-b-10">
-                                                                <select id = "FoodName" class="custom-select border-10 text-active">
-                                                                    <option value="0">-Select Food-</option>
-                                                                  <option  *ngFor = "let fName of foodItem ">
-                                                                     {{fName.FoodName}}
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                    
+                                                
                                                 <div class="dl m-b-10">
-                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
-                                                                <option  value="0" selected="">Time</option>
-                                                                <option  value="18:00 to 21:00 PM">18:00 to 21:00 PM</option>
-                                                                <option  value="21:00 to 23:59 PM">21:00 to 23:59 PM</option>
-                                                        </select>  
+                                                    <select class="custom-select border-10 text-active">
+                                                        <option value="0" selected="">Select Food</option>
+                                                        <option id = "FoodName" value="Milk">Milk</option>
+                                                        <option id = "FoodName" value="Bread">Bread</option>
+                                                        <option id = "FoodName" value="Rice">Rice</option>
+                                                        <option id = "FoodName" value="Pasta">Pasta</option>
+                                                        <option id = "FoodName" value="Sandwich">Sandwich</option>
+                                                        <option id = "FoodName" value="Fish">Fish</option>
+                                                        <option id = "FoodName" value="Chicken">Chicken</option>
+                                                        <option id = "FoodName" value="Noodles">Noodles</option>
+                                                    </select>
                                                 </div>
-                                                <div class="btn-group" data-toggle="buttons">
-                                                        <label class="btn btn-sm btn-secondary ">
-                                                          <input type="radio" name="mergeType" id="Quantity" value="Small">Small                                                        </label>
-                                                        <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType" id="Quantity" value="Medium">Medium
-                                                        </label>
-                                                        <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="mergeType" id="Quantity" value="Large">Large
-                                                        </label>
-                                          
-                                                      </div>
-                                                 <button type="submit" class="btn btn-primary bg-danger text-white" (click)="dinner()">Add</button>
+                                               
+                                                <div class="dl m-b-10">
+                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                        
+                                                         
+                                                    </select>
+                                                </div>
+                                                    
+                                                      
+                                                        <div id="Quantity" class="btn-group" data-toggle="buttons">
+                                                            <label class="btn btn-sm btn-secondary ">
+                                                                <input type="radio" name="mergeType" value="Small">Small </label>
+                                                            <label class="btn btn-sm btn-secondary">
+                                                                <input type="radio" name="mergeType" value="Medium">Medium
+                                                            </label>
+                                                            <label class="btn btn-sm btn-secondary">
+                                                                <input type="radio" name="mergeType" value="Large">Large
+                                                            </label>
+                                                        
+                                                        </div>
+                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="dinner()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -157,52 +177,28 @@
                                                          
                                                     </select>
                                                 </div>
-                                               
-                                                <!-- <input [ngxTimepicker]="picker">
-                                                <ngx-material-timepicker #picker></ngx-material-timepicker> -->
-
-                                                <!-- <div class="dl m-b-10">
+                                                <div class="dl m-b-10">
                                                     <select id = "FoodName"  class="custom-select border-10 text-active">
-                                                        <option   value="0" selected="">Time</option>   
+                                                        <option   value="0" selected="">Time</option>
+                                                       
+                                                        
+                                                         
                                                     </select>
-                                                </div> -->
+                                                </div>
                                                  
                                            
-                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                    <label class="btn btn-secondary active">
-                                                      <input type="radio" name="options" id="option1" autocomplete="off" checked>HIGH
+                                                <div id="Quantity" class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-sm btn-secondary ">
+                                                        <input type="radio" name="mergeType" value="Small">Small </label>
+                                                    <label class="btn btn-sm btn-secondary">
+                                                        <input type="radio" name="mergeType" value="Medium">Medium
                                                     </label>
-                                                    <label class="btn btn-secondary">
-                                                      <input type="radio" name="options" id="option2" autocomplete="off">MEDIUM
+                                                    <label class="btn btn-sm btn-secondary">
+                                                        <input type="radio" name="mergeType" value="Large">Large
                                                     </label>
-                                                    <label class="btn btn-secondary">
-                                                      <input type="radio" name="options" id="option3" autocomplete="off">LOW
-                                                    </label>
-                                                  </div>   
-                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
-                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                     Add
-                                                 </button> -->
-                                                 
-                                                        
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Your drink is succesfully added.
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                
+                                                </div>
+                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="drinks()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -212,20 +208,66 @@
                                 <div class="w-100"></div>
                             </div>
                         </div>
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Recently Added</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="bg-danger text-white">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Food Name</th>
+                                                    <th>Meal Type</th>
+                                                    <th>Quantity</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cleaning</td>
+                                                    <td>Moderate</td>
+                                                    <td>20</td>
+                                                    <td>20:20 AM</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </ng-template>
                 </ngb-tab>
 
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>Food Log</b></ng-template>
+                    <ng-template ngbTabTitle><b>History</b></ng-template>
                     <ng-template ngbTabContent>
+                        <br />
+                            <div class="form-group row">
+                                <div class="col-sm-1">
+                                    <div class="b-label">
+                                        <label for="inputEmail3" class="control-label col-form-label"><i
+                                                class="mdi mdi-filter text-dark display-8"></i> Filter</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control">
+                                        <option>--Select--</option>
+                                        <option>Yesterday</option>
+                                        <option>Last Week</option>
+                                        <option>Last Month</option>
+                                    </select>
+                                </div>
+                            </div>
                         <table class="table">
-                            <thead>
+                            <thead class="bg-danger text-white">
                                 <tr>
                                     <th scope="col">Food Name</th>
                                     <th scope="col">Meal Type</th>
                                     <th scope="col">Quantity</th>
-                                    <th scope="col">Time</th>
-                                    <!-- <th scope="col">Date</th> -->
+                                    <th scope="col">Date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -233,8 +275,7 @@
                                     <td>{{food.FoodName}}</td>
                                     <td>{{food.MealType}}</td>
                                     <td>{{food.Quantity}}</td>
-                                    <!-- <td>{{food.IntakeTime}}</td> -->
-                                    <td>{{food.CreatedAt | date:'hh:mm:ss'}}</td>
+                                    <td>{{food.CreatedAt}}</td>
                         
                                 </tr>
                         
