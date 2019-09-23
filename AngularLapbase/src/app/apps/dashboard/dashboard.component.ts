@@ -4,6 +4,7 @@ import {Patient} from '../../models/Patient';
 import { getNumberOfCurrencyDigits } from '@angular/common';
 import { WeightService } from '../../services/weight.service';
 import {Weight} from '../../models/Weight';
+import {WeightList} from '../../models/weightList';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -53,6 +54,11 @@ export class DashboardComponent implements AfterViewInit {
     PatientID: "",
     OrganizationCode: "",
   }
+  weightListAll: WeightList = {
+    weight: "",
+    dateAdded: "",
+  }
+  
   constructor(private pat_Serv: PatientService,private weightService: WeightService) { }
 
 
@@ -109,23 +115,21 @@ export class DashboardComponent implements AfterViewInit {
 
   //Weight Chart  
   public WeightChartData: Array<any> = [
-    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' }
+    { data: [55, 56, 77 , 88, 95, 100], label: 'Weight' }
 
   ];
 
   public WeightChartLabels: Array<any> = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
+    '1/1/1995',
+    '1/1/1998',
+    '1/1/2001',
+    '1/1/2004',
+    '1/1/2007',
+    '1/1/2010',
+    '1/1/2013',
+    '1/1/2016',
+    '1/1/2019',
+    '1/1/2022',
   ];
 
   public WeightChartOptions: any = {
@@ -159,6 +163,16 @@ export class DashboardComponent implements AfterViewInit {
     this.height = +intHeight;
     this.height = this.height/100;
     //console.log(this.height);
+
+    //method to call list of all weights
+    this.weightService.getAllWeights(this.patID,this.orgCode).subscribe(data =>
+      {
+          this.weightListAll = data;
+          localStorage.setItem("weight", data.weight);
+          console.log(this.weightListAll);
+      });
+ // array of weight numbers
+     var weights  = localStorage.getItem("weight");
     
   }
   calcBMI(event){

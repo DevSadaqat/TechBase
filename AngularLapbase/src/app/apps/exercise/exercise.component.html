@@ -7,7 +7,6 @@
                     <ng-template ngbTabTitle><b>Exercise</b></ng-template>
                     <ng-template ngbTabContent>
                     <div class="container">
-                    
                         <div class="row">
                             <div class="col">
                                 <form (submit)="ExerciseUser($event)">
@@ -134,7 +133,7 @@
                                 </div>
                         </div>
                     </div>
-
+           
 <!--Today's Table-->
                     <div class="col-lg-12">
                         <div class="card">
@@ -154,13 +153,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <!-- <tr *ngFor="let exe of allExercises | async">
-                                                        <td>{{exe.ExerciseType}}</td>
-                                                        <td>{{exe.ExerciseName}} </td>
-                                                        <td>{{exe.Duration}}</td>
-                                                        <td>{{exe.CreatedAt}}</td>    
-                                                 </tr> -->
-
                                             <tr>
                                                 <td>1</td>
                                                 <td>Cleaning</td>
@@ -175,79 +167,14 @@
                                 </div>
                             </div>
                         </div>
-    
-    <!--Today's Table-->
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Recently Added</h4>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead class="bg-danger text-white">
-                                                <tr>
-                                                    <!-- <th>#</th> -->
-                                                    <!-- <th>Exercise Type</th> -->
-                                                    <th>Exercise Name</th>  
-                                                    <th>Duration</th>
-                                                    <!-- <th>Start Time</th>
-                                                    <th>Calories Consumed</th> -->
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr *ngFor="let exe of allExercises | async">
-                                                            <!-- <td>{{exe.ExerciseType}}</td> -->
-                                                            <td>{{exe.ExerciseName}} </td>
-                                                            <td>{{exe.Duration}}</td>
-                                                            <td>{{exe.CreatedAt}}</td>    
-                                                     </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        </ng-template>
-                    </ngb-tab>
+                    </div>
+                    </ng-template>
+                </ngb-tab>
     <!--New Tab-->
                     <ngb-tab>
                         <ng-template ngbTabTitle><b>History</b></ng-template>
                         <ng-template ngbTabContent>
-    
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-danger text-white">
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Exercise Name</th>
-                                                        <th>Exercise Type</th>
-                                                        <th>Duration</th>
-                                                        <th>Start Time</th>
-                                                        <th>Calories Consumed</th>
-                                                        <th>Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Cleaning</td>
-                                                        <td>Moderate</td>
-                                                        <td>20</td>
-                                                        <td>20:20 AM</td>
-                                                        <td>2589</td>
-                                                        <td>25/009/2019</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                           <!-- <table class="table">
+                           <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Type of Exercise</th>
@@ -260,16 +187,15 @@
                                     <tr *ngFor="let exe of allExercises | async">
                                         <td>{{exe.ExerciseName}}</td>
                                         <td>{{exe.Duration}} </td>
-                                        <td>{{exe.StartTime}}</td>
+                                        <!-- <td>{{exe.StartTime}}</td> -->
                                         <td>{{exe.CreatedAt}}</td>
                                         
                                         
                                     </tr>
                                 </tbody>
-                            </table>-->
+                            </table>
                         </ng-template>
                     </ngb-tab>
-    
                 </ngb-tabset>
             </div>
         </div>
