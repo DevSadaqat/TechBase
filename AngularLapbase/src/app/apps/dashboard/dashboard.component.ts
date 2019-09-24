@@ -5,6 +5,8 @@ import { getNumberOfCurrencyDigits } from '@angular/common';
 import { WeightService } from '../../services/weight.service';
 import {Weight} from '../../models/Weight';
 import {WeightList} from '../../models/weightList';
+import {Bmi} from '../../models/Bmi';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,12 +16,12 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements AfterViewInit {
   height: number;
-  weightBMI: number;
+  weightBMI: string;
   bmi: number;
   message: string;
   patID: string;
   orgCode: string;
-  latestWeight: Observable<Weight>;
+  //latestWeight: Observable<Weight>;
   weightStr:string;
   patient: Patient = {
   PatientID: "",
@@ -58,9 +60,23 @@ export class DashboardComponent implements AfterViewInit {
     weight: "",
     dateAdded: "",
   }
+  bmiData: Bmi = {
+    BMI: "",
+    message: ""
+  }
   
-  constructor(private pat_Serv: PatientService,private weightService: WeightService) { }
+  constructor(private pat_Serv: PatientService,private weightService: WeightService,
+    private toastr: ToastrService) { }
 
+//display this message when user adds weight
+weightMessage() {
+  this.toastr.success('Your weight is Added!', 'Success!');
+}
+meridian = true;
+seconds = true;
+toggleSeconds() {
+  this.seconds = !this.seconds;
+}
 
 //Calorie Chart  
   public lineChartData: Array<any> = [
@@ -148,21 +164,22 @@ export class DashboardComponent implements AfterViewInit {
   ngAfterViewInit() { 
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
-  
+    
+    //displays patients demographics and baseline data
     this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
     {        
     
       this.patient = data[0];
       console.log(this.patient);
-    
-      localStorage.setItem("Height", data.Height);
-   
+      // localStorage.setItem("Height", data.Height);
     });
-    var intHeight = localStorage.getItem("Height");
-    //console.log(intHeight);
-    this.height = +intHeight;
-    this.height = this.height/100;
+
+    
+    // var intHeight = localStorage.getItem("Height");
+    // this.height = +intHeight;
+    // this.height = this.height/100;
     //console.log(this.height);
+//this.getLatestWeight();
 
     //method to call list of all weights
     this.weightService.getAllWeights(this.patID,this.orgCode).subscribe(data =>
@@ -171,54 +188,72 @@ export class DashboardComponent implements AfterViewInit {
           localStorage.setItem("weight", data.weight);
           console.log(this.weightListAll);
       });
+
+     
+
+    //method to get BMI of patient 
+    this.weightService.getBmi(this.patID, this.orgCode, this.weightBMI).subscribe(data => 
+      {
+        this.bmiData = data;
+        console.log(this.bmiData);
+      });
+
  // array of weight numbers
      var weights  = localStorage.getItem("weight");
     
   }
+  //method to calculate BMI
   calcBMI(event){
     // window.alert(97);
      event.preventDefault()
      const target = event.target
      this.weightBMI = target.querySelector('#Weight').value;
+   
+     console.log(this.weightBMI);
+
+      //method to get BMI of patient 
+    this.weightService.getBmi(this.patID, this.orgCode, this.weightBMI).subscribe(data => 
+      {
+        this.bmiData = data;
+        console.log(this.bmiData);
+      });
+
      //console.log(this.weight);
-    this.bmi = this.weightBMI/(this.height*this.height);
-    this.bmi = +this.bmi.toFixed(2);
-    //console.log(this.bmi);
-    if(this.bmi<18.5)
-    {
-      this.message = "Underweight"
-    }
-    else if(this.bmi>=18.5 && this.bmi <25)
-    {
-      this.message = "Healthy"
-    }
-    else if(this.bmi>=25 && this.bmi <30)
-    {
-      this.message = "Overweight"
-    }
-    else
-    {
-      this.message = "Obese"
-    }
+    // this.bmi = this.weightBMI/(this.height*this.height);
+    // this.bmi = +this.bmi.toFixed(2);
+    // //console.log(this.bmi);
+    // if(this.bmi<18.5)
+    // {
+    //   this.message = "Underweight"
+    // }
+    // else if(this.bmi>=18.5 && this.bmi <25)
+    // {
+    //   this.message = "Healthy"
+    // }
+    // else if(this.bmi>=25 && this.bmi <30)
+    // {
+    //   this.message = "Overweight"
+    // }
+    // else
+    // {
+    //   this.message = "Obese"
+    // }
    }
    weightUser(event){
     // window.alert(97);
     
      event.preventDefault()
      const target = event.target
-    
      this.weight.WeightValue =target.querySelector('#WeightValue').value
-     
-   
-   
+     console.log(this.weight.WeightValue);
     // window.alert(97);
      this.CreateWeight(this.weight);
    }
-   getLatestWeight()
-  {
-    this.latestWeight = this.weightService.getLatestWeight(this.patID,this.orgCode);
+  //  getLatestWeight()
+  // {
+  //   this.latestWeight = this.weightService.getLatestWeight(this.patID,this.orgCode);
    
-  }
+  // }
    CreateWeight(weight: Weight) {  
      //if (this.foodIdUpdate == null) {  
        weight.PatientID = this.patID;

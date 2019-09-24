@@ -20,7 +20,6 @@ export class ExerciseComponent implements AfterViewInit {
     // exercise1: Excercise[];
     exercise: Excercise = {
     ExerciseName: "",
-    ExerciseType: "",
     Duration: "", 
     StartTime: "",
     PatientID: "", 
@@ -74,7 +73,7 @@ export class ExerciseComponent implements AfterViewInit {
     //methods to display list of exercises 
     this.exerciseService.getIntenseExercises().subscribe(data => {
       this.exerciseIntense = data;
-      //console.log(this.exerciseIntense);
+      console.log(this.exerciseIntense);
     })
 
     this.exerciseService.getModerateExercises().subscribe(data => {
@@ -104,8 +103,8 @@ export class ExerciseComponent implements AfterViewInit {
     event.preventDefault()
     const target = event.target
    
-    this.exercise.ExerciseName =target.querySelector('#excName').value
-    this.exercise.ExerciseType =target.querySelector('#exctype').value
+    // this.exercise.ExerciseName =target.querySelector('#excName').value
+    this.exercise.ExerciseName =target.querySelector('#exctype').value
     this.exercise.Duration = target.querySelector('#Duration').value
     window.alert(95); 
     console.log(this.exercise); 

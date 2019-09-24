@@ -17,7 +17,6 @@ export class ExcerciseService {
   exercise: Excercise = { 
     
     ExerciseName: "",
-    ExerciseType: "",
     Duration: "", 
     StartTime: "",
     PatientID: "", 
