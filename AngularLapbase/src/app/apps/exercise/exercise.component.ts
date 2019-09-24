@@ -94,9 +94,7 @@ export class ExerciseComponent implements AfterViewInit {
     //  })
   }
   getAllExercises(){
-    window.alert(1);
     this.allExercises = this.exerciseService.getExercise(this.patID,this.orgCode);
-    window.alert(2);
   }
   ExerciseUser(event){
     //window.alert(97);

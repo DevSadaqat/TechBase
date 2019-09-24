@@ -16,6 +16,7 @@ export class WeightService {
     WeightValue: "",
     PatientID: "",
     OrganizationCode: "",
+    BMI: ""
   }
  
   constructor(private http: HttpClient) {}
@@ -29,10 +30,8 @@ export class WeightService {
     }
 
     getLatestWeight(patId: string, organizationCode: string): Observable<Weight> {
-      console.log(1);
       return this.http.get<Weight>
-      (this.baseUrl + '/getLatestWeight?PatientId=' + patId +'&OrganizationCode=' + organizationCode) ;
-     
+      (this.baseUrl + '/getLatestWeight?PatientId=' + patId +'&OrganizationCode=' + organizationCode) 
       }
   //method returns list all weights
   getAllWeights(patId: string, organizationCode: string ): Observable<WeightList> {

@@ -21,7 +21,7 @@ export class DashboardComponent implements AfterViewInit {
   message: string;
   patID: string;
   orgCode: string;
-  //latestWeight: Observable<Weight>;
+ // latestWeight: Observable<Weight>;
   weightStr:string;
   patient: Patient = {
   PatientID: "",
@@ -55,6 +55,7 @@ export class DashboardComponent implements AfterViewInit {
     WeightValue: "",
     PatientID: "",
     OrganizationCode: "",
+    BMI: ""
   }
   weightListAll: WeightList = {
     weight: "",
@@ -198,6 +199,13 @@ toggleSeconds() {
         console.log(this.bmiData);
       });
 
+  //method to get latest weight
+   this.weightService.getLatestWeight(this.patID,this.orgCode).subscribe(data =>
+    {
+      this.weight = data;
+      console.log(this.weight);
+    });
+  
  // array of weight numbers
      var weights  = localStorage.getItem("weight");
     
@@ -217,27 +225,6 @@ toggleSeconds() {
         this.bmiData = data;
         console.log(this.bmiData);
       });
-
-     //console.log(this.weight);
-    // this.bmi = this.weightBMI/(this.height*this.height);
-    // this.bmi = +this.bmi.toFixed(2);
-    // //console.log(this.bmi);
-    // if(this.bmi<18.5)
-    // {
-    //   this.message = "Underweight"
-    // }
-    // else if(this.bmi>=18.5 && this.bmi <25)
-    // {
-    //   this.message = "Healthy"
-    // }
-    // else if(this.bmi>=25 && this.bmi <30)
-    // {
-    //   this.message = "Overweight"
-    // }
-    // else
-    // {
-    //   this.message = "Obese"
-    // }
    }
    weightUser(event){
     // window.alert(97);

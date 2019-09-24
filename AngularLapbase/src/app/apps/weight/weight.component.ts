@@ -21,6 +21,7 @@ WeightForm: any;
     WeightValue: "",
     PatientID: "",
     OrganizationCode: "",
+    BMI: ""
   }
   latestWeight: Observable<Weight>;
   
