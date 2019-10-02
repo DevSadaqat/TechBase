@@ -11,7 +11,7 @@ import { Excercise } from '../models/excercise';
 
 export class ExcerciseService {
 
-  baseUrl: string = "http://localhost:81/Api/Exercise"
+  baseUrl: string = "http://localhost:54726/Api/Exercise"
   excerciseTypeUrl: string = "http://localhost:81/Api/ExerciseItem"
 
   exercise: Excercise = { 
@@ -48,22 +48,24 @@ export class ExcerciseService {
       return this.http.get<any> (this.excerciseTypeUrl +
         '/GetExerciseLight');  
     }
-    /*
-    getModerateExercises(exerciseId: string): Observable<Excercise> {  
-      return this.http.get<Excercise>(this.baseUrl + 
-        '/GetExercises?ID=' + exerciseId);  
-    } 
-    
-    getLightExercises(exerciseId: string): Observable<Excercise> {  
-      return this.http.get<Excercise>(this.baseUrl + 
-        '/GetExercises?ID=' + exerciseId);  
-    } 
-
-   
-   /* updateFood(id:string,food: Food): Observable<Food>  {  
-      
-      return this.http.put<Food>(this.baseUrl + '/ID=?'+id,  
-      food);  
+    //method to filter Excercise data
+    filterLight(patId: string, organizationCode: string): Observable<Excercise[]>{
+      return this.http.get<Excercise[]>
+    (this.baseUrl + '/FilterLight/' + patId +'?OrganizationCode=' + organizationCode)
     }
-    */
+
+    filterModerate(patId: string, organizationCode: string): Observable<Excercise[]>{
+      return this.http.get<Excercise[]>
+    (this.baseUrl + '/FilterModerate/' + patId +'?OrganizationCode=' + organizationCode)
+    }
+
+    filterIntense(patId: string, organizationCode: string): Observable<Excercise[]>{
+      return this.http.get<Excercise[]>
+    (this.baseUrl + '/FilterIntense/' + patId +'?OrganizationCode=' + organizationCode)
+    }
+
+    filterExerciseName(patId: string, organizationCode: string, exerciseName: string): Observable<Excercise[]>{
+      return this.http.get<Excercise[]>
+    (this.baseUrl + '/FilterExerciseName/' + patId +'?OrganizationCode=' + organizationCode + '&exerciseName='+exerciseName)
+    }
 }

@@ -9,6 +9,7 @@ import {Bmi} from '../../models/Bmi';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -24,32 +25,28 @@ export class DashboardComponent implements AfterViewInit {
  // latestWeight: Observable<Weight>;
   weightStr:string;
   patient: Patient = {
-  PatientID: "",
-  Title: "",
-  Surname: "",
-  Firstname: "",
-  Birthdate: "",
-  Age: "",
-  Gender: "",
-  Height: "",
-  PhoneNumber: "",
-  HomePhone: "",
-  ContactEmail: "",
-  RefDrName1: "",
-  BMI: "",
-  Street: "",
-  Suburb: "",
-  City: "",
-  State: "",
-  PinCode: "",
-  Country: "",
-  TargetWeight: "",
-  CurrentWeight: "",
-  Insurance: "",
-  InsuranceEmployer: "",
-  InusuranceNumber: "",
-  MedicareNumber: "",
-  }
+    ID: "",
+    OrganizationCode: "",
+    Title: "",
+    Surname:"",
+    FirstName: "",
+    BirthDate: "",
+    Gender:  "",
+    Height:  "",
+    PhoneNumber:  "",
+    Mobile:  "",
+    ContactEmail:  "",
+    Street:  "",
+    Suburb:  "",
+    City:  "",
+    State:  "",
+    PinCode:  "",
+    Country:  "",
+    Insurance: "",
+    InsuranceEmployer:  "",
+    InusuranceNumber:  "",
+    MedicareNumber:  ""
+  };
   weight: Weight = {
 
     WeightValue: "",
@@ -65,10 +62,8 @@ export class DashboardComponent implements AfterViewInit {
     BMI: "",
     message: ""
   }
+  constructor(private pat_Serv: PatientService, private weightService: WeightService, private toastr: ToastrService) { }
   
-  constructor(private pat_Serv: PatientService,private weightService: WeightService,
-    private toastr: ToastrService) { }
-
 //display this message when user adds weight
 weightMessage() {
   this.toastr.success('Your weight is Added!', 'Success!');
@@ -132,7 +127,7 @@ toggleSeconds() {
 
   //Weight Chart  
   public WeightChartData: Array<any> = [
-    { data: [55, 56, 77 , 88, 95, 100], label: 'Weight' }
+    { data: [95, 99, 90, 89, 85, 83, 82, 78, 85, 80, 75, 77], label: 'Weight' }
 
   ];
 
@@ -160,12 +155,10 @@ toggleSeconds() {
   public WeightChartLegend = true;
   public WeightChartType = 'line';
 
-  
-  
   ngAfterViewInit() { 
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
-    
+    this.getLatestWeight()
     //displays patients demographics and baseline data
     this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
     {        
@@ -175,18 +168,11 @@ toggleSeconds() {
       // localStorage.setItem("Height", data.Height);
     });
 
-    
-    // var intHeight = localStorage.getItem("Height");
-    // this.height = +intHeight;
-    // this.height = this.height/100;
-    //console.log(this.height);
-//this.getLatestWeight();
-
     //method to call list of all weights
     this.weightService.getAllWeights(this.patID,this.orgCode).subscribe(data =>
       {
           this.weightListAll = data;
-          localStorage.setItem("weight", data.weight);
+         // localStorage.setItem("weight", data.weight);
           console.log(this.weightListAll);
       });
 
@@ -199,16 +185,18 @@ toggleSeconds() {
         console.log(this.bmiData);
       });
 
-  //method to get latest weight
-   this.weightService.getLatestWeight(this.patID,this.orgCode).subscribe(data =>
-    {
-      this.weight = data;
-      console.log(this.weight);
-    });
-  
  // array of weight numbers
-     var weights  = localStorage.getItem("weight");
+   //  var weights  = localStorage.getItem("weight");
     
+  }
+  //method to get latest weight 
+  getLatestWeight()
+  {
+    this.weightService.getLatestWeight(this.patID,this.orgCode).subscribe(data =>
+      {
+        this.weight = data;
+        console.log(this.weight);
+      });
   }
   //method to calculate BMI
   calcBMI(event){
@@ -232,21 +220,21 @@ toggleSeconds() {
      event.preventDefault()
      const target = event.target
      this.weight.WeightValue =target.querySelector('#WeightValue').value
+     this.weightService.getBmi(this.patID, this.orgCode, this.weight.WeightValue).subscribe(data => 
+      {
+        this.weight.BMI= data.BMI.toString();
+       // console.log(this.bmiData);
+      });
      console.log(this.weight.WeightValue);
     // window.alert(97);
      this.CreateWeight(this.weight);
+    
    }
-  //  getLatestWeight()
-  // {
-  //   this.latestWeight = this.weightService.getLatestWeight(this.patID,this.orgCode);
-   
-  // }
+
    CreateWeight(weight: Weight) {  
-     //if (this.foodIdUpdate == null) {  
        weight.PatientID = this.patID;
        weight.OrganizationCode = this.orgCode;
        console.log(weight);
-      // window.alert(86);
        this.weightService.createWeight(weight).subscribe(  
          () => {  
            

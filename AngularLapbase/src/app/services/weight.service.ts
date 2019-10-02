@@ -44,7 +44,4 @@ export class WeightService {
       (this.bmiUrl + '/CalculateBMI?PatientID=' + patId +'&OrganizationCode=' + organizationCode + '&weight=' + weight )
       }
   
-      
-
-  
 }

@@ -13,9 +13,22 @@ import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./exercise.component.css']
 })
 export class ExerciseComponent implements AfterViewInit {
-
+  
+  
     patID: string;
     orgCode: string;
+    selectedLevel;
+    filterBy: string;
+    data:Array<Object> = [
+      { name: "Light"},
+      { name: "Moderate"},
+      { name: "Intense"}     
+  ];
+    selected(){
+      this.filterBy = (this.selectedLevel.name);
+      
+      this.getAllExercises();
+    }
     allExercises: Observable<Excercise[]>;
     // exercise1: Excercise[];
     exercise: Excercise = {
@@ -94,8 +107,23 @@ export class ExerciseComponent implements AfterViewInit {
     //  })
   }
   getAllExercises(){
-    this.allExercises = this.exerciseService.getExercise(this.patID,this.orgCode);
+    if(this.filterBy==="Light")
+    {
+    this.allExercises = this.exerciseService.filterLight(this.patID,this.orgCode);
+    }
+    else if(this.filterBy==="Moderate")
+    {
+    this.allExercises = this.exerciseService.filterModerate(this.patID,this.orgCode);
+    }
+    else if(this.filterBy==="Intense")
+    {
+    this.allExercises = this.exerciseService.filterIntense(this.patID,this.orgCode);
+    }
+    else{
+      this.allExercises = this.exerciseService.getExercise(this.patID,this.orgCode);
+    }
   }
+  
   ExerciseUser(event){
     //window.alert(97);
     event.preventDefault()
@@ -109,6 +137,7 @@ export class ExerciseComponent implements AfterViewInit {
     //window.alert(97); 
     this.CreateExercise(this.exercise);
   }
+  
 
   //method to create excercise
     CreateExercise(exercise: Excercise) {
@@ -127,3 +156,4 @@ export class ExerciseComponent implements AfterViewInit {
   }
 
 }
+

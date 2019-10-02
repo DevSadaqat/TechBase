@@ -2,7 +2,6 @@
     <div class="card">
         <div class="card-body">
             <ngb-tabset [justify]="currentJustify">
-
                 <ngb-tab>
                     <ng-template ngbTabTitle><b>Add Food</b></ng-template>
                     <ng-template ngbTabContent>
@@ -28,6 +27,14 @@
                                                                 </select>
                                                             </div>
                                                 </div>
+
+                                                <!-- <input type="radio" name="options" [(ngModel)]="model.options" value="1">
+                                                my one
+                                                <input type="radio" name="options" [(ngModel)]="model.options" value="2">
+                                                my two
+                                                <input type="radio" name="options" [(ngModel)]="model.options" value="3">
+                                                my three -->
+
                                                  <div class="dl m-b-10">
                                                         <select id = "IntakeTime"  class="custom-select border-10 text-active">
                                                             <option  value="0" selected="">Time</option>
@@ -37,15 +44,15 @@
                                                 </div> 
                                                
                                                 
-                                                <div  class="btn-group btn-group-sm" data-toggle="buttons">
+                                                     <div  class="btn-group btn-group-sm" data-toggle="buttons">
                                                         <label class="btn btn-sm btn-secondary ">
-                                                          <input type="radio" name="Quantity" id = "Quantity" value="Small">Small
+                                                          <input type="radio" name="Quantity" id ="Quantity" value="Small">Small
                                                         </label>   
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="Quantity" id = "Quantity"  value="Medium">Medium
+                                                         <input type="radio" name="Quantity" id ="Quantity" value="Medium">Medium
                                                         </label>
                                                         <label class="btn btn-sm btn-secondary">
-                                                          <input type="radio" name="Quantity"  id = "Quantity" value="Large">Large
+                                                        <input type="radio" name="Quantity" id ="Quantity" value="Medium">Large
                                                         </label>
                                           
                                                       </div>
@@ -96,7 +103,6 @@
                                     </form>
                                 </div>
                         
-                                
                                 <div class="col">
                                   <form (submit)="foodUser($event)">
                                         <div class="card" style="width: 13.5rem;">
@@ -138,6 +144,7 @@
                                         </div>
                                     </form>
                                 </div>
+                                
                                 <div class="col">
                                     <form (submit)="foodUser($event)" class="form-horizontal m-t-20" id="Foodform">
                                         <div class="card" style="width: 13.5rem;">
@@ -158,52 +165,28 @@
                                                          
                                                     </select>
                                                 </div>
-                                               
-                                                <!-- <input [ngxTimepicker]="picker">
-                                                <ngx-material-timepicker #picker></ngx-material-timepicker> -->
-
-                                                <!-- <div class="dl m-b-10">
-                                                    <select id = "FoodName"  class="custom-select border-10 text-active">
-                                                        <option   value="0" selected="">Time</option>   
-                                                    </select>
-                                                </div> -->
+                                                
+                                                <div class="dl m-b-10">
+                                                    <select id = "IntakeTime"  class="custom-select border-10 text-active">
+                                                            <option  value="0" selected="">Time</option>
+                                                            <option  value="18:00 to 21:00 PM">18:00 to 21:00 PM</option>
+                                                            <option  value="21:00 to 23:59 PM">21:00 to 23:59 PM</option>
+                                                    </select>  
+                                                </div>
                                                  
                                            
-                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                    <label class="btn btn-secondary active">
-                                                      <input type="radio" name="options" id="option1" autocomplete="off" checked>HIGH
+                                                <div id="Quantity" class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-sm btn-secondary ">
+                                                        <input type="radio" name="mergeType" value="Small">Small </label>
+                                                    <label class="btn btn-sm btn-secondary">
+                                                        <input type="radio" name="mergeType" value="Medium">Medium
                                                     </label>
-                                                    <label class="btn btn-secondary">
-                                                      <input type="radio" name="options" id="option2" autocomplete="off">MEDIUM
+                                                    <label class="btn btn-sm btn-secondary">
+                                                        <input type="radio" name="mergeType" value="Large">Large
                                                     </label>
-                                                    <label class="btn btn-secondary">
-                                                      <input type="radio" name="options" id="option3" autocomplete="off">LOW
-                                                    </label>
-                                                  </div>   
-                                                <button type="submit" class="btn btn-outline-secondary">Add</button>
-                                                <!-- <button type="button" class="btn btn-primary bg-danger text-white" data-toggle="modal" data-target="#exampleModalCenter">
-                                                     Add
-                                                 </button> -->
-                                                 
-                                                        
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Succesfully Added</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Your drink is succesfully added.
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                
+                                                </div>
+                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="drinks()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -213,20 +196,69 @@
                                 <div class="w-100"></div>
                             </div>
                         </div>
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Recently Added</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="bg-danger text-white">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Food Name</th>
+                                                    <th>Meal Type</th>
+                                                    <th>Quantity</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cleaning</td>
+                                                    <td>Moderate</td>
+                                                    <td>20</td>
+                                                    <td>20:20 AM</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </ng-template>
                 </ngb-tab>
 
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>Food Log</b></ng-template>
+                    <ng-template ngbTabTitle><b>History</b></ng-template>
                     <ng-template ngbTabContent>
+                        <br />
+                            <div class="form-group row">
+                                <div class="col-sm-1">
+                                    <div class="b-label">
+                                        <label for="inputEmail3" class="control-label col-form-label"><i
+                                                class="mdi mdi-filter text-dark display-8"></i> Filter </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select [(ngModel)]="selectedLevel" (change)="selected()" class="form-control">
+                                         <option selected="selected">--All Foods-- </option>
+                                        <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
+                                        <!-- <option>--Select--</option>
+                                        <option>Breakfast</option>
+                                        <option>Lunch</option>
+                                        <option>Dinner</option> -->
+                                    </select>
+                                    {{selectedLevel | json}}
+                                </div>
+                            </div>
                         <table class="table">
-                            <thead>
+                            <thead class="bg-danger text-white">
                                 <tr>
                                     <th scope="col">Food Name</th>
                                     <th scope="col">Meal Type</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Time</th>
-                                    <!-- <th scope="col">Date</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -234,7 +266,6 @@
                                     <td>{{food.FoodName}}</td>
                                     <td>{{food.MealType}}</td>
                                     <td>{{food.Quantity}}</td>
-                                    <!-- <td>{{food.IntakeTime}}</td> -->
                                     <td>{{food.CreatedAt | date:'hh:mm:ss'}}</td>
                         
                                 </tr>

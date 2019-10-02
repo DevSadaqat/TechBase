@@ -27,32 +27,28 @@ export class DemographicComponent implements AfterViewInit {
   patID: string;
   orgCode: string;
   patient: Patient = {
-    PatientID: "",
+    ID: "",
+    OrganizationCode: "",
     Title: "",
-    Surname: "",
-    Firstname: "",
-    Birthdate: "",
-    Age: "",
-    Gender: "",
-    Height: "",
-    PhoneNumber: "",
-    HomePhone: "",
-    ContactEmail: "",
-    RefDrName1: "",
-    BMI: "",
-    Street: "",
-    Suburb: "",
-    City: "",
-    State: "",
-    PinCode: "",
-    Country: "",
-    TargetWeight: "",
-    CurrentWeight: "",
+    Surname:"",
+    FirstName: "",
+    BirthDate: "",
+    Gender:  "",
+    Height:  "",
+    PhoneNumber:  "",
+    Mobile:  "",
+    ContactEmail:  "",
+    Street:  "",
+    Suburb:  "",
+    City:  "",
+    State:  "",
+    PinCode:  "",
+    Country:  "",
     Insurance: "",
-    InsuranceEmployer: "",
-    InusuranceNumber: "",
-    MedicareNumber: "",
-    };
+    InsuranceEmployer:  "",
+    InusuranceNumber:  "",
+    MedicareNumber:  ""
+  };
   constructor(private pat_Serv: PatientService, private modalService: NgbModal, private modalService2: NgbModal) { }
 ngAfterViewInit() {
 
@@ -63,6 +59,7 @@ ngAfterViewInit() {
     {        
       //window.alert(1)
       this.patient = data[0];
+      console.log(this.patient);
       //localStorage.setItem("FirstName", this.patient.F);
       localStorage.setItem("Height", data.Height);
      //console.log(this.patient)

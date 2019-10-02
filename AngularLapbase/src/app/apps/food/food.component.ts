@@ -12,9 +12,20 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./food.component.css']
 })
 export class FoodComponent implements AfterViewInit {
-
-// Time Picker Initialization
-//$('#input_starttime').pickatime({});  
+  foodValue: string;
+  selectedLevel;
+  data:Array<Object> = [
+      { name: "Breakfast"},
+      { name: "Lunch"},
+      { name: "Dinner"},
+      { name: "Small"},
+      { name: "Medium"},
+      { name: "Large"},
+  ];
+  selected(){
+    this.foodValue = (this.selectedLevel.name);
+    this.getAllFoods();
+  }
   patID: string;
   orgCode: string;
   allFoods: Observable<Food[]>;
@@ -32,35 +43,33 @@ export class FoodComponent implements AfterViewInit {
       Calories:""
     }
 
-  constructor(private foodService: FoodService, private toastr: ToastrService) {} 
+  constructor(private foodService: FoodService, private toastr: ToastrService) {}
 
   breakfast() {
-    this.toastr.success('Your breakfast  is Added!', 'Success!');
+    this.toastr.success('Your Breakfast is Added!', 'Success!');
   }
 
   lunch() {
-    this.toastr.success('Your lunch  is Added!', 'Success!');
+    this.toastr.success('Your Lunch is Added!', 'Success!');
   }
 
   dinner() {
-    this.toastr.success('Your dinner is Added!', 'Success!');
+    this.toastr.success('Your Dinner is Added!', 'Success!');
   }
 
-  meridian = true;
-  seconds = true;
-  toggleSeconds() {
-    this.seconds = !this.seconds;
+  drinks() {
+    this.toastr.success('Your Drink is Added!', 'Success!');
   }
+
 
   ngAfterViewInit() {
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
     console.log(this.patID);
 
-   // this.foodService.getFood(this.patID,this.orgCode);
+    this.foodService.getFood(this.patID,this.orgCode);
     
     //mehod to get list of food item
-
     this.foodService.getFoodItems().subscribe(data => {
       this.foodItem = data;
       console.log(this.foodItem);
@@ -69,8 +78,42 @@ export class FoodComponent implements AfterViewInit {
    // this.getAllFoodItems();
     
   }
+  
+  // getAllFoodItems(){
+ 
+  //   this.allFoodItems = this.foodService.getFoodItems();
+  //   console.log(this.allFoodItems);
+  // }
+
   getAllFoods(){
-    this.allFoods = this.foodService.getFood(this.patID,this.orgCode);
+   
+    if(this.foodValue==="Breakfast")
+    {
+      this.allFoods = this.foodService.filterBreakfast(this.patID,this.orgCode);  
+      }
+    else if(this.foodValue==="Lunch")
+    {
+      this.allFoods = this.foodService.filterLunch(this.patID,this.orgCode);  
+      }
+    else if(this.foodValue==="Dinner")
+    {
+      this.allFoods = this.foodService.filterDinner(this.patID,this.orgCode); 
+       }
+       else if(this.foodValue==="Small")
+    {
+      this.allFoods = this.foodService.filterSmall(this.patID,this.orgCode); 
+       }
+       else if(this.foodValue==="Medium")
+    {
+      this.allFoods = this.foodService.filterMedium(this.patID,this.orgCode); 
+       }
+       else if(this.foodValue==="Large")
+    {
+      this.allFoods = this.foodService.filterLarge(this.patID,this.orgCode); 
+       }
+    else{
+      this.allFoods = this.foodService.getFood(this.patID,this.orgCode);
+    }
   }
   foodUser(event){
     // window.alert(97);
@@ -95,11 +138,8 @@ export class FoodComponent implements AfterViewInit {
        this.foodService.createFood(food).subscribe(  
          () => {  
           // window.alert(87);
-          // this.dataSaved = true;
-          // this.massage = 'Record saved Successfully';  
            this.getAllFoods();  
-         //  this.foodIdUpdate = null;  
-         //  this.FoodForm.reset();  
+    
          }  
        );  
    }
