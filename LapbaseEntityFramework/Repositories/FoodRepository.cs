@@ -23,6 +23,16 @@ namespace LapbaseEntityFramework.Repositories
             return foods;
         }
 
+        public IEnumerable<Food> GetRecentFoods(long PatientID, long OrganizationCode)
+        {
+            int numberOfrecords = 10;
+        
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode));
+            foods = foods.OrderByDescending(x => x.CreatedAt).Take(numberOfrecords);
+            return foods;
+        }
+
+
         public Food GetFoodByID(long Id)
         {
             return Lb.Foods.Find(Id);

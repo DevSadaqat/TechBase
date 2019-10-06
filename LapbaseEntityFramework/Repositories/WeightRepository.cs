@@ -7,6 +7,7 @@ using LapbaseBOL;
 using System.Data.Entity;
 using LapbaseEntityFramework.ViewModel;
 using LapbaseEntityFramework.LbDemo;
+using System.Globalization;
 
 namespace LapbaseEntityFramework.Repositories
 {
@@ -37,9 +38,18 @@ namespace LapbaseEntityFramework.Repositories
         {
             IEnumerable<WeightViewModel> weight1 = Lbd.tblPatientConsults.Where(a => a.Patient_Id==PatientID && a.OrganizationCode==OrganizationCode).Select(a => new WeightViewModel { weight = a.Weight, dateAdded = a.DateSeen }).ToList();
 
-            IEnumerable<WeightViewModel> weight2 = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new WeightViewModel { weight = a.WeightValue, dateAdded= a.CreatedAt }).ToList();
+            IEnumerable<WeightViewModel> weight2 = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new WeightViewModel { weight = a.WeightValue, dateAdded= a.CreatedAt}).ToList();
 
             IEnumerable<WeightViewModel> allWeights = weight1.Concat(weight2);
+           /* foreach (WeightViewModel weight in allWeights)
+            {
+   
+                   // var date = DateTime.ParseExact(weight.dateAdded, "dd/MM/yyyy hh:mm:ss tt", null);
+                
+                weight.dateAdded = weight.dateAdded.ToString("dd/M/yyyy");
+            }*/
+            int numberOfrecords = 20;
+            allWeights = allWeights.OrderByDescending(x => x.dateAdded).Take(numberOfrecords);
             return allWeights;
         }
 

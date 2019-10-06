@@ -27,6 +27,13 @@ namespace LapbaseAPI.Controllers
             return Ok(foods);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetRecentFoods(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.GetRecentFoods(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
         // GET: api/Food/5
         [HttpGet]
         [ResponseType(typeof(Food))]
