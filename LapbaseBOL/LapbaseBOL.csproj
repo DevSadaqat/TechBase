@@ -49,6 +49,7 @@
     <Compile Include="Food.cs" />
     <Compile Include="FoodItem.cs" />
     <Compile Include="LbDemo\BSROrganization.cs" />
+    <Compile Include="LbDemo\SPClasses\EWLModel.cs" />
     <Compile Include="LbDemo\SPClasses\PatientDemographic.cs" />
     <Compile Include="LbDemo\sysdiagram.cs" />
     <Compile Include="LbDemo\tblActionLog.cs" />

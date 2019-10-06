@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemoRepositories\EWLRepository.cs" />
+    <Compile Include="DemoRepositories\IEWLRepository.cs" />
     <Compile Include="DemoRepositories\IPatientDemographicRepository.cs" />
     <Compile Include="DemoRepositories\PatientDemographicRepository.cs" />
     <Compile Include="EnvironmentConfigBuilder.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModel\BMICalculatorViewModel.cs" />
+    <Compile Include="ViewModel\EWLViewModel.cs" />
     <Compile Include="ViewModel\WeightViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
