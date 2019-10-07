@@ -4,6 +4,7 @@ import { DemographicComponent } from './demographic/demographic.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FoodComponent } from './food/food.component';
 import { ExerciseComponent } from './exercise/exercise.component';
+import { ReportComponent } from './report/report.component';
 
 
 export const AppsRoutes: Routes = [
@@ -29,6 +30,11 @@ export const AppsRoutes: Routes = [
         path: 'exercise',
         component: ExerciseComponent,
         data: { title: 'Exercise', urls: [{ title: 'Dashboard', url: '/apps/dashboard' }, { title: 'Exercise' }] }
+      },
+      {
+        path: 'report',
+        component: ReportComponent,
+        data: { title: 'Report', urls: [{ title: 'Dashboard', url: '/apps/dashboard' }, { title: 'Report' }] }
       }
     ]
   }

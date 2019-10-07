@@ -14,7 +14,7 @@ import { BlankComponent } from './layouts/blank/blank.component';
 
 import { NavigationComponent } from './shared/header-navigation/navigation.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
+
 import { ToastrModule } from 'ngx-toastr';
 import { Approutes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +39,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FullComponent,
     BlankComponent,
     NavigationComponent,
-    BreadcrumbComponent,
     SidebarComponent
   ],
   imports: [

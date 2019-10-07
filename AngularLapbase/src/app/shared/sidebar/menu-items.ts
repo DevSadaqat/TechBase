@@ -41,5 +41,13 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/apps/report',
+    title: 'Report',
+    icon: 'mdi mdi-file-document',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 ];

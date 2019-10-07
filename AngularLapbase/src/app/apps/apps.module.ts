@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
@@ -16,12 +16,14 @@ import { NotifierModule } from 'angular-notifier';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
+
 import { AppsRoutes } from './apps.routing';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { FoodComponent } from './food/food.component';
 import { ExerciseComponent } from './exercise/exercise.component';
+import { ReportComponent } from './report/report.component';
 
 
 
@@ -29,6 +31,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     NgbModalModule,
     ChartsModule,
@@ -49,7 +52,8 @@ import { ExerciseComponent } from './exercise/exercise.component';
     DashboardComponent,
     DemographicComponent,
     FoodComponent,
-    ExerciseComponent
+    ExerciseComponent,
+    ReportComponent
   ]
 })
 export class AppsModule { }
