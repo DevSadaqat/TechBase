@@ -74,6 +74,45 @@ toggleSeconds() {
   this.seconds = !this.seconds;
 }
 
+//BMI Chart
+public bmiChartData: Array<any> = [
+  { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'BMI' }
+  
+];
+
+public bmiChartLabels: Array<any> = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+
+public bmiChartOptions: any = {
+  responsive: true
+};
+
+public bmiChartColors: Array<any> = [
+  {
+    
+    backgroundColor: 'rgba(54,190,166,.1)',
+    borderColor: '#2962ff',
+    pointBackgroundColor: '#2962ff	',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: '#2962ff'
+  }
+];
+
+public bmiChartLegend = true;
+public bmiChartType = 'line';
 //Calorie Chart  
   public lineChartData: Array<any> = [
     { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Calories Consumed' },

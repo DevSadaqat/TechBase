@@ -1,4 +1,59 @@
 <div class="row">
+        <div class="col-lg-12 col-md-12">
+                <div class="card">
+                        <div class="row">
+                        <div class="col-6 col-md-4"><span class="align-baseline"> <h3 class="m-b-0 text-info text-bold"><i class="ti-user text-dark"></i> {{patient.Firstname}} {{patient.Surname}}</h3></span>
+                        <span class="align-top"><h5 class="m-b-0 text-info text-left"><i class="mdi mdi-cake text-dark"></i>  {{patient.Age}} yrs</h5></span>
+                        <span class="align-top"><h5 class="m-b-0 text-info text-left"><i class="ti-calendar text-dark"></i>{{patient.Birthdate}}</h5> </span>
+                        <span class="align-top"> <h5 class="m-b-0 text-info "><i class="ti-home text-dark display-10"></i>{{patient.Street}} {{patient.Suburb}}  {{patient.State}}, AUSTRALIA</h5>
+                            </span>
+                            <span class="align-middle"><h5 class="m-b-0 text-info text-left"><i class="ti-id-badge text-dark"></i> Phone:{{patient.HomePhone}}</h5> </span>  
+                        </div>
+                            <div class="col-6 col-md-4">
+                                
+                            <label>Baseline Report</label>
+                             <span class="align-middle"> <h5 class="m-b-0 text-info ">Target weight :</h5></span>
+                             
+                                        <span class="align-middle"> <h5 class="m-b-0 text-info ">EWL :</h5></span>
+                                        
+                                        <span class="align-middle"> <h5 class="m-b-0 text-info "> Current BMI : </h5>
+                                        </span><span class="align-middle"> <h5 class="m-b-0 text-info ">Target BMI:  </h5>
+                                            </span>
+
+                                            </div>
+
+                                            <div class="col-6 col-md-4">
+                                
+                                
+                                                    <span class="align-middle"> <h5 class="m-b-0 text-info ">Ref Dr :</h5></span>
+                                                    <span class="align-middle"> <h5 class="m-b-0 text-info ">Surgery Type :</h5></span>
+                                                    <span class="align-middle"> <h5 class="m-b-0 text-info ">Operation Date :</h5></span>  
+                                                    
+                                                               
+                                                    
+                                                               
+                                                              
+                       
+                                                                   </div>
+
+
+
+
+                                    
+                                  </div>
+                                 
+                                            
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+   
+            <!--
     <div class="col-lg-5 col-md-12">
         <div class="card">
                 <div class="card-header bg-dark">
@@ -32,6 +87,7 @@
 
         </div>
     </div>
+
     <div class="col-lg-3 col-md-10">
         <div class="card">
             <div class="card-header bg-dark">
@@ -54,7 +110,7 @@
                     </div>
                 </div>
             </div>
-            
+        
             <div class="card border-bottom border-info">
                 <div class="card-body">
                     <div class="d-flex no-block align-items-center">
@@ -76,7 +132,8 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-12">
+-->
+<div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
                     <ngb-tabset [justify]="currentJustify">
@@ -145,24 +202,27 @@
             
                     </ngb-tabset>
                 </div>
-            </div>
+            
     
     
-        
+        </div>
     </div>
-</div>
 
+
+
+    
+               
 <!---------->
 <!--Graphs-->
 <!---------->
-<div class="row">
+
 <div class="col-lg-6 col-md-12">
     <div class="card">
         <div class="card-header bg-dark">
-            <h4 class="m-b-0 text-white">Calorie Chart</h4>
+            <h4 class="m-b-0 text-white">Calories</h4>
         </div>
         <div class="card-body">
-            <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
+            <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
                 [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
                 [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
             </canvas>
@@ -172,17 +232,34 @@
 <div class="col-lg-6 col-md-12">
     <div class="card">
         <div class="card-header bg-dark">
-            <h4 class="m-b-0 text-white">Weight Chart</h4>
+            <h4 class="m-b-0 text-white">Weight</h4>
         </div>
         <div class="card-body">
-            <canvas baseChart height="130" [datasets]="WeightChartData" [labels]="WeightChartLabels"
+            <canvas baseChart height="100" [datasets]="WeightChartData" [labels]="WeightChartLabels"
                 [options]="WeightChartOptions" [colors]="WeightChartColors" [legend]="WeightChartLegend"
                 [chartType]="WeightChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
             </canvas>
         </div>
     </div>
 </div>
-</div>
+<div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h4 class="m-b-0 text-white">BMI</h4>
+            </div>
+            <div class="card-body">
+                    <canvas baseChart height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
+                    [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
+                    [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    
+    
 <!-------------->
 <!--End Graphs-->
 <!-------------->
