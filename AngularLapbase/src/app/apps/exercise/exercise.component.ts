@@ -124,6 +124,7 @@ export class ExerciseComponent implements AfterViewInit {
     }
   }
   
+  
   ExerciseUser(event){
     //window.alert(97);
     event.preventDefault()

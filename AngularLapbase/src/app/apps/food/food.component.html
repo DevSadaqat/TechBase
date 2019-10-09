@@ -207,20 +207,17 @@
                                         <table class="table">
                                             <thead class="bg-danger text-white">
                                                 <tr>
-                                                    <th>#</th>
                                                     <th>Food Name</th>
                                                     <th>Meal Type</th>
                                                     <th>Quantity</th>
-                                                    <th>Date</th>
+                                                    <!-- <th>Date</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Cleaning</td>
-                                                    <td>Moderate</td>
-                                                    <td>20</td>
-                                                    <td>20:20 AM</td>
+                                                <tr *ngFor="let rf of recentfoods | async">
+                                                    <td>{{rf.FoodName}}</td>
+                                                    <td>{{rf.MealType}}</td>
+                                                    <td>{{rf.Quantity}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

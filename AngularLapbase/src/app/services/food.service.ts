@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Food } from '../models/Food';
 import { FoodItem } from '../models/FoodItem';
+import { RecentFood } from '../models/recentFood';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { FoodItem } from '../models/FoodItem';
 export class FoodService {
 
   baseUrl: string = "http://localhost:81/Api/Food"
-  foodItemUrl: string = "http://localhost:54726/Api/FoodItem/GetFoodItems"
+  foodItemUrl: string = "http://localhost:81/Api/FoodItem/GetFoodItems"
  //filter: string =  "http://localhost:81/api/Food"
   food: Food = {
    
@@ -49,6 +50,12 @@ export class FoodService {
       return this.http.put<Food>(this.baseUrl + '/ID=?'+id,  
       food);  
     } 
+   
+    RecentFood(patId: string, organizationCode: string): Observable<RecentFood[]> {
+      return this.http.get<RecentFood[]>
+      (this.baseUrl + '/getRecentFoods?PatientId=' + patId +'&OrganizationCode=' + organizationCode)
+      }
+
     //methods to filter food data
     filterBreakfast(patId: string, organizationCode: string): Observable<Food[]> {
       return this.http.get<Food[]>
@@ -83,7 +90,7 @@ export class FoodService {
       (this.baseUrl + 'FilterFoodName?PatientID=' + patId +'&OrganizationCode=' + organizationCode + '&foodName=' + foodName)
     }
 
-
+  
 
 
 

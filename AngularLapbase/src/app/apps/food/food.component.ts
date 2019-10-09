@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FoodService } from '../../services/food.service';
 import {Food} from '../../models/Food';
 import { FoodItem } from '../../models/FoodItem';
+import {RecentFood} from '../../models/recentFood';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
@@ -29,6 +30,7 @@ export class FoodComponent implements AfterViewInit {
   patID: string;
   orgCode: string;
   allFoods: Observable<Food[]>;
+  recentfoods: Observable<RecentFood[]>
   allFoodItems: Observable<FoodItem[]>;
   food: Food = {
     Quantity: "",
@@ -42,7 +44,15 @@ export class FoodComponent implements AfterViewInit {
       FoodName:"",
       Calories:""
     }
-
+    recentFood: RecentFood = {
+      Quantity: "",
+      FoodName:"", 
+      MealType: "",
+      IntakeTime:"",
+      PatientID: "",
+      OrganizationCode: ""
+    }
+    
   constructor(private foodService: FoodService, private toastr: ToastrService) {}
 
   breakfast() {
@@ -75,7 +85,14 @@ export class FoodComponent implements AfterViewInit {
       console.log(this.foodItem);
     })
     this.getAllFoods();
+    this.getRecentFood();
    // this.getAllFoodItems();
+
+   //method to get recent food list
+  //  this.foodService.RecentFood(this.patID, this.orgCode).subscribe(data => {
+  //   this.recentFood = data;
+  //   console.log(this.recentFood);
+  // })
     
   }
   
@@ -114,6 +131,9 @@ export class FoodComponent implements AfterViewInit {
     else{
       this.allFoods = this.foodService.getFood(this.patID,this.orgCode);
     }
+  }
+  getRecentFood(){
+    this.recentfoods = this.foodService.RecentFood(this.patID,this.orgCode);
   }
   foodUser(event){
     // window.alert(97);
