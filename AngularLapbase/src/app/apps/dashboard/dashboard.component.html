@@ -2,22 +2,26 @@
         <div class="col-lg-12 col-md-12">
                 <div class="card">
                         <div class="row">
-                        <div class="col-6 col-md-4"><span class="align-baseline"> <h3 class="m-b-0 text-info text-bold"><i class="ti-user text-dark"></i> {{patient.Firstname}} {{patient.Surname}}</h3></span>
-                        <span class="align-top"><h5 class="m-b-0 text-info text-left"><i class="mdi mdi-cake text-dark"></i>  {{patient.Age}} yrs</h5></span>
-                        <span class="align-top"><h5 class="m-b-0 text-info text-left"><i class="ti-calendar text-dark"></i>{{patient.Birthdate}}</h5> </span>
-                        <span class="align-top"> <h5 class="m-b-0 text-info "><i class="ti-home text-dark display-10"></i>{{patient.Street}} {{patient.Suburb}}  {{patient.State}}, AUSTRALIA</h5>
-                            </span>
-                            <span class="align-middle"><h5 class="m-b-0 text-info text-left"><i class="ti-id-badge text-dark"></i> Phone:{{patient.HomePhone}}</h5> </span>  
-                        </div>
+                                
+                               <div class="col-6 col-md-4"><span class="align-baseline"> <h5 class="m-b-0 text-secondary ">Name  {{patient.Firstname}} {{patient.Surname}}</h5></span>
+                                    <span class="align-top"><h5 class="m-b-0 text-secondary text-left"> Age  {{patient.Age}} </h5></span>
+                                    <span class="align-top"><h5 class="m-b-0 text-secondary text-left">DOB  {{patient.Birthdate}}</h5> </span>
+                                    <span class="align-top"> <h5 class="m-b-0 text-secondary ">Address  {{patient.Street}} {{patient.Suburb}}  {{patient.State}}</h5>
+                                        </span>
+                                        <span class="align-middle"><h5 class="m-b-0 text-secondary text-left"> Phone{{patient.HomePhone}}</h5> </span>  
+                                    </div> 
                             <div class="col-6 col-md-4">
                                 
                             <label>Baseline Report</label>
-                             <span class="align-middle"> <h5 class="m-b-0 text-info ">Start weight :{{patient.StartWeight}} </h5></span>
+                           
+                            <span class="align-middle"> <h5 class="m-b-0 text-body ">  Start Weight
+                                  {{patient.StartWeight}} </h5></span>
+                                
                              
-                                        <span class="align-middle"> <h5 class="m-b-0 text-info ">Current Weight : {{weight.WeightValue}}</h5></span>
+                                        <span class="align-middle"> <h5 class="m-b-0 text-body ">Current Weight  {{weight.WeightValue}}</h5></span>
                                         
-                                        <span class="align-middle"> <h5 class="m-b-0 text-info "> Target Weight : {{patient.StartWeight}} </h5>
-                                        </span><span class="align-middle"> <h5 class="m-b-0 text-info ">BMI: {{weight.BMI}} </h5>
+                                        <span class="align-middle"> <h5 class="m-b-0 text-body "> Target Weight  {{patient.StartWeight}} </h5>
+                                        </span><span class="align-middle"> <h5 class="m-b-0 text-body ">BMI {{weight.BMI}} </h5>
                                             </span>
 
                                             </div>
@@ -25,9 +29,9 @@
                                             <div class="col-6 col-md-4">
                                 
                                 
-                                                    <span class="align-middle"> <h5 class="m-b-0 text-info ">Ref Dr : {{patient.RefDrName1}} </h5></span>
-                                                    <span class="align-middle"> <h5 class="m-b-0 text-info ">Surgery Type : </h5></span>
-                                                    <span class="align-middle"> <h5 class="m-b-0 text-info ">Operation Date : 1/1/2003</h5></span>  
+                                                    <span class="align-middle"> <h5 class="m-b-0 text-body ">Ref Dr {{patient.RefDrName1}} </h5></span>
+                                                    <span class="align-middle"> <h5 class="m-b-0 text-body ">Surgery Type  </h5></span>
+                                                    <span class="align-middle"> <h5 class="m-b-0 text-body ">Operation Date </h5></span>  
                                                     
                                                                
                                                     
@@ -156,7 +160,7 @@
                                         </div>
                                     </span>
                                     <div class="text-center">
-                                         <button type="submit" class="btn btn-primary bg-danger text-white" (click)="weightMessage()">Add</button>
+                                         <button type="submit" class="btn btn-primary bg-dark text-white" (click)="weightMessage()">Add</button>
                                     </div>
             
                                 </form>
@@ -188,14 +192,14 @@
                                     </div>
                                     <hr>
                                     <!--<h4>Calculated BMI</h4>-->
-                                    <div>
+                                 <!--  <div>
                                         <div class="card card-hover">
                                             <div class="box bg-dark text-center">
                                                 <h1 class="font-light text-white">{{bmiData.BMI}}</h1>
                                                 <h6 class="text-white"> {{bmiData.message}}</h6>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </ng-template>
                         </ngb-tab>

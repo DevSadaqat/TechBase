@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col">
                                     <form (submit)="ExerciseUser($event)">
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 14rem;">
                                             <img class="card-img-top" src="./assets/images/light.png" alt="Card image cap" style="height: 10rem">
                                             <div class="card-body">
                                                 <h4 for="inputexercise">Light Exercise</h4>
@@ -30,7 +30,13 @@
                                                     <option value="30">30</option>
                                                     <option value="More Than 40">More than 40</option>
                                                 </select>
-                                                
+                                                <div class="dl m-b-10">
+                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
+                                                            <option  value="0" selected="">Time</option>
+                                                            <option  value="12:00 PM">12:00 PM</option>
+                                                            <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
+                                                        </select>
+                                                    </div>
                                                 <!--                                             
                                                 <select class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
@@ -43,14 +49,14 @@
                                                 <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
     
                                             </div>
-                                            <button type="submit" class="btn btn-primary bg-danger text-white" (click)="lightExercise()">Add</button>
+                                            <button type="submit" class="btn btn-primary bg-dark text-white " (click)="lightExercise()">Add</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="col">
                                     <form (submit)="ExerciseUser($event)">
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 14rem;">
                                             <img class="card-img-top" src="./assets/images/running.png" alt="Card image cap" style="height: 10rem">
                                             <div class="card-body">
                                                 <h4 for="inputfood">Moderate Exercise</h4>
@@ -70,7 +76,13 @@
                                                     <option value="30">30</option>
                                                     <option value="More Than 40">More than 40</option>
                                                 </select>
-                                                
+                                                <div class="dl m-b-10">
+                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
+                                                            <option  value="0" selected="">Time</option>
+                                                            <option  value="12:00 PM">12:00 PM</option>
+                                                            <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
+                                                        </select>
+                                                    </div>
                                                                                             
                                                 <!-- <select class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
@@ -84,7 +96,7 @@
                                                 <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
     
                                             </div>
-                                            <button type="submit" class="btn btn-primary bg-danger text-white" (click)="moderateExercise()">Add</button>
+                                            <button type="submit" class="btn btn-primary bg-dark text-white" (click)="moderateExercise()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -92,7 +104,7 @@
                         
                                 <div class="col">
                                     <form (submit)="ExerciseUser($event)">
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 14rem;">
                                             <img class="card-img-top" src="./assets/images/lifting.png" alt="Card image cap" style="height:10rem">
                                           
                                             <div class="card-body">
@@ -114,6 +126,13 @@
                                                     <option value="30">30</option>
                                                     <option value="More Than 40">More than 40</option>
                                                 </select>
+                                                <div class="dl m-b-10">
+                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
+                                                            <option  value="0" selected="">Time</option>
+                                                            <option  value="12:00 PM">12:00 PM</option>
+                                                            <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
+                                                        </select>
+                                                    </div>
                                            
                                                 <!--                                            
                                                 <select class="custom-select border-10 text-active">
@@ -126,7 +145,7 @@
                                                 <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
     
                                             </div>
-                                                <button type="submit" class="btn btn-primary bg-danger text-white" (click)="intenseExercise()">Add</button>
+                                                <button type="submit" class="btn btn-primary bg-dark text-white" (click)="intenseExercise()">Add</button>
                                             </div>
                                         <!--</form>-->
                                         </div>
@@ -142,15 +161,17 @@
                                 <h4 class="card-title">Recently Added</h4>
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <thead class="bg-danger text-white">
+                                        <thead 
+                                               class="m-b-0 text-white  bg-secondary ">
+                                                   
                                             <tr>
-                                                <th>#</th>
-                                                <th>Exercise Name</th>
-                                                <th>Exercise Type</th>
-                                                <th>Duration</th>
-                                                <th>Start Time</th>
-                                                <th>Calories Consumed</th>
-                                                <th>Date</th>
+                                                <th class="text-white">#</th>
+                                                <th class="text-white" >Exercise Name</th>
+                                                <th class="text-white" >Exercise Type</th>
+                                                <th class="text-white" >Duration</th>
+                                                <th class="text-white">Start Time</th>
+                                                <th class="text-white" >Calories Consumed</th>
+                                                <th class="text-white">Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -196,11 +217,11 @@
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class="bg-danger text-white">
+                                            <thead class="bg-secondary text-white">
                                                 <tr>
-                                                    <th scope="col">Type of Exercise</th>
-                                                    <th scope="col">Duration(Mintues) </th>
-                                                    <th scope="col">Date</th>
+                                                    <th class="text-white" scope="col">Type of Exercise</th>
+                                                    <th class="text-white" scope="col">Duration(Mintues) </th>
+                                                    <th class="text-white"scope="col">Date</th>
                                         
                                                 </tr>
                                             </thead>
