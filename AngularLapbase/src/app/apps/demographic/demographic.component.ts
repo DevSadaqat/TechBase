@@ -23,6 +23,7 @@ import { Observable } from 'rxjs';
   ]
 })
 export class DemographicComponent implements AfterViewInit {
+  currentJustify ="justified";
   closeResult: string;
   patID: string;
   orgCode: string;
