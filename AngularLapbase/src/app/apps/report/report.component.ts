@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-report',
-  templateUrl: './report.component.html'
+  templateUrl: './report.component.html',
+  styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
   currentJustify ="justified";
@@ -13,7 +14,7 @@ export class ReportComponent implements OnInit {
 
   //BMI Chart
   public bmiChartData: Array<any> = [
-    { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'BMI' }
+    { data: [65, 39, 80, 15, 76, 35, 40, 98, 57, 58, 86, 57], label: 'BMI' }
     
   ];
 
@@ -103,9 +104,10 @@ export class ReportComponent implements OnInit {
   public lineChartType = 'line';
 
 
-    //Calorie Chart  
+    //Weight Chart  
     public weightChartData: Array<any> = [
-     { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Weight' }
+     { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Weight Gained' },
+     { data: [200, 95, 72, 65, 76, 75, 51, 21, 56, 52, 48, 56], label: 'Weight Loss' }
       
     ];
   
@@ -131,6 +133,15 @@ export class ReportComponent implements OnInit {
     public weightChartColors: Array<any> = [
       {
       
+        backgroundColor: 'rgba(54,190,166,.1)',
+        borderColor: '#2962ff',
+        pointBackgroundColor: '#2962ff	',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: '#2962ff'
+      },
+      {
+    
         backgroundColor: 'rgb(41,98,255,.1)',
         borderColor: '	#FF6347',
         pointBackgroundColor: '	#FF6347',

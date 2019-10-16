@@ -3,7 +3,7 @@
         <ngb-tabset [justify]="currentJustify">
 
                 <ngb-tab>
-                   <ng-template ngbTabTitle><b>BMI</b></ng-template>
+                   <ng-template ngbTabTitle>BMI</ng-template>
                    <ng-template ngbTabContent>
                      <br />
                       <div class="card">
@@ -11,7 +11,7 @@
                               <h4 class="m-b-0 text-white">BMI Chart</h4>
                           </div>
                           <div class="card-body">
-                              <canvas baseChart height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
+                              <canvas baseChart height="150" [datasets]="bmiChartData" [labels]="bmiChartLabels"
                                   [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
                                   [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                               </canvas>
@@ -21,7 +21,7 @@
                 </ngb-tab>
 
                 <ngb-tab>
-                   <ng-template ngbTabTitle><b>Calorie</b></ng-template>
+                   <ng-template ngbTabTitle>Calorie</ng-template>
                    <ng-template ngbTabContent>
                      <br />
                       <div class="card">
@@ -29,7 +29,7 @@
                               <h4 class="m-b-0 text-white">Calorie Chart</h4>
                           </div>
                           <div class="card-body">
-                              <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
+                              <canvas baseChart height="200" [datasets]="lineChartData" [labels]="lineChartLabels"
                                   [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
                                   [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                               </canvas>
@@ -39,7 +39,7 @@
                 </ngb-tab>
 
                 <ngb-tab>
-                  <ng-template ngbTabTitle><b>Weight</b></ng-template>
+                  <ng-template ngbTabTitle>Weight</ng-template>
                   <ng-template ngbTabContent>
                       <br />
                       <div class="card">
@@ -47,7 +47,7 @@
                               <h4 class="m-b-0 text-white">Weight Chart</h4>
                           </div>
                           <div class="card-body">
-                              <canvas baseChart height="100" [datasets]="weightChartData" [labels]="weightChartLabels"
+                              <canvas baseChart height="200" [datasets]="weightChartData" [labels]="weightChartLabels"
                                   [options]="weightChartOptions" [colors]="weightChartColors" [legend]="weightChartLegend"
                                   [chartType]="weightChartType" (chartHover)="weightHovered($event)" (chartClick)="chartClicked($event)">
                               </canvas>
