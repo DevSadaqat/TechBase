@@ -27,6 +27,15 @@ namespace LapbaseEntityFramework.Repositories
             var weight = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode));
             return weight;
         }
+
+        public IEnumerable<BMIViewModel> GetAllBMIs(long PatientID, long OrganizationCode)
+        {
+            IEnumerable<BMIViewModel> BMI = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new BMIViewModel { BMI = a.BMI, dateAdded = a.CreatedAt }).ToList();
+            int numberOfRecords = 10;
+            BMI = BMI.OrderByDescending(x => x.dateAdded).Take(numberOfRecords);
+            return BMI;
+        }
+
         public Weight GetLatestWeight(long PatientID, long OrganizationCode)
         {
             var latestId = Lb.Weights.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Max(p => p.ID);
@@ -48,7 +57,7 @@ namespace LapbaseEntityFramework.Repositories
                 
                 weight.dateAdded = weight.dateAdded.ToString("dd/M/yyyy");
             }*/
-            int numberOfrecords = 20;
+            int numberOfrecords = 10;
             allWeights = allWeights.OrderByDescending(x => x.dateAdded).Take(numberOfrecords);
             return allWeights;
         }

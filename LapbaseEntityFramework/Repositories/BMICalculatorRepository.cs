@@ -25,7 +25,7 @@ namespace LapbaseEntityFramework.Repositories
             decimal? bmi1 = weight/ (patient.Height * patient.Height);
            
             double? bmi = (double?)Convert.ChangeType(bmi1, typeof(double));
-            bmi = Math.Round((double)bmi, 2);
+            bmi = Math.Round((double)bmi, 1);
             
             if (bmi < 18.5)
             {

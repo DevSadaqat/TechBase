@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
 using System.Data.Entity;
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseEntityFramework.Repositories
 {
@@ -19,7 +20,28 @@ namespace LapbaseEntityFramework.Repositories
         public IEnumerable<Exercise> GetExercises(long PatientID, long OrganizationCode)
         {
             var exercises = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode));
+            exercises = exercises.OrderByDescending(x => x.CreatedAt);
             return exercises;
+        }
+
+        public IEnumerable<Exercise> GetRecentExercises(long PatientID, long OrganizationCode)
+        {
+            int numberOfrecords = 5;
+
+            var exercises = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode));
+            exercises = exercises.OrderByDescending(x => x.CreatedAt).Take(numberOfrecords);
+            return exercises;
+        }
+
+        public IEnumerable<CaloriesViewModel> GetCaloriesBurnt(long PatientID, long OrganizationCode)
+        {
+            // int numberOfRecords = 10;
+            IEnumerable<CaloriesViewModel> calories = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new CaloriesViewModel { calories = a.ExerciseItem.Calories, date = a.CreatedAt }).ToList();
+            //  calories = calories.GroupBy(b => new { Day = b.date.Day, Month = b.date.Month, Year = b.date.Year }).Select(a => new CaloriesViewModel { calories = a.Sum(b=> int.Parse(b.calories)).ToString(), date = b.date });
+            // IEnumerable<CaloriesViewModel> calories = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new CaloriesViewModel { calories = a.ExerciseItem.Calories, date = a.CreatedAt.ToString("MM/dd/yyyy") }).ToList();
+            //  calories = calories.GroupBy(b => new { Day = b.date.Day, Month = b.date.Month, Year = b.date.Year }).Select(a => new CaloriesViewModel { calories = a.Sum(b=> int.Parse(b.calories)).ToString(), date = b.date });
+
+            return calories;
         }
 
         public IEnumerable<Exercise> FilterLight(long PatientID, long OrganizationCode)

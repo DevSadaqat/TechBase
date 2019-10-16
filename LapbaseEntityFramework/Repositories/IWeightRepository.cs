@@ -14,6 +14,7 @@ namespace LapbaseEntityFramework.Repositories
         Weight GetLatestWeight(long PatientID, long OrganizationCode);
         Weight GetWeightByID(long id);
         IEnumerable<WeightViewModel> GetAllWeights(long PatientID, long OrganizationCode);
+        IEnumerable<BMIViewModel> GetAllBMIs(long PatientID, long OrganizationCode);
         void InsertWeight(Weight weight);
         void DeleteWeight(long id);
         void UpdateWeight(Weight weight);

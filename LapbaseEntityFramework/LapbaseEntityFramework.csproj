@@ -74,6 +74,8 @@
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModel\BMICalculatorViewModel.cs" />
+    <Compile Include="ViewModel\BMIViewModel.cs" />
+    <Compile Include="ViewModel\CaloriesViewModel.cs" />
     <Compile Include="ViewModel\EWLViewModel.cs" />
     <Compile Include="ViewModel\WeightViewModel.cs" />
   </ItemGroup>

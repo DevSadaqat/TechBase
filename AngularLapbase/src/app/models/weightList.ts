@@ -1,4 +1,4 @@
 export class WeightList {
-    weight: string;
+    weight: number;
     dateAdded: string;
     }

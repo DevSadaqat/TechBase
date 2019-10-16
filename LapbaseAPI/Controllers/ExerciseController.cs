@@ -27,6 +27,13 @@ namespace LapbaseAPI.Controllers
             return Ok(exercises);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetRecentExercises(long PatientID, long OrganizationCode)
+        {
+            var exercises = exerciseRepository.GetRecentExercises(PatientID, OrganizationCode);
+            return Ok(exercises);
+        }
+
         // GET: api/Exercise/5
         [HttpGet]
         [ResponseType(typeof(Exercise))]
@@ -39,6 +46,13 @@ namespace LapbaseAPI.Controllers
             }
 
             return Ok(exercise);
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetCaloriesBurnt(long PatientID, long OrganizationCode)
+        {
+            var exercises = exerciseRepository.GetCaloriesBurnt(PatientID, OrganizationCode);
+            return Ok(exercises);
         }
 
         [HttpGet]

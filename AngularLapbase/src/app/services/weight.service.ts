@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Weight } from '../models/Weight';
 import { WeightList } from '../models/weightList';
 import { Bmi } from '../models/Bmi';
+import { BmiList } from '../models/bmiList';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +12,7 @@ export class WeightService {
 
   baseUrl: string = "http://localhost:81/Api/Weight"
   bmiUrl: string = "http://localhost:81/api/BMICalculator"
+  
   weight: Weight = {
 
     WeightValue: "",
@@ -34,8 +36,8 @@ export class WeightService {
       (this.baseUrl + '/getLatestWeight?PatientId=' + patId +'&OrganizationCode=' + organizationCode) 
       }
   //method returns list all weights
-  getAllWeights(patId: string, organizationCode: string ): Observable<WeightList> {
-    return this.http.get<WeightList>
+  getAllWeights(patId: string, organizationCode: string ): Observable<WeightList[]> {
+    return this.http.get<WeightList[]>
     (this.baseUrl + '/GetAllWeights?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
     }
  //method for BMI
@@ -43,5 +45,10 @@ export class WeightService {
       return this.http.get<Bmi>
       (this.bmiUrl + '/CalculateBMI?PatientID=' + patId +'&OrganizationCode=' + organizationCode + '&weight=' + weight )
       }
+  //method for to display BMI in graph
+  getBmiForGraph(patId: string, organizationCode: string ): Observable<BmiList[]> {
+    return this.http.get<BmiList[]>
+    (this.baseUrl + '/GetAllBMIs?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
+    }
   
 }

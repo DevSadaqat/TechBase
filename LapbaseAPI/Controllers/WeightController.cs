@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using LapbaseBOL;
 using LapbaseEntityFramework.Repositories;
@@ -14,6 +15,7 @@ using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class WeightController : ApiController
     {
         private readonly IWeightRepository weightRepository = new WeightRepository();
@@ -23,6 +25,12 @@ namespace LapbaseAPI.Controllers
         {
             var weights = weightRepository.GetWeights(PatientID, OrganizationCode);
             return Ok(weights);
+        }
+
+        public IHttpActionResult GetAllBMIs(long PatientID, long OrganizationCode)
+        {
+            var BMIs = weightRepository.GetAllBMIs(PatientID, OrganizationCode);
+            return Ok(BMIs);
         }
 
         [HttpGet]
