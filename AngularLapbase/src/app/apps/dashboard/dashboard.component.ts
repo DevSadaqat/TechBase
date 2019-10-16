@@ -44,12 +44,12 @@ export class DashboardComponent implements AfterViewInit {
     InusuranceNumber:  "",
     MedicareNumber:  ""
   };
-  weight: Weight = {
+  //weight: Weight = {
 
-    WeightValue: "",
-    PatientID: "",
-    OrganizationCode: "",
-  }
+//    WeightValue: "",
+  //  PatientID: "",
+    //OrganizationCode: "",
+  //}
   constructor(private pat_Serv: PatientService, private weightService: WeightService, private toastr: ToastrService) { }
 
   addweight() {
@@ -200,7 +200,7 @@ export class DashboardComponent implements AfterViewInit {
      event.preventDefault()
      const target = event.target
      this.weightBMI = target.querySelector('#Weight').value;
-     console.log(this.weight);
+     //console.log(this.weight);
     this.bmi = this.weightBMI/(this.height*this.height);
     this.bmi = +this.bmi.toFixed(2);
     console.log(this.bmi);
@@ -227,12 +227,12 @@ export class DashboardComponent implements AfterViewInit {
      event.preventDefault()
      const target = event.target
     
-     this.weight.WeightValue =target.querySelector('#WeightValue').value
+     //this.weight.WeightValue =target.querySelector('#WeightValue').value
      
    
    
     // window.alert(97);
-     this.CreateWeight(this.weight);
+     //this.CreateWeight(this.weight);
    }
    getLatestWeight()
   {
