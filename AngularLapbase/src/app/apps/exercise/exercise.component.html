@@ -28,15 +28,9 @@
                                                     <option value="10">10</option>
                                                     <option value="20">20</option>
                                                     <option value="30">30</option>
-                                                    <option value="More Than 40">More than 40</option>
+                                                    <option value="40"> 40</option>
                                                 </select>
-                                                <div class="dl m-b-10">
-                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
-                                                            <option  value="0" selected="">Time</option>
-                                                            <option  value="12:00 PM">12:00 PM</option>
-                                                            <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
-                                                        </select>
-                                                    </div>
+                                                
                                                 <!--                                             
                                                 <select class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
@@ -49,7 +43,7 @@
                                                 <!--<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>-->
     
                                             </div>
-                                            <button type="submit" class="btn btn-primary bg-dark text-white " (click)="lightExercise()">Add</button>
+                                            <button type="submit" class="btn btn-primary bg-dark text-white" (click)="lightExercise()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -76,13 +70,7 @@
                                                     <option value="30">30</option>
                                                     <option value="More Than 40">More than 40</option>
                                                 </select>
-                                                <div class="dl m-b-10">
-                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
-                                                            <option  value="0" selected="">Time</option>
-                                                            <option  value="12:00 PM">12:00 PM</option>
-                                                            <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
-                                                        </select>
-                                                    </div>
+                                                
                                                                                             
                                                 <!-- <select class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
@@ -104,7 +92,7 @@
                         
                                 <div class="col">
                                     <form (submit)="ExerciseUser($event)">
-                                        <div class="card" style="width: 14rem;">
+                                        <div class="card" style="width: 13.5rem;">
                                             <img class="card-img-top" src="./assets/images/lifting.png" alt="Card image cap" style="height:10rem">
                                           
                                             <div class="card-body">
@@ -124,15 +112,8 @@
                                                     <option value="10">10</option>
                                                     <option value="20">20</option>
                                                     <option value="30">30</option>
-                                                    <option value="More Than 40">More than 40</option>
+                                                    <option value="40">40</option>
                                                 </select>
-                                                <div class="dl m-b-10">
-                                                        <select id = "IntakeTime"  class="custom-select border-10 text-active">
-                                                            <option  value="0" selected="">Time</option>
-                                                            <option  value="12:00 PM">12:00 PM</option>
-                                                            <option  value="15:00 to 18:00 PM">15:00 to 18:00 PM</option>
-                                                        </select>
-                                                    </div>
                                            
                                                 <!--                                            
                                                 <select class="custom-select border-10 text-active">
@@ -161,21 +142,25 @@
                                 <h4 class="card-title">Recently Added</h4>
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <thead 
-                                               class="m-b-0 text-white  bg-secondary ">
-                                                   
+                                        <thead class="m-b-0 text-white bg-secondary">
                                             <tr>
-                                                <th class="text-white">#</th>
-                                                <th class="text-white" >Exercise Name</th>
-                                                <th class="text-white" >Exercise Type</th>
-                                                <th class="text-white" >Duration</th>
-                                                <th class="text-white">Start Time</th>
-                                                <th class="text-white" >Calories Consumed</th>
+                                                
+                                                
+                                                <th class="text-white">Exercise Type</th>
+                                                <th class="text-white">Duration</th>
+                                                <!-- <th>Start Time</th> -->
+                                                <!-- <th>Calories Consumed</th> -->
                                                 <th class="text-white">Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                                <tr *ngFor="let exe of recentexercise | async">
+                                                        <td>{{exe.ExerciseName}}</td>
+                                                        <td>{{exe.Duration}}</td>
+                                                        <td>{{exe.CreatedAt}}</td>
+                                                       
+                                                </tr>
+                                            <!-- <tr>
                                                 <td>1</td>
                                                 <td>Cleaning</td>
                                                 <td>Moderate</td>
@@ -183,7 +168,7 @@
                                                 <td>20:20 AM</td>
                                                 <td>2589</td>
                                                 <td>25/009/2019</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -221,7 +206,7 @@
                                                 <tr>
                                                     <th class="text-white" scope="col">Type of Exercise</th>
                                                     <th class="text-white" scope="col">Duration(Mintues) </th>
-                                                    <th class="text-white"scope="col">Date</th>
+                                                    <th class="text-white" scope="col">Date</th>
                                         
                                                 </tr>
                                             </thead>

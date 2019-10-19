@@ -8,6 +8,7 @@ import {WeightList} from '../../models/weightList';
 import {Bmi} from '../../models/Bmi';
 import {BmiList} from '../../models/bmiList';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
 import {Chart} from 'chart.js'
 import { Observable } from 'rxjs';
 
@@ -220,8 +221,9 @@ public bmiChartType = 'line';
     this.weightService.getAllWeights(this.patID,this.orgCode).subscribe((res: WeightList[]) =>
       {
       res.forEach(x => {
+        let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("DD-MM-YYYY");
           this.weightNum.push(+x.weight);
-          this.DateG.push(x.dateAdded);
+          this.DateG.push(myDate);
           //console.log("1");
          // console.log(this.weightNum);
          // console.log("1");
@@ -268,8 +270,9 @@ public bmiChartType = 'line';
       {
        console.log(res);
       res.forEach(x => {
-          this.bmiNum.push(+x.BMI);
-          this.bmidate.push(x.dateAdded);
+        let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("DD-MM-YYYY");
+          this.bmiNum.push(+x.BMI.toFixed(1));
+          this.bmidate.push(myDate);
           // console.log(this.bmiNum);
           // console.log(this.bmidate);
 
@@ -356,7 +359,7 @@ public bmiChartType = 'line';
      this.weight.WeightValue =target.querySelector('#WeightValue').value
      this.weightService.getBmi(this.patID, this.orgCode, this.weight.WeightValue).subscribe(data =>
       {
-        this.weight.BMI= data.BMI.toString();
+        this.weight.BMI= (+data.BMI).toFixed(1).toString();
        // console.log(this.bmiData);
       });
      console.log(this.weight.WeightValue);

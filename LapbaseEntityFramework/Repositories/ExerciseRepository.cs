@@ -39,7 +39,7 @@ namespace LapbaseEntityFramework.Repositories
             IEnumerable<CaloriesViewModel> calories = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new CaloriesViewModel { calories = a.ExerciseItem.Calories, date = a.CreatedAt }).ToList();
             //  calories = calories.GroupBy(b => new { Day = b.date.Day, Month = b.date.Month, Year = b.date.Year }).Select(a => new CaloriesViewModel { calories = a.Sum(b=> int.Parse(b.calories)).ToString(), date = b.date });
             // IEnumerable<CaloriesViewModel> calories = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new CaloriesViewModel { calories = a.ExerciseItem.Calories, date = a.CreatedAt.ToString("MM/dd/yyyy") }).ToList();
-            //  calories = calories.GroupBy(b => new { Day = b.date.Day, Month = b.date.Month, Year = b.date.Year }).Select(a => new CaloriesViewModel { calories = a.Sum(b=> int.Parse(b.calories)).ToString(), date = b.date });
+          //  calories = calories.GroupBy(b => new { Day = b.date.Day, Month = b.date.Month, Year = b.date.Year }).Select(a => new CaloriesViewModel { date = new { Day = a.date.Day, Month = a.date.Month, Year = a.date.Year }, calories = a.Sum(b => int.Parse(b.calories)).ToString() });
 
             return calories;
         }

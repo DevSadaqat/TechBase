@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Excercise } from '../models/excercise';
+import { RecentExercise } from '../models/recentExercise';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import { Excercise } from '../models/excercise';
 
 export class ExcerciseService {
 
-  baseUrl: string = "http://localhost:54726/Api/Exercise"
+
+  baseUrl: string = "http://localhost:81/Api/Exercise"
   excerciseTypeUrl: string = "http://localhost:81/Api/ExerciseItem"
 
   exercise: Excercise = { 
@@ -32,7 +34,12 @@ export class ExcerciseService {
 
     createExercise(exercise): Observable<Excercise> {  
       return this.http.post<any>(this.baseUrl + '/PostExercise',  exercise);  
-    } 
+    }
+    
+    RecentExercise(patId: string, organizationCode: string): Observable<RecentExercise[]> {
+      return this.http.get<RecentExercise[]>
+      (this.baseUrl + '/GetRecentExercises?PatientID' + patId +'&OrganizationCode=' + organizationCode)
+      }
     
     getIntenseExercises() {  
       return this.http.get<any> (this.excerciseTypeUrl +
@@ -47,7 +54,7 @@ export class ExcerciseService {
     getLightExercises(){  
       return this.http.get<any> (this.excerciseTypeUrl +
         '/GetExerciseLight');  
-    }
+    }    
     //method to filter Excercise data
     filterLight(patId: string, organizationCode: string): Observable<Excercise[]>{
       return this.http.get<Excercise[]>

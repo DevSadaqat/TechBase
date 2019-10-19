@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ExcerciseService } from '../../services/excercise.service';
 import {Excercise} from '../../models/excercise';
 import {ExerciseItem} from '../../models/ExerciseItem';
+import {RecentExercise} from '../../models/recentExercise';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +18,7 @@ export class ExerciseComponent implements AfterViewInit {
   
     patID: string;
     orgCode: string;
+    recentexercise: Observable<RecentExercise[]>
     selectedLevel;
     filterBy: string;
     data:Array<Object> = [
@@ -81,6 +83,7 @@ export class ExerciseComponent implements AfterViewInit {
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
     this.getAllExercises();
+    this.getRecentExercise();
     
     
     //methods to display list of exercises 
@@ -123,7 +126,10 @@ export class ExerciseComponent implements AfterViewInit {
       this.allExercises = this.exerciseService.getExercise(this.patID,this.orgCode);
     }
   }
-  
+  //method to display recent exercise 
+  getRecentExercise(){
+    this.recentexercise = this.exerciseService.RecentExercise(this.patID,this.orgCode);
+  }
   
   ExerciseUser(event){
     //window.alert(97);
@@ -151,7 +157,9 @@ export class ExerciseComponent implements AfterViewInit {
     this.exerciseService.createExercise(exercise).subscribe(
    () => {
          window.alert(10);
+         this.getRecentExercise();
          this.getAllExercises();
+
     }
     );
   }

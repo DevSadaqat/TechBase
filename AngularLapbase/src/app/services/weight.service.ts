@@ -35,6 +35,7 @@ export class WeightService {
       return this.http.get<Weight>
       (this.baseUrl + '/getLatestWeight?PatientId=' + patId +'&OrganizationCode=' + organizationCode) 
       }
+   
   //method returns list all weights
   getAllWeights(patId: string, organizationCode: string ): Observable<WeightList[]> {
     return this.http.get<WeightList[]>

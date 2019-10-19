@@ -86,13 +86,7 @@ export class FoodComponent implements AfterViewInit {
     })
     this.getAllFoods();
     this.getRecentFood();
-   // this.getAllFoodItems();
 
-   //method to get recent food list
-  //  this.foodService.RecentFood(this.patID, this.orgCode).subscribe(data => {
-  //   this.recentFood = data;
-  //   console.log(this.recentFood);
-  // })
     
   }
   
@@ -158,6 +152,7 @@ export class FoodComponent implements AfterViewInit {
        this.foodService.createFood(food).subscribe(  
          () => {  
           // window.alert(87);
+          this.getRecentFood();
            this.getAllFoods();  
     
          }  
