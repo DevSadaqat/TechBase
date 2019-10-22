@@ -1,17 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {WeightList} from '../../models/weightList';
+import {BmiList} from '../../models/bmiList';
+import {Chart} from 'chart.js'
+import { WeightService } from '../../services/weight.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit {
+export class ReportComponent implements AfterViewInit {
   currentJustify ="justified";
+  patID: string;
+  orgCode: string;
 
+  //for weight graph
+  weightGraph: WeightList[];
+  weightNum: number[]= [];
+  DateG:string[]=[];
+  Weightchart:any = [];
 
-  constructor() { }
+  //for BMI Graph 
+  bmiNum: number[] = [];
+  bmidate: string[]=[];
+  Bmichart: any = [];
 
+  constructor(private weightService: WeightService) { }
+
+  
   //BMI Chart
   public bmiChartData: Array<any> = [
     { data: [65, 39, 80, 15, 76, 35, 40, 98, 57, 58, 86, 57], label: 'BMI' }
@@ -153,8 +170,110 @@ export class ReportComponent implements OnInit {
     
     public weightChartLegend = true;
     public weightChartType = 'line';
+    
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    this.patID  = localStorage.getItem("patientID");
+    this.orgCode = localStorage.getItem("organizationCode");  
+
+        //method to call list of all weights to display on graph 
+        this.weightService.getAllWeights(this.patID,this.orgCode).subscribe((res: WeightList[]) =>
+        {
+        res.forEach(x => {
+          let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("DD-MM-YYYY");
+            this.weightNum.push(+x.weight);
+            this.DateG.push(myDate);
+            //console.log("1");
+           // console.log(this.weightNum);
+           // console.log("1");
+        // console.log(x.dateAdded);
+          });
+          console.log(res);
+          this.Weightchart = new Chart('canvas', {
+            type: 'line',
+            data: {
+              labels: this.DateG,
+              datasets: [
+                {
+                  data : this.weightNum,
+                 
+                  backgroundColor: 'rgba(54,190,166,.1)',
+                  borderColor: '#2962ff',
+                  pointBackgroundColor: '#2962ff	',
+                  pointBorderColor: '#fff',
+                  pointHoverBackgroundColor: '#fff',
+                  pointHoverBorderColor: '#2962ff'
+             
+                }
+              ]
+            },
+            options: {
+              legend: {
+                display: false
+              },
+              scales: {
+                xAxes: [{
+                  display: true
+                }],
+                yAxes: [{
+                  display: true
+                }],
+              }
+            }
+          });
+        });
+
+            //method to call BMIs to display on Graph
+      this.weightService.getBmiForGraph(this.patID,this.orgCode).subscribe((res: BmiList[]) =>
+      {
+      // console.log(res);
+      res.forEach(x => {
+        let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("DD-MM-YYYY");
+          this.bmiNum.push(+x.BMI.toFixed(1));
+          this.bmidate.push(myDate);
+          // console.log(this.bmiNum);
+          // console.log(this.bmidate);
+
+        });
+        console.log(res);
+        this.Bmichart = new Chart('BMIcanvas', {
+          type: 'line',
+          data: {
+            labels: this.bmidate,
+            datasets: [
+              {
+                data : this.bmiNum,
+               
+                backgroundColor: 'rgba(54,190,166,.1)',
+                borderColor: '#2962ff',
+                pointBackgroundColor: '#2962ff	',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#2962ff'
+                // borderColor: '#3cb371',
+                // backgroundColor: "#0000FF",
+              }
+            ]
+          } ,
+          options: {
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                display: true
+              }],
+              yAxes: [{
+                display: true
+              }],
+            }
+          }
+        });
+      });
+
+  
+
+
   }
 
 }

@@ -191,7 +191,7 @@
                             </div>
                             <div class="col-sm-2">
                                     <select [(ngModel)]="selectedLevel" (change)="selected()" class="form-control">
-                                    <option>--Select--</option>
+                                    <option>All Exercises</option>
                                     <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
                                 </select>
                                 

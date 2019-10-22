@@ -38,7 +38,7 @@ export class ExcerciseService {
     
     RecentExercise(patId: string, organizationCode: string): Observable<RecentExercise[]> {
       return this.http.get<RecentExercise[]>
-      (this.baseUrl + '/GetRecentExercises?PatientID' + patId +'&OrganizationCode=' + organizationCode)
+      (this.baseUrl + '/GetRecentExercises?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
       }
     
     getIntenseExercises() {  
