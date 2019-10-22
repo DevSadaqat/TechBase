@@ -72,8 +72,8 @@ export class ReportComponent implements AfterViewInit {
 
   //Calorie Chart  
   public lineChartData: Array<any> = [
-    { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Calories Consumed' },
-    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' }
+    { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Intake' },
+    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Burnt' }
     
   ];
 
@@ -123,8 +123,8 @@ export class ReportComponent implements AfterViewInit {
 
     //Weight Chart  
     public weightChartData: Array<any> = [
-     { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Weight Gained' },
-     { data: [200, 95, 72, 65, 76, 75, 51, 21, 56, 52, 48, 56], label: 'Weight Loss' }
+     { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'TWL' },
+     { data: [200, 95, 72, 65, 76, 75, 51, 21, 56, 52, 48, 56], label: 'EWL' }
       
     ];
   
