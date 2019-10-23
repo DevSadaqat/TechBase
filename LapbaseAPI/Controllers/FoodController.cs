@@ -34,6 +34,13 @@ namespace LapbaseAPI.Controllers
             return Ok(foods);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetCaloriesConsumed(long PatientID, long OrganizationCode)
+        {
+            var calories = foodRepository.GetCaloriesConsumed(PatientID, OrganizationCode);
+            return Ok(calories);
+        }
+
         // GET: api/Food/5
         [HttpGet]
         [ResponseType(typeof(Food))]

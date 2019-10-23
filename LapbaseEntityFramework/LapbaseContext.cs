@@ -44,10 +44,6 @@ namespace LapbaseEntityFramework
                 .HasPrecision(6, 2);
 
             modelBuilder.Entity<Exercise>()
-                .Property(e => e.StartTime)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Exercise>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
@@ -83,10 +79,6 @@ namespace LapbaseEntityFramework
             modelBuilder.Entity<Food>()
                 .Property(e => e.Quantity)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Food>()
-                .Property(e => e.IntakeDate)
-                .IsFixedLength();
 
             modelBuilder.Entity<Food>()
                 .Property(e => e.CreatedBy)

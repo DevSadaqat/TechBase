@@ -29,9 +29,7 @@ namespace LapbaseEntityFramework.Repositories
         }
 
         public IEnumerable<BMIViewModel> GetAllBMIs(long PatientID, long OrganizationCode)
-        {
-           
-            
+        {          
             var patient = Lbd.tblPatientWeightDatas.Where(a => a.Patient_Id == PatientID && a.OrganizationCode == OrganizationCode).First();
             var height = patient.BMIHeight;
             IEnumerable<BMIViewModel> BMIDemo = Lbd.tblPatientConsults.Where(a => a.Patient_Id == PatientID && a.OrganizationCode == OrganizationCode).Select(a => new BMIViewModel { BMI = (a.BMIWeight / (height * height)), dateAdded = a.DateSeen }).ToList();
@@ -40,6 +38,7 @@ namespace LapbaseEntityFramework.Repositories
 
             int numberOfRecords = 10;
             allBMIs = allBMIs.OrderByDescending(x => x.dateAdded).Take(numberOfRecords);
+            allBMIs = allBMIs.OrderBy(x => x.dateAdded);
             return allBMIs;
         }
 
@@ -67,6 +66,7 @@ namespace LapbaseEntityFramework.Repositories
             }*/
             int numberOfrecords = 10;
             allWeights = allWeights.OrderByDescending(x => x.dateAdded).Take(numberOfrecords);
+            allWeights = allWeights.OrderBy(x => x.dateAdded);
             return allWeights;
         }
 

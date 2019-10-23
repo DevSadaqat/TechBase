@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
-
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseEntityFramework.Repositories
 {
@@ -13,6 +13,7 @@ namespace LapbaseEntityFramework.Repositories
         IEnumerable<Food> GetFoods(long PatientID, long OrganizationCode);
         Food GetFoodByID(long id);
         IEnumerable<Food> GetRecentFoods(long PatientID, long OrganizationCode);
+        IEnumerable<CaloriesViewModel> GetCaloriesConsumed(long PatientID, long OrganizationCode);
         void InsertFood(Food food);
         void DeleteFood(long id);     
         void UpdateFood(Food food);

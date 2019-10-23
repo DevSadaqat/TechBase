@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LapbaseBOL;
 using System.Data.Entity;
-
+using LapbaseEntityFramework.ViewModel;
 
 namespace LapbaseEntityFramework.Repositories
 {
@@ -37,6 +37,15 @@ namespace LapbaseEntityFramework.Repositories
         public Food GetFoodByID(long Id)
         {
             return Lb.Foods.Find(Id);
+        }
+
+        public IEnumerable<CaloriesViewModel> GetCaloriesConsumed(long PatientID, long OrganizationCode)
+        {
+
+            IEnumerable<CaloriesViewModel> calories = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new CaloriesViewModel { calories = a.FoodItem.Calories, date = DbFunctions.TruncateTime(a.CreatedAt) }).ToList();
+            calories = calories.GroupBy(a => a.date).Select(a => new CaloriesViewModel { date = a.FirstOrDefault().date, calories = a.Sum(b => int.Parse(b.calories)).ToString() }).ToList();
+
+            return calories;
         }
 
         public void InsertFood(Food food)

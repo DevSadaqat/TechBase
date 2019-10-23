@@ -10,6 +10,6 @@ namespace LapbaseEntityFramework.ViewModel
     {
         public string calories { get; set; }
 
-        public DateTime date { get; set; }
+        public DateTime? date { get; set; }
     }
 }

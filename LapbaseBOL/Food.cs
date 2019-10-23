@@ -21,10 +21,7 @@ namespace LapbaseBOL
         [StringLength(30)]
         public string Quantity { get; set; }
 
-        [Column(TypeName = "timestamp")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [MaxLength(8)]
-        public byte[] IntakeDate { get; set; }
+        public DateTime? IntakeDate { get; set; }
 
         public long PatientID { get; set; }
 

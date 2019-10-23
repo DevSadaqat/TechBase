@@ -11,11 +11,16 @@
                               <h4 class="m-b-0 text-white">BMI</h4>
                           </div>
                           <div class="card-body">
-                              <canvas baseChart height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
+                                
+                                        <div class="chart-container" >    
+                                                <canvas height="100" id="BMIcanvas"></canvas>  
+                                       </div>
+
+                              <!-- <canvas baseChart height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
                                   [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
                                   [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                              </canvas>
-                          </div>
+                              </canvas> -->
+                      </div>    
                       </div>
                    </ng-template>
                 </ngb-tab>
@@ -47,6 +52,10 @@
                               <h4 class="m-b-0 text-white">Weight</h4>
                           </div>
                           <div class="card-body">
+                                <!-- <div class="chart-container" >    
+                                        <canvas height="100" id="canvas"></canvas>  
+                                </div> -->
+
                               <canvas baseChart height="100" [datasets]="weightChartData" [labels]="weightChartLabels"
                                   [options]="weightChartOptions" [colors]="weightChartColors" [legend]="weightChartLegend"
                                   [chartType]="weightChartType" (chartHover)="weightHovered($event)" (chartClick)="chartClicked($event)">

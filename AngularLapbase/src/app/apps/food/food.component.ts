@@ -137,7 +137,7 @@ export class FoodComponent implements AfterViewInit {
      this.food.FoodName =target.querySelector('#FoodName').value
      this.food.MealType =target.querySelector('#MealType').value
      this.food.Quantity = target.querySelector('#Quantity').value
-     this.food.IntakeTime = Date.parse(target.querySelector('#IntakeTime').value).toString()
+     this.food.IntakeTime = target.querySelector('#IntakeTime').value
    // this.food = this.FoodForm.value;
    console.log(this.food);
     // window.alert(97);

@@ -17,10 +17,7 @@ namespace LapbaseBOL
 
         public decimal? Duration { get; set; }
 
-        [Column(TypeName = "timestamp")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [MaxLength(8)]
-        public byte[] StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         public long PatientID { get; set; }
 
