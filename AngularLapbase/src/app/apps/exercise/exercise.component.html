@@ -4,7 +4,7 @@
             <ngb-tabset [justify]="currentJustify">
 
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>Exercise</b></ng-template>
+                    <ng-template ngbTabTitle>Exercise</ng-template>
                     <ng-template ngbTabContent>
                         <br />
                         <div class="container">
@@ -13,7 +13,7 @@
                                     <form (submit)="ExerciseUser($event)">
                                         <div class="card" style="width: 14rem;">
                                             <img class="card-img-top" src="./assets/images/light.png" alt="Card image cap" style="height: 10rem">
-                                            <div class="card-body">
+                                            <div class="card-body align-items-center">
                                                 <h4 for="inputexercise">Light Exercise</h4>
                                                 <input type="hidden" id="excName" class="form-control" name="Type" placeholder="" value="Light">
                                             <div class="dl m-b-10">
@@ -74,7 +74,7 @@
                                                 </select>
     
                                             </div>
-                                            <button type="submit" class="btn btn-primary bg-dark text-white" (click)="lightExercise()">Add</button>
+                                            <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="lightExercise()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -145,7 +145,7 @@
                                             
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-primary bg-dark text-white" (click)="moderateExercise()">Add</button>
+                                            <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="moderateExercise()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -219,7 +219,7 @@
                                             
                                                 </select>
                                             </div>
-                                                <button type="submit" class="btn btn-primary bg-dark text-white" (click)="intenseExercise()">Add</button>
+                                                <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="intenseExercise()">Add</button>
                                             </div>
                                         <!--</form>-->
                                         </div>
@@ -235,7 +235,7 @@
                                 <h4 class="card-title">Recently Added</h4>
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <thead class="m-b-0 text-white bg-secondary">
+                                        <thead class="m-b-0 text-white bg-dark">
                                             <tr>
                                                 
                                                 
@@ -262,16 +262,16 @@
                 </ngb-tab>
 <!--New Tab-->
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>History</b></ng-template>
+                    <ng-template ngbTabTitle>History</ng-template>
                     <ng-template ngbTabContent>
                         <br/>
-                        <div class="form-group row">
-                            <div class="col-sm-1">
+                        <div class="form-group row ">
+                            <div class="col-md-2" >
                                 <div class="b-label">
-                                    <label for="inputEmail3" class="control-label col-form-label"><i class="mdi mdi-filter text-dark display-8"></i> Filter By Exercise Type</label>
+                                    <label for="inputEmail3" class="control-label col-form-label"><i class="mdi mdi-filter text-dark display-9"></i> Filter By Exercise Type</label>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-md-2">
                                     <select [(ngModel)]="selectedLevel" (change)="selected()" class="form-control">
                                     <option>All Exercises</option>
                                     <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
@@ -284,7 +284,7 @@
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class="bg-secondary text-white">
+                                            <thead class="bg-dark text-white">
                                                 <tr>
                                                     <th class="text-white" scope="col">Type of Exercise</th>
                                                     <th class="text-white" scope="col">Duration</th>

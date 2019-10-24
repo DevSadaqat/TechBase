@@ -3,9 +3,9 @@
         <div class="card-body">
             <ngb-tabset [justify]="currentJustify">
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>Add Food</b></ng-template>
+                    <ng-template ngbTabTitle>Food</ng-template>
                     <ng-template ngbTabContent>
-                   
+                    <br />
                         <div class="container">
                             <div class="row">
                                 <div class="col">
@@ -77,7 +77,7 @@
 
                                           
                                                       </div>
-                                                 <button type="submit" class="btn btn-primary bg-dark text-white" (click)="breakfast()">Add</button>
+                                                 <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="breakfast()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -137,7 +137,7 @@
                                                                 <option  value="Large">Large</option>
                                                             </select>
                                                         </div>
-                                              <button type="submit" class="btn btn-primary bg-dark text-white" (click)="lunch()">Add</button>
+                                              <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="lunch()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -199,7 +199,7 @@
                                                                 <option  value="Large">Large</option>
                                                             </select>
                                                         </div>
-                                                 <button type="submit" class="btn btn-primary bg-dark text-white" (click)="dinner()">Add</button>
+                                                 <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="dinner()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -256,7 +256,7 @@
                                                         </div>
                                                 
                                                 
-                                                <button type="submit" class="btn btn-primary bg-dark text-white" (click)="drinks()">Add</button>
+                                                <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="drinks()">Add</button>
                                             </div>
                                         </div>
                                     </form>
@@ -273,7 +273,7 @@
                                     <h4 class="card-title">Recently Added</h4>
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class="bg-secondary text-white">
+                                            <thead class="bg-dark text-white">
                                                 <tr>
                                                     <th class="text-white" >Food Name</th>
                                                     <th class="text-white" >Meal Type</th>
@@ -299,7 +299,7 @@
                 </ngb-tab>
 
                 <ngb-tab>
-                    <ng-template ngbTabTitle><b>History</b></ng-template>
+                    <ng-template ngbTabTitle>History</ng-template>
                     <ng-template ngbTabContent>
                         <br />
                             <div class="form-group row">
@@ -322,7 +322,7 @@
                                 </div>
                             </div>
                         <table class="table">
-                            <thead class="bg-secondary text-white">
+                            <thead class="bg-dark text-white">
                                 <tr>
                                     <th class="text-white" scope="col">Food Name</th>
                                     <th class="text-white" scope="col">Meal Type</th>

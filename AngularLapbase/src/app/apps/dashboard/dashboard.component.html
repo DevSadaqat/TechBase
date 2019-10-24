@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-lg-12 col-md-12">
             <div class="card">
@@ -38,84 +39,122 @@
 
 
 
+
 <div class="row">
 
 <div class="col-lg-6 col-md-12">
-        <div class="card">
+        
+        <div class="card" style="height: 92%;">
             <div class="card-body">
                 <ngb-tabset [justify]="currentJustify">
                     <ngb-tab>
-                        <ng-template ngbTabTitle><b>Weight</b></ng-template>
+                        <ng-template ngbTabTitle>Weight</ng-template>
                         <ng-template ngbTabContent>
                             <br />
+                            <br />
+                            
                             <form (submit)="weightUser($event)">
                                 <span>
                                     <div class="form-group row">
-                                        <div class="col-sm-2">
+                                        <div class="col-md-4">
                                             <div class="b-label">
                                                 <label for="inputEmail3"
                                                     class="control-label col-form-label">Weight(KG)</label>
                                             </div>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-md-4">
                                             <input type="number" class="form-control" id="WeightValue" >
+                                        </div>
+                                        <div class="col-md-4">
+                                                <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="weightMessage()">Add</button>
                                         </div>
                                     </div>
                                 </span>
                                 <div class="text-center">
-                                     <button type="submit" class="btn btn-primary bg-dark text-white" (click)="weightMessage()">Add</button>
+                                     
                                 </div>
         
                             </form>
-                            <br />
-                            <br/>
-                            <br/>
+                            
+                            
                         </ng-template>
                     </ngb-tab>
         
                     <ngb-tab>
-                        <ng-template ngbTabTitle><b>BMI Calculator</b></ng-template>
+                        <ng-template ngbTabTitle>BMI Calculator</ng-template>
                         <ng-template ngbTabContent>
-                            <br />
+                            
                             <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
-                                <span>
-        
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
+                                        
+                                    <!--<div class="row">
+                                        <div class="col-md-3">
                                             <div class="b-label">
-                                                <label for="inputEmail3"
-                                                    class="control-label col-form-label">Weight(KG)</label>
+                                                <label for="inputEmail3" class="control-label col-form-label">Weight(KG)<br />  </label>
+                                                
                                             </div>
                                         </div>
-                                        <div class="col-sm-5">
-                                            <input type="number" class="form-control" id="Weight">
+                                        <div class="col-sm-3">
+                                                <input type="number" class="form-control" id="Weight">  
+                                               
                                         </div>
+                                        
+                                        <div class="col-sm-6 ">
+                                                <div >
+                                                        
+                                                            <div class="card bg-dark text-center">
+                                                                <h2 class="font-light text-white">{{bmiData.BMI}}</h2>
+                                                                <h6 class="text-white"> {{bmiData.message}}</h6>
+                                                            </div>
+                                                </div>   
+                                            
+                                        </div>
+                                       
+                                       
                                     </div>
-                                </span>
-                                <div class="text-center">
-                                    <button type="submit"
-                                        class="btn btn-rounded btn-dark bg-dark text-white col-lg-2">Calculate</button>
-                                </div>
-                                <hr>
+                                    <br />
+                                    
+                                            <div class="text-center">
+                                                    <button type="submit"
+                                                        class="btn btn-circle bg-dark lg-8"><i class="mdi mdi-calculator text-white "></i></button>
+                                                </div>-->
+                                                <table cellspacing="10" style="width:80%">
+
+                                                        <tr>
+                                                          <th> <label for="inputEmail3" class="control-label col-form-label">Weight(KG)<br />  </label></th>
+                                                          <th><input type="number" class="form-control" id="Weight"></th> 
+                                                          <th><button type="submit" class="btn btn-circle bg-dark lg-8"><i class="mdi mdi-calculator text-white "></i></button></th>
+                                                          <th></th>
+                                                          <th> 
+                                                              <div class="card bg-dark text-center">
+                                                                    <h2 class="font-light text-white">{{bmiData.BMI}}</h2>
+                                                                    <h6 class="text-white"> {{bmiData.message}}</h6>
+                                                                </div>
+                                                          </th>
+                                                        </tr>
+                                                                       
+                                                        </table>
+                                
                                 <!--<h4>Calculated BMI</h4>-->
-                              <div>
-                                    <div class="card card-hover">
-                                        <div class="box bg-dark text-center">
-                                            <h1 class="font-light text-white">{{bmiData.BMI}}</h1>
-                                            <h6 class="text-white"> {{bmiData.message}}</h6>
-                                        </div>
-                                    </div>
-                                </div> 
+                             
+                              
                             </form>
                         </ng-template>
                     </ngb-tab>
         
                 </ngb-tabset>
+            
             </div>
-        
+            
+            </div>
+            
+                    
+
+                
+                    
+            
 
 
-    </div>
+    
 </div>
 
 

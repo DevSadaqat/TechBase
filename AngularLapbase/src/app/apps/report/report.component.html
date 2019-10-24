@@ -1,70 +1,52 @@
+
+<!--New -->
+<div class="row">
+    <div class="col-lg-6 col-md-12">
 <div class="card">
-    <div class="card-body">
-        <ngb-tabset [justify]="currentJustify">
-
-                <ngb-tab>
-                   <ng-template ngbTabTitle>BMI</ng-template>
-                   <ng-template ngbTabContent>
-                     <br />
-                      <div class="card">
-                          <div class="card-header bg-dark">
-                              <h4 class="m-b-0 text-white">BMI</h4>
-                          </div>
-                          <div class="card-body">
-                                
-                                        <div class="chart-container" >    
-                                                <canvas height="100" id="BMIcanvas"></canvas>  
-                                       </div>
-
-                              <!-- <canvas baseChart  height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
-                                  [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
-                                  [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                              </canvas> -->
-                      </div>    
-                      </div>
-                   </ng-template>
-                </ngb-tab>
-
-                <ngb-tab>
-                   <ng-template ngbTabTitle>Calories</ng-template>
-                   <ng-template ngbTabContent>
-                     <br />
-                      <div class="card">
-                          <div class="card-header bg-dark">
-                              <h4 class="m-b-0 text-white">Calories</h4>
-                          </div>
-                          <div class="card-body">
-                              <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
-                                  [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
-                                  [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                              </canvas>
-                          </div>
-                      </div>
-                   </ng-template>
-                </ngb-tab>
-
-                <ngb-tab>
-                  <ng-template ngbTabTitle>Weight</ng-template>
-                  <ng-template ngbTabContent>
-                      <br />
-                      <div class="card">
-                          <div class="card-header bg-dark">
-                              <h4 class="m-b-0 text-white">Weight</h4>
-                          </div>
-                          <div class="card-body">
-                                <div class="chart-container" >    
-                                        <canvas height="100" id="canvas"></canvas>  
-                                </div>
-
-                              <!-- <canvas baseChart height="100" [datasets]="weightChartData" [labels]="weightChartLabels"
-                                  [options]="weightChartOptions" [colors]="weightChartColors" [legend]="weightChartLegend"
-                                  [chartType]="weightChartType" (chartHover)="weightHovered($event)" (chartClick)="chartClicked($event)">
-                              </canvas> -->
-                          </div>
-                      </div>
-                  </ng-template>
-                </ngb-tab>
-
-        </ngb-tabset>
+    <div class="card-header bg-dark">
+        <h4 class="m-b-0 text-white">BMI</h4>
     </div>
+    <div class="card-body">
+          
+                  <div class="chart-container" >    
+                          <canvas height="90" id="BMIcanvas"></canvas>  
+                 </div>
+
+        <!-- <canvas baseChart  height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
+            [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
+            [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+        </canvas> -->
+</div>    
 </div>
+</div>
+<div class="col-lg-6 col-md-12">
+        <div class="card">
+                <div class="card-header bg-dark">
+                    <h4 class="m-b-0 text-white">Weight</h4>
+                </div>
+                <div class="card-body">
+                      <div class="chart-container" >    
+                              <canvas height="90" id="canvas"></canvas>  
+                      </div>
+            
+                    <!-- <canvas baseChart height="100" [datasets]="weightChartData" [labels]="weightChartLabels"
+                        [options]="weightChartOptions" [colors]="weightChartColors" [legend]="weightChartLegend"
+                        [chartType]="weightChartType" (chartHover)="weightHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas> -->
+                </div>
+            </div>
+
+</div>
+</div>
+
+<div class="card">
+        <div class="card-header bg-dark">
+            <h4 class="m-b-0 text-white">Calories</h4>
+        </div>
+        <div class="card-body">
+            <canvas baseChart height="60" [datasets]="lineChartData" [labels]="lineChartLabels"
+                [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+            </canvas>
+        </div>
+    </div>
