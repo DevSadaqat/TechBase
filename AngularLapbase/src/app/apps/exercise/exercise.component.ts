@@ -6,6 +6,7 @@ import {RecentExercise} from '../../models/recentExercise';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'moment';
 
 
 @Component({
@@ -139,7 +140,10 @@ export class ExerciseComponent implements AfterViewInit {
     // this.exercise.ExerciseName =target.querySelector('#excName').value
     this.exercise.ExerciseName =target.querySelector('#exctype').value
     this.exercise.Duration = target.querySelector('#Duration').value
-    window.alert(95); 
+    var time = target.querySelector('#StartTime').value
+     let myDate:string = moment().format("YYYY-MM-DD");
+    this.exercise.StartTime = myDate+"T"+time+":00.000"
+  
     console.log(this.exercise); 
     //window.alert(97); 
     this.CreateExercise(this.exercise);

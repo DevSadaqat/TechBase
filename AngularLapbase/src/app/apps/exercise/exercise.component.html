@@ -31,16 +31,47 @@
                                                     <option value="40"> 40</option>
                                                 </select>
                                                 
-<!--                                                                                              
-                                                <select class="custom-select border-10 text-active">
+                                                                                             
+                                                <select id = "StartTime" class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
-                                                   
+                                                    <option  value="06:00">06:00 AM</option>
+                                                    <option  value="06:30">06:30 AM</option>
+                                                    <option  value="07:00">07:00 AM</option>
+                                                    <option  value="07:30">07:30 AM</option>
+                                                    <option  value="08:00">08:00 AM</option>
+                                                    <option  value="08:30">08:30 AM</option>
+                                                    <option  value="09:00">09:00 AM</option>
+                                                    <option  value="09:30">09:30 AM</option>
+                                                    <option  value="10:00">10:00 AM</option>
+                                                    <option  value="10:30">10:30 AM</option>
+                                                    <option  value="11:00" >11:00 AM</option>
+                                                    <option  value="11:30">11:30 AM</option>
+                                                    <option  value="12:00">12:00 PM</option>
+                                                    <option  value="12:30">12:30 PM</option>
+                                                    <option  value="13:00">01:00 PM</option>
+                                                    <option  value="13:30">01:30 PM</option>
+                                                    <option  value="14:00">02:00 PM</option>
+                                                    <option  value="14:30">02:30 PM</option>
+                                                    <option  value="15:00">03:00 PM</option>
+                                                    <option  value="15:30">03:30 PM</option>
+                                                    <option  value="16:00">04:00 PM</option>
+                                                    <option  value="16:30">04:30 PM</option>
+                                                    <option  value="17:00">05:00 PM</option>
+                                                    <option  value="17:30">05:30 PM</option>
+                                                    <option  value="18:00">06:00 PM</option>
+                                                    <option  value="18:30">06:30 PM</option>
+                                                    <option  value="19:00">07:00 PM</option>
+                                                    <option  value="19:30">07:30 PM</option>
+                                                    <option  value="20:00">08:00 PM</option>
+                                                    <option  value="20:30">08:30 PM</option>
+                                                    <option  value="21:00">09:00 PM</option>
+                                                    <option  value="21:30">09:30 PM</option>
+                                                    <option  value="22:00">10:00 PM</option>
+                                                    <option  value="22:30">10:30 PM</option>
+                                                    <option  value="23:00">11:00 PM</option>
+                                                    <option  value="23:30">11:30 PM</option>
+                                                    <option  value="23:59">12:00 AM</option>  
                                                 </select>
-                                                <select class="custom-select border-10 text-active">
-                                                    <option value="0" selected="">Calories Used</option>
-                                                </select> --> 
-    
-                                                <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
     
                                             </div>
                                             <button type="submit" class="btn btn-primary bg-dark text-white" (click)="lightExercise()">Add</button>
@@ -72,17 +103,47 @@
                                                 </select>
                                                 
                                                                                             
-                                                 <!-- <select class="custom-select border-10 text-active">
+                                                 <select id = "StartTime" class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
+                                                    <option  value="06:00">06:00 AM</option>
+                                                    <option  value="06:30">06:30 AM</option>
+                                                    <option  value="07:00">07:00 AM</option>
+                                                    <option  value="07:30">07:30 AM</option>
+                                                    <option  value="08:00">08:00 AM</option>
+                                                    <option  value="08:30">08:30 AM</option>
+                                                    <option  value="09:00">09:00 AM</option>
+                                                    <option  value="09:30">09:30 AM</option>
+                                                    <option  value="10:00">10:00 AM</option>
+                                                    <option  value="10:30">10:30 AM</option>
+                                                    <option  value="11:00" >11:00 AM</option>
+                                                    <option  value="11:30">11:30 AM</option>
+                                                    <option  value="12:00">12:00 PM</option>
+                                                    <option  value="12:30">12:30 PM</option>
+                                                    <option  value="13:00">01:00 PM</option>
+                                                    <option  value="13:30">01:30 PM</option>
+                                                    <option  value="14:00">02:00 PM</option>
+                                                    <option  value="14:30">02:30 PM</option>
+                                                    <option  value="15:00">03:00 PM</option>
+                                                    <option  value="15:30">03:30 PM</option>
+                                                    <option  value="16:00">04:00 PM</option>
+                                                    <option  value="16:30">04:30 PM</option>
+                                                    <option  value="17:00">05:00 PM</option>
+                                                    <option  value="17:30">05:30 PM</option>
+                                                    <option  value="18:00">06:00 PM</option>
+                                                    <option  value="18:30">06:30 PM</option>
+                                                    <option  value="19:00">07:00 PM</option>
+                                                    <option  value="19:30">07:30 PM</option>
+                                                    <option  value="20:00">08:00 PM</option>
+                                                    <option  value="20:30">08:30 PM</option>
+                                                    <option  value="21:00">09:00 PM</option>
+                                                    <option  value="21:30">09:30 PM</option>
+                                                    <option  value="22:00">10:00 PM</option>
+                                                    <option  value="22:30">10:30 PM</option>
+                                                    <option  value="23:00">11:00 PM</option>
+                                                    <option  value="23:30">11:30 PM</option>
+                                                    <option  value="23:59">12:00 AM</option>
                                             
                                                 </select>
-    
-                                                <select class="custom-select border-10 text-active">
-                                                    <option value="0" selected="">Calories Used</option>
-                                                </select> -->
-     
-                                                <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
-    
                                             </div>
                                             <button type="submit" class="btn btn-primary bg-dark text-white" (click)="moderateExercise()">Add</button>
                                             </div>
@@ -116,15 +177,47 @@
                                                 </select>
                                            
                                                                                             
-                                                <!-- <select class="custom-select border-10 text-active">
+                                                <select id = "StartTime" class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
+                                                    <option  value="06:00">06:00 AM</option>
+                                                    <option  value="06:30">06:30 AM</option>
+                                                    <option  value="07:00">07:00 AM</option>
+                                                    <option  value="07:30">07:30 AM</option>
+                                                    <option  value="08:00">08:00 AM</option>
+                                                    <option  value="08:30">08:30 AM</option>
+                                                    <option  value="09:00">09:00 AM</option>
+                                                    <option  value="09:30">09:30 AM</option>
+                                                    <option  value="10:00">10:00 AM</option>
+                                                    <option  value="10:30">10:30 AM</option>
+                                                    <option  value="11:00" >11:00 AM</option>
+                                                    <option  value="11:30">11:30 AM</option>
+                                                    <option  value="12:00">12:00 PM</option>
+                                                    <option  value="12:30">12:30 PM</option>
+                                                    <option  value="13:00">01:00 PM</option>
+                                                    <option  value="13:30">01:30 PM</option>
+                                                    <option  value="14:00">02:00 PM</option>
+                                                    <option  value="14:30">02:30 PM</option>
+                                                    <option  value="15:00">03:00 PM</option>
+                                                    <option  value="15:30">03:30 PM</option>
+                                                    <option  value="16:00">04:00 PM</option>
+                                                    <option  value="16:30">04:30 PM</option>
+                                                    <option  value="17:00">05:00 PM</option>
+                                                    <option  value="17:30">05:30 PM</option>
+                                                    <option  value="18:00">06:00 PM</option>
+                                                    <option  value="18:30">06:30 PM</option>
+                                                    <option  value="19:00">07:00 PM</option>
+                                                    <option  value="19:30">07:30 PM</option>
+                                                    <option  value="20:00">08:00 PM</option>
+                                                    <option  value="20:30">08:30 PM</option>
+                                                    <option  value="21:00">09:00 PM</option>
+                                                    <option  value="21:30">09:30 PM</option>
+                                                    <option  value="22:00">10:00 PM</option>
+                                                    <option  value="22:30">10:30 PM</option>
+                                                    <option  value="23:00">11:00 PM</option>
+                                                    <option  value="23:30">11:30 PM</option>
+                                                    <option  value="23:59">12:00 AM</option>
                                             
                                                 </select>
-                                                <select class="custom-select border-10 text-active">
-                                                    <option value="0" selected="">Calories Used</option>
-                                                </select>  -->
-                                                <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
-    
                                             </div>
                                                 <button type="submit" class="btn btn-primary bg-dark text-white" (click)="intenseExercise()">Add</button>
                                             </div>
@@ -148,27 +241,16 @@
                                                 
                                                 <th class="text-white">Exercise Type</th>
                                                 <th class="text-white">Duration</th>
-                                                <!-- <th class="text-white">Start Time</th> -->
-                                                <!-- <th>Calories Consumed</th> -->
-                                                <th class="text-white">Date</th>
+                                                <th class="text-white">Exercise At</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr *ngFor="let exe of recentexercise | async">
                                                         <td>{{exe.ExerciseName}}</td>
-                                                        <td>{{exe.Duration}}</td>
-                                                        <td>{{exe.CreatedAt}}</td>
+                                                        <td>{{exe.Duration}} minutes</td>
+                                                        <td>{{exe.StartTime | date:'dd:MM:yyyy hh:mm a'}}</td>
                                                        
                                                 </tr>
-                                            <!-- <tr>
-                                                <td>1</td>
-                                                <td>Cleaning</td>
-                                                <td>Moderate</td>
-                                                <td>20</td>
-                                                <td>20:20 AM</td>
-                                                <td>2589</td>
-                                                <td>25/009/2019</td>
-                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -205,17 +287,17 @@
                                             <thead class="bg-secondary text-white">
                                                 <tr>
                                                     <th class="text-white" scope="col">Type of Exercise</th>
-                                                    <th class="text-white" scope="col">Duration(Mintues) </th>
-                                                    <th class="text-white" scope="col">Date</th>
+                                                    <th class="text-white" scope="col">Duration</th>
+                                                    <th class="text-white" scope="col">Exercise At</th>
                                         
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr *ngFor="let exe of allExercises | async">
                                                     <td>{{exe.ExerciseName}}</td>
-                                                    <td>{{exe.Duration}} </td>
-                                                    <!-- <td>{{exe.StartTime}}</td> -->
-                                                    <td>{{exe.CreatedAt}}</td>   
+                                                    <td>{{exe.Duration}} minutes </td>
+                                                    <td>{{exe.StartTime | date:'dd:MM:yyyy hh:mm a'}}</td>
+                                                    
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -3,25 +3,25 @@
             <div class="card">
                     <div class="row">
                             
-                           <div class="col-6 col-md-4"><span class="align-baseline"> <h5 class="m-b-0 text-secondary ">Name  {{patient.Firstname}} {{patient.Surname}}</h5></span>
-                                <span class="align-top"><h5 class="m-b-0 text-secondary text-left"> Age  {{patient.Age}} </h5></span>
-                                <span class="align-top"><h5 class="m-b-0 text-secondary text-left">DOB  {{patient.Birthdate}}</h5> </span>
-                                <span class="align-top"> <h5 class="m-b-0 text-secondary ">Address  {{patient.Street}} {{patient.Suburb}}  {{patient.State}}</h5>
+                           <div class="col-6 col-md-4"><span class="align-baseline"> <h3 class="m-b-0 text-secondary ">{{patient.Firstname}} {{patient.Surname}}</h3></span>
+                                <span class="align-top"><h4 class="m-b-0 text-secondary text-left">{{patient.Age}} yrs</h4></span>
+                                <span class="align-top"><h4 class="m-b-0 text-secondary text-left">{{patient.Birthdate}}</h4> </span>
+                                <span class="align-top"> <h4 class="m-b-0 text-secondary ">{{patient.Street}} {{patient.Suburb}}  {{patient.State}}</h4>
                                     </span>
-                                    <span class="align-middle"><h5 class="m-b-0 text-secondary text-left"> Phone{{patient.HomePhone}}</h5> </span>  
+                                    <span class="align-middle"><h4 class="m-b-0 text-secondary text-left">{{patient.HomePhone}}</h4> </span>  
                                 </div> 
                         <div class="col-6 col-md-4">
                             
                         <label>Baseline Report</label>
                        
-                        <span class="align-middle"> <h5 class="m-b-0 text-body ">  Start Weight
-                              {{patient.StartWeight}} </h5></span>
+                        <span class="align-middle"> <h4 class="m-b-0 text-body ">  Start Weight:
+                              {{patient.StartWeight}} </h4></span>
                             
                          
-                                    <span class="align-middle"> <h5 class="m-b-0 text-body ">Current Weight  {{weight.WeightValue}}</h5></span>
+                                    <span class="align-middle"> <h4 class="m-b-0 text-body ">Current Weight:  {{weight.WeightValue}}</h4></span>
                                     
-                                    <span class="align-middle"> <h5 class="m-b-0 text-body "> Target Weight  {{patient.StartWeight}} </h5>
-                                    </span><span class="align-middle"> <h5 class="m-b-0 text-body ">BMI {{weight.BMI}} </h5>
+                                    <span class="align-middle"> <h4 class="m-b-0 text-body "> Target Weight:  {{patient.StartWeight}} </h4>
+                                    </span><span class="align-middle"> <h4 class="m-b-0 text-body ">BMI: {{weight.BMI}} </h4>
                                         </span>
 
                                         </div>
@@ -29,9 +29,7 @@
                                         <div class="col-6 col-md-4">
                             
                             
-                                                <span class="align-middle"> <h5 class="m-b-0 text-body ">Ref Dr {{patient.RefDrName1}} </h5></span>
-                                                <span class="align-middle"> <h5 class="m-b-0 text-body ">Surgery Type  </h5></span>
-                                                <span class="align-middle"> <h5 class="m-b-0 text-body ">Operation Date </h5></span>  
+                                                <span class="align-middle"> <h4 class="m-b-0 text-body ">Ref Dr: {{patient.RefDrName1}} </h4></span>
                                         </div>                                   
                               </div>               
                     </div>
@@ -56,7 +54,7 @@
                                         <div class="col-sm-2">
                                             <div class="b-label">
                                                 <label for="inputEmail3"
-                                                    class="control-label col-form-label">Weight(KGs)</label>
+                                                    class="control-label col-form-label">Weight(KG)</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
@@ -134,10 +132,17 @@
         <h4 class="m-b-0 text-white">Calorie</h4>
     </div>
     <div class="card-body">
-        <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
+
+            
+            <div class="chart-container" >    
+                    <canvas height="100" id="CalorieCanvas"></canvas>  
+                </div>
+
+
+        <!-- <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
             [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
             [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-        </canvas>
+        </canvas> -->
     </div>
 </div>
 </div>

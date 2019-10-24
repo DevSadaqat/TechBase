@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Excercise } from '../models/excercise';
 import { RecentExercise } from '../models/recentExercise';
+import {Calories} from '../models/Calories';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { RecentExercise } from '../models/recentExercise';
 
 export class ExcerciseService {
 
+  "GET api/Exercise/GetCaloriesBurnt?PatientID={PatientID}&OrganizationCode={OrganizationCode}"
 
   baseUrl: string = "http://localhost:81/Api/Exercise"
   excerciseTypeUrl: string = "http://localhost:81/Api/ExerciseItem"
@@ -40,7 +42,11 @@ export class ExcerciseService {
       return this.http.get<RecentExercise[]>
       (this.baseUrl + '/GetRecentExercises?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
       }
-    
+    //method to call burnt Calories
+    CaloriesBurnt(patId: string, organizationCode: string): Observable<Calories[]> {
+      return this.http.get<Calories[]>
+      (this.baseUrl + '/GetCaloriesBurnt?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
+      }
     getIntenseExercises() {  
       return this.http.get<any> (this.excerciseTypeUrl +
         '/GetExerciseIntense');  

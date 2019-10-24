@@ -5,7 +5,7 @@ import { FoodItem } from '../../models/FoodItem';
 import {RecentFood} from '../../models/recentFood';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-food',
@@ -36,7 +36,7 @@ export class FoodComponent implements AfterViewInit {
     Quantity: "",
     FoodName:"", 
     MealType: "",
-    IntakeTime:"",
+    IntakeDate:"",
     PatientID: "",
     OrganizationCode: ""
     }
@@ -48,7 +48,7 @@ export class FoodComponent implements AfterViewInit {
       Quantity: "",
       FoodName:"", 
       MealType: "",
-      IntakeTime:"",
+      IntakeDate:"",
       PatientID: "",
       OrganizationCode: ""
     }
@@ -137,7 +137,9 @@ export class FoodComponent implements AfterViewInit {
      this.food.FoodName =target.querySelector('#FoodName').value
      this.food.MealType =target.querySelector('#MealType').value
      this.food.Quantity = target.querySelector('#Quantity').value
-     this.food.IntakeTime = target.querySelector('#IntakeTime').value
+     var time = target.querySelector('#IntakeTime').value
+     let myDate:string = moment().format("YYYY-MM-DD");
+     this.food.IntakeDate = myDate+"T"+time+":00.000"
    // this.food = this.FoodForm.value;
    console.log(this.food);
     // window.alert(97);

@@ -21,6 +21,7 @@ export class ReportComponent implements AfterViewInit {
   DateG:string[]=[];
   Weightchart:any = [];
 
+ 
   //for BMI Graph 
   bmiNum: number[] = [];
   bmidate: string[]=[];
@@ -31,23 +32,23 @@ export class ReportComponent implements AfterViewInit {
   
   //BMI Chart
   public bmiChartData: Array<any> = [
-    { data: [65, 39, 80, 15, 76, 35, 40, 98, 57, 58, 86, 57], label: 'BMI' }
+    // { data: [65, 39, 80, 15, 76, 35, 40, 98, 57, 58, 86, 57], label: 'BMI' }
     
   ];
 
   public bmiChartLabels: Array<any> = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
+    // 'January',
+    // 'February',
+    // 'March',
+    // 'April',
+    // 'May',
+    // 'June',
+    // 'July',
+    // 'August',
+    // 'September',
+    // 'October',
+    // 'November',
+    // 'December'
   ];
 
   public bmiChartOptions: any = {
@@ -122,26 +123,26 @@ export class ReportComponent implements AfterViewInit {
 
 
     //Weight Chart  
-    public weightChartData: Array<any> = [
-     { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'TWL' },
-     { data: [200, 95, 72, 65, 76, 75, 51, 21, 56, 52, 48, 56], label: 'EWL' }
+    // public weightChartData: Array<any> = [
+    //  { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'TWL' },
+    //  { data: [200, 95, 72, 65, 76, 75, 51, 21, 56, 52, 48, 56], label: 'EWL' }
       
-    ];
+    // ];
   
-    public weightChartLabels: Array<any> = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ];
+    // public weightChartLabels: Array<any> = [
+    //   'January',
+    //   'February',
+    //   'March',
+    //   'April',
+    //   'May',
+    //   'June',
+    //   'July',
+    //   'August',
+    //   'September',
+    //   'October',
+    //   'November',
+    //   'December'
+    // ];
   
     public weightChartOptions: any = {
       responsive: true
@@ -184,9 +185,7 @@ export class ReportComponent implements AfterViewInit {
             this.weightNum.push(+x.weight);
             this.DateG.push(myDate);
             //console.log("1");
-           // console.log(this.weightNum);
-           // console.log("1");
-        // console.log(x.dateAdded);
+         
           });
           console.log(res);
           this.Weightchart = new Chart('canvas', {

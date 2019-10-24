@@ -1,8 +1,11 @@
 import { Component, AfterViewInit } from '@angular/core';
 import {PatientService} from '../../services/patient.service';
+import { WeightService } from '../../services/weight.service';
+import { FoodService } from '../../services/food.service';
+import { ExcerciseService } from '../../services/excercise.service';
 import {Patient} from '../../models/Patient';
 import { getNumberOfCurrencyDigits } from '@angular/common';
-import { WeightService } from '../../services/weight.service';
+
 import {Weight} from '../../models/Weight';
 import {WeightList} from '../../models/weightList';
 import {Bmi} from '../../models/Bmi';
@@ -11,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 import {Chart} from 'chart.js'
 import { Observable } from 'rxjs';
+import { Calories } from 'src/app/models/Calories';
+import {WeightLost } from '../../models/EWL';
 
 
 @Component({
@@ -76,7 +81,21 @@ export class DashboardComponent implements AfterViewInit {
   bmidate: string[]=[];
   Bmichart: any = [];
 
-  constructor(private pat_Serv: PatientService, private weightService: WeightService, private toastr: ToastrService) { }
+  //for calories graph
+  calories: number[] = [];
+  calDate: string[]=[];
+  CalorieChart: any = [];
+  caloriesBurnt: number[] = [];
+
+  //for EWL graph
+  ewl: number[] = [];
+  ewlDate:  string[]=[];
+
+  constructor(private pat_Serv: PatientService, 
+             private weightService: WeightService, 
+             private foodService: FoodService,
+             private exerciseService: ExcerciseService, 
+             private toastr: ToastrService) { }
 
 //display this message when user adds weight
 weightMessage() {
@@ -88,6 +107,7 @@ toggleSeconds() {
   this.seconds = !this.seconds;
 }
 
+/*
 //BMI Chart
 public bmiChartData: Array<any> = [
   { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'BMI' }
@@ -128,25 +148,26 @@ public bmiChartColors: Array<any> = [
 public bmiChartLegend = true;
 public bmiChartType = 'line';
 //Calorie Chart
+/*
   public lineChartData: Array<any> = [
-    { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Calories Consumed' },
-    { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' }
+    // { data: [65, 39, 80, 15, 76, 35, 40, 98, 657, 258, 286, 657], label: 'Calories Consumed' },
+    // { data: [200, 59, 27, 90, 67, 57, 15, 12, 65, 25, 84, 65], label: 'Calories Burnt' }
 
   ];
 
   public lineChartLabels: Array<any> = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
+    // 'January',
+    // 'February',
+    // 'March',
+    // 'April',
+    // 'May',
+    // 'June',
+    // 'July',
+    // 'August',
+    // 'September',
+    // 'October',
+    // 'November',
+    // 'December'
   ];
 
   public lineChartOptions: any = {
@@ -170,7 +191,7 @@ public bmiChartType = 'line';
       pointBackgroundColor: '	#FF6347',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: '#FF6347	'
+      pointHoverBorderColor: '#FF6347'
     }
   ];
 
@@ -204,6 +225,7 @@ public bmiChartType = 'line';
   // public WeightChartLegend = true;
   // public WeightChartType = 'line';
 
+  */
   ngAfterViewInit() {
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
@@ -216,6 +238,92 @@ public bmiChartType = 'line';
       console.log(this.patient);
       // localStorage.setItem("Height", data.Height);
     });
+
+    //method to display EWL of patient on dasboard
+    this.pat_Serv.getEWLData(this.patID,this.orgCode).subscribe((res: WeightLost[]) =>
+    {
+      console.log(res);
+     res.forEach(x => {
+       let myDate:string = moment(x.Date,"YYYY-MM-DD").format("DD-MM-YYYY");
+         this.ewl.push(+x.EWL);
+         this.ewlDate.push(myDate);
+       });
+     });
+    console.log(this.ewl);
+   //method display list of all burnt consumed 
+   this.exerciseService.CaloriesBurnt(this.patID,this.orgCode).subscribe((res: Calories[]) =>
+   {
+     console.log(res);
+    res.forEach(x => {
+      let myDate:string = moment(x.date,"YYYY-MM-DD").format("DD-MM-YYYY");
+        this.caloriesBurnt.push(+x.calories);
+        this.calDate.push(myDate);
+        //console.log("1");
+       // console.log(this.weightNum);
+       // console.log("1");
+    // console.log(x.dateAdded);
+      });
+    });
+
+   //method display list of all calories consumed 
+   this.foodService.CaloriesConsumed(this.patID,this.orgCode).subscribe((res: Calories[]) =>
+   {
+     console.log(res);
+    res.forEach(x => {
+      let myDate:string = moment(x.date,"YYYY-MM-DD").format("DD-MM-YYYY");
+        this.calories.push(+x.calories);
+        this.calDate.push(myDate);
+        //console.log("1");
+       // console.log(this.weightNum);
+       // console.log("1");
+    // console.log(x.dateAdded);
+      });
+
+       console.log(this.calories);
+      console.log(this.calDate);
+
+      this.CalorieChart = new Chart('CalorieCanvas', {
+        type: 'line',
+        data: {
+          labels: this.calDate,
+
+          datasets: [
+            {
+              data : this.calories, 
+              label: "Consumed",
+              backgroundColor: 'rgba(54,190,166,.1)',
+              borderColor: '#2962ff',
+            },
+            {
+              data: this.caloriesBurnt,
+              label: "Burnt",
+              backgroundColor: 'rgb(41,98,255,.1)',
+              borderColor: '	#FF6347',
+              pointBackgroundColor: '	#FF6347',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: '#FF6347'
+            }
+          ],
+
+        
+        },
+        options: {
+          legend: {
+            display: true
+          },
+          scales: {
+            xAxes: [{
+              display: true
+            }],
+            yAxes: [{
+              display: true
+            }],
+          }
+        }
+      });
+
+   });
 
     //method to call list of all weights to display on graph 
     this.weightService.getAllWeights(this.patID,this.orgCode).subscribe((res: WeightList[]) =>
@@ -233,10 +341,11 @@ public bmiChartType = 'line';
         this.Weightchart = new Chart('canvas', {
           type: 'line',
           data: {
-            labels: this.DateG,
+             labels: this.DateG,
             datasets: [
               {
                 data : this.weightNum,
+                label: "Weight(kg)",
                
                 backgroundColor: 'rgba(54,190,166,.1)',
                 borderColor: '#2962ff',
@@ -246,12 +355,18 @@ public bmiChartType = 'line';
                 pointHoverBorderColor: '#2962ff'
                 // borderColor: '#3cb371',
                 // backgroundColor: "#0000FF",
+              },
+              {
+                data: this.ewl,
+                label: "EWL",
+                borderColor: '#FF6347',
+                backgroundColor: 'rgb(41,98,255,.1)'
               }
             ]
           },
           options: {
             legend: {
-              display: false
+              display: true
             },
             scales: {
               xAxes: [{
@@ -285,7 +400,7 @@ public bmiChartType = 'line';
             datasets: [
               {
                 data : this.bmiNum,
-               
+                label: "BMI",
                 backgroundColor: 'rgba(54,190,166,.1)',
                 borderColor: '#2962ff',
                 pointBackgroundColor: '#2962ff	',
@@ -299,7 +414,7 @@ public bmiChartType = 'line';
           } ,
           options: {
             legend: {
-              display: false
+              display: true
             },
             scales: {
               xAxes: [{

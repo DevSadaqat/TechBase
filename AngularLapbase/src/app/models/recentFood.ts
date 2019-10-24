@@ -2,7 +2,7 @@ export class RecentFood {
     Quantity: string;
     FoodName: string; 
     MealType: string;
-    IntakeTime: string;
+    IntakeDate: string;
     PatientID: string;
     OrganizationCode: string;
     }
