@@ -3,19 +3,21 @@ import {AlertService} from '../../services/alert.service';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {Users} from '../../models/User';
-import {Router} from '@angular/router';
+import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { Authorization } from '../../models/Authorization';
 import { DataService } from '../../services/data.service';
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent{
   constructor(private _AuthS: AuthService,
     public dataService: DataService,
     private formBuilder: FormBuilder,
     private router: Router ) {}
-
+    
   //loginform = true;
   loginform:any
   model: Users = {
@@ -48,7 +50,7 @@ loginUser(event){
           localStorage.setItem("patientID", data.PatientID);
           localStorage.setItem("organizationCode", data.OrganizationCode);
         //  window.alert(1);
-            
+        localStorage.setItem("authGuard", "true");
                 });
       //window.alert(2);
    
@@ -59,7 +61,8 @@ loginUser(event){
     window.alert("The username or Password does not exits");
   }
  })
+ 
 
-
+ 
 }
 }

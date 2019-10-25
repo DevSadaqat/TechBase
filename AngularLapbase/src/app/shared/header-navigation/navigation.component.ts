@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import {Router} from '@angular/router';
 import {
   NgbModal,
   ModalDismissReasons,
@@ -13,12 +14,12 @@ declare var $: any;
   templateUrl: './navigation.component.html'
 })
 export class NavigationComponent implements AfterViewInit {
-
   public config: PerfectScrollbarConfigInterface = {};
 
   public showSearch = false;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,
+    private router: Router) { }
 
   // This is for Notifications
   notifications: Object[] = [
@@ -38,6 +39,11 @@ export class NavigationComponent implements AfterViewInit {
     }
   ];
 
+  logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['../authentication/login']);
+  }
 
 
   ngAfterViewInit() { }
