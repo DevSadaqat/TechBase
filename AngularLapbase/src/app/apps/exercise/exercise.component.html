@@ -13,8 +13,10 @@
                                     <form (submit)="ExerciseUser($event)">
                                         <div class="card" style="width: 14rem;">
                                             <img class="card-img-top" src="./assets/images/light.png" alt="Card image cap" style="height: 10rem">
+                                          
                                             <div class="card-body align-items-center">
-                                                <h4 for="inputexercise">Light Exercise</h4>
+                                                <h4 class="text-center"  for="inputexercise"><u>Light Exercise</u></h4>
+                                                <hr/>
                                                 <input type="hidden" id="excName" class="form-control" name="Type" placeholder="" value="Light">
                                             <div class="dl m-b-10">
                                                 <select id = "exctype" class="custom-select border-10 text-active">
@@ -74,7 +76,9 @@
                                                 </select>
     
                                             </div>
+                                            <div class=" text-center">
                                             <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="lightExercise()">Add</button>
+                                            </div>
                                             </div>
                                         </div>
                                     </form>
@@ -84,9 +88,11 @@
                                         <div class="card" style="width: 14rem;">
                                             <img class="card-img-top" src="./assets/images/running.png" alt="Card image cap" style="height: 10rem">
                                             <div class="card-body">
-                                                <h4 for="inputfood">Moderate Exercise</h4>
+                                                <h4 class="text-center" for="inputfood"><u>Moderate Exercise</u></h4>
+                                                <hr/>
                                                 <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
                                                     value="Moderate">
+                                                   
                                             <div class="dl m-b-10">
                                                 <select id="exctype" class="custom-select border-10 text-active">
                                                     <option id = "exctype" value="0" selected="">Type</option>
@@ -101,7 +107,7 @@
                                                     <option value="30">30</option>
                                                     <option value="More Than 40">More than 40</option>
                                                 </select>
-                                                
+                                               
                                                                                             
                                                  <select id = "StartTime" class="custom-select border-10 text-active">
                                                     <option value="0" selected="">Start Time</option>
@@ -145,7 +151,9 @@
                                             
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="moderateExercise()">Add</button>
+                                            <div class="text-center">
+                                            <button type="submit"  class="btn btn-rounded bg-dark text-white" (click)="moderateExercise()">Add</button>
+                                            </div>
                                             </div>
                                         </div>
                                     </form>
@@ -157,7 +165,8 @@
                                             <img class="card-img-top" src="./assets/images/lifting.png" alt="Card image cap" style="height:10rem">
                                           
                                             <div class="card-body">
-                                                <h4 for="inputfood">Intense Exercise</h4>
+                                                <h4 class="text-center"  for="inputfood"><u>Intense Exercise</u></h4>
+                                                <hr/>
                                                 <input type="hidden" id="excName" class="form-control" name="Type" placeholder=""
                                                     value="Intense">
                                                 
@@ -219,7 +228,9 @@
                                             
                                                 </select>
                                             </div>
+                                            <div class=" text-center">
                                                 <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="intenseExercise()">Add</button>
+                                            </div>
                                             </div>
                                         <!--</form>-->
                                         </div>
