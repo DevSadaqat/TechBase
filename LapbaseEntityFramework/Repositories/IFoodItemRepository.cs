@@ -11,6 +11,7 @@ namespace LapbaseEntityFramework.Repositories
     {
         FoodItem GetFoodItem(String name);
         IEnumerable<FoodItem> GetFoodItems();
+        IEnumerable<FoodItem> GetDrinks();
         void Save();
     }
 }

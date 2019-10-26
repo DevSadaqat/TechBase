@@ -18,6 +18,7 @@ namespace LapbaseEntityFramework.Repositories
         void DeleteFood(long id);     
         void UpdateFood(Food food);
         IEnumerable<Food> FilterBreakfast(long PatientID, long OrganizationCode);
+        IEnumerable<Food> FilterDrink(long PatientID, long OrganizationCode);
         IEnumerable<Food> FilterLunch(long PatientID, long OrganizationCode);
         IEnumerable<Food> FilterDinner(long PatientID, long OrganizationCode);
         IEnumerable<Food> FilterSmall(long PatientID, long OrganizationCode);

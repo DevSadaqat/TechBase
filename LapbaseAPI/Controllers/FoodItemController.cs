@@ -19,6 +19,7 @@ namespace LapbaseAPI.Controllers
     {
         private readonly IFoodItemRepository foodItemRepository = new FoodItemRepository();
 
+        [HttpGet]
         // GET: api/FoodItems
         public IHttpActionResult GetFoodItems()
         {
@@ -26,6 +27,15 @@ namespace LapbaseAPI.Controllers
             return Ok(foods);
         }
 
+        [HttpGet]
+        // GET: api/FoodItems
+        public IHttpActionResult GetDrinks()
+        {
+            var foods = foodItemRepository.GetDrinks();
+            return Ok(foods);
+        }
+
+        [HttpGet]
         // GET: api/fooditem?name=rice
         [ResponseType(typeof(FoodItem))]
         public IHttpActionResult GetFood(string name)

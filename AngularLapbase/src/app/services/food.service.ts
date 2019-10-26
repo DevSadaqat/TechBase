@@ -13,6 +13,7 @@ export class FoodService {
 
   baseUrl: string = "http://localhost:81/Api/Food"
   foodItemUrl: string = "http://localhost:81/Api/FoodItem/GetFoodItems"
+  drinksUrl: string = "http://localhost:81/Api/FoodItem/GetDrinks"
  //filter: string =  "http://localhost:81/api/Food"
  "http://localhost:81/api/Food/GetCaloriesConsumed?PatientID=27&OrganizationCode=2"
   food: Food = {
@@ -38,6 +39,9 @@ export class FoodService {
     }
     getFoodItems(){
       return this.http.get<any> (this.foodItemUrl)
+    }
+    getDrinks(){
+      return this.http.get<any> (this.drinksUrl)
     }
     
     getFoodById(foodId: string): Observable<Food> {  
@@ -90,6 +94,10 @@ export class FoodService {
     filterLarge(patId: string, organizationCode: string): Observable<Food[]> {
       return this.http.get<Food[]>
       (this.baseUrl + '/FilterLarge?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
+    }
+    filterDrinks(patId: string, organizationCode: string): Observable<Food[]> {
+      return this.http.get<Food[]>
+      (this.baseUrl + '/FilterDrink?PatientID=' + patId +'&OrganizationCode=' + organizationCode)
     }
 
     filterFoodName(patId: string, organizationCode: string, foodName:string): Observable<Food[]> {

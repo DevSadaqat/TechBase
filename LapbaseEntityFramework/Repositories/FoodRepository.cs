@@ -87,6 +87,12 @@ namespace LapbaseEntityFramework.Repositories
             return foods;
         }
 
+        public IEnumerable<Food> FilterDrink(long PatientID, long OrganizationCode)
+        {
+            var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.MealType.Equals("Drink"));
+            return foods;
+        }
+
         public IEnumerable<Food> FilterSmall(long PatientID, long OrganizationCode)
         {
             var foods = Lb.Foods.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode) && a.Quantity.Equals("Small"));

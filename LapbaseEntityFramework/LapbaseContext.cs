@@ -97,6 +97,10 @@ namespace LapbaseEntityFramework
                 .IsUnicode(false);
 
             modelBuilder.Entity<FoodItem>()
+                .Property(e => e.FoodType)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<FoodItem>()
                 .HasMany(e => e.Foods)
                 .WithRequired(e => e.FoodItem)
                 .WillCascadeOnDelete(false);

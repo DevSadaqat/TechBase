@@ -139,6 +139,13 @@ namespace LapbaseAPI.Controllers
         }
 
         [HttpGet]
+        public IHttpActionResult FilterDrink(long PatientID, long OrganizationCode)
+        {
+            var foods = foodRepository.FilterDrink(PatientID, OrganizationCode);
+            return Ok(foods);
+        }
+
+        [HttpGet]
         public IHttpActionResult FilterFoodName(long PatientID, long OrganizationCode, string foodName)
         {
             var foods = foodRepository.FilterFoodName(PatientID, OrganizationCode,foodName);

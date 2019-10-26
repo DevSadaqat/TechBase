@@ -1,238 +1,252 @@
-
 <div class="row">
-    <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-md-12">
             <div class="card">
-                    <div class="row">
-                            
-                           <div class="col-6 col-md-4"><span class="align-baseline"> <h3 class="m-b-0 text-secondary ">{{patient.Firstname}} {{patient.Surname}}</h3></span>
-                                <span class="align-top"><h4 class="m-b-0 text-secondary text-left">{{patient.Age}} yrs</h4></span>
-                                <span class="align-top"><h4 class="m-b-0 text-secondary text-left">{{patient.Birthdate}}</h4> </span>
-                                <span class="align-top"> <h4 class="m-b-0 text-secondary ">{{patient.Street}} {{patient.Suburb}}  {{patient.State}}</h4>
-                                    </span>
-                                    <span class="align-middle"><h4 class="m-b-0 text-secondary text-left">{{patient.HomePhone}}</h4> </span>  
-                                </div> 
-                        <div class="col-6 col-md-4">
-                            
-                        <label>Baseline Report</label>
-                       
-                        <span class="align-middle"> <h4 class="m-b-0 text-body ">  Start Weight:
-                              {{patient.StartWeight}} </h4></span>
-                            
-                         
-                                    <span class="align-middle"> <h4 class="m-b-0 text-body ">Current Weight:  {{weight.WeightValue}}</h4></span>
-                                    
-                                    <span class="align-middle"> <h4 class="m-b-0 text-body "> Target Weight:  {{patient.StartWeight}} </h4>
-                                    </span><span class="align-middle"> <h4 class="m-b-0 text-body ">Current BMI: {{weight.BMI}} </h4>
-                                        </span>
-
-                                        </div>
-
-                                        <div class="col-6 col-md-4">
-                            
-                            
-                                                <span class="align-middle"> <h4 class="m-b-0 text-body ">Ref Dr: {{patient.RefDrName1}} </h4></span>
-                                        </div>                                   
-                              </div>               
+                <div class="row">
+    
+                    <div class="col-6 col-md-4"><span class="align-baseline">
+                            <h4 class="m-b-0 text-secondary ">{{patient.Firstname}} {{patient.Surname}}</h4>
+                        </span>
+                        <span class="align-top">
+                            <h6 class="m-b-0 text-secondary text-left">{{patient.Age}} yrs</h6>
+                        </span>
+                        <span class="align-top">
+                            <h6 class="m-b-0 text-secondary text-left">{{patient.Birthdate}}</h6>
+                        </span>
+                        <span class="align-top">
+                            <h6 class="m-b-0 text-secondary ">{{patient.Street}} {{patient.Suburb}} {{patient.State}}</h6>
+                        </span>
+                        <span class="align-middle">
+                            <h6 class="m-b-0 text-secondary text-left">{{patient.HomePhone}}</h6>
+                        </span>
+                    </div>
+                    <div class="col-6 col-md-4">
+    
+                        <!-- <label>Baseline Report</label>-->
+                        <h6 class="m-b-0 text-body font-weight-bold">Baseline Report</h6>
+                        <span class="align-middle">
+                            <h6 class="m-b-0 text-body "> Start Weight: {{patient.StartWeight}} kg</h6>
+                        </span>
+    
+    
+                        <span class="align-middle">
+                            <h6 class="m-b-0 text-body ">Current Weight: {{weight.WeightValue}} kg</h6>
+                        </span>
+    
+                        <span class="align-middle">
+                            <h6 class="m-b-0 text-body "> Target Weight: {{patient.StartWeight}} kg</h6>
+                        </span><span class="align-middle">
+                            <h6 class="m-b-0 text-body ">Current BMI: {{weight.BMI}} </h6>
+                        </span>
+    
+                    </div>
+    
+                    <div class="col-6 col-md-4">
+    
+    
+                        <span class="align-middle">
+                            <h6 class="m-b-0 text-body ">Ref Dr: {{patient.RefDrName1}} </h6>
+                        </span>
                     </div>
                 </div>
-</div>
-
-
-
-
-<div class="row">
-
-<div class="col-lg-6 col-md-12">
-        
-        <div class="card" style="height: 92%;">
-            <div class="card-body">
-                <ngb-tabset [justify]="currentJustify">
-                    <ngb-tab>
-                        <ng-template ngbTabTitle>Weight</ng-template>
-                        <ng-template ngbTabContent>
-                            <br />
-                            <br />
-                            
-                            <form (submit)="weightUser($event)">
-                                <span>
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <div class="b-label">
-                                                <label for="inputEmail3"
-                                                    class="control-label col-form-label">Weight(KG)</label>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div class="row">
+    
+        <div class="col-lg-6 col-md-12">
+    
+            <div class="card" style="height: 92%;">
+                <div class="card-body">
+                    <ngb-tabset [justify]="currentJustify">
+                        <ngb-tab>
+                            <ng-template ngbTabTitle>Weight</ng-template>
+                            <ng-template ngbTabContent>
+                                <br />
+                                <br />
+    
+                                <form (submit)="weightUser($event)">
+                                    <span>
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                                <div class="b-label">
+                                                    <label for="inputEmail3"
+                                                        class="control-label col-form-label">Weight(KG)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="number" class="form-control" id="WeightValue">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-rounded bg-dark text-white"
+                                                    (click)="weightMessage()">Add</button>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <input type="number" class="form-control" id="WeightValue" >
-                                        </div>
-                                        <div class="col-md-4">
-                                                <button type="submit" class="btn btn-rounded bg-dark text-white" (click)="weightMessage()">Add</button>
-                                        </div>
+                                    </span>
+                                    <div class="text-center">
+    
                                     </div>
-                                </span>
-                                <div class="text-center">
-                                     
-                                </div>
-        
-                            </form>
-                            
-                            
-                        </ng-template>
-                    </ngb-tab>
-        
-                    <ngb-tab>
-                        <ng-template ngbTabTitle>BMI Calculator</ng-template>
-                        <ng-template ngbTabContent>
-                            
-                            <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
-                                        
+    
+                                </form>
+    
+    
+                            </ng-template>
+                        </ngb-tab>
+    
+                        <ngb-tab>
+                            <ng-template ngbTabTitle>BMI Calculator</ng-template>
+                            <ng-template ngbTabContent>
+    
+                                <form (submit)="calcBMI($event)" class="form-horizontal m-t-20" id="BMIform">
+    
                                     <!--<div class="row">
-                                        <div class="col-md-3">
-                                            <div class="b-label">
-                                                <label for="inputEmail3" class="control-label col-form-label">Weight(KG)<br />  </label>
+                                            <div class="col-md-3">
+                                                <div class="b-label">
+                                                    <label for="inputEmail3" class="control-label col-form-label">Weight(KG)<br />  </label>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                    <input type="number" class="form-control" id="Weight">  
+                                                   
+                                            </div>
+                                            
+                                            <div class="col-sm-6 ">
+                                                    <div >
+                                                            
+                                                                <div class="card bg-dark text-center">
+                                                                    <h2 class="font-light text-white">{{bmiData.BMI}}</h2>
+                                                                    <h6 class="text-white"> {{bmiData.message}}</h6>
+                                                                </div>
+                                                    </div>   
                                                 
                                             </div>
+                                           
+                                           
                                         </div>
-                                        <div class="col-sm-3">
-                                                <input type="number" class="form-control" id="Weight">  
-                                               
-                                        </div>
+                                        <br />
                                         
-                                        <div class="col-sm-6 ">
-                                                <div >
-                                                        
-                                                            <div class="card bg-dark text-center">
-                                                                <h2 class="font-light text-white">{{bmiData.BMI}}</h2>
-                                                                <h6 class="text-white"> {{bmiData.message}}</h6>
-                                                            </div>
-                                                </div>   
-                                            
-                                        </div>
-                                       
-                                       
-                                    </div>
-                                    <br />
-                                    
-                                            <div class="text-center">
-                                                    <button type="submit"
-                                                        class="btn btn-circle bg-dark lg-8"><i class="mdi mdi-calculator text-white "></i></button>
-                                                </div>-->
-                                                <table cellspacing="10" style="width:80%">
-
-                                                        <tr>
-                                                          <th> <label for="inputEmail3" class="control-label col-form-label">Weight(KG)<br />  </label></th>
-                                                          <th><input type="number" class="form-control" id="Weight"></th> 
-                                                          <th><button type="submit" class="btn btn-circle bg-dark lg-8"><i class="mdi mdi-calculator text-white "></i></button></th>
-                                                          <th></th>
-                                                          <th> 
-                                                              <div class="card bg-dark text-center">
-                                                                    <h2 class="font-light text-white">{{bmiData.BMI}}</h2>
-                                                                    <!-- <h6 class="text-white"> {{bmiData.message}}</h6> -->
-                                                                </div>
-                                                          </th>
-                                                        </tr>
-                                                                       
-                                                        </table>
-                                
-                                <!--<h4>Calculated BMI</h4>-->
-                             
-                              
-                            </form>
-                        </ng-template>
-                    </ngb-tab>
-        
-                </ngb-tabset>
-            
-            </div>
-            
-            </div>
-            
-                    
-
-                
-                    
-            
-
-
+                                                <div class="text-center">
+                                                        <button type="submit"
+                                                            class="btn btn-circle bg-dark lg-8"><i class="mdi mdi-calculator text-white "></i></button>
+                                                    </div>-->
+                                    <table cellspacing="10" style="width:80%">
     
-</div>
-
-
-
-
-           
-<!---------->
-<!--Graphs-->
-<!---------->
-
-<div class="col-lg-6 col-md-12">
-<div class="card">
-    <div class="card-header bg-dark">
-        <h4 class="m-b-0 text-white">Calorie</h4>
-    </div>
-    <div class="card-body">
-
-            
-            <div class="chart-container" >    
-                    <canvas height="100" id="CalorieCanvas"></canvas>  
+                                        <tr>
+                                            <th> <label for="inputEmail3"
+                                                    class="control-label col-form-label">Weight(KG)<br /> </label></th>
+                                            <th><input type="number" class="form-control" id="Weight"></th>
+                                            <th><button type="submit" class="btn btn-circle bg-dark lg-8"><i
+                                                        class="mdi mdi-calculator text-white "></i></button></th>
+                                            <th></th>
+                                            <th>
+                                                <div class="card bg-dark text-center">
+                                                    <h2 class="font-light text-white">{{bmiData.BMI}}</h2>
+                                                    <!-- <h6 class="text-white"> {{bmiData.message}}</h6> -->
+                                                </div>
+                                            </th>
+                                        </tr>
+    
+                                    </table>
+    
+                                    <!--<h4>Calculated BMI</h4>-->
+    
+    
+                                </form>
+                            </ng-template>
+                        </ngb-tab>
+    
+                    </ngb-tabset>
+    
                 </div>
-
-
-        <!-- <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
-            [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
-            [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-        </canvas> -->
-    </div>
-</div>
-</div>
-</div>
-
-
-
-<div class="row">
-
-<div class="col-lg-6 col-md-12">
-<div class="card">
-    <div class="card-header bg-dark">
-        <h4 class="m-b-0 text-white">Weight Tracker </h4>
-    </div>
-    <div class="card-body">
-
-            <!-- style="position: relative; height:40vh; width:70vw" -->
-            
-            <div class="chart-container" >    
-                    <canvas height="100" id="canvas"></canvas>  
-                </div>
-
-        <!-- <canvas baseChart height="100" [datasets]="WeightChartData" [labels]="WeightChartLabels"
-            [options]="WeightChartOptions" [colors]="WeightChartColors" [legend]="WeightChartLegend"
-            [chartType]="WeightChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-        </canvas>
-           -->
-          </div>
-
-    </div>
-</div>
-
-<div class="col-lg-6 col-md-12">
-    <div class="card">
-        <div class="card-header bg-dark">
-            <h4 class="m-b-0 text-white">BMI</h4>
+    
+            </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
         </div>
-        <div class="card-body">
-                <div class="chart-container" >    
-                        <canvas height="100" id="BMIcanvas"></canvas>  
+    
+    
+    
+    
+    
+        <!---------->
+        <!--Graphs-->
+        <!---------->
+    
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h5 class="m-b-0 text-white">Calories</h5>
                 </div>
-            
-            <!-- <canvas baseChart height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
-                [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
-                [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas height="100" id="CalorieCanvas"></canvas>
+                    </div>
+                    <!-- <canvas baseChart height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
+                [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
             </canvas> -->
-       </div>
-</div>
-</div>
-
-</div>
-<!-------------->
-<!--End Graphs-->
-<!-------------->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="row">
+    
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h5 class="m-b-0 text-white">Weight Tracker </h5>
+                </div>
+                <div class="card-body">
+    
+                    <!-- style="position: relative; height:40vh; width:70vw" -->
+    
+                    <div class="chart-container">
+                        <canvas height="100" id="canvas"></canvas>
+                    </div>
+    
+                    <!-- <canvas baseChart height="100" [datasets]="WeightChartData" [labels]="WeightChartLabels"
+                [options]="WeightChartOptions" [colors]="WeightChartColors" [legend]="WeightChartLegend"
+                [chartType]="WeightChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+            </canvas>
+               -->
+                </div>
+    
+            </div>
+        </div>
+    
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h5 class="m-b-0 text-white">BMI</h5>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas height="100" id="BMIcanvas"></canvas>
+                    </div>
+    
+                    <!-- <canvas baseChart height="100" [datasets]="bmiChartData" [labels]="bmiChartLabels"
+                    [options]="bmiChartOptions" [colors]="bmiChartColors" [legend]="bmiChartLegend"
+                    [chartType]="bmiChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas> -->
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <!-------------->
+    <!--End Graphs-->
+    <!-------------->

@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col">
                                     <form (submit)="foodUser($event)" >
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 11.5rem;">
                                             <img class="card-img-top" src="./assets/images/breakfast.png" alt="Card image cap"> 
                                             
                                             <div class="card-body">
@@ -88,7 +88,7 @@
                         
                                 <div class="col">
                                     <form (submit)="foodUser($event)">
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 11.5rem;">
                                             <img class="card-img-top" src="./assets/images/lunch.png" alt="Card image cap">
                                           
                                             <div class="card-body">
@@ -152,7 +152,7 @@
                         
                                 <div class="col">
                                   <form (submit)="foodUser($event)">
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 11.5rem;">
                                            <img class="card-img-top" src="./assets/images/dinner.png" alt="Card image cap">
                                            
                                             <div class="card-body">
@@ -168,7 +168,7 @@
                                                                      {{fName.FoodName}}
                                                                     </option>
                                                                 </select>
-                                                            </div>
+                                                         </div>
                                     
                                                 <div class="dl m-b-10">
                                                         <select id = "IntakeTime"  class="custom-select border-10 text-active">
@@ -218,32 +218,67 @@
                                 
                                 <div class="col">
                                     <form (submit)="foodUser($event)" >
-                                        <div class="card" style="width: 13.5rem;">
+                                        <div class="card" style="width: 11.5rem;">
                                             <img class="card-img-top" src="./assets/images/drinks.png" alt="Card image cap">
                                             
                                             <div class="card-body">
                                                 <h3 class="text-center" for="inputfood"><u>Drinks</u></h3>
                                                 <hr/>
-                                                <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Lunch">
+                                                <input type="hidden" id="MealType" class="form-control" name="MealType" value ="Drink">
                                                 <p class="card-text"> </p>
                                                
                                                 <div class="dl m-b-10">
                                                     <select id = "FoodName"  class="custom-select border-10 text-active">
-                                                        <option   value="0" selected="">Select Drinks</option>
-                                                        
-                                                         <option id = "FoodName" value="Rice">Fizzy Drinks</option>
-                                                         <option id = "FoodName" value="Pasta">Hot Drink</option>
-                                                         <option id = "FoodName" value="Sandwich">Juice</option>
-                                                         <option id = "FoodName" value="Fish">Water</option>
+                                                        <option  value="0" selected="">-Select Drink-</option>
+                                                        <option  *ngFor = "let dName of drinkItem ">
+                                                                {{dName.FoodName}}
+                                                               </option>
                                                          
                                                     </select>
                                                 </div>
+                                           
                                                 
                                                 <div class="dl m-b-10">
                                                     <select id = "IntakeTime"  class="custom-select border-10 text-active">
                                                             <option  value="0" selected="">Time</option>
-                                                            <option  value="18:00 to 21:00 PM">18:00 to 21:00 PM</option>
-                                                            <option  value="21:00 to 23:59 PM">21:00 to 23:59 PM</option>
+                                                            <option  value="06:00">06:00 AM</option>
+                                                            <option  value="06:30">06:30 AM</option>
+                                                            <option  value="07:00">07:00 AM</option>
+                                                            <option  value="07:30">07:30 AM</option>
+                                                            <option  value="08:00">08:00 AM</option>
+                                                            <option  value="08:30">08:30 AM</option>
+                                                            <option  value="09:00">09:00 AM</option>
+                                                            <option  value="09:30">09:30 AM</option>
+                                                            <option  value="10:00">10:00 AM</option>
+                                                            <option  value="10:30">10:30 AM</option>
+                                                            <option  value="11:00">11:00 AM</option>
+                                                            <option  value="11:30">11:30 AM</option>
+                                                            <option  value="12:00">12:00 PM</option>
+                                                            <option  value="12:30">12:30 PM</option>
+                                                            <option  value="13:00">01:00 PM</option>
+                                                            <option  value="13:30">01:30 PM</option>
+                                                            <option  value="14:00">02:00 PM</option>
+                                                            <option  value="14:30">02:30 PM</option>
+                                                            <option  value="15:00">03:00 PM</option>
+                                                            <option  value="15:30">03:30 PM</option>
+                                                            <option  value="16:00">04:00 PM</option>
+                                                            <option  value="16:30">04:30 PM</option>
+                                                            <option  value="17:00">05:00 PM</option>
+                                                            <option  value="17:30">05:30 PM</option>
+                                                            <option  value="18:00">06:00 PM</option>
+                                                            <option  value="18:30">06:30 PM</option>
+                                                            <option  value="19:00">07:00 PM</option>
+                                                            <option  value="19:30">07:30 PM</option>
+                                                            <option  value="20:00">08:00 PM</option>
+                                                            <option  value="20:30">08:30 PM</option>
+                                                            <option  value="21:00">09:00 PM</option>
+                                                            <option  value="21:30">09:30 PM</option>
+                                                            <option  value="22:00">10:00 PM</option>
+                                                            <option  value="22:30">10:30 PM</option>
+                                                            <option  value="23:00">11:00 PM</option>
+                                                            <option  value="23:30">11:30 PM</option>
+                                                            <option  value="23:59">12:00 AM</option>
+                                                    
                                                     </select>  
                                                 </div>
                                                 
@@ -262,9 +297,9 @@
                                                     <div class="dl m-b-10">
                                                             <select id = "Quantity"  class="custom-select border-10 text-active">
                                                                 <option  value="0">Quantity</option>
-                                                                <option  value="Small">Small</option>
-                                                                <option  value="Medium">Medium</option>
-                                                                <option  value="Large">Large</option>
+                                                                <option  value="100 ml">100 ml</option>
+                                                                <option  value="250 ml">250 ml</option>
+                                                                <option  value="500 ml">500 ml</option>
                                                             </select>
                                                         </div>
                                                 

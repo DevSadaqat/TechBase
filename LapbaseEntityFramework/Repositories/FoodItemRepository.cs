@@ -27,9 +27,17 @@ namespace LapbaseEntityFramework.Repositories
        
         public IEnumerable<FoodItem> GetFoodItems()
         {
-            var foods = Lb.FoodItems;
+            var foods = Lb.FoodItems.Where(a=> a.FoodType!="Drink");
             return foods;
         }
+
+
+        public IEnumerable<FoodItem> GetDrinks()
+        {
+            var foods = Lb.FoodItems.Where(a => a.FoodType == "Drink");
+            return foods;
+        }
+
         public void Save()
         {
             Lb.SaveChanges();
