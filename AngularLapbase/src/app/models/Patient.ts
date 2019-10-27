@@ -1,5 +1,5 @@
 export class Patient {
-    ID: string;
+    PatientID: string;
     OrganizationCode: string;
     Title: string;
     Surname: string;

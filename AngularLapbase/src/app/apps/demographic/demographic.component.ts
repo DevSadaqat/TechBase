@@ -28,7 +28,7 @@ export class DemographicComponent implements AfterViewInit {
   patID: string;
   orgCode: string;
   patient: Patient = {
-    ID: "",
+    PatientID: "",
     OrganizationCode: "",
     Title: "",
     Surname:"",

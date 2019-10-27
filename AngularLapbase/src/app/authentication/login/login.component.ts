@@ -44,9 +44,11 @@ loginUser(event){
    console.log(data)
   
     if(data === target.querySelector('#Username').value){
+      localStorage.setItem("username",target.querySelector('#Username').value );
       this._AuthS.authorizedUser(target.querySelector('#Username').value).subscribe(
         data => {
           console.log(data);
+          
           localStorage.setItem("patientID", data.PatientID);
           localStorage.setItem("organizationCode", data.OrganizationCode);
         //  window.alert(1);

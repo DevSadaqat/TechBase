@@ -32,7 +32,7 @@ namespace LapbaseEntityFramework.DemoRepositories
 
             var collection = Lb.Database.SqlQuery<EWLModel>("Ver1_1_sp_Rep_EWL_WLGraphFullPage @OrganizationCode, @UserPracticeCode, @PatientID, @ImperialFlag", orgCode, uCode, patientId, imperialFlag).ToList();
             IEnumerable<EWLViewModel> ewlList = collection.Select(a => new EWLViewModel { Date = a.DateSeen_MY, EWL = a.EWL }).ToList();
-
+            ewlList = ewlList.Take(10);
             return ewlList;
         }
 

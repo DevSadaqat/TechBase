@@ -20,7 +20,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '/apps/demographic',
-    title: 'My Demographics',
+    title: 'Demographics',
     icon: 'mdi mdi-account-circle',
     class: '',
     extralink: false,

@@ -33,7 +33,7 @@ export class DashboardComponent implements AfterViewInit {
  // latestWeight: Observable<Weight>;
   weightStr:string;
   patient: Patient = {
-    ID: "",
+    PatientID: "",
     OrganizationCode: "",
     Title: "",
     Surname:"",
@@ -99,7 +99,7 @@ export class DashboardComponent implements AfterViewInit {
 
 //display this message when user adds weight
 weightMessage() {
-  this.toastr.success('Your weight is Added!', 'Success!');
+  this.toastr.success('Your weight has been added!', 'Success!');
 }
 meridian = true;
 seconds = true;
@@ -230,6 +230,8 @@ public bmiChartType = 'line';
     this.patID  = localStorage.getItem("patientID");
     this.orgCode = localStorage.getItem("organizationCode");
     this.getLatestWeight()
+    this.getWeightGraph()
+    this.getBMIGraph()
     //displays patients demographics and baseline data
     this.pat_Serv.getPatientById(this.patID,this.orgCode).subscribe(data =>
     {
@@ -244,7 +246,7 @@ public bmiChartType = 'line';
     {
       console.log(res);
      res.forEach(x => {
-       let myDate:string = moment(x.Date,"YYYY-MM-DD").format("DD-MM-YYYY");
+       let myDate:string = moment(x.Date,"YYYY-MM-DD").format("MMM-YYYY");
          this.ewl.push(+x.EWL);
          this.ewlDate.push(myDate);
        });
@@ -257,7 +259,7 @@ public bmiChartType = 'line';
     res.forEach(x => {
       let myDate:string = moment(x.date,"YYYY-MM-DD").format("DD-MM-YYYY");
         this.caloriesBurnt.push(+x.calories);
-        this.calDate.push(myDate);
+      //  this.calDate.push(myDate);
         //console.log("1");
        // console.log(this.weightNum);
        // console.log("1");
@@ -324,12 +326,28 @@ public bmiChartType = 'line';
       });
 
    });
+      console.log("13");
+      console.log(this.Bmichart);
+      console.log("13");
+    //method to get BMI of patient
+    this.weightService.getBmi(this.patID, this.orgCode, this.weightBMI).subscribe(data =>
+      {
+        this.bmiData = data;
+        console.log(this.bmiData);
+      });
 
-    //method to call list of all weights to display on graph 
+ // array of weight numbers
+   //  var weights  = localStorage.getItem("weight");
+
+  }
+
+  //method to call list of all weights to display on graph 
+  getWeightGraph(){
     this.weightService.getAllWeights(this.patID,this.orgCode).subscribe((res: WeightList[]) =>
       {
       res.forEach(x => {
-        let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("DD-MM-YYYY");
+        let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("MMM-YYYY");
+
           this.weightNum.push(+x.weight);
           this.DateG.push(myDate);
           //console.log("1");
@@ -346,22 +364,27 @@ public bmiChartType = 'line';
               {
                 data : this.weightNum,
                 label: "Weight(kg)",
-               
-                backgroundColor: 'rgba(54,190,166,.1)',
+                backgroundColor: 'rgb(41,98,255,.1)',
+                borderColor: '	#FF6347',
+                pointBackgroundColor: '	#FF6347',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#FF6347'
+              /*  backgroundColor: 'rgba(54,190,166,.1)',
                 borderColor: '#2962ff',
                 pointBackgroundColor: '#2962ff	',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: '#2962ff'
+                pointHoverBorderColor: '#2962ff'*/
                 // borderColor: '#3cb371',
                 // backgroundColor: "#0000FF",
-              },
+              }/*,
               {
                 data: this.ewl,
                 label: "EWL",
                 borderColor: '#FF6347',
                 backgroundColor: 'rgb(41,98,255,.1)'
-              }
+              }*/
             ]
           },
           options: {
@@ -379,68 +402,63 @@ public bmiChartType = 'line';
           }
         });
       });
+    }
 
-      //method to call BMIs to display on Graph
-      this.weightService.getBmiForGraph(this.patID,this.orgCode).subscribe((res: BmiList[]) =>
-      {
+     //method to call BMIs to display on Graph
+     getBMIGraph(){
+     this.weightService.getBmiForGraph(this.patID,this.orgCode).subscribe((res: BmiList[]) =>
+     {
+      console.log(res);
+     res.forEach(x => {
+       let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("MMM-YYYY");
+         this.bmiNum.push(+x.BMI.toFixed(1));
+         this.bmidate.push(myDate);
+         // console.log(this.bmiNum);
+         // console.log(this.bmidate);
+
+       });
        console.log(res);
-      res.forEach(x => {
-        let myDate:string = moment(x.dateAdded,"YYYY-MM-DD").format("DD-MM-YYYY");
-          this.bmiNum.push(+x.BMI.toFixed(1));
-          this.bmidate.push(myDate);
-          // console.log(this.bmiNum);
-          // console.log(this.bmidate);
-
-        });
-        console.log(res);
-        this.Bmichart = new Chart('BMIcanvas', {
-          type: 'line',
-          data: {
-            labels: this.bmidate,
-            datasets: [
-              {
-                data : this.bmiNum,
-                label: "BMI",
-                backgroundColor: 'rgba(54,190,166,.1)',
-                borderColor: '#2962ff',
-                pointBackgroundColor: '#2962ff	',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: '#2962ff'
-                // borderColor: '#3cb371',
-                // backgroundColor: "#0000FF",
-              }
-            ]
-          } ,
-          options: {
-            legend: {
-              display: true
-            },
-            scales: {
-              xAxes: [{
-                display: true
-              }],
-              yAxes: [{
-                display: true
-              }],
-            }
-          }
-        });
-      });
-      console.log("13");
-      console.log(this.Bmichart);
-      console.log("13");
-    //method to get BMI of patient
-    this.weightService.getBmi(this.patID, this.orgCode, this.weightBMI).subscribe(data =>
-      {
-        this.bmiData = data;
-        console.log(this.bmiData);
-      });
-
- // array of weight numbers
-   //  var weights  = localStorage.getItem("weight");
-
-  }
+       this.Bmichart = new Chart('BMIcanvas', {
+         type: 'line',
+         data: {
+           labels: this.bmidate,
+           datasets: [
+             {
+               data : this.bmiNum,
+               label: "BMI",
+               backgroundColor: 'rgb(41,98,255,.1)',
+              borderColor: '	#FF6347',
+              pointBackgroundColor: '	#FF6347',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: '#FF6347'
+              /* backgroundColor: 'rgba(54,190,166,.1)',
+               borderColor: '#2962ff',
+               pointBackgroundColor: '#2962ff	',
+               pointBorderColor: '#fff',
+               pointHoverBackgroundColor: '#fff',
+               pointHoverBorderColor: '#2962ff'*/
+               // borderColor: '#3cb371',
+               // backgroundColor: "#0000FF",
+             }
+           ]
+         } ,
+         options: {
+           legend: {
+             display: true
+           },
+           scales: {
+             xAxes: [{
+               display: true
+             }],
+             yAxes: [{
+               display: true
+             }],
+           }
+         }
+       });
+     });
+    }
   //method to get latest weight
   getLatestWeight()
   {
@@ -492,6 +510,8 @@ public bmiChartType = 'line';
 
          }
        );
+       this.getWeightGraph();
+       this.getBMIGraph();
    }
 
   }

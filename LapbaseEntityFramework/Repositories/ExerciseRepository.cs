@@ -38,7 +38,7 @@ namespace LapbaseEntityFramework.Repositories
            
             IEnumerable<CaloriesViewModel> calories = Lb.Exercises.Where(a => a.PatientID.Equals(PatientID) && a.OrganizationCode.Equals(OrganizationCode)).Select(a => new CaloriesViewModel { calories = a.ExerciseItem.Calories, date = DbFunctions.TruncateTime(a.CreatedAt)}).ToList();
             calories = calories.GroupBy(a => a.date).Select(a => new CaloriesViewModel { date = a.FirstOrDefault().date, calories = a.Sum(b => int.Parse(b.calories)).ToString() }).ToList();
-
+            calories = calories.Take(10);
             return calories;
         }
 
